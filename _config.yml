@@ -31,9 +31,19 @@ kramdown:
   input: GFM
   syntax_highlighter: rouge
 
+category_dir: category/
+tag_dir: tag/
+
 theme: minima
 plugins:
   - jekyll-feed
+  - jekyll-paginate
+  - jekyll-sitemap
+
+# paginate
+paginate: 10
+# excerpt
+excerpt_separator: "<!--more-->"
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list

@@ -3,7 +3,7 @@ layout: post
 title: 'Ruby Association Certified Ruby Programmer Silver 考試準備'
 date: 2017-03-19 06:35
 comments: true
-categories: [ruby Ruby Association Certified Ruby Programmer]
+categories: [ruby, Ruby Association Certified Ruby Programmer]
 ---
 ![Imgur](http://i.imgur.com/3PXgdKS.jpg)
 

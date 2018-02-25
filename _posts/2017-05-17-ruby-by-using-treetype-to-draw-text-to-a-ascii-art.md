@@ -3,7 +3,7 @@ layout: post
 title: 'Ruby 透過 FreeType 產生點陣文字'
 date: 2017-05-17 13:28
 comments: true
-categories: [ruby freetype ascii-art]
+categories: [ruby, freetype, ascii-art]
 ---
 ![](http://i.imgur.com/EsiorQx.jpg)
 
