@@ -15,7 +15,7 @@ categories: [rails, activerecord]
 
 之前都在 `joins` 裡面硬刻 SQL query...
 
-<!--more-->
+<!-- more -->
 
 `merge` 可以合併查詢子句，要做依賴關聯表條件的查詢時非常有用
 

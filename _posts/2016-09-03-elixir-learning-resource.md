@@ -11,7 +11,7 @@ categories: [elixir]
 
 這篇紀錄了目前我在學習過程中收集的資源
 
-<!--more-->
+<!-- more -->
 
 [Elixir 官網](http://elixir-lang.org/)
 

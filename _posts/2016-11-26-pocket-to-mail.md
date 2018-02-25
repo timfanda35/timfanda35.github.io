@@ -15,7 +15,7 @@ categories: [ruby, heroku]
 
 所以決定寫一個小專案來解決這個問題
 
-<!--more-->
+<!-- more -->
 
 ## 起頭
 

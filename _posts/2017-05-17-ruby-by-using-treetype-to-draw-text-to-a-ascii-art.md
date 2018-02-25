@@ -14,7 +14,7 @@ categories: [ruby, freetype, ascii-art]
 
 在網路上找到 jserv 這篇 [透過 FreeType 繪製 Unicode ASCII Art](http://blog.linux.org.tw/~jserv/archives/002050.html) 而有了實作的方向
 
-<!--more-->
+<!-- more -->
 
 本文將使用 [ft2-ruby](https://github.com/customink/ft2-ruby) 從 TTF 字型讀取資料，以繪製點陣文字
 

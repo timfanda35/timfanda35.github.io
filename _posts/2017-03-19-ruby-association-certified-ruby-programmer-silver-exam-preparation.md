@@ -18,7 +18,7 @@ categories: [ruby, Ruby Association Certified Ruby Programmer]
 
 [官方資訊](http://www.ruby.or.jp/en/certification/examination/)
 
-<!--more-->
+<!-- more -->
 
 說實話這個證照對在台灣就業完全沒有幫助
 

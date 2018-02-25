@@ -24,7 +24,7 @@ categories: [ruby]
 
 之後如有提供投影片再補充連結
 
-<!--more-->
+<!-- more -->
 
 ## [利用Ruby撰寫勒索軟體並探討如何安全的使用密碼系統](https://2016.rubyconf.tw/#Zong-Yu Wu)
 

@@ -14,7 +14,7 @@ categories: [elixir]
 
 [Elixir.tw][elixirtw]  雖然還在建構中，但可以加入[Slack](https://slack.com/) 聊天了唷
 
-<!--more-->
+<!-- more -->
 
 ## [Exercism](http://www.exercism.io/)
 

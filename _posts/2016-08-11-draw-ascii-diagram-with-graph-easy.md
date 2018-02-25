@@ -13,7 +13,7 @@ categories: [shell]
 
 這是 perl 的模組，可以用來繪製 ASCII Diagram，也能匯出成許多格式
 
-<!--more-->
+<!-- more -->
 
 # Install
 

@@ -19,7 +19,7 @@ categories: [ruby]
 
 之後如有提供投影片再補充連結
 
-<!--more-->
+<!-- more -->
 
 ## [Beware of Alpha Syndrome](https://2016.rubyconf.tw/#Yukihiro (Matz) Matsumoto)
 

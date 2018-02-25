@@ -43,7 +43,7 @@ categories: [ruby, rails]
 
 # [w3cshool.cc](http://www.w3cschool.cc/ruby/ruby-tutorial.html)
 
-<!--more-->
+<!-- more -->
 
 ---
 

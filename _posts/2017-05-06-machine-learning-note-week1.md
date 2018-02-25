@@ -21,7 +21,7 @@ categories:
 1. Linear Regression with One Variable
 1. Linear Algebra Review
 
-<!--more-->
+<!-- more -->
 
 ## Introduction
 

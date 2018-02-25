@@ -13,7 +13,7 @@ categories: [ruby]
 
 在這裡紀錄一下建立用 [bundler][bundler] 管理依賴的 ruby 專案的起始步驟
 
-<!--more-->
+<!-- more -->
 
 首先先建立一個目錄，並移動到該目錄下
 

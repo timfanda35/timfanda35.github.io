@@ -14,7 +14,7 @@ categories: [ruby]
 
 當你想要有一個程式能夠在背景持續執行時，就可以可慮使用 [daemons gem][daemons] 來協助開發
 
-<!--more-->
+<!-- more -->
 
 什麼是 daemon？可以參考鳥哥的文章 [17.1 什麼是 daemon 與服務 (service)](http://linux.vbird.org/linux_basic/0560daemons.php#daemon) 
 

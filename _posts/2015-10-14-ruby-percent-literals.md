@@ -31,7 +31,7 @@ Joe said: "Frank said: "Hello!""
 => nil
 ```
 
-<!--more-->
+<!-- more -->
 
 也可以省略 Q
 

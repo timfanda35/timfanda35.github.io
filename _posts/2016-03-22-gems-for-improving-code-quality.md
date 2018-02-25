@@ -17,7 +17,7 @@ categories: [ruby, rails, brakeman, bullet, rubycritic, newrelic, gem]
 
 [New Relic RPM - 監測網站效能](https://github.com/newrelic/rpm)
 
-<!--more-->
+<!-- more -->
 
 ## [Brakeman](https://github.com/presidentbeef/brakeman)
 

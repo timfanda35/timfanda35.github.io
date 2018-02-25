@@ -9,7 +9,7 @@ categories: [ruby]
 
 所以用一個很陽春的[專案](https://github.com/timfanda35/test-grape-api)練習一下要如何使用
 
-<!--more-->
+<!-- more -->
 
 ## 使用到的 Gem:
 

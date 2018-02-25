@@ -12,7 +12,7 @@ categories: [ruby]
 
 內容是我在準備認證考試時，看文件所留下的一些紀錄
 
-<!--more-->
+<!-- more -->
 
 ## Time
 

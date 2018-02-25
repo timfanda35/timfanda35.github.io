@@ -13,7 +13,7 @@ categories: [ruby, rails]
 
 才知道原來 Rails 4.2 之後有好用的 `config_for` 方法啊
 
-<!--more-->
+<!-- more -->
 
 ## 環境變數
 

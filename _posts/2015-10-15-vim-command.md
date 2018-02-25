@@ -25,7 +25,7 @@ categories: [vim]
 
 `b` 移動到上一個字首
 
-<!--more-->
+<!-- more -->
 
 ### 頁面移動
 

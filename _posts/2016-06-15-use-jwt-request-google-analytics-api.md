@@ -13,7 +13,7 @@ categories: [ruby, jwt]
 
 I got it!!!
 
-<!--more-->
+<!-- more -->
 
 ## 設定
 

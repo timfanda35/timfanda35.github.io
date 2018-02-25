@@ -25,7 +25,7 @@ git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 
 [Vundle：Vim Plugin 自動下載、安裝、更新與管理工具（Vim Bundle)][link1]
 
-<!--more-->
+<!-- more -->
 
 ----
 

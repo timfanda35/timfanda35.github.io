@@ -15,7 +15,7 @@ categories: [ruby, rbenv, shell]
 brew install readline
 ```
 
-<!--more-->
+<!-- more -->
 
 再輸入以下指令用 rbenv 重新安裝 ruby 
 

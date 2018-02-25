@@ -17,7 +17,7 @@ categories: [shell, vim]
 - OS: OSX EI Capitan version 10.11
 - Shell: bash
 
-<!--more-->
+<!-- more -->
 
 ----
 

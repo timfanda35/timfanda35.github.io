@@ -23,7 +23,7 @@ categories: [gcp, google, cloud, gcpug]
 * Module 6 - Google Compute Engine 與 Network 功能
 * GCP 的大數據分析工具 / 機器學習與深度學習
 
-<!--more-->
+<!-- more -->
 
 這活動相當推薦給想要初步了解 GCP 有哪些服務與特性的朋友
 

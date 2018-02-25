@@ -11,7 +11,7 @@ categories: [elixir]
 
 寫寫函數式語言轉轉腦筋也是挺不錯的
 
-<!--more-->
+<!-- more -->
 
 ## Char List
 
