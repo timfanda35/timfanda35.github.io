@@ -116,3 +116,15 @@ Silver 的考試不難，只要做好三件事：
 附上小徽章 :D
 
 ![Imgur](http://i.imgur.com/1Yg0v8n.png)
+
+Update:
+
+後來沒多久我也順利考到 Gold 了
+
+Gold 的題目會更深入，不過由於時間距離現在好一陣子
+
+我只記得我除了參考書之外，就是上網搜尋其他人的心得
+
+還有看看官網是否有更新的模擬考題
+
+![Imgur](http://i.imgur.com/Llchs3u.png)
