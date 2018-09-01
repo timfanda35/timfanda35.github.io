@@ -6,7 +6,7 @@ comments: true
 categories: [gcp, cloudbuild]
 ---
 
-![](//images/2018-09-01/create-cloudbuild-trigger-with-command/cover.jpg)
+![](/images/2018-09-01/create-cloudbuild-trigger-with-command/cover.jpg)
 
 [圖片來源](https://www.pakutaso.com/20151102331web-14.html)
 [フリー写真素材ぱくたそ](https://www.pakutaso.com/)
