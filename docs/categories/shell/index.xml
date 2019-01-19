@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Shell on Bear Su&#39;s blog</title>
+    <link>https://timfanda35.github.io/categories/shell/</link>
+    <description>Recent content in Shell on Bear Su&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>(c) 2019 Bear Su&#39;s blog</copyright>
+    <lastBuildDate>Thu, 11 Aug 2016 09:15:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://timfanda35.github.io/categories/shell/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Draw ASCII Diagram with Graph-Easy</title>
+      <link>https://timfanda35.github.io/2016/08/11/draw-ascii-diagram-with-graph-easy/</link>
+      <pubDate>Thu, 11 Aug 2016 09:15:00 +0800</pubDate>
+      
+      <guid>https://timfanda35.github.io/2016/08/11/draw-ascii-diagram-with-graph-easy/</guid>
+      <description>&lt;p&gt;因為想要用 ASCII 畫圖，上網搜尋了一番&lt;/p&gt;
+
+&lt;p&gt;需求是可以用指令產生，不依賴 java&lt;/p&gt;
+
+&lt;p&gt;最後找到了 &lt;a href=&#34;https://github.com/ironcamel/Graph-Easy&#34;&gt;graph-easy&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;這是 perl 的模組，可以用來繪製 ASCII Diagram，也能匯出成許多格式&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>好用的 crontab 線上編輯器</title>
+      <link>https://timfanda35.github.io/2016/06/12/easy-to-use-crontab-online-editor/</link>
+      <pubDate>Sun, 12 Jun 2016 07:03:00 +0800</pubDate>
+      
+      <guid>https://timfanda35.github.io/2016/06/12/easy-to-use-crontab-online-editor/</guid>
+      <description>連結：http://crontab.guru/
+介面簡單明瞭，修改後會立即顯示口語化的解釋
+還有 random 可以讓你亂玩看各式範例
+想知道更多有關 crontab 的用法也有 man page 的頁面讓你看
+延伸閱讀推薦： 鳥哥的 Linux 私房菜 &amp;ndash; 第十五章、例行性工作排程(crontab)</description>
+    </item>
+    
+    <item>
+      <title>安裝 Powerline</title>
+      <link>https://timfanda35.github.io/2015/10/18/install-the-powerline/</link>
+      <pubDate>Sun, 18 Oct 2015 13:30:00 +0800</pubDate>
+      
+      <guid>https://timfanda35.github.io/2015/10/18/install-the-powerline/</guid>
+      <description>&lt;p&gt;因為注意到 &lt;a href=&#34;https://github.com/Lokaltog/vim-powerline&#34;&gt;vim-powerling&lt;/a&gt; 已經不再維護，而建議改用 &lt;a href=&#34;https://github.com/powerline/powerline&#34;&gt;Powerline&lt;/a&gt; 時，就想說來試試看。&lt;/p&gt;
+
+&lt;p&gt;在設定 Vim 的狀態列時沒什麼問題，但在設定 Shell 時就出現奇怪的情況了，好在後來有解決。&lt;/p&gt;
+
+&lt;p&gt;這篇紀錄我在 Mac OSX 安裝 &lt;a href=&#34;https://github.com/powerline/powerline&#34;&gt;Powerline&lt;/a&gt; 的步驟。&lt;/p&gt;
+
+&lt;p&gt;有任何錯誤或建議都歡迎告知:)&lt;/p&gt;
+
+&lt;p&gt;環境：
+- OS: OSX EI Capitan version 10.11
+- Shell: bash&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>MAC OSX ruby console 無法輸入中文</title>
+      <link>https://timfanda35.github.io/2015/10/13/mac-osx-ruby-console-can-not-input-chinese/</link>
+      <pubDate>Tue, 13 Oct 2015 08:23:00 +0800</pubDate>
+      
+      <guid>https://timfanda35.github.io/2015/10/13/mac-osx-ruby-console-can-not-input-chinese/</guid>
+      <description>&lt;p&gt;我是在 MAC OSX 上使用 rbenv 安裝 ruby，在換了新電腦重新安裝環境後突然發現在不管在 irb 還是 pry 中都無法輸入中文，而且操作上怪怪的。&lt;/p&gt;
+
+&lt;p&gt;在網上搜尋後找到了這篇 &lt;a href=&#34;http://blog.58share.com/?p=404&#34;&gt;mac 无法在irb中输入中文&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;首先用 &lt;a href=&#34;http://brew.sh/index_zh-tw.html&#34;&gt;Homebrew&lt;/a&gt; 安裝 readline&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;brew install readline
+&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

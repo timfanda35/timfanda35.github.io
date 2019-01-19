@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Heroku on Bear Su&#39;s blog</title>
+    <link>https://timfanda35.github.io/categories/heroku/</link>
+    <description>Recent content in Heroku on Bear Su&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>(c) 2019 Bear Su&#39;s blog</copyright>
+    <lastBuildDate>Sat, 26 Nov 2016 06:53:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://timfanda35.github.io/categories/heroku/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Side Project: Pocket to mail</title>
+      <link>https://timfanda35.github.io/2016/11/26/pocket-to-mail/</link>
+      <pubDate>Sat, 26 Nov 2016 06:53:00 +0800</pubDate>
+      
+      <guid>https://timfanda35.github.io/2016/11/26/pocket-to-mail/</guid>
+      <description>&lt;p&gt;最近寫的小專案 &lt;a href=&#34;https://github.com/timfanda35/pocket_to_mail&#34;&gt;pocket_to_mail&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;主要原因是之前都是使用 &lt;a href=&#34;https://getpocket.com/&#34;&gt;Pocket&lt;/a&gt; 在收藏網路文章&lt;/p&gt;
+
+&lt;p&gt;然後在有空的時候再打開 &lt;a href=&#34;https://getpocket.com/&#34;&gt;Pocket&lt;/a&gt; 整理&lt;/p&gt;
+
+&lt;p&gt;不過每次要整理的時候看到一大堆文章就&amp;hellip;懶了&lt;/p&gt;
+
+&lt;p&gt;所以決定寫一個小專案來解決這個問題&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

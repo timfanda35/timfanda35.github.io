@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Rbenv on Bear Su&#39;s blog</title>
+    <link>https://timfanda35.github.io/categories/rbenv/</link>
+    <description>Recent content in Rbenv on Bear Su&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>(c) 2019 Bear Su&#39;s blog</copyright>
+    <lastBuildDate>Tue, 13 Oct 2015 08:23:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://timfanda35.github.io/categories/rbenv/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>MAC OSX ruby console 無法輸入中文</title>
+      <link>https://timfanda35.github.io/2015/10/13/mac-osx-ruby-console-can-not-input-chinese/</link>
+      <pubDate>Tue, 13 Oct 2015 08:23:00 +0800</pubDate>
+      
+      <guid>https://timfanda35.github.io/2015/10/13/mac-osx-ruby-console-can-not-input-chinese/</guid>
+      <description>&lt;p&gt;我是在 MAC OSX 上使用 rbenv 安裝 ruby，在換了新電腦重新安裝環境後突然發現在不管在 irb 還是 pry 中都無法輸入中文，而且操作上怪怪的。&lt;/p&gt;
+
+&lt;p&gt;在網上搜尋後找到了這篇 &lt;a href=&#34;http://blog.58share.com/?p=404&#34;&gt;mac 无法在irb中输入中文&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;首先用 &lt;a href=&#34;http://brew.sh/index_zh-tw.html&#34;&gt;Homebrew&lt;/a&gt; 安裝 readline&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;brew install readline
+&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

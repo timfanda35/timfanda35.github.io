@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1">
+  <title>安裝 Powerline &middot; Bear Su&#39;s blog -  Running Bear!!! </title>
+  <meta name="generator" content="Hugo 0.53" />
+  <meta name="description" content="Running Bear!!!"> 
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="安裝 Powerline"/>
+<meta name="twitter:description" content="因為注意到 vim-powerling 已經不再維護，而建議改用 Powerline 時，就想說來試試看。
+
+在設定 Vim 的狀態列時沒什麼問題，但在設定 Shell 時就出現奇怪的情況了，好在後來有解決。
+
+這篇紀錄我在 Mac OSX 安裝 Powerline 的步驟。
+
+有任何錯誤或建議都歡迎告知:)
+
+環境：
+- OS: OSX EI Capitan version 10.11
+- Shell: bash"/>
+
+  <meta property="og:title" content="安裝 Powerline" />
+<meta property="og:description" content="因為注意到 vim-powerling 已經不再維護，而建議改用 Powerline 時，就想說來試試看。
+
+在設定 Vim 的狀態列時沒什麼問題，但在設定 Shell 時就出現奇怪的情況了，好在後來有解決。
+
+這篇紀錄我在 Mac OSX 安裝 Powerline 的步驟。
+
+有任何錯誤或建議都歡迎告知:)
+
+環境：
+- OS: OSX EI Capitan version 10.11
+- Shell: bash" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://timfanda35.github.io/2015/10/18/install-the-powerline/" /><meta property="article:published_time" content="2015-10-18T13:30:00&#43;08:00"/>
+<meta property="article:modified_time" content="2015-10-18T13:30:00&#43;08:00"/>
+
+
+  <!-- RSS autodiscovery --> 
+
+  
+<meta itemprop="name" content="安裝 Powerline">
+<meta itemprop="description" content="因為注意到 vim-powerling 已經不再維護，而建議改用 Powerline 時，就想說來試試看。
+
+在設定 Vim 的狀態列時沒什麼問題，但在設定 Shell 時就出現奇怪的情況了，好在後來有解決。
+
+這篇紀錄我在 Mac OSX 安裝 Powerline 的步驟。
+
+有任何錯誤或建議都歡迎告知:)
+
+環境：
+- OS: OSX EI Capitan version 10.11
+- Shell: bash">
+
+
+<meta itemprop="datePublished" content="2015-10-18T13:30:00&#43;08:00" />
+<meta itemprop="dateModified" content="2015-10-18T13:30:00&#43;08:00" />
+<meta itemprop="wordCount" content="351">
+
+
+
+<meta itemprop="keywords" content="" />
+
+  <link href="https://fonts.googleapis.com/css?family=Lato:400" rel="stylesheet">
+  <link rel="stylesheet" href="https://timfanda35.github.io/css/style.css">
+  <script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "WebSite",
+  "name": "Bear Su&#39;s blog",
+  "url": "https://timfanda35.github.io/2015/10/18/install-the-powerline/"
+}
+</script>
+
+</head>
+
+<body>
+  <header class="gheader">
+  <div class="container">
+    <nav class="navbar ">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="https://timfanda35.github.io">
+          <h1 class="brand">Bear Su&#39;s blog</h1>
+        </a>
+
+        <div class="navbar-burger burger" data-target="navMenubd-example">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+
+      <div id="navMenubd-example" class="navbar-menu">
+        <div class="navbar-start">
+          
+          <a class="navbar-item" href="/categories/">
+            Categories
+          </a>
+          
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
+
+
+  <div class="main-content">
+    <div class="container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="title">安裝 Powerline</h1>
+      <div class="meta">
+        <time class="pub-time"  datetime="2015-10-18T13:30:00&#43;08:00">
+          2015.10.18
+        </time>
+        <div class="terms">
+          
+          <div class="categories">
+            
+              <a class="categories-item" href="/categories/shell">shell</a>
+            
+              <a class="categories-item" href="/categories/vim">vim</a>
+            
+          </div>
+          
+          
+        </div>
+      </div>
+    </header>
+    <div class="post-body">
+      <p>因為注意到 <a href="https://github.com/Lokaltog/vim-powerline">vim-powerling</a> 已經不再維護，而建議改用 <a href="https://github.com/powerline/powerline">Powerline</a> 時，就想說來試試看。</p>
+
+<p>在設定 Vim 的狀態列時沒什麼問題，但在設定 Shell 時就出現奇怪的情況了，好在後來有解決。</p>
+
+<p>這篇紀錄我在 Mac OSX 安裝 <a href="https://github.com/powerline/powerline">Powerline</a> 的步驟。</p>
+
+<p>有任何錯誤或建議都歡迎告知:)</p>
+
+<p>環境：
+- OS: OSX EI Capitan version 10.11
+- Shell: bash</p>
+
+<hr />
+
+<h1 id="安裝-powerline">安裝 Powerline</h1>
+
+<h2 id="powerline-powerline"><a href="https://github.com/powerline/powerline">Powerline</a></h2>
+
+<blockquote>
+<p>美觀的狀態列</p>
+</blockquote>
+
+<p>確認系統 python 版本是 <code>2.7</code></p>
+
+<pre><code class="language-shell">$ python -V
+Python 2.7.10
+</code></pre>
+
+<p>由於我還沒有安裝過 <a href="https://pypi.python.org/pypi/pip">pip</a> ， python 安裝套件的指令，執行以下指令安裝：</p>
+
+<pre><code class="language-shell">$ sudo easy_install pip
+</code></pre>
+
+<p>用 <code>pip</code> 安裝 Powerline (由於權限問題，我無法安裝到系統目錄，所以我加上了 <code>--user</code> 選項，選擇安裝到使用者目錄底下)</p>
+
+<pre><code class="language-shell">$ pip install --user powerline-status
+</code></pre>
+
+<p>查看 Powerline 被安裝到哪個路徑</p>
+
+<pre><code class="language-shell">$ pip show powerline-status
+--
+Metadata-Version: 1.1
+Name: powerline-status
+Version: 2.2
+Summary: The ultimate statusline/prompt utility.
+Home-page: https://github.com/powerline/powerline
+Author: Kim Silkebaekken
+Author-email: kim.silkebaekken+vim@gmail.com
+License: MIT
+Location: /Users/bear/Library/Python/2.7/lib/python/site-packages
+Requires:
+
+# 以我的例子，我的使用者名稱是 bear 
+# 所以會安裝到 /Users/bear/Library/Python/2.7/lib/python/site-packages 目錄底下
+</code></pre>
+
+<hr />
+
+<h1 id="安裝-powerline-字型">安裝 Powerline 字型</h1>
+
+<p>這樣狀態列才不會變成亂碼</p>
+
+<pre><code class="language-shell">$ git clone https://github.com/Lokaltog/powerline-fonts.git 
+$ cd powerline-fonts/
+$ ./install.sh
+</code></pre>
+
+<hr />
+
+<h1 id="設定-vim-狀態列">設定 Vim 狀態列</h1>
+
+<p>編輯 <code>~/.vimrc</code>，加入以下設定，(請將 {path} 替換成 <code>pip show powerline-status</code> 所顯示的路徑)</p>
+
+<pre><code># 在所有 window 中都顯示狀態列
+set laststatus=2
+
+# powerline 的相關設定
+set rtp+={path}/powerline/bindings/vim
+let g:minBufExplForceSyntaxEnable = 1
+python from powerline.vim import setup as powerline_setup
+python powerline_setup()
+python del powerline_setup
+</code></pre>
+
+<p>螢幕截圖</p>
+
+<p><img src="http://user-image.logdown.io/user/6114/blog/6123/post/304497/RNT48fxTVyacWvppbiLA_Screen%20Shot%202015-10-18%20at%206.27.38%20PM.png" alt="Vim 狀態列" /></p>
+
+<hr />
+
+<h1 id="設定-shell-狀態列">設定 Shell 狀態列</h1>
+
+<p>在這邊我遇到了一個詭異的情況，原本應該是 <code>scripts</code> 目錄下的檔案卻都跑到 Python 的 <code>bin</code> 目錄底下</p>
+
+<pre><code class="language-shell"># 原本應該有這個目錄，底下會有 powerline 相關的檔案
+/Users/bear/Library/Python/2.7/lib/python/site-packages/scripts
+
+# 但都跑到這目錄底下了
+/Users/bear/Library/Python/2.7/bin
+</code></pre>
+
+<p>所以需要搬動檔案到正確的目錄，以我的例子：</p>
+
+<p>以下 <code>{path}</code> 要換成執行<code>pip show powerline-status</code> 顯示的路徑</p>
+
+<pre><code class="language-shell"># 移動到安裝目錄
+$ cd {path}
+
+# 建立 scripts 目錄
+$ mkdir scripts
+
+# 將檔案移到 scripts 目錄下
+$ mv ../../../bin/* ./scripts/
+</code></pre>
+
+<p>最後在 <code>~./.bash_profile</code> 中加入以下設定，重新開啟終端機就會出現了絢麗的提示了(以下 <code>{path}</code> 要換成執行<code>pip show powerline-status</code> 顯示的路徑)</p>
+
+<pre><code class="language-shell"># Prompt
+POWERLINE_INSTALL_PATH={path}
+POWERLINE_SCRIPT=$POWERLINE_INSTALL_PATH/powerline/bindings/bash/powerline.sh
+if [ -f $POWERLINE_SCRIPT ]; then
+  $POWERLINE_INSTALL_PATH/scripts/powerline-daemon -q
+  source $POWERLINE_SCRIPT
+fi
+</code></pre>
+
+<p>另外客製化 Shell 狀態列的樣式，可以參考<a href="http://powerline.readthedocs.org/en/latest/configuration.html">文件</a>
+(以下 <code>{path}</code> 要換成執行<code>pip show powerline-status</code> 顯示的路徑)</p>
+
+<pre><code class="language-shell"># 建立目錄
+$ mkdir -p ~/.config/powerline/themes/shell
+
+# 複製設定檔
+$ cp {path}/powerline/config_files/themes/shell/default.json ~/.config/powerline/themes/shell/default.json
+
+# 修改設定檔
+$ vi ~/.config/powerline/themes/shell/default.json
+</code></pre>
+
+<p>以下是我的設定檔:</p>
+
+<ul>
+<li>使用者名稱前加上符號</li>
+<li>加入時間</li>
+<li>加上 git branch 提示</li>
+</ul>
+
+<pre><code class="language-json">{
+  &quot;segments&quot;: {
+    &quot;left&quot;: [
+      {
+        &quot;function&quot;: &quot;powerline.segments.shell.mode&quot;
+      },
+      {
+        &quot;function&quot;: &quot;powerline.segments.common.net.hostname&quot;,
+        &quot;priority&quot;: 10
+      },
+      {
+        &quot;function&quot;: &quot;powerline.segments.common.env.user&quot;,
+        &quot;before&quot;: &quot;ⓑ &quot;,
+        &quot;priority&quot;: 30
+      },
+      {
+        &quot;function&quot;: &quot;powerline.segments.common.env.virtualenv&quot;,
+        &quot;priority&quot;: 50
+      },
+      {
+        &quot;function&quot;: &quot;powerline.segments.common.time.date&quot;,
+        &quot;args&quot;: {
+          &quot;format&quot;: &quot;%H:%M&quot;
+        },
+        &quot;priority&quot;: 10
+      },
+      {
+        &quot;function&quot;: &quot;powerline.segments.shell.cwd&quot;,
+        &quot;priority&quot;: 10
+      },
+      {
+        &quot;function&quot;: &quot;powerline.segments.shell.jobnum&quot;,
+        &quot;priority&quot;: 20
+      },
+      {
+        &quot;function&quot;: &quot;powerline.segments.shell.last_pipe_status&quot;,
+        &quot;priority&quot;: 10
+      },
+      {
+        &quot;function&quot;: &quot;powerline.segments.common.vcs.branch&quot;,
+        &quot;priority&quot;: 40
+      }
+    ]
+  }
+}
+</code></pre>
+
+<p>螢幕截圖</p>
+
+<p><img src="http://user-image.logdown.io/user/6114/blog/6123/post/304497/4O354gUfS3ih9M1f06Tz_Screen%20Shot%202015-10-18%20at%206.12.04%20PM.png" alt="我的 Shell 狀態列" /></p>
+
+<hr />
+
+<h1 id="vim-airline">Vim-airline</h1>
+
+<p>後來有在網路上查到另外一個 <a href="https://github.com/bling/vim-airline">vim-airline</a>，與 <a href="https://github.com/powerline/powerline">Powerline</a> 不同的是 <a href="https://github.com/bling/vim-airline">vim-airline</a> 是單純的 vim-plugin，如果只有 Vim 需要絢麗的狀態列的話，<a href="https://github.com/bling/vim-airline">vim-airline</a> 應該會是比較好的選擇。</p>
+
+<ul>
+<li><a href="http://terrychen.logdown.com/posts/2014/10/18/vim-airline-status-bar-helper">vim-airline - 狀態列顯示的好幫手</a></li>
+<li><a href="http://fancyseeker.com/?p=592">Vim改变生活，插件改变Vim (2) — Vim插件详解</a></li>
+<li><a href="https://blog.othree.net/log/2013/07/04/vim-airline/">vim-airline</a></li>
+</ul>
+
+<hr />
+
+<p>參考：</p>
+
+<ul>
+<li><a href="http://cenalulu.github.io/linux/mac-powerline/">为Bash和VIM配置一个美观奢华的状态提示栏</a></li>
+<li><a href="https://powerline.readthedocs.org/en/latest/installation/osx.html#vim-installation">Powerline Document</a></li>
+<li><a href="http://blog.gtwang.org/linux/powerline-adds-powerful-statuslines-and-prompts-to-vim-and-bash/">Powerline：漂亮的 Vim 狀態列與 Bash Shell 命令提示字串外掛</a></li>
+</ul>
+    </div>
+    <footer class="post-footer">
+      
+      <div class="share">
+        
+      </div>
+
+      <div class="pagenation">
+        <ul class="pagenation-list">
+          
+          <li class="pager previous">
+            <a href="https://timfanda35.github.io/2015/10/17/ruby-web-start-gem/" data-toggle="tooltip" data-placement="top" title="用 Ruby 建立 Web 專案的一些起始 gem">&larr; Previous Post</a>
+          </li>
+          
+          
+          <li class="pager next">
+            <a href="https://timfanda35.github.io/2015/10/22/vim-buffer-window/" data-toggle="tooltip" data-placement="top" title="Vim 指令( buffer 與 window )">Next Post &rarr;</a>
+          </li>
+          
+        </ul>
+      </div>
+    </footer>
+  </article>
+
+  
+  <article class="related"></article>
+
+  <script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "NewsArticle",
+  "mainEntityOfPage": {
+    "@type": "NewsArticle",
+    "@id": "https://timfanda35.github.io/2015/10/18/install-the-powerline/",
+    "headline": "因為注意到 vim-powerling 已經不再維護，而建議改用 Powerline 時，就想說來試試看。在設定 Vim 的狀態列時沒什麼問題，但在設定 Shell 時就出現奇怪的情況了，好在後來有解決。這篇紀錄我在 M",
+    "author": "Bear Su",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Bear Su",
+      "logo": ""
+    },
+    "image": "",
+    "datePublished": "2015-10-18"
+  },
+  "headline": "因為注意到 vim-powerling 已經不再維護，而建議改用 Powerline 時，就想說來試試看。在設定 Vim 的狀態列時沒什麼問題，但在設定 Shell 時就出現奇怪的情況了，好在後來有解決。這篇紀錄我在 M",
+  "alternativeHeadline": "Bear Su&#39;s blog",
+  "datePublished": "2015-10-18",
+  "dateModified": "2015-10-18",
+  "url": "https://timfanda35.github.io/2015/10/18/install-the-powerline/",
+  "wordCount": "351",
+  "author": {
+    "@type": "Person",
+    "name": "Bear Su"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Bear Su"
+  },
+  "image": "",
+  "genre": "shellvim",
+  
+  "description": ""
+}
+</script>
+
+  <script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Person",
+  "@id": "https://timfanda35.github.io/2015/10/18/install-the-powerline/",
+  "name": "Bear Su"
+}
+</script>
+
+
+    </div>
+  </div>
+
+  <footer class="gfooter">
+  <div class="inner">
+    <div class="container">
+      <p class="copy"><small>(c) 2019 Bear Su&#39;s blog</small></p>
+
+      <nav class="footer-nav">
+        <div class="inner">
+          
+        </div>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+
+
+<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+<script src="https://timfanda35.github.io/js/script.js"></script>
+
+</body>
+</html>

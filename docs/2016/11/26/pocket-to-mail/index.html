@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1">
+  <title>Side Project: Pocket to mail &middot; Bear Su&#39;s blog -  Running Bear!!! </title>
+  <meta name="generator" content="Hugo 0.53" />
+  <meta name="description" content="Running Bear!!!"> 
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Side Project: Pocket to mail"/>
+<meta name="twitter:description" content="最近寫的小專案 pocket_to_mail
+
+主要原因是之前都是使用 Pocket 在收藏網路文章
+
+然後在有空的時候再打開 Pocket 整理
+
+不過每次要整理的時候看到一大堆文章就&hellip;懶了
+
+所以決定寫一個小專案來解決這個問題"/>
+
+  <meta property="og:title" content="Side Project: Pocket to mail" />
+<meta property="og:description" content="最近寫的小專案 pocket_to_mail
+
+主要原因是之前都是使用 Pocket 在收藏網路文章
+
+然後在有空的時候再打開 Pocket 整理
+
+不過每次要整理的時候看到一大堆文章就&hellip;懶了
+
+所以決定寫一個小專案來解決這個問題" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://timfanda35.github.io/2016/11/26/pocket-to-mail/" /><meta property="article:published_time" content="2016-11-26T06:53:00&#43;08:00"/>
+<meta property="article:modified_time" content="2016-11-26T06:53:00&#43;08:00"/>
+
+
+  <!-- RSS autodiscovery --> 
+
+  
+<meta itemprop="name" content="Side Project: Pocket to mail">
+<meta itemprop="description" content="最近寫的小專案 pocket_to_mail
+
+主要原因是之前都是使用 Pocket 在收藏網路文章
+
+然後在有空的時候再打開 Pocket 整理
+
+不過每次要整理的時候看到一大堆文章就&hellip;懶了
+
+所以決定寫一個小專案來解決這個問題">
+
+
+<meta itemprop="datePublished" content="2016-11-26T06:53:00&#43;08:00" />
+<meta itemprop="dateModified" content="2016-11-26T06:53:00&#43;08:00" />
+<meta itemprop="wordCount" content="85">
+
+
+
+<meta itemprop="keywords" content="" />
+
+  <link href="https://fonts.googleapis.com/css?family=Lato:400" rel="stylesheet">
+  <link rel="stylesheet" href="https://timfanda35.github.io/css/style.css">
+  <script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "WebSite",
+  "name": "Bear Su&#39;s blog",
+  "url": "https://timfanda35.github.io/2016/11/26/pocket-to-mail/"
+}
+</script>
+
+</head>
+
+<body>
+  <header class="gheader">
+  <div class="container">
+    <nav class="navbar ">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="https://timfanda35.github.io">
+          <h1 class="brand">Bear Su&#39;s blog</h1>
+        </a>
+
+        <div class="navbar-burger burger" data-target="navMenubd-example">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+
+      <div id="navMenubd-example" class="navbar-menu">
+        <div class="navbar-start">
+          
+          <a class="navbar-item" href="/categories/">
+            Categories
+          </a>
+          
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
+
+
+  <div class="main-content">
+    <div class="container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="title">Side Project: Pocket to mail</h1>
+      <div class="meta">
+        <time class="pub-time"  datetime="2016-11-26T06:53:00&#43;08:00">
+          2016.11.26
+        </time>
+        <div class="terms">
+          
+          <div class="categories">
+            
+              <a class="categories-item" href="/categories/ruby">ruby</a>
+            
+              <a class="categories-item" href="/categories/heroku">heroku</a>
+            
+          </div>
+          
+          
+        </div>
+      </div>
+    </header>
+    <div class="post-body">
+      <p>最近寫的小專案 <a href="https://github.com/timfanda35/pocket_to_mail">pocket_to_mail</a></p>
+
+<p>主要原因是之前都是使用 <a href="https://getpocket.com/">Pocket</a> 在收藏網路文章</p>
+
+<p>然後在有空的時候再打開 <a href="https://getpocket.com/">Pocket</a> 整理</p>
+
+<p>不過每次要整理的時候看到一大堆文章就&hellip;懶了</p>
+
+<p>所以決定寫一個小專案來解決這個問題</p>
+
+<h2 id="起頭">起頭</h2>
+
+<p>這個專案很小，就是呼叫 API ，然後將連結寄到自己的信箱</p>
+
+<p>所以我寫了一個簡單的 Ruby Script，使用 <a href="https://github.com/turadg/pocket-ruby">pocket-ruby</a> gem 存取 <a href="https://getpocket.com/">Pocket</a> API 然後透過 SMTP 將連結寄到自己的 Gmail</p>
+
+<p>為了能夠每天排程執行，我將專案放在 <a href="https://www.heroku.com/">Heroku</a> 上面，並加上 <a href="https://devcenter.heroku.com/articles/scheduler">Heroku Scheduler</a> Add-on，設定好每天固定時間執行</p>
+
+<h2 id="重構">重構</h2>
+
+<p>有一天我發現信裡面的連結都不能點了，原來是某個 APP 分享過來的網址有透過轉址，而那個轉址的網站被 Gmail 認為不安全</p>
+
+<p>於是趁這個機會我順便把網址後面的追蹤參數給刪掉，不然每次在將連結貼到筆記本時看到那些參數就很阿咂</p>
+
+<p>剛開始我使用 URI 與 CGI 處理，但後來在寫測試的時候出現警告，看來是所使用的方法已經不建議再使用了。後來搜尋了一下改用 <a href="https://github.com/sporkmonger/addressable">addressable</a> gem，程式碼看起來也好讀很多</p>
+
+<p>原本只是個 Ruby Script ，但最近剛好有一些時間，就來重構一下專案練練手，把方法拆一拆分給幾個類別處理</p>
+
+<p>然後加上部分單元測試，用 Rack 包裝執行與測試指令</p>
+
+<h2 id="服務">服務</h2>
+
+<p>掛上了 <a href="https://travis-ci.org/">Travis CI</a>、<a href="https://codeclimate.com/dashboard">Code Climate</a>、<a href="https://houndci.com/">Hound CI</a>、<a href="https://www.deppbot.com/">Deppbot</a> 幾個服務，在 README 加上 Badges <del>滿足一下虛榮心</del></p>
+
+<p>最後在 <a href="https://www.heroku.com/">Heroku</a> 專案的 Deploy 設定自動 deploy Github master branch。以後只要將程式碼 push 到 master 就會自動部署了！</p>
+
+<h2 id="結語">結語</h2>
+
+<p>因為我每天都會清理信箱，所以每天處理五個連結還蠻輕鬆，日子過著過著就把 <a href="https://getpocket.com/">Pocket</a> 裡累積的文章清空了</p>
+
+<p><del>但自從我為了手機上的儲存空間把 app 給砍了之後，就幾乎沒再用到 <a href="https://getpocket.com/">Pocket</a>了</del></p>
+    </div>
+    <footer class="post-footer">
+      
+      <div class="share">
+        
+      </div>
+
+      <div class="pagenation">
+        <ul class="pagenation-list">
+          
+          <li class="pager previous">
+            <a href="https://timfanda35.github.io/2016/09/08/railsfun-0907-note/" data-toggle="tooltip" data-placement="top" title="RailsFun-0907筆記">&larr; Previous Post</a>
+          </li>
+          
+          
+          <li class="pager next">
+            <a href="https://timfanda35.github.io/2016/12/02/ruby-conf-taiwan-2016-day-2/" data-toggle="tooltip" data-placement="top" title="RubyConf Taiwan 2016 第二天">Next Post &rarr;</a>
+          </li>
+          
+        </ul>
+      </div>
+    </footer>
+  </article>
+
+  
+  <article class="related"></article>
+
+  <script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "NewsArticle",
+  "mainEntityOfPage": {
+    "@type": "NewsArticle",
+    "@id": "https://timfanda35.github.io/2016/11/26/pocket-to-mail/",
+    "headline": "最近寫的小專案 pocket_to_mail主要原因是之前都是使用 Pocket 在收藏網路文章然後在有空的時候再打開 Pocket 整理不過每次要整理的時候看到一大堆文章就&amp;hellip;懶了所以決定寫一個小專案來解決",
+    "author": "Bear Su",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Bear Su",
+      "logo": ""
+    },
+    "image": "",
+    "datePublished": "2016-11-26"
+  },
+  "headline": "最近寫的小專案 pocket_to_mail主要原因是之前都是使用 Pocket 在收藏網路文章然後在有空的時候再打開 Pocket 整理不過每次要整理的時候看到一大堆文章就&amp;hellip;懶了所以決定寫一個小專案來解決",
+  "alternativeHeadline": "Bear Su&#39;s blog",
+  "datePublished": "2016-11-26",
+  "dateModified": "2016-11-26",
+  "url": "https://timfanda35.github.io/2016/11/26/pocket-to-mail/",
+  "wordCount": "85",
+  "author": {
+    "@type": "Person",
+    "name": "Bear Su"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Bear Su"
+  },
+  "image": "",
+  "genre": "rubyheroku",
+  
+  "description": ""
+}
+</script>
+
+  <script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Person",
+  "@id": "https://timfanda35.github.io/2016/11/26/pocket-to-mail/",
+  "name": "Bear Su"
+}
+</script>
+
+
+    </div>
+  </div>
+
+  <footer class="gfooter">
+  <div class="inner">
+    <div class="container">
+      <p class="copy"><small>(c) 2019 Bear Su&#39;s blog</small></p>
+
+      <nav class="footer-nav">
+        <div class="inner">
+          
+        </div>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+
+
+<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+<script src="https://timfanda35.github.io/js/script.js"></script>
+
+</body>
+</html>

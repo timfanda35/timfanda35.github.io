@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1">
+  <title>Ruby gem daemons 筆記 &middot; Bear Su&#39;s blog -  Running Bear!!! </title>
+  <meta name="generator" content="Hugo 0.53" />
+  <meta name="description" content="Running Bear!!!"> 
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Ruby gem daemons 筆記"/>
+<meta name="twitter:description" content="
+
+圖片來源
+フリー写真素材ぱくたそ
+
+daemons gem 是一個能夠讓 ruby 程式以行程(process)獨立執行的 gem
+
+當你想要有一個程式能夠在背景持續執行時，就可以可慮使用 daemons gem 來協助開發"/>
+
+  <meta property="og:title" content="Ruby gem daemons 筆記" />
+<meta property="og:description" content="
+
+圖片來源
+フリー写真素材ぱくたそ
+
+daemons gem 是一個能夠讓 ruby 程式以行程(process)獨立執行的 gem
+
+當你想要有一個程式能夠在背景持續執行時，就可以可慮使用 daemons gem 來協助開發" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://timfanda35.github.io/2017/03/26/ruby-gem-daemons-note/" /><meta property="article:published_time" content="2017-03-26T08:04:00&#43;08:00"/>
+<meta property="article:modified_time" content="2017-03-26T08:04:00&#43;08:00"/>
+
+
+  <!-- RSS autodiscovery --> 
+
+  
+<meta itemprop="name" content="Ruby gem daemons 筆記">
+<meta itemprop="description" content="
+
+圖片來源
+フリー写真素材ぱくたそ
+
+daemons gem 是一個能夠讓 ruby 程式以行程(process)獨立執行的 gem
+
+當你想要有一個程式能夠在背景持續執行時，就可以可慮使用 daemons gem 來協助開發">
+
+
+<meta itemprop="datePublished" content="2017-03-26T08:04:00&#43;08:00" />
+<meta itemprop="dateModified" content="2017-03-26T08:04:00&#43;08:00" />
+<meta itemprop="wordCount" content="275">
+
+
+
+<meta itemprop="keywords" content="" />
+
+  <link href="https://fonts.googleapis.com/css?family=Lato:400" rel="stylesheet">
+  <link rel="stylesheet" href="https://timfanda35.github.io/css/style.css">
+  <script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "WebSite",
+  "name": "Bear Su&#39;s blog",
+  "url": "https://timfanda35.github.io/2017/03/26/ruby-gem-daemons-note/"
+}
+</script>
+
+</head>
+
+<body>
+  <header class="gheader">
+  <div class="container">
+    <nav class="navbar ">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="https://timfanda35.github.io">
+          <h1 class="brand">Bear Su&#39;s blog</h1>
+        </a>
+
+        <div class="navbar-burger burger" data-target="navMenubd-example">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+
+      <div id="navMenubd-example" class="navbar-menu">
+        <div class="navbar-start">
+          
+          <a class="navbar-item" href="/categories/">
+            Categories
+          </a>
+          
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
+
+
+  <div class="main-content">
+    <div class="container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="title">Ruby gem daemons 筆記</h1>
+      <div class="meta">
+        <time class="pub-time"  datetime="2017-03-26T08:04:00&#43;08:00">
+          2017.03.26
+        </time>
+        <div class="terms">
+          
+          <div class="categories">
+            
+              <a class="categories-item" href="/categories/ruby">ruby</a>
+            
+          </div>
+          
+          
+        </div>
+      </div>
+    </header>
+    <div class="post-body">
+      <p><img src="http://i.imgur.com/ZjslPbL.jpg" alt="" /></p>
+
+<p><a href="https://www.pakutaso.com/20170137024post-10119.html">圖片來源</a>
+<a href="https://www.pakutaso.com/">フリー写真素材ぱくたそ</a></p>
+
+<p><a href="https://github.com/thuehlinger/daemons">daemons gem</a> 是一個能夠讓 ruby 程式以行程(process)獨立執行的 gem</p>
+
+<p>當你想要有一個程式能夠在背景持續執行時，就可以可慮使用 <a href="https://github.com/thuehlinger/daemons">daemons gem</a> 來協助開發</p>
+
+<p>什麼是 daemon？可以參考鳥哥的文章 <a href="http://linux.vbird.org/linux_basic/0560daemons.php#daemon">17.1 什麼是 daemon 與服務 (service)</a></p>
+
+<p>簡單來說可以當作是在背景一直執行的服務</p>
+
+<p>透過 <a href="https://github.com/thuehlinger/daemons">daemons gem</a> 你可以：
+1. 將其他 script 作為 daemon 執行
+2. 將 proc 丟到 daemon 執行
+3. 將目前執行的程式變成 daemon 執行</p>
+
+<h2 id="寫個範例">寫個範例</h2>
+
+<p>範例程式(<code>main.rb</code>)是一個可以用在程式中建立 <strong>每 5 秒將 Process 名稱寫入 Log</strong> 的 daemon：</p>
+
+<pre><code class="language-ruby"># main.rb
+require 'daemons'
+require &quot;logger&quot;
+
+# 在執行的時候先取得當前目錄的絕對路徑
+DIR = File.absolute_path(File.dirname(__FILE__))
+
+class TittleDaemon
+  def run(name)
+    # 修改行程 (Process) 顯示的名稱
+    Process.setproctitle(name)
+
+    logger = Logger.new(log_path(name), 'daily')
+
+    loop do
+      logger.info &quot;daemon #{name} is running&quot;
+      sleep(5)
+    end
+  end
+
+  def log_path(name)
+    File.join(DIR, &quot;#{name}-running.log&quot;)
+  end
+end
+
+class Main
+  def start(name)
+    options = {
+      :ARGV                 =&gt; ['start'], # 啟動 daemon
+      :backtrace            =&gt; true # 如果有發生例外會記錄到 log 中
+    }
+    Daemons.run_proc(name, options) { TittleDaemon.new.run(name) }
+  end
+
+  def stop(name)
+    options = {
+      :ARGV               =&gt; ['stop'], # 停止 daemon
+      :backtrace          =&gt; true # 如果有發生例外會記錄到 log 中
+    }
+    Daemons.run_proc(name, options) { TittleDaemon.new.run(name) }
+  end
+end
+</code></pre>
+
+<p>操作：</p>
+
+<p>首先在 Terminal 中開啟 <code>irb</code>，並加上 <code>-r</code> 參數在啟動 irb 的同時 <code>require ./main.rb</code></p>
+
+<pre><code class="language-bash">$ irb -r ./main.rb 
+</code></pre>
+
+<p>在 irb 中建立 <code>Main</code> 的實體，並啟動一個名為 <code>little-daemon</code> 的 daemon</p>
+
+<pre><code class="language-ruby">&gt; main = Main.new
+&gt; main.start(&quot;little-daemon&quot;)
+</code></pre>
+
+<p><img src="http://i.imgur.com/zjbm1MX.png" alt="Imgur" /></p>
+
+<p>開啟另一個 Terminal 執行</p>
+
+<pre><code class="language-bash">$ ps aux | grep little
+</code></pre>
+
+<p><img src="http://i.imgur.com/MiADDw1.png" alt="Imgur" /></p>
+
+<p>發現有一個名為 <code>little-daemon</code> 的行程正在執行</p>
+
+<p>回到第一個 Terminal，這次我們請啟動另一個名為 <code>little-daemon2</code> 的 daemon</p>
+
+<pre><code class="language-ruby">&gt; main.start(&quot;little-daemon2&quot;)
+</code></pre>
+
+<p><img src="http://i.imgur.com/6Lmdl7o.png" alt="Imgur" /></p>
+
+<p>在第二個 Terminal 執行以下指令可以觀察到 <code>little-daemon2</code> 也在執行了</p>
+
+<pre><code class="language-bash">$ ps aux | grep little
+</code></pre>
+
+<p><img src="http://i.imgur.com/xUn2Gzm.png" alt="Imgur" /></p>
+
+<p>看看目錄底下有什麼：</p>
+
+<pre><code class="language-bash">$ ls -lh
+</code></pre>
+
+<p><img src="http://i.imgur.com/FLyCAyh.png" alt="Imgur" /></p>
+
+<p>可以發現除了預計會產生的 log 之外，還多了兩個結尾為 <code>.pid</code> 的檔案</p>
+
+<p>用文字編輯器可以打開，裡面是記錄 daemon 的 PID</p>
+
+<p>透過 PID 我們可以傳送訊號給 daemon ，像是立即停止，或是做其他運用</p>
+
+<p>可以參考鳥哥文章 <a href="http://linux.vbird.org/linux_basic/0440processcontrol.php#whatis">16.1 什麼是程序 (process)</a></p>
+
+<p>最後我們回到第一個 Terminal 停止剛剛啟動的 daemon</p>
+
+<pre><code class="language-ruby">&gt; main = Main.new
+&gt; main.stop(&quot;little-daemon&quot;)
+&gt; main.stop(&quot;little-daemon2&quot;)
+</code></pre>
+
+<p><img src="http://i.imgur.com/pk8hCA3.png" alt="Imgur" /></p>
+
+<p>在第二個 Terminal 執行以下指令會發現 daemon 已經停止，結尾為 <code>.pid</code> 的檔案也已經被刪除了</p>
+
+<pre><code class="language-bash">$ ps aux | grep little
+$ ls -lh
+</code></pre>
+
+<p><img src="http://i.imgur.com/G5IycHI.png" alt="Imgur" /></p>
+
+<h2 id="尾聲">尾聲</h2>
+
+<p>想要更了解 <a href="https://github.com/thuehlinger/daemons">daemons</a> 的話，推薦玩玩 GitHub 上的 <a href="https://github.com/thuehlinger/daemons/tree/master/examples">範例</a></p>
+
+<p>還有看看程式碼裡的<a href="https://github.com/thuehlinger/daemons/blob/master/lib/daemons.rb">註解</a></p>
+
+<p>了解一下傳入的 <code>options</code> 有哪些選項可以使用</p>
+
+<p>要注意的是程式碼一直都有在更新，記得在閱讀的時候要將 branch 調成目前所使用的版本才不會錯亂喲</p>
+
+<p><img src="http://i.imgur.com/gTTPWT2.png" alt="Imgur" /></p>
+
+<h2 id="參考">參考</h2>
+
+<p><a href="https://github.com/thuehlinger/daemons">Ruby daemons gem official repository</a></p>
+
+<p><a href="http://linux.vbird.org/">歡迎光臨鳥哥的 Linux 私房菜</a></p>
+    </div>
+    <footer class="post-footer">
+      
+      <div class="share">
+        
+      </div>
+
+      <div class="pagenation">
+        <ul class="pagenation-list">
+          
+          <li class="pager previous">
+            <a href="https://timfanda35.github.io/2017/03/19/ruby-association-certified-ruby-programmer-silver-exam-preparation/" data-toggle="tooltip" data-placement="top" title="Ruby Association Certified Ruby Programmer Silver 考試準備">&larr; Previous Post</a>
+          </li>
+          
+          
+          <li class="pager next">
+            <a href="https://timfanda35.github.io/2017/04/19/google-cloud-onboard-20170419/" data-toggle="tooltip" data-placement="top" title="Google Cloud OnBoard 20170419">Next Post &rarr;</a>
+          </li>
+          
+        </ul>
+      </div>
+    </footer>
+  </article>
+
+  
+  <article class="related"></article>
+
+  <script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "NewsArticle",
+  "mainEntityOfPage": {
+    "@type": "NewsArticle",
+    "@id": "https://timfanda35.github.io/2017/03/26/ruby-gem-daemons-note/",
+    "headline": "圖片來源 フリー写真素材ぱくたそdaemons gem 是一個能夠讓 ruby 程式以行程(process)獨立執行的 gem當你想要有一個程式能夠在背景持續執行時，就可以可慮使用 daemons gem 來協助開發什麼",
+    "author": "Bear Su",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Bear Su",
+      "logo": ""
+    },
+    "image": "",
+    "datePublished": "2017-03-26"
+  },
+  "headline": "圖片來源 フリー写真素材ぱくたそdaemons gem 是一個能夠讓 ruby 程式以行程(process)獨立執行的 gem當你想要有一個程式能夠在背景持續執行時，就可以可慮使用 daemons gem 來協助開發什麼",
+  "alternativeHeadline": "Bear Su&#39;s blog",
+  "datePublished": "2017-03-26",
+  "dateModified": "2017-03-26",
+  "url": "https://timfanda35.github.io/2017/03/26/ruby-gem-daemons-note/",
+  "wordCount": "275",
+  "author": {
+    "@type": "Person",
+    "name": "Bear Su"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Bear Su"
+  },
+  "image": "",
+  "genre": "ruby",
+  
+  "description": ""
+}
+</script>
+
+  <script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Person",
+  "@id": "https://timfanda35.github.io/2017/03/26/ruby-gem-daemons-note/",
+  "name": "Bear Su"
+}
+</script>
+
+
+    </div>
+  </div>
+
+  <footer class="gfooter">
+  <div class="inner">
+    <div class="container">
+      <p class="copy"><small>(c) 2019 Bear Su&#39;s blog</small></p>
+
+      <nav class="footer-nav">
+        <div class="inner">
+          
+        </div>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+
+
+<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+<script src="https://timfanda35.github.io/js/script.js"></script>
+
+</body>
+</html>

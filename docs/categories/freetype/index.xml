@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Freetype on Bear Su&#39;s blog</title>
+    <link>https://timfanda35.github.io/categories/freetype/</link>
+    <description>Recent content in Freetype on Bear Su&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>(c) 2019 Bear Su&#39;s blog</copyright>
+    <lastBuildDate>Wed, 17 May 2017 13:28:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://timfanda35.github.io/categories/freetype/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Ruby 透過 FreeType 產生點陣文字</title>
+      <link>https://timfanda35.github.io/2017/05/17/ruby-by-using-treetype-to-draw-text-to-a-ascii-art/</link>
+      <pubDate>Wed, 17 May 2017 13:28:00 +0800</pubDate>
+      
+      <guid>https://timfanda35.github.io/2017/05/17/ruby-by-using-treetype-to-draw-text-to-a-ascii-art/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;http://i.imgur.com/EsiorQx.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://www.pakutaso.com/20160628181pc-11.html&#34;&gt;圖片來源&lt;/a&gt;
+&lt;a href=&#34;https://www.pakutaso.com/&#34;&gt;フリー写真素材ぱくたそ&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;最近因為工作上的需求，需要將使用者輸入的文字轉成 16 x 16 的點陣文字&lt;/p&gt;
+
+&lt;p&gt;在網路上找到 jserv 這篇 &lt;a href=&#34;http://blog.linux.org.tw/~jserv/archives/002050.html&#34;&gt;透過 FreeType 繪製 Unicode ASCII Art&lt;/a&gt; 而有了實作的方向&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

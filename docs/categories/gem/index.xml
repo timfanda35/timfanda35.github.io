@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Gem on Bear Su&#39;s blog</title>
+    <link>https://timfanda35.github.io/categories/gem/</link>
+    <description>Recent content in Gem on Bear Su&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>(c) 2019 Bear Su&#39;s blog</copyright>
+    <lastBuildDate>Tue, 22 Mar 2016 11:28:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://timfanda35.github.io/categories/gem/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>推薦協助提高程式碼品質的 Gem</title>
+      <link>https://timfanda35.github.io/2016/03/22/gems-for-improving-code-quality/</link>
+      <pubDate>Tue, 22 Mar 2016 11:28:00 +0800</pubDate>
+      
+      <guid>https://timfanda35.github.io/2016/03/22/gems-for-improving-code-quality/</guid>
+      <description>&lt;p&gt;用 Rails 開發網站時除了寫測試之外，還可以透過一些 gem 來協助維護 code 的品質&lt;/p&gt;
+
+&lt;p&gt;這篇推薦幾個 gem：&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/presidentbeef/brakeman&#34;&gt;Brakeman - 檢查安全性&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/flyerhzm/bullet&#34;&gt;Bullet - 檢查 N+1 Query&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/whitesmith/rubycritic&#34;&gt;RubyCritic - 靜態分析程式碼(已整合多套工具)&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/newrelic/rpm&#34;&gt;New Relic RPM - 監測網站效能&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>用 Ruby 建立 Web 專案的一些起始 gem</title>
+      <link>https://timfanda35.github.io/2015/10/17/ruby-web-start-gem/</link>
+      <pubDate>Sat, 17 Oct 2015 05:36:00 +0800</pubDate>
+      
+      <guid>https://timfanda35.github.io/2015/10/17/ruby-web-start-gem/</guid>
+      <description>&lt;p&gt;Ruby 有許多 gem 可以用來做 web 開發，以下列出一些我所找到可以作為起頭的 gem 提供大家參考。&lt;/p&gt;
+
+&lt;p&gt;有任何錯誤與建議歡迎告知:)&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&#34;web&#34;&gt;Web&lt;/h1&gt;
+
+&lt;h2 id=&#34;rack-http-rack-github-io&#34;&gt;&lt;a href=&#34;http://rack.github.io&#34;&gt;Rack&lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;提供 webserver 最小的功能介面，大多 Ruby 的 web 開發框架都是基於 Rack 所開發的。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;rails-http-rubyonrails-org&#34;&gt;&lt;a href=&#34;http://rubyonrails.org&#34;&gt;Rails&lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;最知名的魔法書，能快速地開發功能豐富的網站。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;sinatra-http-www-sinatrarb-com&#34;&gt;&lt;a href=&#34;http://www.sinatrarb.com&#34;&gt;Sinatra&lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;比 Rails 輕量的開發框架，適合用來開發小型專案或是 API。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;padrino-http-www-padrinorb-com&#34;&gt;&lt;a href=&#34;http://www.padrinorb.com&#34;&gt;Padrino&lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;基於 Sinatra 的開發框架，提供更多方便的資源開發網站。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;cuba-http-cuba-is&#34;&gt;&lt;a href=&#34;http://cuba.is&#34;&gt;Cuba&lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;試圖比使用 Sinatra 寫更少 code 的開發框架，官方 Slide 表示效能比 Sinatra 好。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;franky-https-github-com-adlerhsieh-franky&#34;&gt;&lt;a href=&#34;https://github.com/adlerhsieh/franky&#34;&gt;Franky&lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;產生小型的 web 專案，適合用來實驗想法的小專案。&lt;/p&gt;
+&lt;/blockquote&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

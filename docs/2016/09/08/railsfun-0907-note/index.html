@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1">
+  <title>RailsFun-0907筆記 &middot; Bear Su&#39;s blog -  Running Bear!!! </title>
+  <meta name="generator" content="Hugo 0.53" />
+  <meta name="description" content="Running Bear!!!"> 
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="RailsFun-0907筆記"/>
+<meta name="twitter:description" content="受到朋友的邀請
+
+藉著這機會參加了一直很想去但又沒去的 RailsFun 聚會
+
+得到了蠻多新知識
+
+在下次聚會之前可以來好好研究一下"/>
+
+  <meta property="og:title" content="RailsFun-0907筆記" />
+<meta property="og:description" content="受到朋友的邀請
+
+藉著這機會參加了一直很想去但又沒去的 RailsFun 聚會
+
+得到了蠻多新知識
+
+在下次聚會之前可以來好好研究一下" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://timfanda35.github.io/2016/09/08/railsfun-0907-note/" /><meta property="article:published_time" content="2016-09-08T01:46:00&#43;08:00"/>
+<meta property="article:modified_time" content="2016-09-08T01:46:00&#43;08:00"/>
+
+
+  <!-- RSS autodiscovery --> 
+
+  
+<meta itemprop="name" content="RailsFun-0907筆記">
+<meta itemprop="description" content="受到朋友的邀請
+
+藉著這機會參加了一直很想去但又沒去的 RailsFun 聚會
+
+得到了蠻多新知識
+
+在下次聚會之前可以來好好研究一下">
+
+
+<meta itemprop="datePublished" content="2016-09-08T01:46:00&#43;08:00" />
+<meta itemprop="dateModified" content="2016-09-08T01:46:00&#43;08:00" />
+<meta itemprop="wordCount" content="159">
+
+
+
+<meta itemprop="keywords" content="" />
+
+  <link href="https://fonts.googleapis.com/css?family=Lato:400" rel="stylesheet">
+  <link rel="stylesheet" href="https://timfanda35.github.io/css/style.css">
+  <script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "WebSite",
+  "name": "Bear Su&#39;s blog",
+  "url": "https://timfanda35.github.io/2016/09/08/railsfun-0907-note/"
+}
+</script>
+
+</head>
+
+<body>
+  <header class="gheader">
+  <div class="container">
+    <nav class="navbar ">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="https://timfanda35.github.io">
+          <h1 class="brand">Bear Su&#39;s blog</h1>
+        </a>
+
+        <div class="navbar-burger burger" data-target="navMenubd-example">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+
+      <div id="navMenubd-example" class="navbar-menu">
+        <div class="navbar-start">
+          
+          <a class="navbar-item" href="/categories/">
+            Categories
+          </a>
+          
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
+
+
+  <div class="main-content">
+    <div class="container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="title">RailsFun-0907筆記</h1>
+      <div class="meta">
+        <time class="pub-time"  datetime="2016-09-08T01:46:00&#43;08:00">
+          2016.09.08
+        </time>
+        <div class="terms">
+          
+          <div class="categories">
+            
+              <a class="categories-item" href="/categories/ruby">ruby</a>
+            
+              <a class="categories-item" href="/categories/rails">rails</a>
+            
+          </div>
+          
+          
+        </div>
+      </div>
+    </header>
+    <div class="post-body">
+      <p>受到朋友的邀請</p>
+
+<p>藉著這機會參加了一直很想去但又沒去的 RailsFun 聚會</p>
+
+<p>得到了蠻多新知識</p>
+
+<p>在下次聚會之前可以來好好研究一下</p>
+
+<h2 id="gitflow">Gitflow</h2>
+
+<p>如何利用 git branch 來協助軟體開發，在幾年前就有人提出了 gitflow 的概念</p>
+
+<p>以下是幾篇推薦的文章：</p>
+
+<p><a href="https://ihower.tw/blog/archives/5140">Git flow 開發流程</a></p>
+
+<p><a href="http://www.takobear.tw/2014/02/15/bear-git-flow-sourcetreegit-flow/">Bear 實驗室: 什麼是Git flow ? 如何在SourceTree使用Git flow管理開發!
+</a></p>
+
+<p><a href="http://danielkummer.github.io/git-flow-cheatsheet/">git-flow cheatsheet</a></p>
+
+<h2 id="ruby-web-crawler">Ruby Web Crawler</h2>
+
+<p>利用 <a href="https://github.com/rest-client/rest-client">rest-client</a> 抓取網頁，並用 <a href="http://www.nokogiri.org/">nokogiri</a> 解析取得想要的資訊</p>
+
+<p>在開始開發網頁爬蟲以前，需要先對爬取的網頁進行分析</p>
+
+<p>分析的工具可以使用 Google Chrome 的開發者工具來檢視網頁內容，以了解資料的呈現規則</p>
+
+<p>有些需要帶有參數的網頁，可以透過開發者工具*網路*的頁籤檢視請求內容</p>
+
+<p>開發一個簡單的網頁爬蟲首先要能夠取得頁面，透過 <a href="https://github.com/rest-client/rest-client">rest-client</a> 可以很容易的發送帶有參的送請求</p>
+
+<p>再來需要將回傳的頁面透過 <a href="http://www.nokogiri.org/">nokogiri</a> 進行解析</p>
+
+<p><a href="http://www.nokogiri.org/">nokogiri</a> 解析後的回傳的物件，我們可以透過所提供的方法，依 <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Getting_started/Selectors">css selector</a> 取得所要的資料</p>
+
+<p>以下是有使用到的 gem：</p>
+
+<ul>
+<li><p><a href="https://github.com/rest-client/rest-client">rest-client</a> 用來取得網頁</p></li>
+
+<li><p><a href="http://www.nokogiri.org/">nokogiri</a> 用來解析網頁</p></li>
+
+<li><p><a href="https://github.com/pry/pry">pry</a> 方便除錯</p></li>
+
+<li><p><a href="awesome_print">awesome_print</a> 可以將變數內容顯示的較為美觀</p></li>
+</ul>
+
+<h2 id="regex-practice">Regex Practice</h2>
+
+<p>在解析網頁時常常會利用正規表示式來處理，以下是好用的參考網頁</p>
+
+<p><a href="http://rubular.com/">http://rubular.com/</a></p>
+
+<p><a href="https://regexone.com/">https://regexone.com/</a></p>
+
+<h2 id="use-activerecord-in-ruby-script">Use ActiveRecord in Ruby Script</h2>
+
+<p>希望能夠將網頁爬蟲抓取的資料寫進資料庫，可以使用 <a href="https://github.com/rails/rails/tree/master/activerecord">active-record</a></p>
+
+<p>這裡需要紀錄資料庫連線資訊的 <code>database.yml</code> ，這份檔案可以從任一 Rails 專案中取得範本</p>
+
+<p>將 <code>database.yml</code> 放在目錄下，便可以透過以下程式碼，讓 ActiveRecord 載入資料庫連線資訊：</p>
+
+<pre><code class="language-ruby">require &quot;active_record&quot;
+require &quot;yaml&quot;
+
+database_config_file_path = &quot;#{__dir__}/database.yml&quot;
+ActiveRecord::Base.establish_connection(
+  # load development environment setting
+  YAML.load_file(database_config_file_path)[&quot;development&quot;]
+)
+</code></pre>
+
+<p>但如何建立資料表跟 Model 呢？</p>
+
+<p>最簡單的方法就是開一個 Rails 專案跑 Migration 吧 :P</p>
+
+<p><a href="https://github.com/rails/rails/tree/master/activerecord">active-record</a></p>
+
+<p><a href="https://zh.wikipedia.org/wiki/YAML">yml</a></p>
+
+<h2 id="一些有關rails-model欄位設計的原則">一些有關rails model欄位設計的原則</h2>
+
+<p>分享了一些實務上的經驗：<a href="http://sibevin.github.io/posts/2016-09-01-232518-some-principles-about-rails-model-column-design">連結</a></p>
+
+<p>推薦的 gem:</p>
+
+<ul>
+<li><p><a href="https://github.com/brainspec/enumerize">enumerize</a> 有些欄位的值是有限選項的，譬如付款狀態，這時在資料庫可以用整數型態儲存，在程式中則用比較有意義的名稱來操作。這個 gem 支援 <a href="https://github.com/plataformatec/simple_form">simple_form</a> 18n ，在最下拉式選單的時候很方便</p></li>
+
+<li><p><a href="https://github.com/FooBarWidget/default_value_for">default_value_for</a> 以往除了在資料庫設定預設值，有時也需要用 before_save 來設定，使用這個 gem 能夠少寫一些程式碼</p></li>
+
+<li><p><a href="https://github.com/sibevin/uidable">uidable</a> 幫助產生 uid 欄位的值，預設使用 <code>Array.new(10){[*'a'..'z', *'0'..'9'].sample}.join</code> 產生亂數，但也可以透過覆寫<code>gen_*</code> 方法使用自己的產生邏輯</p></li>
+
+<li><p><a href="https://github.com/collectiveidea/awesome_nested_set">awesome_nested_set</a> 用來儲存<a href="https://zh.wikipedia.org/wiki/%E6%A8%B9%E7%8B%80%E7%B5%90%E6%A7%8B">樹狀結構</a>的 gem</p></li>
+
+<li><p><a href="https://github.com/aasm/aasm">aasm</a> 安安，有聽過<a href="https://zh.wikipedia.org/wiki/%E6%9C%89%E9%99%90%E7%8A%B6%E6%80%81%E6%9C%BA">狀態機</a>嗎？</p></li>
+</ul>
+
+<h2 id="database-comparition">Database Comparition</h2>
+
+<p><a href="https://memcached.org/">memcached</a> 超級快，但只有鍵值結構的存取方式</p>
+
+<p><a href="http://redis.io/">redis</a> 很快，支援許多資料結構</p>
+
+<p><a href="https://www.mongodb.com/">mongodb</a> javascript 的好朋友</p>
+
+<p><a href="https://www.elastic.co/products/elasticsearch">elasticsearch</a> 很熱門的搜尋引擎</p>
+
+<p><a href="http://ssdb.io/">ssdb</a> redis 的替代方案？</p>
+
+<p><a href="http://couchdb.apache.org/">couchdb</a> 可以直接開出 WEB API 存取資料</p>
+    </div>
+    <footer class="post-footer">
+      
+      <div class="share">
+        
+      </div>
+
+      <div class="pagenation">
+        <ul class="pagenation-list">
+          
+          <li class="pager previous">
+            <a href="https://timfanda35.github.io/2016/09/03/elixir-learning-resource/" data-toggle="tooltip" data-placement="top" title="Elixir 學習資源">&larr; Previous Post</a>
+          </li>
+          
+          
+          <li class="pager next">
+            <a href="https://timfanda35.github.io/2016/11/26/pocket-to-mail/" data-toggle="tooltip" data-placement="top" title="Side Project: Pocket to mail">Next Post &rarr;</a>
+          </li>
+          
+        </ul>
+      </div>
+    </footer>
+  </article>
+
+  
+  <article class="related"></article>
+
+  <script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "NewsArticle",
+  "mainEntityOfPage": {
+    "@type": "NewsArticle",
+    "@id": "https://timfanda35.github.io/2016/09/08/railsfun-0907-note/",
+    "headline": "受到朋友的邀請藉著這機會參加了一直很想去但又沒去的 RailsFun 聚會得到了蠻多新知識在下次聚會之前可以來好好研究一下Gitflow 如何利用 git branch 來協助軟體開發，在幾年前就有人提出了 gitflo",
+    "author": "Bear Su",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Bear Su",
+      "logo": ""
+    },
+    "image": "",
+    "datePublished": "2016-09-08"
+  },
+  "headline": "受到朋友的邀請藉著這機會參加了一直很想去但又沒去的 RailsFun 聚會得到了蠻多新知識在下次聚會之前可以來好好研究一下Gitflow 如何利用 git branch 來協助軟體開發，在幾年前就有人提出了 gitflo",
+  "alternativeHeadline": "Bear Su&#39;s blog",
+  "datePublished": "2016-09-08",
+  "dateModified": "2016-09-08",
+  "url": "https://timfanda35.github.io/2016/09/08/railsfun-0907-note/",
+  "wordCount": "159",
+  "author": {
+    "@type": "Person",
+    "name": "Bear Su"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Bear Su"
+  },
+  "image": "",
+  "genre": "rubyrails",
+  
+  "description": ""
+}
+</script>
+
+  <script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Person",
+  "@id": "https://timfanda35.github.io/2016/09/08/railsfun-0907-note/",
+  "name": "Bear Su"
+}
+</script>
+
+
+    </div>
+  </div>
+
+  <footer class="gfooter">
+  <div class="inner">
+    <div class="container">
+      <p class="copy"><small>(c) 2019 Bear Su&#39;s blog</small></p>
+
+      <nav class="footer-nav">
+        <div class="inner">
+          
+        </div>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+
+
+<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+<script src="https://timfanda35.github.io/js/script.js"></script>
+
+</body>
+</html>

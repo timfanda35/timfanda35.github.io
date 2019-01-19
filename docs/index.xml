@@ -1,0 +1,948 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Bear Su&#39;s blog</title>
+    <link>https://timfanda35.github.io/</link>
+    <description>Recent content on Bear Su&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>(c) 2019 Bear Su&#39;s blog</copyright>
+    <lastBuildDate>Sat, 01 Sep 2018 16:10:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://timfanda35.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>用指令建立 Cloud Build Trigger</title>
+      <link>https://timfanda35.github.io/2018/09/01/create-cloudbuild-trigger-with-command/</link>
+      <pubDate>Sat, 01 Sep 2018 16:10:00 +0800</pubDate>
+      
+      <guid>https://timfanda35.github.io/2018/09/01/create-cloudbuild-trigger-with-command/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://timfanda35.github.io/images/2018-09-01/create-cloudbuild-trigger-with-command/cover.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://www.pakutaso.com/20151102331web-14.html&#34;&gt;圖片來源&lt;/a&gt;
+&lt;a href=&#34;https://www.pakutaso.com/&#34;&gt;フリー写真素材ぱくたそ&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;目前還無法使用 &lt;code&gt;gcloud&lt;/code&gt; 指令直接建立 Cloud Build Trigger，必須要透過 REST API&lt;/p&gt;
+
+&lt;p&gt;在編寫 Shell Script 的時候對於認證的部分就比較麻煩，要使用 REST API 就必須要有 Token 來驗證身份&lt;/p&gt;
+
+&lt;p&gt;現在我們可以透過 &lt;code&gt;gcloud auth application-default print-access-token&lt;/code&gt; 輕鬆取得所需的 Token&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>用快取加速 Cloud Build 建置容器</title>
+      <link>https://timfanda35.github.io/2018/09/01/cloudbuild-with-cache/</link>
+      <pubDate>Sat, 01 Sep 2018 14:40:00 +0800</pubDate>
+      
+      <guid>https://timfanda35.github.io/2018/09/01/cloudbuild-with-cache/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;http://i.imgur.com/EsiorQx.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://www.pakutaso.com/20160628181pc-11.html&#34;&gt;圖片來源&lt;/a&gt;
+&lt;a href=&#34;https://www.pakutaso.com/&#34;&gt;フリー写真素材ぱくたそ&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;參考至 Google Cloud Platform Cloud Build 官方文件：&lt;a href=&#34;https://cloud.google.com/cloud-build/docs/speeding-up-builds&#34;&gt;Speeding up your Builds&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;可以使用之前建置過的 Docker Image 來當作快取，來加快建置 Docker Image 的速度&lt;/p&gt;
+
+&lt;p&gt;這方法需要使用 &lt;code&gt;cloudbuild.yaml&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;使用方式：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;gcloud builds submit --config cloudbuild.yaml .
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;或是在設定 cloud build trigger 時指定使用 &lt;code&gt;cloudbuild.yaml&lt;/code&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Ruby 透過 FreeType 產生點陣文字</title>
+      <link>https://timfanda35.github.io/2017/05/17/ruby-by-using-treetype-to-draw-text-to-a-ascii-art/</link>
+      <pubDate>Wed, 17 May 2017 13:28:00 +0800</pubDate>
+      
+      <guid>https://timfanda35.github.io/2017/05/17/ruby-by-using-treetype-to-draw-text-to-a-ascii-art/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;http://i.imgur.com/EsiorQx.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://www.pakutaso.com/20160628181pc-11.html&#34;&gt;圖片來源&lt;/a&gt;
+&lt;a href=&#34;https://www.pakutaso.com/&#34;&gt;フリー写真素材ぱくたそ&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;最近因為工作上的需求，需要將使用者輸入的文字轉成 16 x 16 的點陣文字&lt;/p&gt;
+
+&lt;p&gt;在網路上找到 jserv 這篇 &lt;a href=&#34;http://blog.linux.org.tw/~jserv/archives/002050.html&#34;&gt;透過 FreeType 繪製 Unicode ASCII Art&lt;/a&gt; 而有了實作的方向&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>機器學習筆記(week1)</title>
+      <link>https://timfanda35.github.io/2017/05/06/machine-learning-note-week1/</link>
+      <pubDate>Sat, 06 May 2017 08:13:00 +0800</pubDate>
+      
+      <guid>https://timfanda35.github.io/2017/05/06/machine-learning-note-week1/</guid>
+      <description>&lt;p&gt;最近朋友貼了這個課程給我:&lt;a href=&#34;https://www.coursera.org/learn/machine-learning/home/welcome&#34;&gt;机器学习 - 斯坦福大学&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;總共有 11 週的課程&lt;/p&gt;
+
+&lt;p&gt;上班前看一部分，下班後再複習做做筆記&lt;/p&gt;
+
+&lt;p&gt;因為裡面的理論會用到微積分，只好在休息時間問問對數學比較拿手的朋友裡面的公式是如何推導的&lt;/p&gt;
+
+&lt;p&gt;有一種再補大學學債的感覺&lt;/p&gt;
+
+&lt;p&gt;第一週的主題為：&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Introduction&lt;/li&gt;
+&lt;li&gt;Linear Regression with One Variable&lt;/li&gt;
+&lt;li&gt;Linear Algebra Review&lt;/li&gt;
+&lt;/ol&gt;</description>
+    </item>
+    
+    <item>
+      <title>Google Cloud OnBoard 20170419</title>
+      <link>https://timfanda35.github.io/2017/04/19/google-cloud-onboard-20170419/</link>
+      <pubDate>Wed, 19 Apr 2017 15:16:00 +0800</pubDate>
+      
+      <guid>https://timfanda35.github.io/2017/04/19/google-cloud-onboard-20170419/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;http://i.imgur.com/Yyals6x.jpg&#34; alt=&#34;Imgur&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;今天參加了 &lt;a href=&#34;https://cloudplatformonline.com/gcp-tw-googlecloudonboard.html&#34;&gt;Google Cloud OnBoard&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;內容主要是 &lt;a href=&#34;https://cloud.google.com/&#34;&gt;Google Cloud Platform&lt;/a&gt; (GCP) 入門介紹&lt;/p&gt;
+
+&lt;p&gt;參加的人超級多，早餐跟下午茶都搶不到 XD&lt;/p&gt;
+
+&lt;h2 id=&#34;主要內容&#34;&gt;主要內容&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Module 1 - Google Cloud Platform 概要&lt;/li&gt;
+&lt;li&gt;Module 2 - 開始學習 Google Cloud Platform 的方法&lt;/li&gt;
+&lt;li&gt;Module 3 - Google App Engine 與 Cloud Datastore&lt;/li&gt;
+&lt;li&gt;Module 4 - Google Cloud Platform 的 Storage 功能&lt;/li&gt;
+&lt;li&gt;Module 5 - Google Container Engine&lt;/li&gt;
+&lt;li&gt;Module 6 - Google Compute Engine 與 Network 功能&lt;/li&gt;
+&lt;li&gt;GCP 的大數據分析工具 / 機器學習與深度學習&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
+    <item>
+      <title>Ruby gem daemons 筆記</title>
+      <link>https://timfanda35.github.io/2017/03/26/ruby-gem-daemons-note/</link>
+      <pubDate>Sun, 26 Mar 2017 08:04:00 +0800</pubDate>
+      
+      <guid>https://timfanda35.github.io/2017/03/26/ruby-gem-daemons-note/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;http://i.imgur.com/ZjslPbL.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://www.pakutaso.com/20170137024post-10119.html&#34;&gt;圖片來源&lt;/a&gt;
+&lt;a href=&#34;https://www.pakutaso.com/&#34;&gt;フリー写真素材ぱくたそ&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/thuehlinger/daemons&#34;&gt;daemons gem&lt;/a&gt; 是一個能夠讓 ruby 程式以行程(process)獨立執行的 gem&lt;/p&gt;
+
+&lt;p&gt;當你想要有一個程式能夠在背景持續執行時，就可以可慮使用 &lt;a href=&#34;https://github.com/thuehlinger/daemons&#34;&gt;daemons gem&lt;/a&gt; 來協助開發&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Ruby Association Certified Ruby Programmer Silver 考試準備</title>
+      <link>https://timfanda35.github.io/2017/03/19/ruby-association-certified-ruby-programmer-silver-exam-preparation/</link>
+      <pubDate>Sun, 19 Mar 2017 06:35:00 +0800</pubDate>
+      
+      <guid>https://timfanda35.github.io/2017/03/19/ruby-association-certified-ruby-programmer-silver-exam-preparation/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;http://i.imgur.com/3PXgdKS.jpg&#34; alt=&#34;Imgur&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://unsplash.com/search/silver?photo=j1HU-Oll7KI&#34;&gt;圖片來源&lt;/a&gt;
+&lt;a href=&#34;https://www.pakutaso.com/&#34;&gt;フリー写真素材ぱくたそ&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;其實去年就考過並通過測驗了&lt;/p&gt;
+
+&lt;p&gt;但一直很懶得整理就是了 XD&lt;/p&gt;
+
+&lt;p&gt;因為中文資訊不怎麼多，有很大部分都是看日文網站來準備的&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.ruby.or.jp/en/certification/examination/&#34;&gt;官方資訊&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>ActiveRecord merge method</title>
+      <link>https://timfanda35.github.io/2017/03/19/active-record-merge-method/</link>
+      <pubDate>Sun, 19 Mar 2017 05:13:00 +0800</pubDate>
+      
+      <guid>https://timfanda35.github.io/2017/03/19/active-record-merge-method/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;http://i.imgur.com/EsiorQx.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://www.pakutaso.com/20160628181pc-11.html&#34;&gt;圖片來源&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;之前查資料找到這篇 &lt;a href=&#34;http://stackoverflow.com/questions/6334537/rails-where-clause-on-model-association&#34;&gt;Rails where() clause on model association?&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;原來在查詢條件包含關聯表欄位的時候還有 &lt;code&gt;merge&lt;/code&gt; 的方法可以用&lt;/p&gt;
+
+&lt;p&gt;之前都在 &lt;code&gt;joins&lt;/code&gt; 裡面硬刻 SQL query&amp;hellip;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Ruby Time and Date</title>
+      <link>https://timfanda35.github.io/2017/03/05/ruby-time-and-date/</link>
+      <pubDate>Sun, 05 Mar 2017 13:33:00 +0800</pubDate>
+      
+      <guid>https://timfanda35.github.io/2017/03/05/ruby-time-and-date/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;http://i.imgur.com/EsiorQx.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://www.pakutaso.com/20160628181pc-11.html&#34;&gt;圖片來源&lt;/a&gt;
+&lt;a href=&#34;https://www.pakutaso.com/&#34;&gt;フリー写真素材ぱくたそ&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;內容是我在準備認證考試時，看文件所留下的一些紀錄&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Ruby Pre-defined variables</title>
+      <link>https://timfanda35.github.io/2017/02/26/ruby-pre-defined-variables/</link>
+      <pubDate>Sun, 26 Feb 2017 07:41:00 +0800</pubDate>
+      
+      <guid>https://timfanda35.github.io/2017/02/26/ruby-pre-defined-variables/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;http://i.imgur.com/EsiorQx.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://www.pakutaso.com/20160628181pc-11.html&#34;&gt;圖片來源&lt;/a&gt;
+&lt;a href=&#34;https://www.pakutaso.com/&#34;&gt;フリー写真素材ぱくたそ&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;ruby 本身有先定義了一些變數與常數&lt;/p&gt;
+
+&lt;p&gt;可以用在取得系統資訊，或是除錯上&lt;/p&gt;
+
+&lt;p&gt;有些變數可以使得在開發時少打一些程式碼，但相對的可讀性可能就會降低一些(不是所有人都熟悉符號的意義)&lt;/p&gt;
+
+&lt;p&gt;這裡紀錄一些我覺得值得一提的部分&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Ruby Array 的一些筆記</title>
+      <link>https://timfanda35.github.io/2017/02/19/ruby-array-methods/</link>
+      <pubDate>Sun, 19 Feb 2017 14:16:00 +0800</pubDate>
+      
+      <guid>https://timfanda35.github.io/2017/02/19/ruby-array-methods/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;http://i.imgur.com/EsiorQx.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://www.pakutaso.com/20160628181pc-11.html&#34;&gt;圖片來源&lt;/a&gt;
+&lt;a href=&#34;https://www.pakutaso.com/&#34;&gt;フリー写真素材ぱくたそ&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;紀錄一下我覺得值得一提的那些陣列兩三事&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Ruby/Rails load setting file</title>
+      <link>https://timfanda35.github.io/2017/02/11/ruby-rails-load-setting-file/</link>
+      <pubDate>Sat, 11 Feb 2017 11:59:00 +0800</pubDate>
+      
+      <guid>https://timfanda35.github.io/2017/02/11/ruby-rails-load-setting-file/</guid>
+      <description>&lt;p&gt;最近在網路上看到了這兩篇文章：&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://ruby-china.org/topics/32126&#34;&gt;Rails 最佳实践之配置管理&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://railsfun.tw/t/rails-database-yml-global-settings/996&#34;&gt;在 Rails 內建立類似 database.yml 的設定文件（global settings）&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;才知道原來 Rails 4.2 之後有好用的 &lt;code&gt;config_for&lt;/code&gt; 方法啊&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>ruby-refinement</title>
+      <link>https://timfanda35.github.io/2017/02/05/ruby-refinement/</link>
+      <pubDate>Sun, 05 Feb 2017 05:58:00 +0800</pubDate>
+      
+      <guid>https://timfanda35.github.io/2017/02/05/ruby-refinement/</guid>
+      <description>&lt;p&gt;今天整理收集的文章時看到了這篇 &lt;a href=&#34;https://www.toptal.com/ruby/tips-and-practices?utm_medium=sponsored_post&amp;amp;utm_campaign=ruby_tips&amp;amp;utm_source=facebook.com&#34;&gt;Ruby Best Practices and Tips by Toptal Developers&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;發現裡面的範例有到用 refinement&lt;/p&gt;
+
+&lt;p&gt;雖然之前知道有這個語法，但看了範例才知道該怎麼用&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>logger tip</title>
+      <link>https://timfanda35.github.io/2017/02/04/logger-tip/</link>
+      <pubDate>Sat, 04 Feb 2017 07:05:00 +0800</pubDate>
+      
+      <guid>https://timfanda35.github.io/2017/02/04/logger-tip/</guid>
+      <description>&lt;p&gt;所謂有記有保庇&lt;/p&gt;
+
+&lt;p&gt;log 能夠幫助瞭解程式在執行的時候做了什麼事&lt;/p&gt;
+
+&lt;p&gt;log 記得好在除錯的時候能幫上很大的忙&lt;/p&gt;
+
+&lt;p&gt;這邊紀錄跟 logger 的一些相關技巧&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>swagger &#43; grape &#43; rack</title>
+      <link>https://timfanda35.github.io/2017/01/24/swagger-grape-rack/</link>
+      <pubDate>Tue, 24 Jan 2017 06:43:00 +0800</pubDate>
+      
+      <guid>https://timfanda35.github.io/2017/01/24/swagger-grape-rack/</guid>
+      <description>&lt;p&gt;常常聽到 &lt;a href=&#34;http://swagger.io/&#34;&gt;swagger&lt;/a&gt; 跟 &lt;a href=&#34;https://github.com/ruby-grape/grape&#34;&gt;grape&lt;/a&gt; 的名字&lt;/p&gt;
+
+&lt;p&gt;所以用一個很陽春的&lt;a href=&#34;https://github.com/timfanda35/test-grape-api&#34;&gt;專案&lt;/a&gt;練習一下要如何使用&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Start ruby project with bundler</title>
+      <link>https://timfanda35.github.io/2017/01/05/start-ruby-project-with-bundler/</link>
+      <pubDate>Thu, 05 Jan 2017 12:00:00 +0800</pubDate>
+      
+      <guid>https://timfanda35.github.io/2017/01/05/start-ruby-project-with-bundler/</guid>
+      <description>&lt;p&gt;有時候會想要寫個 side project&lt;/p&gt;
+
+&lt;p&gt;不是只有一個檔案的 script&lt;/p&gt;
+
+&lt;p&gt;因為會用到其他人寫好的 gem，想要用 &lt;a href=&#34;http://bundler.io/&#34;&gt;bundler&lt;/a&gt; 來管理&lt;/p&gt;
+
+&lt;p&gt;在這裡紀錄一下建立用 &lt;a href=&#34;http://bundler.io/&#34;&gt;bundler&lt;/a&gt; 管理依賴的 ruby 專案的起始步驟&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Remove RVM</title>
+      <link>https://timfanda35.github.io/2017/01/04/remove-rvm/</link>
+      <pubDate>Wed, 04 Jan 2017 09:46:00 +0800</pubDate>
+      
+      <guid>https://timfanda35.github.io/2017/01/04/remove-rvm/</guid>
+      <description>最近在整理筆記，慢慢會把一些東西搬上來
+一開始學 Rails 的時候是用 RVM 在管理 ruby 版本，後來則改用了 rbenv
+兩者如果同時安裝在同一台電腦上的話就會有奇怪的問題發生
+而且實際上兩者的主要功能都差不多
+所以如果要使用 rbenv 的話，記得要把RVM 砍掉
+移除 RVM
+$ rvm implode $ rm -rf ~/.rvm  移除 .bashrc 與 .bash_profile 內 rvm 相關的東西</description>
+    </item>
+    
+    <item>
+      <title>Elixir Taiwan Meetup #8</title>
+      <link>https://timfanda35.github.io/2016/12/06/elixir-taiwan-meetup-8/</link>
+      <pubDate>Tue, 06 Dec 2016 13:50:00 +0800</pubDate>
+      
+      <guid>https://timfanda35.github.io/2016/12/06/elixir-taiwan-meetup-8/</guid>
+      <description>&lt;p&gt;最近正在上 &lt;a href=&#34;https://www.udemy.com/the-complete-elixir-and-phoenix-bootcamp-and-tutorial/learn/v4/overview&#34;&gt;The Complete Elixir and Phoenix Bootcamp&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;對我這初學者而言還是有蠻多觀念上的收穫&lt;/p&gt;
+
+&lt;p&gt;說到這才想到資料夾裡還有之前買的電子書還沒看&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://elixir.tw/&#34;&gt;Elixir.tw&lt;/a&gt;  雖然還在建構中，但可以加入&lt;a href=&#34;https://slack.com/&#34;&gt;Slack&lt;/a&gt; 聊天了唷&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>RubyConf Taiwan 2016 第一天</title>
+      <link>https://timfanda35.github.io/2016/12/02/ruby-conf-taiwan-2016-day-1/</link>
+      <pubDate>Fri, 02 Dec 2016 15:51:00 +0800</pubDate>
+      
+      <guid>https://timfanda35.github.io/2016/12/02/ruby-conf-taiwan-2016-day-1/</guid>
+      <description>&lt;p&gt;今年第一次參加 &lt;a href=&#34;https://2016.rubyconf.tw/&#34;&gt;RubyConf Taiwan 2016&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;紀錄今天聽到的議程：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://2016.rubyconf.tw/#Yukihiro (Matz) Matsumoto&#34;&gt;Beware of Alpha Syndrome&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://2016.rubyconf.tw/#Ivan Nemytchenko&#34;&gt;Breaking Bad Habits with GitLab CI&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://2016.rubyconf.tw/#Shyouhei Urabe&#34;&gt;Optimizing ruby core&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://2016.rubyconf.tw/#Kazuyuki Honda&#34;&gt;How to write complex data pipelines in Ruby&lt;/a&gt; | &lt;a href=&#34;https://speakerdeck.com/hakobera/how-to-write-complex-data-pipeline-in-ruby&#34;&gt;簡報&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://2016.rubyconf.tw/#Julian Cheal&#34;&gt;It&amp;rsquo;s More Fun to Compute&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://2016.rubyconf.tw/#Kei Sawada&#34;&gt;How I made a pure-Ruby word2vec program more than 3x faster&lt;/a&gt; | &lt;a href=&#34;https://speakerdeck.com/remore/how-i-made-a-pure-ruby-word2vec-program-more-than-3x-faster&#34;&gt;簡報&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://2016.rubyconf.tw/#Satoshi Tagomori&#34;&gt;How to Write Middleware in Ruby&lt;/a&gt; | &lt;a href=&#34;http://www.slideshare.net/tagomoris/how-to-write-middleware-in-ruby&#34;&gt;簡報&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;之後如有提供投影片再補充連結&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>RubyConf Taiwan 2016 第二天</title>
+      <link>https://timfanda35.github.io/2016/12/02/ruby-conf-taiwan-2016-day-2/</link>
+      <pubDate>Fri, 02 Dec 2016 15:51:00 +0800</pubDate>
+      
+      <guid>https://timfanda35.github.io/2016/12/02/ruby-conf-taiwan-2016-day-2/</guid>
+      <description>&lt;p&gt;今年第一次參加 &lt;a href=&#34;https://2016.rubyconf.tw/&#34;&gt;RubyConf Taiwan 2016&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;今天有記得要多做一些紀錄，但還是零零散散啊&amp;hellip;&lt;/p&gt;
+
+&lt;p&gt;紀錄今天聽到的議程：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://2016.rubyconf.tw/#Zong-Yu Wu&#34;&gt;利用Ruby撰寫勒索軟體並探討如何安全的使用密碼系統&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://2016.rubyconf.tw/#Luba Tang&#34;&gt;Ruby, facing the change of world-wide server-class microprocessors&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://2016.rubyconf.tw/#Eric Hodel&#34;&gt;Building maintainable command-line tools with MRuby&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://2016.rubyconf.tw/#Brad Urani&#34;&gt;Buidling HUGE web apps: Rails at 1,000,000 Lines of Code&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://2016.rubyconf.tw/#Layne McNish&#34;&gt;Solving your onboarding problems with Ruby&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://2016.rubyconf.tw/#Chien-Wei Chu&#34;&gt;利用 Sidekiq Enterprise 打造高效率與高可靠度的爬蟲系統
+&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://2016.rubyconf.tw/#Kiyoshi Nomo&#34;&gt;What is the Rack Hijacking API&lt;/a&gt; | &lt;a href=&#34;http://www.slideshare.net/TokyoIncidents/what-is-rack-hijacking-api-69807904&#34;&gt;簡報&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://2016.rubyconf.tw/#Florian Dutey&#34;&gt;Large scale Rails applications&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://2016.rubyconf.tw/#Konstantin Hasse&#34;&gt;How we replaced salary negotiations with a Sinatra app&lt;/a&gt; | &lt;a href=&#34;https://speakerdeck.com/rkh/how-we-replaced-salary-negotiations-with-a-sinatra-app&#34;&gt;簡報&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;之後如有提供投影片再補充連結&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Side Project: Pocket to mail</title>
+      <link>https://timfanda35.github.io/2016/11/26/pocket-to-mail/</link>
+      <pubDate>Sat, 26 Nov 2016 06:53:00 +0800</pubDate>
+      
+      <guid>https://timfanda35.github.io/2016/11/26/pocket-to-mail/</guid>
+      <description>&lt;p&gt;最近寫的小專案 &lt;a href=&#34;https://github.com/timfanda35/pocket_to_mail&#34;&gt;pocket_to_mail&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;主要原因是之前都是使用 &lt;a href=&#34;https://getpocket.com/&#34;&gt;Pocket&lt;/a&gt; 在收藏網路文章&lt;/p&gt;
+
+&lt;p&gt;然後在有空的時候再打開 &lt;a href=&#34;https://getpocket.com/&#34;&gt;Pocket&lt;/a&gt; 整理&lt;/p&gt;
+
+&lt;p&gt;不過每次要整理的時候看到一大堆文章就&amp;hellip;懶了&lt;/p&gt;
+
+&lt;p&gt;所以決定寫一個小專案來解決這個問題&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>RailsFun-0907筆記</title>
+      <link>https://timfanda35.github.io/2016/09/08/railsfun-0907-note/</link>
+      <pubDate>Thu, 08 Sep 2016 01:46:00 +0800</pubDate>
+      
+      <guid>https://timfanda35.github.io/2016/09/08/railsfun-0907-note/</guid>
+      <description>&lt;p&gt;受到朋友的邀請&lt;/p&gt;
+
+&lt;p&gt;藉著這機會參加了一直很想去但又沒去的 RailsFun 聚會&lt;/p&gt;
+
+&lt;p&gt;得到了蠻多新知識&lt;/p&gt;
+
+&lt;p&gt;在下次聚會之前可以來好好研究一下&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Elixir 學習資源</title>
+      <link>https://timfanda35.github.io/2016/09/03/elixir-learning-resource/</link>
+      <pubDate>Sat, 03 Sep 2016 09:47:00 +0800</pubDate>
+      
+      <guid>https://timfanda35.github.io/2016/09/03/elixir-learning-resource/</guid>
+      <description>&lt;p&gt;最近有空在學 Functional programming&lt;/p&gt;
+
+&lt;p&gt;選了 Elixir，也有參加 meetup&lt;/p&gt;
+
+&lt;p&gt;這篇紀錄了目前我在學習過程中收集的資源&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Modern Web 2016</title>
+      <link>https://timfanda35.github.io/2016/08/26/modern-web-2016/</link>
+      <pubDate>Fri, 26 Aug 2016 02:14:00 +0800</pubDate>
+      
+      <guid>https://timfanda35.github.io/2016/08/26/modern-web-2016/</guid>
+      <description>&lt;p&gt;這次收到朋友邀約就趕快報名早鳥票(越晚越貴啊)&lt;/p&gt;
+
+&lt;p&gt;場地在松菸的文創大樓，交通很方便&lt;/p&gt;
+
+&lt;p&gt;這次只記錄一下有興趣的議程&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>COSCUP 2016</title>
+      <link>https://timfanda35.github.io/2016/08/21/coscup-2016/</link>
+      <pubDate>Sun, 21 Aug 2016 13:50:00 +0800</pubDate>
+      
+      <guid>https://timfanda35.github.io/2016/08/21/coscup-2016/</guid>
+      <description>&lt;p&gt;今年再次去 COSCUP 去大拜拜充充電&lt;/p&gt;
+
+&lt;p&gt;順便帶朋友去抓寶可夢 (X&lt;/p&gt;
+
+&lt;p&gt;這是 COSCUP 2016 的&lt;a href=&#34;http://coscup.org/2016/schedules.html&#34;&gt;議程&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://beta.hackfoldr.org/coscup2016&#34;&gt;Hackfolder 共筆&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Draw ASCII Diagram with Graph-Easy</title>
+      <link>https://timfanda35.github.io/2016/08/11/draw-ascii-diagram-with-graph-easy/</link>
+      <pubDate>Thu, 11 Aug 2016 09:15:00 +0800</pubDate>
+      
+      <guid>https://timfanda35.github.io/2016/08/11/draw-ascii-diagram-with-graph-easy/</guid>
+      <description>&lt;p&gt;因為想要用 ASCII 畫圖，上網搜尋了一番&lt;/p&gt;
+
+&lt;p&gt;需求是可以用指令產生，不依賴 java&lt;/p&gt;
+
+&lt;p&gt;最後找到了 &lt;a href=&#34;https://github.com/ironcamel/Graph-Easy&#34;&gt;graph-easy&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;這是 perl 的模組，可以用來繪製 ASCII Diagram，也能匯出成許多格式&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Elixir Char List</title>
+      <link>https://timfanda35.github.io/2016/07/27/elixir-char-list/</link>
+      <pubDate>Wed, 27 Jul 2016 14:23:00 +0800</pubDate>
+      
+      <guid>https://timfanda35.github.io/2016/07/27/elixir-char-list/</guid>
+      <description>&lt;p&gt;最近除了 Ruby 以外，偶爾也有看看其他的語言&lt;/p&gt;
+
+&lt;p&gt;像是 &lt;a href=&#34;http://elixir-lang.org/&#34;&gt;Elixir&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;寫寫函數式語言轉轉腦筋也是挺不錯的&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>透過 jwt 使用 Google Analytics API</title>
+      <link>https://timfanda35.github.io/2016/06/15/use-jwt-request-google-analytics-api/</link>
+      <pubDate>Wed, 15 Jun 2016 14:21:00 +0800</pubDate>
+      
+      <guid>https://timfanda35.github.io/2016/06/15/use-jwt-request-google-analytics-api/</guid>
+      <description>&lt;p&gt;最近需要希望能夠不用網頁登入就能取得 Gooogle Analytics 的資料&lt;/p&gt;
+
+&lt;p&gt;但因為跟 &lt;a href=&#34;ref1&#34;&gt;google-api-ruby-client&lt;/a&gt; 不熟，只會用網頁登入&lt;/p&gt;
+
+&lt;p&gt;在搜尋後看到了這一篇&lt;a href=&#34;https://zespia.tw/blog/2014/07/28/use-google-analytics-api-on-server/&#34;&gt;《在伺服器上使用 Google Analytics API》&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;I got it!!!&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Rails Hosting Survey 2016</title>
+      <link>https://timfanda35.github.io/2016/06/13/rails-hosting-survey-2016/</link>
+      <pubDate>Mon, 13 Jun 2016 02:24:00 +0800</pubDate>
+      
+      <guid>https://timfanda35.github.io/2016/06/13/rails-hosting-survey-2016/</guid>
+      <description>連結：http://rails-hosting.com/2016/
+好奇其他 Rails Developers 都用些什麼工具嗎？
+來看看最新的調查吧 :D</description>
+    </item>
+    
+    <item>
+      <title>好用的 crontab 線上編輯器</title>
+      <link>https://timfanda35.github.io/2016/06/12/easy-to-use-crontab-online-editor/</link>
+      <pubDate>Sun, 12 Jun 2016 07:03:00 +0800</pubDate>
+      
+      <guid>https://timfanda35.github.io/2016/06/12/easy-to-use-crontab-online-editor/</guid>
+      <description>連結：http://crontab.guru/
+介面簡單明瞭，修改後會立即顯示口語化的解釋
+還有 random 可以讓你亂玩看各式範例
+想知道更多有關 crontab 的用法也有 man page 的頁面讓你看
+延伸閱讀推薦： 鳥哥的 Linux 私房菜 &amp;ndash; 第十五章、例行性工作排程(crontab)</description>
+    </item>
+    
+    <item>
+      <title>Rails 安裝教學</title>
+      <link>https://timfanda35.github.io/2016/04/21/installrails/</link>
+      <pubDate>Thu, 21 Apr 2016 09:09:00 +0800</pubDate>
+      
+      <guid>https://timfanda35.github.io/2016/04/21/installrails/</guid>
+      <description>我想要推薦這一個網站 InstallRails.com
+這個網站一步步教你在不同平台安裝開發 rails 的環境，圖文並茂，說明詳細
+以 Mac 平台來說，會安裝的項目有： * Xcode * Homebrew * Git * RVM * Ruby * Rails * Sublime Text
+不過在教學中安裝管理 Ruby 版本的工具是 rvm
+我自己喜歡用的管理 Ruby 版本的工具是 rbenv
+除了安裝 Rails，在請別人安裝 Ruby 的時候我也會丟這個網站給他，請他依步驟做到安裝 RVM
+可以省下很多說明的時間 ?</description>
+    </item>
+    
+    <item>
+      <title>推薦協助提高程式碼品質的 Gem</title>
+      <link>https://timfanda35.github.io/2016/03/22/gems-for-improving-code-quality/</link>
+      <pubDate>Tue, 22 Mar 2016 11:28:00 +0800</pubDate>
+      
+      <guid>https://timfanda35.github.io/2016/03/22/gems-for-improving-code-quality/</guid>
+      <description>&lt;p&gt;用 Rails 開發網站時除了寫測試之外，還可以透過一些 gem 來協助維護 code 的品質&lt;/p&gt;
+
+&lt;p&gt;這篇推薦幾個 gem：&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/presidentbeef/brakeman&#34;&gt;Brakeman - 檢查安全性&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/flyerhzm/bullet&#34;&gt;Bullet - 檢查 N+1 Query&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/whitesmith/rubycritic&#34;&gt;RubyCritic - 靜態分析程式碼(已整合多套工具)&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/newrelic/rpm&#34;&gt;New Relic RPM - 監測網站效能&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>週刊收集</title>
+      <link>https://timfanda35.github.io/2016/03/04/weekly-collection/</link>
+      <pubDate>Fri, 04 Mar 2016 09:15:00 +0800</pubDate>
+      
+      <guid>https://timfanda35.github.io/2016/03/04/weekly-collection/</guid>
+      <description>最近越來越多資訊週刊出版了
+花個半天掃過一遍吸收新知
+覺得有興趣的文章就加入 Pocket
+等之後有空再一次整理貼到 Quip 的筆記
+週刊的內容大多是資訊科技的新聞與文章連結，並加上一些感想或注釋
+這邊紀錄一下我有訂閱的資訊週刊
+CodeTengu 碼天狗週刊 http://weekly.codetengu.com
+這是我第一個訂閱的週刊，原因是因為首頁很酷，內容幽默有趣
+有興趣當 curator 可以到這裡來： GitHub Repo
+TechBridge 技術週刊 http://weekly.techbridge.cc
+每期週刊的內容都很豐富，包含不同領域的新知
+也有日報唷： https://www.techbridge.cc
+晨間花農 知識週刊 https://gardenernews.ongoodbits.com
+光看名稱以為是園藝週刊 XD
+但內容還是貨真價實的資訊文章
+偶爾會包含管理與 UI 設計等內容
+Green Ruby News http://greenruby.org
+收集當週熱門文章，除了 Ruby 語言，偶爾也會刊載其他技術文章
+Ruby Asia [http://rubyasia.com][http://rubyasia.com]
+雙週刊，收集在亞洲地區的 Ruby 新聞</description>
+    </item>
+    
+    <item>
+      <title>Vim 指令( buffer 與 window )</title>
+      <link>https://timfanda35.github.io/2015/10/22/vim-buffer-window/</link>
+      <pubDate>Thu, 22 Oct 2015 13:29:00 +0800</pubDate>
+      
+      <guid>https://timfanda35.github.io/2015/10/22/vim-buffer-window/</guid>
+      <description>&lt;p&gt;最近在看 &lt;a href=&#34;http://derekwyatt.org/vim/tutorials/&#34;&gt;Vim Videos - Posted by Derek Wyatt on&lt;/a&gt; 來學 Vim 的操作，這篇是我看完 &lt;a href=&#34;http://derekwyatt.org/vim/tutorials/novice/&#34;&gt;Vim Novice Video Tutorials&lt;/a&gt; 章節中所做的筆記&lt;/p&gt;
+
+&lt;p&gt;一般游標移動的指令，我在 &lt;a href=&#34;posts/304816-vim-command&#34;&gt;Vim 指令(游標移動)&lt;/a&gt; 這篇有紀錄過就不再贅述了&lt;/p&gt;
+
+&lt;p&gt;以下主要紀錄有關在 Vim 中操作 buffer 與 window 的指令&lt;/p&gt;
+
+&lt;p&gt;有任何錯誤或建議都歡迎告知:)&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>安裝 Powerline</title>
+      <link>https://timfanda35.github.io/2015/10/18/install-the-powerline/</link>
+      <pubDate>Sun, 18 Oct 2015 13:30:00 +0800</pubDate>
+      
+      <guid>https://timfanda35.github.io/2015/10/18/install-the-powerline/</guid>
+      <description>&lt;p&gt;因為注意到 &lt;a href=&#34;https://github.com/Lokaltog/vim-powerline&#34;&gt;vim-powerling&lt;/a&gt; 已經不再維護，而建議改用 &lt;a href=&#34;https://github.com/powerline/powerline&#34;&gt;Powerline&lt;/a&gt; 時，就想說來試試看。&lt;/p&gt;
+
+&lt;p&gt;在設定 Vim 的狀態列時沒什麼問題，但在設定 Shell 時就出現奇怪的情況了，好在後來有解決。&lt;/p&gt;
+
+&lt;p&gt;這篇紀錄我在 Mac OSX 安裝 &lt;a href=&#34;https://github.com/powerline/powerline&#34;&gt;Powerline&lt;/a&gt; 的步驟。&lt;/p&gt;
+
+&lt;p&gt;有任何錯誤或建議都歡迎告知:)&lt;/p&gt;
+
+&lt;p&gt;環境：
+- OS: OSX EI Capitan version 10.11
+- Shell: bash&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>用 Ruby 建立 Web 專案的一些起始 gem</title>
+      <link>https://timfanda35.github.io/2015/10/17/ruby-web-start-gem/</link>
+      <pubDate>Sat, 17 Oct 2015 05:36:00 +0800</pubDate>
+      
+      <guid>https://timfanda35.github.io/2015/10/17/ruby-web-start-gem/</guid>
+      <description>&lt;p&gt;Ruby 有許多 gem 可以用來做 web 開發，以下列出一些我所找到可以作為起頭的 gem 提供大家參考。&lt;/p&gt;
+
+&lt;p&gt;有任何錯誤與建議歡迎告知:)&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&#34;web&#34;&gt;Web&lt;/h1&gt;
+
+&lt;h2 id=&#34;rack-http-rack-github-io&#34;&gt;&lt;a href=&#34;http://rack.github.io&#34;&gt;Rack&lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;提供 webserver 最小的功能介面，大多 Ruby 的 web 開發框架都是基於 Rack 所開發的。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;rails-http-rubyonrails-org&#34;&gt;&lt;a href=&#34;http://rubyonrails.org&#34;&gt;Rails&lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;最知名的魔法書，能快速地開發功能豐富的網站。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;sinatra-http-www-sinatrarb-com&#34;&gt;&lt;a href=&#34;http://www.sinatrarb.com&#34;&gt;Sinatra&lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;比 Rails 輕量的開發框架，適合用來開發小型專案或是 API。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;padrino-http-www-padrinorb-com&#34;&gt;&lt;a href=&#34;http://www.padrinorb.com&#34;&gt;Padrino&lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;基於 Sinatra 的開發框架，提供更多方便的資源開發網站。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;cuba-http-cuba-is&#34;&gt;&lt;a href=&#34;http://cuba.is&#34;&gt;Cuba&lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;試圖比使用 Sinatra 寫更少 code 的開發框架，官方 Slide 表示效能比 Sinatra 好。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;franky-https-github-com-adlerhsieh-franky&#34;&gt;&lt;a href=&#34;https://github.com/adlerhsieh/franky&#34;&gt;Franky&lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;產生小型的 web 專案，適合用來實驗想法的小專案。&lt;/p&gt;
+&lt;/blockquote&gt;</description>
+    </item>
+    
+    <item>
+      <title>Ruby 學習資源</title>
+      <link>https://timfanda35.github.io/2015/10/16/ruby-learning-resource/</link>
+      <pubDate>Fri, 16 Oct 2015 14:24:00 +0800</pubDate>
+      
+      <guid>https://timfanda35.github.io/2015/10/16/ruby-learning-resource/</guid>
+      <description>&lt;p&gt;紀錄一下收藏的學習資源&lt;/p&gt;
+
+&lt;p&gt;有任何錯誤或建議都歡迎告知 :)&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&#34;ruby&#34;&gt;Ruby&lt;/h1&gt;
+
+&lt;h2 id=&#34;learn-ruby-the-hard-way-笨方法學-ruby-http-lrthw-github-io&#34;&gt;&lt;a href=&#34;http://lrthw.github.io&#34;&gt;Learn Ruby The Hard Way - 笨方法學 Ruby&lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;練習量很足夠的電子書，推薦用來練基本功。
+另外可以先看這篇 &lt;a href=&#34;http://blog.cgmlife.net/posts/2014/04/14/when-read-learn-ruby-the-hard-way-some-problems-you-may-meet&#34;&gt;閱讀 Learn Ruby The Hard Way 時可能會遇到的問題&lt;/a&gt; 做一下心理建設 XD&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;code-cademy-https-www-codecademy-com-tracks-ruby&#34;&gt;&lt;a href=&#34;https://www.codecademy.com/tracks/ruby&#34;&gt;Code Cademy&lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;練習量很充足的互動課程，完成關卡得到的 Badge 更能增加成就感。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;code-school-https-www-codeschool-com-paths-ruby&#34;&gt;&lt;a href=&#34;https://www.codeschool.com/paths/ruby&#34;&gt;Code School&lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Try Ruby 很適合入門體驗 Ruby 寫作的感覺。有許多主題式的課程與影片，大多數都需要付費才能觀看。完成課程的 Badge 可以貼到 &lt;a href=&#34;https://www.linkedin.com&#34;&gt;Linkedin&lt;/a&gt; 上。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;ruby-document-http-ruby-doc-org&#34;&gt;&lt;a href=&#34;http://ruby-doc.org&#34;&gt;Ruby Document&lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Ruby 的文件，有空就翻一翻，說不定會有新的體悟。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;ruby-warrior-https-www-bloc-io-ruby-warrior&#34;&gt;&lt;a href=&#34;https://www.bloc.io/ruby-warrior/#/&#34;&gt;Ruby Warrior&lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;用 Ruby 操作主角破關的遊戲。類似的還有&lt;a href=&#34;http://codecombat.com/&#34;&gt;CodeCombat&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;codewars-http-www-codewars-com&#34;&gt;&lt;a href=&#34;http://www.codewars.com/&#34;&gt;Codewars&lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;有很多題目關卡可以讓你練習，不過也有很多需要知道演算法才有辦法過關。
+你也可以閱覽其他人的程式碼，對於寫作大有幫助。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;the-odin-project-http-www-theodinproject-com-ruby-programming&#34;&gt;&lt;a href=&#34;http://www.theodinproject.com/ruby-programming&#34;&gt;The odin project&lt;/a&gt;&lt;/h2&gt;
+
+&lt;h1 id=&#34;w3cshool-cc-http-www-w3cschool-cc-ruby-ruby-tutorial-html&#34;&gt;&lt;a href=&#34;http://www.w3cschool.cc/ruby/ruby-tutorial.html&#34;&gt;w3cshool.cc&lt;/a&gt;&lt;/h1&gt;</description>
+    </item>
+    
+    <item>
+      <title>Vim 指令(游標移動)</title>
+      <link>https://timfanda35.github.io/2015/10/15/vim-command/</link>
+      <pubDate>Thu, 15 Oct 2015 06:05:00 +0800</pubDate>
+      
+      <guid>https://timfanda35.github.io/2015/10/15/vim-command/</guid>
+      <description>&lt;p&gt;最近重新學習 vim，紀錄一下覺得好用的指令。&lt;/p&gt;
+
+&lt;h1 id=&#34;移動&#34;&gt;移動&lt;/h1&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&#34;單字間移動&#34;&gt;單字間移動&lt;/h3&gt;
+
+&lt;p&gt;&lt;code&gt;W&lt;/code&gt; 移動到下一個字首(以空格作分隔)&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;w&lt;/code&gt; 移動到下一個字首&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;E&lt;/code&gt; 移動到下一個字尾(以空格作分隔)&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;e&lt;/code&gt; 移動到下一個字尾&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;B&lt;/code&gt; 移動到上一個字首(以空格作分隔)&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;b&lt;/code&gt; 移動到上一個字首&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Ruby 的 %Q, %q, %W, %w, %x, %r, %s, %i</title>
+      <link>https://timfanda35.github.io/2015/10/14/ruby-percent-literals/</link>
+      <pubDate>Wed, 14 Oct 2015 08:26:00 +0800</pubDate>
+      
+      <guid>https://timfanda35.github.io/2015/10/14/ruby-percent-literals/</guid>
+      <description>&lt;p&gt;有時候在看其他人的 Ruby 程式碼時，常常發現有 &lt;code&gt;%w&lt;/code&gt;, &lt;code&gt;%r&lt;/code&gt; 等 % 開頭的程式碼。上網查了一下，才知道這些叫做 &lt;a href=&#34;http://ruby-doc.org/core-2.2.2/doc/syntax/literals_rdoc.html#label-Percent+Strings&#34;&gt;Percent literals(或Percent Strings)&lt;/a&gt;。&lt;/p&gt;
+
+&lt;p&gt;以下內容是改寫自 &lt;a href=&#34;https://simpleror.wordpress.com/2009/03/15/q-q-w-w-x-r-s/&#34;&gt;%Q, %q, %W, %w, %x, %r, %s&lt;/a&gt; 與 &lt;a href=&#34;https://ruby-china.org/topics/18512&#34;&gt;Ruby 里的 %Q, %q, %W, %w, %x, %r, %s, %i (译)&lt;/a&gt;。&lt;/p&gt;
+
+&lt;p&gt;執行環境：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;ruby: 2.2.2&lt;/li&gt;
+&lt;li&gt;console: irb&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;q&#34;&gt;%Q&lt;/h2&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;代替雙引號字串，如果在字串中有很多雙引號的時候很好用&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;&amp;gt;&amp;gt; what_frank_said = &#39;Hello!&#39;
+=&amp;gt; &amp;quot;Hello!&amp;quot;
+
+&amp;gt;&amp;gt; %Q(Joe said: &amp;quot;Frank said: &amp;quot;#{what_frank_said}&amp;quot;&amp;quot;)
+=&amp;gt; &amp;quot;Joe said: \&amp;quot;Frank said: \&amp;quot;Hello!\&amp;quot;\&amp;quot;&amp;quot;
+
+&amp;gt;&amp;gt; puts %Q(Joe said: &amp;quot;Frank said: &amp;quot;#{what_frank_said}&amp;quot;&amp;quot;)
+Joe said: &amp;quot;Frank said: &amp;quot;Hello!&amp;quot;&amp;quot;
+=&amp;gt; nil
+&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+    
+    <item>
+      <title>MAC OSX ruby console 無法輸入中文</title>
+      <link>https://timfanda35.github.io/2015/10/13/mac-osx-ruby-console-can-not-input-chinese/</link>
+      <pubDate>Tue, 13 Oct 2015 08:23:00 +0800</pubDate>
+      
+      <guid>https://timfanda35.github.io/2015/10/13/mac-osx-ruby-console-can-not-input-chinese/</guid>
+      <description>&lt;p&gt;我是在 MAC OSX 上使用 rbenv 安裝 ruby，在換了新電腦重新安裝環境後突然發現在不管在 irb 還是 pry 中都無法輸入中文，而且操作上怪怪的。&lt;/p&gt;
+
+&lt;p&gt;在網上搜尋後找到了這篇 &lt;a href=&#34;http://blog.58share.com/?p=404&#34;&gt;mac 无法在irb中输入中文&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;首先用 &lt;a href=&#34;http://brew.sh/index_zh-tw.html&#34;&gt;Homebrew&lt;/a&gt; 安裝 readline&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;brew install readline
+&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+    
+    <item>
+      <title>My Vim 設定</title>
+      <link>https://timfanda35.github.io/2015/10/13/my-vim-settings/</link>
+      <pubDate>Tue, 13 Oct 2015 08:01:00 +0800</pubDate>
+      
+      <guid>https://timfanda35.github.io/2015/10/13/my-vim-settings/</guid>
+      <description>&lt;p&gt;紀錄一下我的 vim 設定，還在學習中，所以會不定期更新。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&#34;安裝-vundle&#34;&gt;安裝 Vundle&lt;/h1&gt;
+
+&lt;h2 id=&#34;install-dependency-in-ubuntu&#34;&gt;install dependency in ubuntu&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;sudo apt-get install git curl
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;install-vundle&#34;&gt;Install Vundle&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://blogger.gtwang.org/2014/04/vundle-vim-bundle-plugin-manager.html&#34;&gt;Vundle：Vim Plugin 自動下載、安裝、更新與管理工具（Vim Bundle)&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>GrowthHack 心得</title>
+      <link>https://timfanda35.github.io/2015/08/05/growthhack-views/</link>
+      <pubDate>Wed, 05 Aug 2015 13:47:00 +0800</pubDate>
+      
+      <guid>https://timfanda35.github.io/2015/08/05/growthhack-views/</guid>
+      <description>在 Rails 即戰力最後一天的課程中，收穫最多的就是 GrowthHack 的部分，將近 300 頁的投影片內容，XDite 快速的講過一遍。
+不是只有買廣告 一直以來以為行銷就是花錢買廣告而已，但實際上從尋找客源到客戶買單是可以分成許多階段，每個階段代表的意義不同，並可以一一比對到實體服務業的流程：從招攬顧客到售後服務等等。
+套用經驗來看，從實體服務業的流程出發，便可以快速地了解到網路服務的行銷也可以用類似的方式來操作，但差別是網路服務有許多工具可以協助你行銷，例如透過數據了解使用者的操作行為來調整網站服務的功能，或是能夠主動篩選出一段時間未再來訪的客戶，讓你可以寫封信向客戶了解。
+用客服賺錢 一般來說都會認為整個模型像個漏斗，客戶數量會從來訪到買單的過程中逐漸減少。但事實上比較像是螺絲釘，客戶在整個過程中是瘋狂銳減的，最後只剩下一咪咪。
+來訪的客戶不買單，除了看工具提供的數據外不斷調整功能外，還有什麼辦法能夠增加收入呢？
+ 再砸錢買廣告，尋找更多的客源
+ 或是向客戶了解發生了什麼事
+  以往我都會認為就只能再砸錢了，數量一多一定會有賞臉的客戶。
+但在聽了課之後覺得慚愧，因為我站的角度就是個只是消極的策略，並不是去解決最主要的原因。客戶都上門了，怎麼會眼睜睜就讓他離開呢？如果是想要做一個網站賺錢的話，那麼你心中一定是想要賺錢想要的不得了，這時候一定是想盡辦法想要留住客戶。
+降低疑慮，增強信心 上門卻不願意買單的客戶，通常都是有所顧慮，就讓客戶清楚明白他能夠獲得他想要的！
+上門卻找不到想要的客戶，在有利益的範圍內，他想要什麼就賣他啊！
+透過這些從未買單轉而買單的客戶上，就能夠更準確地調整行銷策略，除了留下客戶，也能在吸引客源上有所幫助！
+讓客戶帶來更多客戶 親自體驗的朋友分享的訊息比起初次見到的廣告更讓人有信心，所以不要放過買單的客戶，給予推薦優惠讓真實見證的客戶為你宣傳，開展另一方的客源。
+以上就是上課的心得啦，會聽到 GrowthHack 完全是出乎預料之外，算是賺到了！</description>
+    </item>
+    
+    <item>
+      <title>對 user story 的想法與理解</title>
+      <link>https://timfanda35.github.io/2015/07/31/thoughts-and-understanding-of-user-story/</link>
+      <pubDate>Fri, 31 Jul 2015 06:03:00 +0800</pubDate>
+      
+      <guid>https://timfanda35.github.io/2015/07/31/thoughts-and-understanding-of-user-story/</guid>
+      <description>說簡單很不簡單，說很難但也沒很難，撰寫 User Story 就是一段不停地反覆想像、記錄、思考的過程
+例如要做一個留言板網站，就是描述假設網站完成後，使用者如何使用這個留言板網站
+想像網站已經完成的樣子，站在使用者的角度，可以做到哪些事情，用樹狀結構的方式，將每個流程一一地列出來
+這邊要專注在_使用者的操作場景，有商業價值的功能_上！
+千萬不要馬上就想到實作細節與架構，這些事情等到寫完 User Story 再說
+為什麼呢？
+因為會想不完啊XD 而且在這個階段最重要的是想出最後要做出怎麼樣的網站，還沒要去思考如何做出來
+要先確定目標，知道要做的事情有多少，才能管控進度
+不然製作專案的日子就可能會在破碎的想像，以及擔憂隨時而來的意外中度過
+寫完 User Story 後，原本模糊的目標就會越來越明確
+就能夠知道這個網站究竟需要付出多少工
+淺白的場景敘述可以讓不同專長的團隊成員輕鬆了解網站的整個流程與功能
+分拆好的待辦項目就可以開票排定進度了
+這不是很愉快嗎？
+所以馬上就開始練習寫 User Story 吧！
+參考資料：
+wiki ihower{ blogging } BLOG.XDITE.NET</description>
+    </item>
+    
+    <item>
+      <title>instance method 與 class method 的差別</title>
+      <link>https://timfanda35.github.io/2015/07/31/instance-method-and-class-method-difference/</link>
+      <pubDate>Fri, 31 Jul 2015 06:02:00 +0800</pubDate>
+      
+      <guid>https://timfanda35.github.io/2015/07/31/instance-method-and-class-method-difference/</guid>
+      <description>簡單來說，instance method 需要一個實體物件才能呼叫，而 class method 則是可以直接用類別呼叫
+class Foo # 宣告 class method 需要在 method 名稱前加上 self. def self.class_bar # ... end def instance_bar # ... end end # class method 的呼叫方式 Foo.class_bar # instance_bar 的呼叫方式 Foo.new.instance_bar  由以上範例程式可以看到，instance_bar 方法需要 Foo.new 先建立一個實體物件，才能夠呼叫到 instance_bar 這個 instance method。換句話說類別是無法呼叫 instance method，而實體變數也無法呼叫 class method
+另一種宣告 class method 的方法
+class Foo class &amp;lt;&amp;lt; self def class_bar1 #... end def class_bar2 #... end end end  Monkey patch instance method 與 class method 的方法</description>
+    </item>
+    
+    <item>
+      <title>helper 的使用方法</title>
+      <link>https://timfanda35.github.io/2015/07/30/helper-method-to-use/</link>
+      <pubDate>Thu, 30 Jul 2015 13:37:00 +0800</pubDate>
+      
+      <guid>https://timfanda35.github.io/2015/07/30/helper-method-to-use/</guid>
+      <description>Helper 是協助在 View 呈現資料的方法，通常都用來包裝程式邏輯，或是簡化撰寫 View 的作業。
+Helper 檔案都會放在 app/helpers 底下，預設就有一個 application_helper.rb 的檔案。
+一份 Helper 檔案範例如下，要注意是定義一個 Module，而非 Class：
+module FooHelper def bar ... end end  之後就能在 View 中使用 bar 方法了。
+如果想將 Controller 的方法變成 Helper 方法讓 View 呼叫，可以用 helper_method 方法達成：
+class ApplicationController &amp;lt; ActionController::Base # define helper method helper_method :foo protected def foo ... end end  至於想要在 rails console 測試 helper ：
+ 因為 Helper 預設只能在 Template 中使用，如果想在 rails console 中呼叫，必須加上 helper，例如 helper.</description>
+    </item>
+    
+    <item>
+      <title>form_for 與 strong parameter 的關係</title>
+      <link>https://timfanda35.github.io/2015/07/30/form-for-and-strong-relationship-parameter/</link>
+      <pubDate>Thu, 30 Jul 2015 13:01:00 +0800</pubDate>
+      
+      <guid>https://timfanda35.github.io/2015/07/30/form-for-and-strong-relationship-parameter/</guid>
+      <description>form_for 是用 Rails 做網頁很常用的 Helper 方法，他的方便之處在於很輕鬆的產生與 Model 對應的 HTML 表單。
+大部份的時候都會將使用者輸入的資料，用 Hash 表示 Model 的方式傳送到伺服器上。
+但是有兩個問題：
+ 伺服器直接依照傳入的參數更新資料，如果有心人士偷塞了 Model 有的欄位，資料就會被改掉。 親自寫判斷去過濾傳入的參數，如果 Model 的種類一多，欄位一多就會變得很麻煩。  這邊可以用 strong parameter 來很簡單地過濾掉，傳入的 Model 參數中含有非預期的參數。
+假設 Foo 定義如下，其中 security_field 欄位並不想被隨意修改，所以沒有呈現在表單上。
+# schema create_table &amp;quot;foos&amp;quot;, force: :cascade do |t| t.string &amp;quot;name&amp;quot; t.integer &amp;quot;bar&amp;quot; t.string &amp;quot;security_field&amp;quot; t.datetime &amp;quot;created_at&amp;quot;, null: false t.datetime &amp;quot;updated_at&amp;quot;, null: false end  但有心人士仍然可以發送這樣的請求給伺服器，試圖去修改資料庫的值。
+{ &amp;quot;id&amp;quot;: 1, &amp;quot;foo&amp;quot;: { &amp;quot;name&amp;quot;: &amp;quot;foo&amp;quot;, &amp;quot;bar&amp;quot;: 1, &amp;quot;security_field&amp;quot;: &amp;quot;bad value&amp;quot; } }  在這邊最簡單的方法就是用 strong parameter 來過濾，在 Controller 中寫一個 private method，要更新 Modle 時就使用該 method 來取得過濾後的參數來更新。</description>
+    </item>
+    
+    <item>
+      <title>ActiveRecord has_many :through 關聯</title>
+      <link>https://timfanda35.github.io/2015/07/30/activerecord-has-associated/</link>
+      <pubDate>Thu, 30 Jul 2015 11:59:00 +0800</pubDate>
+      
+      <guid>https://timfanda35.github.io/2015/07/30/activerecord-has-associated/</guid>
+      <description>在 Rails 中 Model 常常使用到一對多的關係，像是一台車有四個輪子，但每個輪子都只屬於一台車
+我們會用 has_many ， belongs_to 來定義 Model 之間的關係，在 Tire 的資料表需要有 car_id 欄位來儲存所屬車子的 ID。
+class Car has_many :tires end class Tire belongs_to :car end  而多對多的關係就會用到 has_many :through，取個例子：在學校裡，一個社團可以有多名成員，每位成員也可以參加多個社團，這樣的關係就是「多對多關係」。
+# 一個社團可以有多名成員 group |-- member |-- member `-- member # 每位成員可以參加多個社團 member |-- group |-- group `-- group  我們無法只靠兩張表來表現多對多的關係，所以這時候需要再新增一個 Model，透過(:through)這一個 Model 來建立多得多的關係。
+# group1 的成員有 member1, member2, member3 # group2 的成員有 member3 # group3 的成員有 member3 group1 -- group_member -- member1 |- group_member -- member2 | `- group_member -- member3 | group2 -- group_member -| group3 -- group_member -&#39; # 反過來說 # member1 參加了 group1 # member2 參加了 group1 # member3 參加了 group1, group2, group3  以上圖為例，Model 定義如下：</description>
+    </item>
+    
+    <item>
+      <title>Rails 即戰力夏季班上課心得 </title>
+      <link>https://timfanda35.github.io/2015/07/27/summer-combat-class-in-rails-tips/</link>
+      <pubDate>Mon, 27 Jul 2015 14:46:00 +0800</pubDate>
+      
+      <guid>https://timfanda35.github.io/2015/07/27/summer-combat-class-in-rails-tips/</guid>
+      <description>看 XDite 的文章已經很久，這次發現有開課，看了一下內容就牙一咬立馬報名(讓人不得不認真對待的學費啊)。
+User Story 第一天就在講初學者與工程師在用 Rails 的開發網站的時候的一些挫折，像是初學者發現要學的東西太多了，根本無從下手；而工程師則是什麼都想做到好，而繞了許多遠路。
+而這些都能透過學習如何去規劃一個網站，改善這樣的問題，會有困惑與繞遠路的情況，是因為不知道應該要做哪些事情，沒有目標，沒有項目，就是想到什麼做什麼了。
+所以這時候應該要列出 User Story。
+不列規格，專注在使用者的使用場景 就像樹狀的待辦清單一樣，從一個點子發想，不斷地將產品流程、細節完善「使用者究竟會如何使用這個網站」。這邊不像規格書一樣，附圖附表附程式碼，就是幾行字具體描述操作場景，列出有價值的功能需求。實作細節是之後再說的部分，當想到不能再細的時候，就可以看到網站的流程，該做的項目，接下來就是一一地按項目去完成！
+實作 第二天的程式實作非常的重，大量邏輯與程式碼需要去理解，網站的大多程式碼都集中在這一天。會看到一些重複的程式碼，或是有點髒的邏輯，在第三天的課程中就會講到重構方法以及應該要重構程式的注意要點。
+這幾天印象比較深的是用到了 AASM 這個 Gem，在管理訂單的狀態時非常方便；用了 letter_opener 預覽信件內容而不必寄出信；用 roadie 輕鬆地讓信件有了 CSS 樣式。
+金流 金流還沒碰過，還真的不知道眉角這麼多，以前聽到接金流都怕怕的，感覺就是複雜難用責任大的工作。但這門課程就是從頭到尾做一個電子商務網站，從使用者登入、購物車、產生訂單、接上金流、寄出確認信都一一告訴你該如何做，這麼做的原因是什麼。
+還有如何發佈自己網站並結合其他網路服務，像是: * 寄信用 Mailgun * 圖片用 Amazon Web Service S3 * 金流用 歐付寶 * 主機用 Heroku。
+上完課後只要跟歐付寶註冊帳號，更換程式中的認證資訊，收款帳戶就是自己的了！
+經驗 課堂中講師會不斷提到他以往在做專案的經驗，這是我覺得這門課最最重要的地方，除非上班有前輩帶，不然其實很難得能夠聽到資深的工程師當場講授經驗。看文件固然重要，但是前輩的經驗更能讓人少走冤枉路。課程中教授的整理程式的小技巧，一些判斷的要點都受惠良多。
+雖然說是開四天課，其實在這四週，每週都有兩場的社群活動，講師與助教都會參加，課堂上或是作業不會的都能夠當場問到飽。能夠當面交流進步最快了，可惜這四週都撞到事情，無法參加活動 Orz。
+結論 這門課號稱就是即戰力，直接將用 Rails 開發電子商務網站最基本會用到的技術經驗一股腦灌給你，給了方向也給了成就感。只要你在這四週願意花出心力去學習交流，就算是不懂程式的人，我相信也能夠燒出不錯的入門磚。(第四天就會教你如何求職了！)</description>
+    </item>
+    
+  </channel>
+</rss>
