@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Gcpug on Bear Su&#39;s blog</title>
+    <link>https://timfanda35.github.io/categories/gcpug/</link>
+    <description>Recent content in Gcpug on Bear Su&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>(c) 2019 Bear Su&#39;s blog</copyright>
+    <lastBuildDate>Wed, 19 Apr 2017 15:16:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://timfanda35.github.io/categories/gcpug/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Google Cloud OnBoard 20170419</title>
+      <link>https://timfanda35.github.io/2017/04/19/google-cloud-onboard-20170419/</link>
+      <pubDate>Wed, 19 Apr 2017 15:16:00 +0800</pubDate>
+      
+      <guid>https://timfanda35.github.io/2017/04/19/google-cloud-onboard-20170419/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;http://i.imgur.com/Yyals6x.jpg&#34; alt=&#34;Imgur&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;今天參加了 &lt;a href=&#34;https://cloudplatformonline.com/gcp-tw-googlecloudonboard.html&#34;&gt;Google Cloud OnBoard&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;內容主要是 &lt;a href=&#34;https://cloud.google.com/&#34;&gt;Google Cloud Platform&lt;/a&gt; (GCP) 入門介紹&lt;/p&gt;
+
+&lt;p&gt;參加的人超級多，早餐跟下午茶都搶不到 XD&lt;/p&gt;
+
+&lt;h2 id=&#34;主要內容&#34;&gt;主要內容&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Module 1 - Google Cloud Platform 概要&lt;/li&gt;
+&lt;li&gt;Module 2 - 開始學習 Google Cloud Platform 的方法&lt;/li&gt;
+&lt;li&gt;Module 3 - Google App Engine 與 Cloud Datastore&lt;/li&gt;
+&lt;li&gt;Module 4 - Google Cloud Platform 的 Storage 功能&lt;/li&gt;
+&lt;li&gt;Module 5 - Google Container Engine&lt;/li&gt;
+&lt;li&gt;Module 6 - Google Compute Engine 與 Network 功能&lt;/li&gt;
+&lt;li&gt;GCP 的大數據分析工具 / 機器學習與深度學習&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

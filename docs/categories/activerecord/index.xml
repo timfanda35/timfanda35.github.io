@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Activerecord on Bear Su&#39;s blog</title>
+    <link>https://timfanda35.github.io/categories/activerecord/</link>
+    <description>Recent content in Activerecord on Bear Su&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>(c) 2019 Bear Su&#39;s blog</copyright>
+    <lastBuildDate>Sun, 19 Mar 2017 05:13:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://timfanda35.github.io/categories/activerecord/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>ActiveRecord merge method</title>
+      <link>https://timfanda35.github.io/2017/03/19/active-record-merge-method/</link>
+      <pubDate>Sun, 19 Mar 2017 05:13:00 +0800</pubDate>
+      
+      <guid>https://timfanda35.github.io/2017/03/19/active-record-merge-method/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;http://i.imgur.com/EsiorQx.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://www.pakutaso.com/20160628181pc-11.html&#34;&gt;圖片來源&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;之前查資料找到這篇 &lt;a href=&#34;http://stackoverflow.com/questions/6334537/rails-where-clause-on-model-association&#34;&gt;Rails where() clause on model association?&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;原來在查詢條件包含關聯表欄位的時候還有 &lt;code&gt;merge&lt;/code&gt; 的方法可以用&lt;/p&gt;
+
+&lt;p&gt;之前都在 &lt;code&gt;joins&lt;/code&gt; 裡面硬刻 SQL query&amp;hellip;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

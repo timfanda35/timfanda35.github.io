@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1">
+  <title>Ruby 透過 FreeType 產生點陣文字 &middot; Bear Su&#39;s blog -  Running Bear!!! </title>
+  <meta name="generator" content="Hugo 0.53" />
+  <meta name="description" content="Running Bear!!!"> 
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Ruby 透過 FreeType 產生點陣文字"/>
+<meta name="twitter:description" content="
+
+圖片來源
+フリー写真素材ぱくたそ
+
+最近因為工作上的需求，需要將使用者輸入的文字轉成 16 x 16 的點陣文字
+
+在網路上找到 jserv 這篇 透過 FreeType 繪製 Unicode ASCII Art 而有了實作的方向"/>
+
+  <meta property="og:title" content="Ruby 透過 FreeType 產生點陣文字" />
+<meta property="og:description" content="
+
+圖片來源
+フリー写真素材ぱくたそ
+
+最近因為工作上的需求，需要將使用者輸入的文字轉成 16 x 16 的點陣文字
+
+在網路上找到 jserv 這篇 透過 FreeType 繪製 Unicode ASCII Art 而有了實作的方向" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://timfanda35.github.io/2017/05/17/ruby-by-using-treetype-to-draw-text-to-a-ascii-art/" /><meta property="article:published_time" content="2017-05-17T13:28:00&#43;08:00"/>
+<meta property="article:modified_time" content="2017-05-17T13:28:00&#43;08:00"/>
+
+
+  <!-- RSS autodiscovery --> 
+
+  
+<meta itemprop="name" content="Ruby 透過 FreeType 產生點陣文字">
+<meta itemprop="description" content="
+
+圖片來源
+フリー写真素材ぱくたそ
+
+最近因為工作上的需求，需要將使用者輸入的文字轉成 16 x 16 的點陣文字
+
+在網路上找到 jserv 這篇 透過 FreeType 繪製 Unicode ASCII Art 而有了實作的方向">
+
+
+<meta itemprop="datePublished" content="2017-05-17T13:28:00&#43;08:00" />
+<meta itemprop="dateModified" content="2017-05-17T13:28:00&#43;08:00" />
+<meta itemprop="wordCount" content="216">
+
+
+
+<meta itemprop="keywords" content="" />
+
+  <link href="https://fonts.googleapis.com/css?family=Lato:400" rel="stylesheet">
+  <link rel="stylesheet" href="https://timfanda35.github.io/css/style.css">
+  <script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "WebSite",
+  "name": "Bear Su&#39;s blog",
+  "url": "https://timfanda35.github.io/2017/05/17/ruby-by-using-treetype-to-draw-text-to-a-ascii-art/"
+}
+</script>
+
+</head>
+
+<body>
+  <header class="gheader">
+  <div class="container">
+    <nav class="navbar ">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="https://timfanda35.github.io">
+          <h1 class="brand">Bear Su&#39;s blog</h1>
+        </a>
+
+        <div class="navbar-burger burger" data-target="navMenubd-example">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+
+      <div id="navMenubd-example" class="navbar-menu">
+        <div class="navbar-start">
+          
+          <a class="navbar-item" href="/categories/">
+            Categories
+          </a>
+          
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
+
+
+  <div class="main-content">
+    <div class="container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="title">Ruby 透過 FreeType 產生點陣文字</h1>
+      <div class="meta">
+        <time class="pub-time"  datetime="2017-05-17T13:28:00&#43;08:00">
+          2017.05.17
+        </time>
+        <div class="terms">
+          
+          <div class="categories">
+            
+              <a class="categories-item" href="/categories/ruby">ruby</a>
+            
+              <a class="categories-item" href="/categories/freetype">freetype</a>
+            
+              <a class="categories-item" href="/categories/ascii-art">ascii-art</a>
+            
+          </div>
+          
+          
+        </div>
+      </div>
+    </header>
+    <div class="post-body">
+      <p><img src="http://i.imgur.com/EsiorQx.jpg" alt="" /></p>
+
+<p><a href="https://www.pakutaso.com/20160628181pc-11.html">圖片來源</a>
+<a href="https://www.pakutaso.com/">フリー写真素材ぱくたそ</a></p>
+
+<p>最近因為工作上的需求，需要將使用者輸入的文字轉成 16 x 16 的點陣文字</p>
+
+<p>在網路上找到 jserv 這篇 <a href="http://blog.linux.org.tw/~jserv/archives/002050.html">透過 FreeType 繪製 Unicode ASCII Art</a> 而有了實作的方向</p>
+
+<p>本文將使用 <a href="https://github.com/customink/ft2-ruby">ft2-ruby</a> 從 TTF 字型讀取資料，以繪製點陣文字</p>
+
+<p>本文所使用的字型：<a href="http://jikasei.me/font/genshin/#zip__10">源真ゴシック (げんしんゴシック)</a></p>
+
+<h2 id="安裝-ft2-ruby">安裝 ft2-ruby</h2>
+
+<pre><code class="language-bash">gem install ft2-ruby
+</code></pre>
+
+<h2 id="下載字型">下載字型</h2>
+
+<p>從 <a href="http://jikasei.me/font/genshin/#zip__10">源真ゴシック (げんしんゴシック)</a> 下載後，任一挑選一個字型檔案使用，本文選用 <code>GenShinGothic-Monospace-Regular.ttf</code></p>
+
+<h2 id="範例程式">範例程式</h2>
+
+<pre><code class="language-ruby">#!/usr/bin/env ruby
+
+require &quot;ft2&quot;
+
+class Ft2Example
+  def initialize(ttf_path)
+    @face = FT2::Face.new ttf_path
+    @face.set_pixel_sizes 16, 0
+  end
+
+  def draw
+    glyph = @face.glyph
+
+    for row in 0..(glyph.bitmap.rows - 1)
+      for pixel in 0..(glyph.bitmap_left - 1)
+        print &quot;  &quot;
+      end
+
+      for pixel in 0..(glyph.bitmap.width - 1)
+        # pitch 是指一個 row 有多少 bytes
+        # 跟 c/c++ 不一樣的是，ruby 的條件式是只有 nil 跟 false 會是 false
+        # 所以這邊要設定條件 &gt; 0
+        index = row * glyph.bitmap.pitch + pixel / 8
+        if glyph.bitmap.buffer[index].ord &amp; (0xC0 &gt;&gt; (pixel % 8)) &gt; 0
+          print &quot;██&quot;
+        else
+          print &quot;  &quot;
+        end
+      end
+      puts
+    end
+  end
+
+  def draw_ch(ch)
+    # 先取得索引
+    ch_index = @face.char_index ch.ord
+
+    # 設定現在要渲染的文字
+    @face.load_glyph ch_index, FT2::Load::DEFAULT
+
+    # 設定渲染模式
+    @face.glyph.render_glyph FT2::RenderMode::MONO
+
+    draw
+  end
+
+  def draw_string(str)
+    str.split(&quot;&quot;).each do |ch|
+      draw_ch(ch)
+      
+      puts
+    end
+  end
+end
+
+if ARGV.size &lt; 2
+  puts &quot;Usage:&quot;
+  puts &quot;    ruby main.rb TTF_PATH \&quot;WORD\&quot;&quot;
+
+  puts
+
+  puts &quot;Example:&quot;
+  puts &quot;    ruby main.rb ./GenShinGothic-Monospace-Regular.ttf 安安您好&quot;
+
+  exit 1
+end
+
+ft2_example = Ft2Example.new(ARGV[0])
+ft2_example.draw_string(ARGV[1])
+</code></pre>
+
+<h2 id="執行範例">執行範例</h2>
+
+<pre><code class="language-bash">ruby main.rb ./GenShinGothic-Monospace-Regular.ttf 安安您好
+</code></pre>
+
+<p>結果：</p>
+
+<p><img src="http://i.imgur.com/f99ibym.png" alt="Imgur" /></p>
+
+<p>如果 <code>ch_index = @face.char_index ch.ord</code> 結果是 <code>0</code>，表示在該字型檔中並沒有這個字的資料</p>
+
+<p>只能試著換個字型檔繪製</p>
+
+<h2 id="參考">參考</h2>
+
+<p><a href="http://blog.linux.org.tw/~jserv/archives/002050.html">透過 FreeType 繪製 Unicode ASCII Art</a></p>
+
+<p><a href="http://mingplusplus.com/tech/2014/09/13/freetype/">FreeType简易教程</a></p>
+
+<p><a href="https://www.freetype.org/developer.html">FreeType Development</a></p>
+
+<p><a href="https://github.com/customink/ft2-ruby">ft2-ruby</a></p>
+
+<p><a href="http://www.rubydoc.info/gems/ft2-ruby/FT2">FT2 document</a></p>
+
+<p><a href="https://free.com.tw/genshin-font/">思源黑體修改版「思源真黑體」字型免費下載</a></p>
+
+<p><a href="http://jikasei.me/font/genshin/#zip__10">源真ゴシック (げんしんゴシック)</a></p>
+    </div>
+    <footer class="post-footer">
+      
+      <div class="share">
+        
+      </div>
+
+      <div class="pagenation">
+        <ul class="pagenation-list">
+          
+          <li class="pager previous">
+            <a href="https://timfanda35.github.io/2017/05/06/machine-learning-note-week1/" data-toggle="tooltip" data-placement="top" title="機器學習筆記(week1)">&larr; Previous Post</a>
+          </li>
+          
+          
+          <li class="pager next">
+            <a href="https://timfanda35.github.io/2018/09/01/cloudbuild-with-cache/" data-toggle="tooltip" data-placement="top" title="用快取加速 Cloud Build 建置容器">Next Post &rarr;</a>
+          </li>
+          
+        </ul>
+      </div>
+    </footer>
+  </article>
+
+  
+  <article class="related"></article>
+
+  <script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "NewsArticle",
+  "mainEntityOfPage": {
+    "@type": "NewsArticle",
+    "@id": "https://timfanda35.github.io/2017/05/17/ruby-by-using-treetype-to-draw-text-to-a-ascii-art/",
+    "headline": "圖片來源 フリー写真素材ぱくたそ最近因為工作上的需求，需要將使用者輸入的文字轉成 16 x 16 的點陣文字在網路上找到 jserv 這篇 透過 FreeType 繪製 Unicode ASCII Art 而有了實作的方",
+    "author": "Bear Su",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Bear Su",
+      "logo": ""
+    },
+    "image": "",
+    "datePublished": "2017-05-17"
+  },
+  "headline": "圖片來源 フリー写真素材ぱくたそ最近因為工作上的需求，需要將使用者輸入的文字轉成 16 x 16 的點陣文字在網路上找到 jserv 這篇 透過 FreeType 繪製 Unicode ASCII Art 而有了實作的方",
+  "alternativeHeadline": "Bear Su&#39;s blog",
+  "datePublished": "2017-05-17",
+  "dateModified": "2017-05-17",
+  "url": "https://timfanda35.github.io/2017/05/17/ruby-by-using-treetype-to-draw-text-to-a-ascii-art/",
+  "wordCount": "216",
+  "author": {
+    "@type": "Person",
+    "name": "Bear Su"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Bear Su"
+  },
+  "image": "",
+  "genre": "rubyfreetypeascii-art",
+  
+  "description": ""
+}
+</script>
+
+  <script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Person",
+  "@id": "https://timfanda35.github.io/2017/05/17/ruby-by-using-treetype-to-draw-text-to-a-ascii-art/",
+  "name": "Bear Su"
+}
+</script>
+
+
+    </div>
+  </div>
+
+  <footer class="gfooter">
+  <div class="inner">
+    <div class="container">
+      <p class="copy"><small>(c) 2019 Bear Su&#39;s blog</small></p>
+
+      <nav class="footer-nav">
+        <div class="inner">
+          
+        </div>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+
+
+<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+<script src="https://timfanda35.github.io/js/script.js"></script>
+
+</body>
+</html>

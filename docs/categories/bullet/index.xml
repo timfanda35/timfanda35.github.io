@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Bullet on Bear Su&#39;s blog</title>
+    <link>https://timfanda35.github.io/categories/bullet/</link>
+    <description>Recent content in Bullet on Bear Su&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>(c) 2019 Bear Su&#39;s blog</copyright>
+    <lastBuildDate>Tue, 22 Mar 2016 11:28:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://timfanda35.github.io/categories/bullet/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>推薦協助提高程式碼品質的 Gem</title>
+      <link>https://timfanda35.github.io/2016/03/22/gems-for-improving-code-quality/</link>
+      <pubDate>Tue, 22 Mar 2016 11:28:00 +0800</pubDate>
+      
+      <guid>https://timfanda35.github.io/2016/03/22/gems-for-improving-code-quality/</guid>
+      <description>&lt;p&gt;用 Rails 開發網站時除了寫測試之外，還可以透過一些 gem 來協助維護 code 的品質&lt;/p&gt;
+
+&lt;p&gt;這篇推薦幾個 gem：&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/presidentbeef/brakeman&#34;&gt;Brakeman - 檢查安全性&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/flyerhzm/bullet&#34;&gt;Bullet - 檢查 N+1 Query&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/whitesmith/rubycritic&#34;&gt;RubyCritic - 靜態分析程式碼(已整合多套工具)&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/newrelic/rpm&#34;&gt;New Relic RPM - 監測網站效能&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

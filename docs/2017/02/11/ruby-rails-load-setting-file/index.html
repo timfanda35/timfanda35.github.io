@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1">
+  <title>Ruby/Rails load setting file &middot; Bear Su&#39;s blog -  Running Bear!!! </title>
+  <meta name="generator" content="Hugo 0.53" />
+  <meta name="description" content="Running Bear!!!"> 
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Ruby/Rails load setting file"/>
+<meta name="twitter:description" content="最近在網路上看到了這兩篇文章：
+
+Rails 最佳实践之配置管理
+
+在 Rails 內建立類似 database.yml 的設定文件（global settings）
+
+才知道原來 Rails 4.2 之後有好用的 config_for 方法啊"/>
+
+  <meta property="og:title" content="Ruby/Rails load setting file" />
+<meta property="og:description" content="最近在網路上看到了這兩篇文章：
+
+Rails 最佳实践之配置管理
+
+在 Rails 內建立類似 database.yml 的設定文件（global settings）
+
+才知道原來 Rails 4.2 之後有好用的 config_for 方法啊" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://timfanda35.github.io/2017/02/11/ruby-rails-load-setting-file/" /><meta property="article:published_time" content="2017-02-11T11:59:00&#43;08:00"/>
+<meta property="article:modified_time" content="2017-02-11T11:59:00&#43;08:00"/>
+
+
+  <!-- RSS autodiscovery --> 
+
+  
+<meta itemprop="name" content="Ruby/Rails load setting file">
+<meta itemprop="description" content="最近在網路上看到了這兩篇文章：
+
+Rails 最佳实践之配置管理
+
+在 Rails 內建立類似 database.yml 的設定文件（global settings）
+
+才知道原來 Rails 4.2 之後有好用的 config_for 方法啊">
+
+
+<meta itemprop="datePublished" content="2017-02-11T11:59:00&#43;08:00" />
+<meta itemprop="dateModified" content="2017-02-11T11:59:00&#43;08:00" />
+<meta itemprop="wordCount" content="88">
+
+
+
+<meta itemprop="keywords" content="" />
+
+  <link href="https://fonts.googleapis.com/css?family=Lato:400" rel="stylesheet">
+  <link rel="stylesheet" href="https://timfanda35.github.io/css/style.css">
+  <script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "WebSite",
+  "name": "Bear Su&#39;s blog",
+  "url": "https://timfanda35.github.io/2017/02/11/ruby-rails-load-setting-file/"
+}
+</script>
+
+</head>
+
+<body>
+  <header class="gheader">
+  <div class="container">
+    <nav class="navbar ">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="https://timfanda35.github.io">
+          <h1 class="brand">Bear Su&#39;s blog</h1>
+        </a>
+
+        <div class="navbar-burger burger" data-target="navMenubd-example">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+
+      <div id="navMenubd-example" class="navbar-menu">
+        <div class="navbar-start">
+          
+          <a class="navbar-item" href="/categories/">
+            Categories
+          </a>
+          
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
+
+
+  <div class="main-content">
+    <div class="container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="title">Ruby/Rails load setting file</h1>
+      <div class="meta">
+        <time class="pub-time"  datetime="2017-02-11T11:59:00&#43;08:00">
+          2017.02.11
+        </time>
+        <div class="terms">
+          
+          <div class="categories">
+            
+              <a class="categories-item" href="/categories/ruby">ruby</a>
+            
+              <a class="categories-item" href="/categories/rails">rails</a>
+            
+          </div>
+          
+          
+        </div>
+      </div>
+    </header>
+    <div class="post-body">
+      <p>最近在網路上看到了這兩篇文章：</p>
+
+<p><a href="https://ruby-china.org/topics/32126">Rails 最佳实践之配置管理</a></p>
+
+<p><a href="http://railsfun.tw/t/rails-database-yml-global-settings/996">在 Rails 內建立類似 database.yml 的設定文件（global settings）</a></p>
+
+<p>才知道原來 Rails 4.2 之後有好用的 <code>config_for</code> 方法啊</p>
+
+<h2 id="環境變數">環境變數</h2>
+
+<p>由於自己寫的都是些小專案，接的服務也不多</p>
+
+<p>用環境變數來管理因應環境而要調整的設定就綽綽有餘了</p>
+
+<p>這部分可以使用以下 gem 來協助：</p>
+
+<ul>
+<li><p><a href="https://github.com/bkeepers/dotenv">dotenv</a></p></li>
+
+<li><p><a href="https://github.com/laserlemon/figaro">figaro</a></p></li>
+</ul>
+
+<h2 id="yaml">YAML</h2>
+
+<p>不過如果需要結構化設定，或是有大量要調整的設定項目</p>
+
+<p>建議使用 yaml 來管理</p>
+
+<p>在 ruby 專案中可以用以下方式讀取</p>
+
+<pre><code class="language-ruby">require 'yaml'
+env = ENV['RUBY_ENV']
+$settings = YAML.load(File.open(&quot;#{__dir__}/settings.yml&quot;))[env]
+</code></pre>
+
+<p>在 Rails 4.2 以後，可以修改 <code>config/application.yml</code></p>
+
+<p>用以下方式讀取 <code>config/settings.yml</code></p>
+
+<pre><code class="language-ruby">module MyApplication
+  class Application &lt; Rails::Application
+  	# ...
+    
+    # add this line
+    $settings = config_for(:settings)
+  end
+end
+</code></pre>
+
+<h2 id="gem">Gem</h2>
+
+<p>如果你有很複雜的想法，可以試試這個 gem： <a href="https://github.com/railsconfig/config">config</a></p>
+
+<p>支援：
+* Ruby 2.x
+* Rails &gt;= 3.1, 4 and 5
+* Padrino
+* Sinatra</p>
+
+<p>Rails 專案想要可以在線上修改設定？ 可以試試這個 gem： <a href="https://github.com/huacnlee/rails-settings-cached">rails-settings-cached</a></p>
+
+<p>說明寫得很詳細，包含設定頁面的程式碼範例</p>
+    </div>
+    <footer class="post-footer">
+      
+      <div class="share">
+        
+      </div>
+
+      <div class="pagenation">
+        <ul class="pagenation-list">
+          
+          <li class="pager previous">
+            <a href="https://timfanda35.github.io/2017/02/05/ruby-refinement/" data-toggle="tooltip" data-placement="top" title="ruby-refinement">&larr; Previous Post</a>
+          </li>
+          
+          
+          <li class="pager next">
+            <a href="https://timfanda35.github.io/2017/02/19/ruby-array-methods/" data-toggle="tooltip" data-placement="top" title="Ruby Array 的一些筆記">Next Post &rarr;</a>
+          </li>
+          
+        </ul>
+      </div>
+    </footer>
+  </article>
+
+  
+  <article class="related"></article>
+
+  <script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "NewsArticle",
+  "mainEntityOfPage": {
+    "@type": "NewsArticle",
+    "@id": "https://timfanda35.github.io/2017/02/11/ruby-rails-load-setting-file/",
+    "headline": "最近在網路上看到了這兩篇文章：Rails 最佳实践之配置管理在 Rails 內建立類似 database.yml 的設定文件（global settings）才知道原來 Rails 4.2 之後有好用的 config_f",
+    "author": "Bear Su",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Bear Su",
+      "logo": ""
+    },
+    "image": "",
+    "datePublished": "2017-02-11"
+  },
+  "headline": "最近在網路上看到了這兩篇文章：Rails 最佳实践之配置管理在 Rails 內建立類似 database.yml 的設定文件（global settings）才知道原來 Rails 4.2 之後有好用的 config_f",
+  "alternativeHeadline": "Bear Su&#39;s blog",
+  "datePublished": "2017-02-11",
+  "dateModified": "2017-02-11",
+  "url": "https://timfanda35.github.io/2017/02/11/ruby-rails-load-setting-file/",
+  "wordCount": "88",
+  "author": {
+    "@type": "Person",
+    "name": "Bear Su"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Bear Su"
+  },
+  "image": "",
+  "genre": "rubyrails",
+  
+  "description": ""
+}
+</script>
+
+  <script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Person",
+  "@id": "https://timfanda35.github.io/2017/02/11/ruby-rails-load-setting-file/",
+  "name": "Bear Su"
+}
+</script>
+
+
+    </div>
+  </div>
+
+  <footer class="gfooter">
+  <div class="inner">
+    <div class="container">
+      <p class="copy"><small>(c) 2019 Bear Su&#39;s blog</small></p>
+
+      <nav class="footer-nav">
+        <div class="inner">
+          
+        </div>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+
+
+<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+<script src="https://timfanda35.github.io/js/script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1">
+  <title>Ruby Array 的一些筆記 &middot; Bear Su&#39;s blog -  Running Bear!!! </title>
+  <meta name="generator" content="Hugo 0.53" />
+  <meta name="description" content="Running Bear!!!"> 
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Ruby Array 的一些筆記"/>
+<meta name="twitter:description" content="
+
+圖片來源
+フリー写真素材ぱくたそ
+
+紀錄一下我覺得值得一提的那些陣列兩三事"/>
+
+  <meta property="og:title" content="Ruby Array 的一些筆記" />
+<meta property="og:description" content="
+
+圖片來源
+フリー写真素材ぱくたそ
+
+紀錄一下我覺得值得一提的那些陣列兩三事" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://timfanda35.github.io/2017/02/19/ruby-array-methods/" /><meta property="article:published_time" content="2017-02-19T14:16:00&#43;08:00"/>
+<meta property="article:modified_time" content="2017-02-19T14:16:00&#43;08:00"/>
+
+
+  <!-- RSS autodiscovery --> 
+
+  
+<meta itemprop="name" content="Ruby Array 的一些筆記">
+<meta itemprop="description" content="
+
+圖片來源
+フリー写真素材ぱくたそ
+
+紀錄一下我覺得值得一提的那些陣列兩三事">
+
+
+<meta itemprop="datePublished" content="2017-02-19T14:16:00&#43;08:00" />
+<meta itemprop="dateModified" content="2017-02-19T14:16:00&#43;08:00" />
+<meta itemprop="wordCount" content="383">
+
+
+
+<meta itemprop="keywords" content="" />
+
+  <link href="https://fonts.googleapis.com/css?family=Lato:400" rel="stylesheet">
+  <link rel="stylesheet" href="https://timfanda35.github.io/css/style.css">
+  <script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "WebSite",
+  "name": "Bear Su&#39;s blog",
+  "url": "https://timfanda35.github.io/2017/02/19/ruby-array-methods/"
+}
+</script>
+
+</head>
+
+<body>
+  <header class="gheader">
+  <div class="container">
+    <nav class="navbar ">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="https://timfanda35.github.io">
+          <h1 class="brand">Bear Su&#39;s blog</h1>
+        </a>
+
+        <div class="navbar-burger burger" data-target="navMenubd-example">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+
+      <div id="navMenubd-example" class="navbar-menu">
+        <div class="navbar-start">
+          
+          <a class="navbar-item" href="/categories/">
+            Categories
+          </a>
+          
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
+
+
+  <div class="main-content">
+    <div class="container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="title">Ruby Array 的一些筆記</h1>
+      <div class="meta">
+        <time class="pub-time"  datetime="2017-02-19T14:16:00&#43;08:00">
+          2017.02.19
+        </time>
+        <div class="terms">
+          
+          <div class="categories">
+            
+              <a class="categories-item" href="/categories/ruby">ruby</a>
+            
+          </div>
+          
+          
+        </div>
+      </div>
+    </header>
+    <div class="post-body">
+      <p><img src="http://i.imgur.com/EsiorQx.jpg" alt="" /></p>
+
+<p><a href="https://www.pakutaso.com/20160628181pc-11.html">圖片來源</a>
+<a href="https://www.pakutaso.com/">フリー写真素材ぱくたそ</a></p>
+
+<p>紀錄一下我覺得值得一提的那些陣列兩三事</p>
+
+<h2 id="給予陣列預設值">給予陣列預設值</h2>
+
+<pre><code class="language-ruby">&gt; Array.new(3, &quot;str&quot;)
+=&gt; [&quot;str&quot;, &quot;str&quot;, &quot;str&quot;]
+
+&gt; Array.new([1, 2, 3])
+=&gt; [1, 2, 3]
+
+&gt; Array.new(3) {|i| i * 3}
+=&gt; [0, 3, 6]
+
+# 要注意的是用預設值，所有元素都會指向同一個參考位址
+&gt; arr = Array.new(3, &quot;a&quot;)
+=&gt; [&quot;a&quot;, &quot;a&quot;, &quot;a&quot;]
+
+&gt; arr[0].next!
+=&gt; &quot;b&quot;
+
+# 全部的預設值元素都變成 &quot;b&quot; 了
+&gt; arr
+=&gt; [&quot;b&quot;, &quot;b&quot;, &quot;b&quot;]
+</code></pre>
+
+<h2 id="新增元素">新增元素</h2>
+
+<pre><code class="language-ruby">&gt; arr = []
+=&gt; []
+
+# 在結尾插入
+&gt; arr.push(&quot;Bear&quot;)
+=&gt; [&quot;Bear&quot;]
+
+# 在結尾插入
+&gt; arr &lt;&lt; &quot;Candy&quot;
+=&gt; [&quot;Bear&quot;, &quot;Candy&quot;]
+
+# 在開頭插入
+&gt; arr.unshift(&quot;Andy&quot;)
+=&gt; [&quot;Andy&quot;, &quot;Bear&quot;, &quot;Candy&quot;]
+
+# 合併陣列
+&gt; arr.concat [&quot;Other&quot;, &quot;Another&quot;]
+=&gt; [&quot;Andy&quot;, &quot;Alex&quot;, &quot;Bear&quot;, &quot;Dennis&quot;, &quot;Emily&quot;, &quot;Other&quot;, &quot;Another&quot;]
+
+# 以上方法都會改變原本陣列的值
+
+# 合併陣列
+&gt; arr = arr + [&quot;Dennis&quot;, &quot;Emily&quot;]
+=&gt; [&quot;Andy&quot;, &quot;Alex&quot;, &quot;Bear&quot;, &quot;Dennis&quot;, &quot;Emily&quot;]
+</code></pre>
+
+<h2 id="填滿某個值">填滿某個值</h2>
+
+<pre><code class="language-ruby">arr = [1, 2, 3, 4, 5]
+=&gt; [1, 2, 3, 4, 5]
+
+# 全部歸零
+arr.fill(0)
+=&gt; [0, 0, 0, 0, 0]
+
+# 談入對應的索引
+arr.fill { |index| index }
+=&gt; [0, 1, 2, 3, 4]
+</code></pre>
+
+<h2 id="一次取得多個不同索引的元素">一次取得多個不同索引的元素</h2>
+
+<pre><code class="language-ruby">&gt; [1, 2, 3, 4, 5].values_at(1, 2, 3)
+=&gt; [2, 3, 4]
+</code></pre>
+
+<h2 id="清除陣列中全部的-nil">清除陣列中全部的 <code>nil</code></h2>
+
+<pre><code class="language-ruby">&gt; arr = [1, nil, 2, nil, 3]
+=&gt; [1, nil, 2, nil, 3]
+
+# 只是回傳清除 nil 後的結果，但不會改變陣列的值
+&gt; arr.compact
+=&gt; [1, 2, 3]
+&gt; arr
+=&gt; [1, nil, 2, nil, 3]
+
+# 要用 compact! 才會改變陣列的值
+&gt; arr.compact!
+=&gt; [1, 2, 3]
+&gt; arr
+=&gt; [1, 2, 3]
+</code></pre>
+
+<h2 id="一邊取出陣列的值一邊運算的寫法">一邊取出陣列的值一邊運算的寫法</h2>
+
+<p><code>arr.pop</code> 也能改成 <code>app.shift</code></p>
+
+<pre><code class="language-ruby">&gt; arr = [1, 2, 3]
+&gt; while item = arr.pop
+&gt;   puts item
+&gt; end
+3
+2
+1
+=&gt; nil
+
+&gt; arr
+=&gt; []
+</code></pre>
+
+<h2 id="根據型態-呼叫-方法會有不同的結果">根據型態，呼叫 <code>*</code> 方法會有不同的結果</h2>
+
+<pre><code class="language-ruby">&gt; [ 1, 2, 3 ] * 3
+=&gt; [ 1, 2, 3, 1, 2, 3, 1, 2, 3 ]
+
+# * 字串會跟 join 方法一樣結果
+&gt; [ 1, 2, 3 ] * &quot;,&quot;
+=&gt; &quot;1,2,3&quot;
+</code></pre>
+
+<h2 id="轉置矩陣-https-zh-wikipedia-org-wiki-e8-bd-ac-e7-bd-ae-e7-9f-a9-e9-98-b5"><a href="https://zh.wikipedia.org/wiki/%E8%BD%AC%E7%BD%AE%E7%9F%A9%E9%98%B5">轉置矩陣</a></h2>
+
+<pre><code class="language-ruby"># 矩陣
+# | 1, 2, 3|
+# | 4, 5, 6|
+arr = [[1, 2, 3], [4, 5, 6]]
+=&gt; [[1, 2, 3], [4, 5, 6]]
+
+# 旋轉後
+# | 1, 4|
+# | 2, 5|
+# | 3, 6|
+&gt; arr.transpose
+=&gt; [[1, 4], [2, 5], [3, 6]
+
+# 不會改變陣列的值
+&gt; arr
+=&gt; [[1, 2, 3], [4, 5, 6]]
+</code></pre>
+
+<h2 id="求陣列長度">求陣列長度</h2>
+
+<pre><code># 一般
+&gt; [1, nil, nil, 3, nil, 4].length
+=&gt; 6
+
+# 取得非 nil  的元素個數
+&gt; [1, nil, nil, 3, nil, 4].nitems
+=&gt; 3
+</code></pre>
+
+<h2 id="參考">參考：</h2>
+
+<p><a href="https://ruby-doc.org/core-2.2.0/Array.html">Ruby Document: Array Class</a></p>
+
+<p>另外關於操作集合的技巧可以參考：</p>
+
+<p><a href="http://www.10tiao.com/html/568/201609/2650829566/1.html">集合的使用技巧(一) | Ruby</a></p>
+
+<p><a href="http://www.10tiao.com/html/568/201609/2650829568/1.html">集合使用的技巧(二) | Ruby</a></p>
+
+<p><a href="http://www.10tiao.com/html/568/201609/2650829570/1.html">集合使用的技巧(三) | Ruby</a></p>
+    </div>
+    <footer class="post-footer">
+      
+      <div class="share">
+        
+      </div>
+
+      <div class="pagenation">
+        <ul class="pagenation-list">
+          
+          <li class="pager previous">
+            <a href="https://timfanda35.github.io/2017/02/11/ruby-rails-load-setting-file/" data-toggle="tooltip" data-placement="top" title="Ruby/Rails load setting file">&larr; Previous Post</a>
+          </li>
+          
+          
+          <li class="pager next">
+            <a href="https://timfanda35.github.io/2017/02/26/ruby-pre-defined-variables/" data-toggle="tooltip" data-placement="top" title="Ruby Pre-defined variables">Next Post &rarr;</a>
+          </li>
+          
+        </ul>
+      </div>
+    </footer>
+  </article>
+
+  
+  <article class="related"></article>
+
+  <script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "NewsArticle",
+  "mainEntityOfPage": {
+    "@type": "NewsArticle",
+    "@id": "https://timfanda35.github.io/2017/02/19/ruby-array-methods/",
+    "headline": "圖片來源 フリー写真素材ぱくたそ紀錄一下我覺得值得一提的那些陣列兩三事給予陣列預設值 &amp;gt; Array.new(3, &amp;quot;str&amp;quot;) =&amp;gt; [&amp;quot;str&amp;quot;, &amp;quot;st",
+    "author": "Bear Su",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Bear Su",
+      "logo": ""
+    },
+    "image": "",
+    "datePublished": "2017-02-19"
+  },
+  "headline": "圖片來源 フリー写真素材ぱくたそ紀錄一下我覺得值得一提的那些陣列兩三事給予陣列預設值 &amp;gt; Array.new(3, &amp;quot;str&amp;quot;) =&amp;gt; [&amp;quot;str&amp;quot;, &amp;quot;st",
+  "alternativeHeadline": "Bear Su&#39;s blog",
+  "datePublished": "2017-02-19",
+  "dateModified": "2017-02-19",
+  "url": "https://timfanda35.github.io/2017/02/19/ruby-array-methods/",
+  "wordCount": "383",
+  "author": {
+    "@type": "Person",
+    "name": "Bear Su"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Bear Su"
+  },
+  "image": "",
+  "genre": "ruby",
+  
+  "description": ""
+}
+</script>
+
+  <script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Person",
+  "@id": "https://timfanda35.github.io/2017/02/19/ruby-array-methods/",
+  "name": "Bear Su"
+}
+</script>
+
+
+    </div>
+  </div>
+
+  <footer class="gfooter">
+  <div class="inner">
+    <div class="container">
+      <p class="copy"><small>(c) 2019 Bear Su&#39;s blog</small></p>
+
+      <nav class="footer-nav">
+        <div class="inner">
+          
+        </div>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+
+
+<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+<script src="https://timfanda35.github.io/js/script.js"></script>
+
+</body>
+</html>

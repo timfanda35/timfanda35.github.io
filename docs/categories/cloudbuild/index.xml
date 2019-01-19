@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cloudbuild on Bear Su&#39;s blog</title>
+    <link>https://timfanda35.github.io/categories/cloudbuild/</link>
+    <description>Recent content in Cloudbuild on Bear Su&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>(c) 2019 Bear Su&#39;s blog</copyright>
+    <lastBuildDate>Sat, 01 Sep 2018 16:10:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://timfanda35.github.io/categories/cloudbuild/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>用指令建立 Cloud Build Trigger</title>
+      <link>https://timfanda35.github.io/2018/09/01/create-cloudbuild-trigger-with-command/</link>
+      <pubDate>Sat, 01 Sep 2018 16:10:00 +0800</pubDate>
+      
+      <guid>https://timfanda35.github.io/2018/09/01/create-cloudbuild-trigger-with-command/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://timfanda35.github.io/images/2018-09-01/create-cloudbuild-trigger-with-command/cover.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://www.pakutaso.com/20151102331web-14.html&#34;&gt;圖片來源&lt;/a&gt;
+&lt;a href=&#34;https://www.pakutaso.com/&#34;&gt;フリー写真素材ぱくたそ&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;目前還無法使用 &lt;code&gt;gcloud&lt;/code&gt; 指令直接建立 Cloud Build Trigger，必須要透過 REST API&lt;/p&gt;
+
+&lt;p&gt;在編寫 Shell Script 的時候對於認證的部分就比較麻煩，要使用 REST API 就必須要有 Token 來驗證身份&lt;/p&gt;
+
+&lt;p&gt;現在我們可以透過 &lt;code&gt;gcloud auth application-default print-access-token&lt;/code&gt; 輕鬆取得所需的 Token&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>用快取加速 Cloud Build 建置容器</title>
+      <link>https://timfanda35.github.io/2018/09/01/cloudbuild-with-cache/</link>
+      <pubDate>Sat, 01 Sep 2018 14:40:00 +0800</pubDate>
+      
+      <guid>https://timfanda35.github.io/2018/09/01/cloudbuild-with-cache/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;http://i.imgur.com/EsiorQx.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://www.pakutaso.com/20160628181pc-11.html&#34;&gt;圖片來源&lt;/a&gt;
+&lt;a href=&#34;https://www.pakutaso.com/&#34;&gt;フリー写真素材ぱくたそ&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;參考至 Google Cloud Platform Cloud Build 官方文件：&lt;a href=&#34;https://cloud.google.com/cloud-build/docs/speeding-up-builds&#34;&gt;Speeding up your Builds&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;可以使用之前建置過的 Docker Image 來當作快取，來加快建置 Docker Image 的速度&lt;/p&gt;
+
+&lt;p&gt;這方法需要使用 &lt;code&gt;cloudbuild.yaml&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;使用方式：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;gcloud builds submit --config cloudbuild.yaml .
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;或是在設定 cloud build trigger 時指定使用 &lt;code&gt;cloudbuild.yaml&lt;/code&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

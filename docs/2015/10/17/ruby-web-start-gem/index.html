@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1">
+  <title>用 Ruby 建立 Web 專案的一些起始 gem &middot; Bear Su&#39;s blog -  Running Bear!!! </title>
+  <meta name="generator" content="Hugo 0.53" />
+  <meta name="description" content="Running Bear!!!"> 
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="用 Ruby 建立 Web 專案的一些起始 gem"/>
+<meta name="twitter:description" content="Ruby 有許多 gem 可以用來做 web 開發，以下列出一些我所找到可以作為起頭的 gem 提供大家參考。
+
+有任何錯誤與建議歡迎告知:)
+
+
+
+Web
+
+Rack
+
+
+提供 webserver 最小的功能介面，大多 Ruby 的 web 開發框架都是基於 Rack 所開發的。
+
+
+Rails
+
+
+最知名的魔法書，能快速地開發功能豐富的網站。
+
+
+Sinatra
+
+
+比 Rails 輕量的開發框架，適合用來開發小型專案或是 API。
+
+
+Padrino
+
+
+基於 Sinatra 的開發框架，提供更多方便的資源開發網站。
+
+
+Cuba
+
+
+試圖比使用 Sinatra 寫更少 code 的開發框架，官方 Slide 表示效能比 Sinatra 好。
+
+
+Franky
+
+
+產生小型的 web 專案，適合用來實驗想法的小專案。
+"/>
+
+  <meta property="og:title" content="用 Ruby 建立 Web 專案的一些起始 gem" />
+<meta property="og:description" content="Ruby 有許多 gem 可以用來做 web 開發，以下列出一些我所找到可以作為起頭的 gem 提供大家參考。
+
+有任何錯誤與建議歡迎告知:)
+
+
+
+Web
+
+Rack
+
+
+提供 webserver 最小的功能介面，大多 Ruby 的 web 開發框架都是基於 Rack 所開發的。
+
+
+Rails
+
+
+最知名的魔法書，能快速地開發功能豐富的網站。
+
+
+Sinatra
+
+
+比 Rails 輕量的開發框架，適合用來開發小型專案或是 API。
+
+
+Padrino
+
+
+基於 Sinatra 的開發框架，提供更多方便的資源開發網站。
+
+
+Cuba
+
+
+試圖比使用 Sinatra 寫更少 code 的開發框架，官方 Slide 表示效能比 Sinatra 好。
+
+
+Franky
+
+
+產生小型的 web 專案，適合用來實驗想法的小專案。
+" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://timfanda35.github.io/2015/10/17/ruby-web-start-gem/" /><meta property="article:published_time" content="2015-10-17T05:36:00&#43;08:00"/>
+<meta property="article:modified_time" content="2015-10-17T05:36:00&#43;08:00"/>
+
+
+  <!-- RSS autodiscovery --> 
+
+  
+<meta itemprop="name" content="用 Ruby 建立 Web 專案的一些起始 gem">
+<meta itemprop="description" content="Ruby 有許多 gem 可以用來做 web 開發，以下列出一些我所找到可以作為起頭的 gem 提供大家參考。
+
+有任何錯誤與建議歡迎告知:)
+
+
+
+Web
+
+Rack
+
+
+提供 webserver 最小的功能介面，大多 Ruby 的 web 開發框架都是基於 Rack 所開發的。
+
+
+Rails
+
+
+最知名的魔法書，能快速地開發功能豐富的網站。
+
+
+Sinatra
+
+
+比 Rails 輕量的開發框架，適合用來開發小型專案或是 API。
+
+
+Padrino
+
+
+基於 Sinatra 的開發框架，提供更多方便的資源開發網站。
+
+
+Cuba
+
+
+試圖比使用 Sinatra 寫更少 code 的開發框架，官方 Slide 表示效能比 Sinatra 好。
+
+
+Franky
+
+
+產生小型的 web 專案，適合用來實驗想法的小專案。
+">
+
+
+<meta itemprop="datePublished" content="2015-10-17T05:36:00&#43;08:00" />
+<meta itemprop="dateModified" content="2015-10-17T05:36:00&#43;08:00" />
+<meta itemprop="wordCount" content="64">
+
+
+
+<meta itemprop="keywords" content="" />
+
+  <link href="https://fonts.googleapis.com/css?family=Lato:400" rel="stylesheet">
+  <link rel="stylesheet" href="https://timfanda35.github.io/css/style.css">
+  <script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "WebSite",
+  "name": "Bear Su&#39;s blog",
+  "url": "https://timfanda35.github.io/2015/10/17/ruby-web-start-gem/"
+}
+</script>
+
+</head>
+
+<body>
+  <header class="gheader">
+  <div class="container">
+    <nav class="navbar ">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="https://timfanda35.github.io">
+          <h1 class="brand">Bear Su&#39;s blog</h1>
+        </a>
+
+        <div class="navbar-burger burger" data-target="navMenubd-example">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+
+      <div id="navMenubd-example" class="navbar-menu">
+        <div class="navbar-start">
+          
+          <a class="navbar-item" href="/categories/">
+            Categories
+          </a>
+          
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
+
+
+  <div class="main-content">
+    <div class="container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="title">用 Ruby 建立 Web 專案的一些起始 gem</h1>
+      <div class="meta">
+        <time class="pub-time"  datetime="2015-10-17T05:36:00&#43;08:00">
+          2015.10.17
+        </time>
+        <div class="terms">
+          
+          <div class="categories">
+            
+              <a class="categories-item" href="/categories/ruby">ruby</a>
+            
+              <a class="categories-item" href="/categories/gem">gem</a>
+            
+          </div>
+          
+          
+        </div>
+      </div>
+    </header>
+    <div class="post-body">
+      <p>Ruby 有許多 gem 可以用來做 web 開發，以下列出一些我所找到可以作為起頭的 gem 提供大家參考。</p>
+
+<p>有任何錯誤與建議歡迎告知:)</p>
+
+<hr />
+
+<h1 id="web">Web</h1>
+
+<h2 id="rack-http-rack-github-io"><a href="http://rack.github.io">Rack</a></h2>
+
+<blockquote>
+<p>提供 webserver 最小的功能介面，大多 Ruby 的 web 開發框架都是基於 Rack 所開發的。</p>
+</blockquote>
+
+<h2 id="rails-http-rubyonrails-org"><a href="http://rubyonrails.org">Rails</a></h2>
+
+<blockquote>
+<p>最知名的魔法書，能快速地開發功能豐富的網站。</p>
+</blockquote>
+
+<h2 id="sinatra-http-www-sinatrarb-com"><a href="http://www.sinatrarb.com">Sinatra</a></h2>
+
+<blockquote>
+<p>比 Rails 輕量的開發框架，適合用來開發小型專案或是 API。</p>
+</blockquote>
+
+<h2 id="padrino-http-www-padrinorb-com"><a href="http://www.padrinorb.com">Padrino</a></h2>
+
+<blockquote>
+<p>基於 Sinatra 的開發框架，提供更多方便的資源開發網站。</p>
+</blockquote>
+
+<h2 id="cuba-http-cuba-is"><a href="http://cuba.is">Cuba</a></h2>
+
+<blockquote>
+<p>試圖比使用 Sinatra 寫更少 code 的開發框架，官方 Slide 表示效能比 Sinatra 好。</p>
+</blockquote>
+
+<h2 id="franky-https-github-com-adlerhsieh-franky"><a href="https://github.com/adlerhsieh/franky">Franky</a></h2>
+
+<blockquote>
+<p>產生小型的 web 專案，適合用來實驗想法的小專案。</p>
+</blockquote>
+
+<hr />
+
+<h1 id="admin-panel-for-rails">Admin Panel(For Rails)</h1>
+
+<p>以下列出可以快速建立管理介面的 gem</p>
+
+<h2 id="activeadmin-http-activeadmin-info"><a href="http://activeadmin.info/">ActiveAdmin</a></h2>
+
+<blockquote>
+<p>可以配合 <a href="https://github.com/rstgroup/active_skin">active_skin</a> 顯示較為美觀的介面，</p>
+</blockquote>
+
+<h2 id="railsadmin-https-github-com-sferik-rails-admin"><a href="https://github.com/sferik/rails_admin">RailsAdmin</a></h2>
+
+<blockquote>
+<p>提供簡單的介面管理資料。</p>
+</blockquote>
+
+<h2 id="typus-https-github-com-typus-typus"><a href="https://github.com/typus/typus">Typus</a></h2>
+
+<hr />
+
+<h1 id="參考">參考</h1>
+
+<h2 id="awesome-rails-gem-https-github-com-hothero-awesome-rails-gem"><a href="https://github.com/hothero/awesome-rails-gem">awesome rails gem</a></h2>
+
+<h2 id="the-ruby-toolbox-https-www-ruby-toolbox-com"><a href="https://www.ruby-toolbox.com">The Ruby Toolbox</a></h2>
+    </div>
+    <footer class="post-footer">
+      
+      <div class="share">
+        
+      </div>
+
+      <div class="pagenation">
+        <ul class="pagenation-list">
+          
+          <li class="pager previous">
+            <a href="https://timfanda35.github.io/2015/10/16/ruby-learning-resource/" data-toggle="tooltip" data-placement="top" title="Ruby 學習資源">&larr; Previous Post</a>
+          </li>
+          
+          
+          <li class="pager next">
+            <a href="https://timfanda35.github.io/2015/10/18/install-the-powerline/" data-toggle="tooltip" data-placement="top" title="安裝 Powerline">Next Post &rarr;</a>
+          </li>
+          
+        </ul>
+      </div>
+    </footer>
+  </article>
+
+  
+  <article class="related"></article>
+
+  <script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "NewsArticle",
+  "mainEntityOfPage": {
+    "@type": "NewsArticle",
+    "@id": "https://timfanda35.github.io/2015/10/17/ruby-web-start-gem/",
+    "headline": "Ruby 有許多 gem 可以用來做 web 開發，以下列出一些我所找到可以作為起頭的 gem 提供大家參考。有任何錯誤與建議歡迎告知:)Web Rack  提供 webserver 最小的功能介面，大多 Ruby 的 ",
+    "author": "Bear Su",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Bear Su",
+      "logo": ""
+    },
+    "image": "",
+    "datePublished": "2015-10-17"
+  },
+  "headline": "Ruby 有許多 gem 可以用來做 web 開發，以下列出一些我所找到可以作為起頭的 gem 提供大家參考。有任何錯誤與建議歡迎告知:)Web Rack  提供 webserver 最小的功能介面，大多 Ruby 的 ",
+  "alternativeHeadline": "Bear Su&#39;s blog",
+  "datePublished": "2015-10-17",
+  "dateModified": "2015-10-17",
+  "url": "https://timfanda35.github.io/2015/10/17/ruby-web-start-gem/",
+  "wordCount": "64",
+  "author": {
+    "@type": "Person",
+    "name": "Bear Su"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Bear Su"
+  },
+  "image": "",
+  "genre": "rubygem",
+  
+  "description": ""
+}
+</script>
+
+  <script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Person",
+  "@id": "https://timfanda35.github.io/2015/10/17/ruby-web-start-gem/",
+  "name": "Bear Su"
+}
+</script>
+
+
+    </div>
+  </div>
+
+  <footer class="gfooter">
+  <div class="inner">
+    <div class="container">
+      <p class="copy"><small>(c) 2019 Bear Su&#39;s blog</small></p>
+
+      <nav class="footer-nav">
+        <div class="inner">
+          
+        </div>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+
+
+<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+<script src="https://timfanda35.github.io/js/script.js"></script>
+
+</body>
+</html>
