@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://timfanda35.github.io/2019/01/20/jekyll-to-hugo/</loc>
+    <lastmod>2019-01-20T01:20:26+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://timfanda35.github.io/2018/09/01/create-cloudbuild-trigger-with-command/</loc>
     <lastmod>2018-09-01T16:10:00+08:00</lastmod>
   </url>
@@ -256,7 +261,7 @@
   
   <url>
     <loc>https://timfanda35.github.io/</loc>
-    <lastmod>2018-09-01T16:10:00+08:00</lastmod>
+    <lastmod>2019-01-20T01:20:26+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -358,7 +363,7 @@
   
   <url>
     <loc>https://timfanda35.github.io/post/</loc>
-    <lastmod>2018-09-01T16:10:00+08:00</lastmod>
+    <lastmod>2019-01-20T01:20:26+08:00</lastmod>
     <priority>0</priority>
   </url>
   
