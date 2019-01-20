@@ -65,6 +65,18 @@
             Categories
           </a>
           
+          <a class="navbar-item" href="https://github.com/timfanda35">
+            GitHub
+          </a>
+          
+          <a class="navbar-item" href="https://www.linkedin.com/in/bearsu">
+            Linkedin
+          </a>
+          
+          <a class="navbar-item" href="https://twitter.com/Fandayo">
+            Twitter
+          </a>
+          
         </div>
       </div>
     </nav>
@@ -88,8 +100,21 @@
     </time>
     <div class="terms">
       
+      
     </div>
   </footer>
+  <div style="margin-top: 10px;">
+    <p><img src="/images/2019-01-20/jekyll-to-hugo/cover.jpg" alt="" /></p>
+
+<p><a href="https://www.pakutaso.com/20151102331web-14.html">圖片來源</a>
+<a href="https://www.pakutaso.com/">フリー写真素材ぱくたそ</a></p>
+
+<p>總之從 Jekyll 搬到了 Hugo，再慢慢調版面與新增文章。</p>
+  </div>
+  <p style="margin-top: 10px;">
+    <a href="https://timfanda35.github.io/2019/01/20/jekyll-to-hugo/"> 繼續閱讀 >>> </a>
+  </p>
+  <hr>
 </article>
 
     
@@ -103,8 +128,33 @@
     </time>
     <div class="terms">
       
+      <div class="categories">
+        
+          <a class="categories-item" href="/categories/gcp">gcp</a>
+        
+          <a class="categories-item" href="/categories/cloudbuild">cloudbuild</a>
+        
+      </div>
+      
+      
     </div>
   </footer>
+  <div style="margin-top: 10px;">
+    <p><img src="/images/2018-09-01/create-cloudbuild-trigger-with-command/cover.jpg" alt="" /></p>
+
+<p><a href="https://www.pakutaso.com/20151102331web-14.html">圖片來源</a>
+<a href="https://www.pakutaso.com/">フリー写真素材ぱくたそ</a></p>
+
+<p>目前還無法使用 <code>gcloud</code> 指令直接建立 Cloud Build Trigger，必須要透過 REST API</p>
+
+<p>在編寫 Shell Script 的時候對於認證的部分就比較麻煩，要使用 REST API 就必須要有 Token 來驗證身份</p>
+
+<p>現在我們可以透過 <code>gcloud auth application-default print-access-token</code> 輕鬆取得所需的 Token</p>
+  </div>
+  <p style="margin-top: 10px;">
+    <a href="https://timfanda35.github.io/2018/09/01/create-cloudbuild-trigger-with-command/"> 繼續閱讀 >>> </a>
+  </p>
+  <hr>
 </article>
 
     
@@ -118,8 +168,42 @@
     </time>
     <div class="terms">
       
+      <div class="categories">
+        
+          <a class="categories-item" href="/categories/gcp">gcp</a>
+        
+          <a class="categories-item" href="/categories/cloudbuild">cloudbuild</a>
+        
+          <a class="categories-item" href="/categories/container">container</a>
+        
+      </div>
+      
+      
     </div>
   </footer>
+  <div style="margin-top: 10px;">
+    <p><img src="http://i.imgur.com/EsiorQx.jpg" alt="" /></p>
+
+<p><a href="https://www.pakutaso.com/20160628181pc-11.html">圖片來源</a>
+<a href="https://www.pakutaso.com/">フリー写真素材ぱくたそ</a></p>
+
+<p>參考至 Google Cloud Platform Cloud Build 官方文件：<a href="https://cloud.google.com/cloud-build/docs/speeding-up-builds">Speeding up your Builds</a></p>
+
+<p>可以使用之前建置過的 Docker Image 來當作快取，來加快建置 Docker Image 的速度</p>
+
+<p>這方法需要使用 <code>cloudbuild.yaml</code></p>
+
+<p>使用方式：</p>
+
+<pre><code class="language-shell">gcloud builds submit --config cloudbuild.yaml .
+</code></pre>
+
+<p>或是在設定 cloud build trigger 時指定使用 <code>cloudbuild.yaml</code></p>
+  </div>
+  <p style="margin-top: 10px;">
+    <a href="https://timfanda35.github.io/2018/09/01/cloudbuild-with-cache/"> 繼續閱讀 >>> </a>
+  </p>
+  <hr>
 </article>
 
     
@@ -133,8 +217,33 @@
     </time>
     <div class="terms">
       
+      <div class="categories">
+        
+          <a class="categories-item" href="/categories/ruby">ruby</a>
+        
+          <a class="categories-item" href="/categories/freetype">freetype</a>
+        
+          <a class="categories-item" href="/categories/ascii-art">ascii-art</a>
+        
+      </div>
+      
+      
     </div>
   </footer>
+  <div style="margin-top: 10px;">
+    <p><img src="http://i.imgur.com/EsiorQx.jpg" alt="" /></p>
+
+<p><a href="https://www.pakutaso.com/20160628181pc-11.html">圖片來源</a>
+<a href="https://www.pakutaso.com/">フリー写真素材ぱくたそ</a></p>
+
+<p>最近因為工作上的需求，需要將使用者輸入的文字轉成 16 x 16 的點陣文字</p>
+
+<p>在網路上找到 jserv 這篇 <a href="http://blog.linux.org.tw/~jserv/archives/002050.html">透過 FreeType 繪製 Unicode ASCII Art</a> 而有了實作的方向</p>
+  </div>
+  <p style="margin-top: 10px;">
+    <a href="https://timfanda35.github.io/2017/05/17/ruby-by-using-treetype-to-draw-text-to-a-ascii-art/"> 繼續閱讀 >>> </a>
+  </p>
+  <hr>
 </article>
 
     
@@ -148,8 +257,32 @@
     </time>
     <div class="terms">
       
+      
     </div>
   </footer>
+  <div style="margin-top: 10px;">
+    <p>最近朋友貼了這個課程給我:<a href="https://www.coursera.org/learn/machine-learning/home/welcome">机器学习 - 斯坦福大学</a></p>
+
+<p>總共有 11 週的課程</p>
+
+<p>上班前看一部分，下班後再複習做做筆記</p>
+
+<p>因為裡面的理論會用到微積分，只好在休息時間問問對數學比較拿手的朋友裡面的公式是如何推導的</p>
+
+<p>有一種再補大學學債的感覺</p>
+
+<p>第一週的主題為：</p>
+
+<ol>
+<li>Introduction</li>
+<li>Linear Regression with One Variable</li>
+<li>Linear Algebra Review</li>
+</ol>
+  </div>
+  <p style="margin-top: 10px;">
+    <a href="https://timfanda35.github.io/2017/05/06/machine-learning-note-week1/"> 繼續閱讀 >>> </a>
+  </p>
+  <hr>
 </article>
 
     
@@ -163,8 +296,46 @@
     </time>
     <div class="terms">
       
+      <div class="categories">
+        
+          <a class="categories-item" href="/categories/gcp">gcp</a>
+        
+          <a class="categories-item" href="/categories/google">google</a>
+        
+          <a class="categories-item" href="/categories/cloud">cloud</a>
+        
+          <a class="categories-item" href="/categories/gcpug">gcpug</a>
+        
+      </div>
+      
+      
     </div>
   </footer>
+  <div style="margin-top: 10px;">
+    <p><img src="http://i.imgur.com/Yyals6x.jpg" alt="Imgur" /></p>
+
+<p>今天參加了 <a href="https://cloudplatformonline.com/gcp-tw-googlecloudonboard.html">Google Cloud OnBoard</a></p>
+
+<p>內容主要是 <a href="https://cloud.google.com/">Google Cloud Platform</a> (GCP) 入門介紹</p>
+
+<p>參加的人超級多，早餐跟下午茶都搶不到 XD</p>
+
+<h2 id="主要內容">主要內容</h2>
+
+<ul>
+<li>Module 1 - Google Cloud Platform 概要</li>
+<li>Module 2 - 開始學習 Google Cloud Platform 的方法</li>
+<li>Module 3 - Google App Engine 與 Cloud Datastore</li>
+<li>Module 4 - Google Cloud Platform 的 Storage 功能</li>
+<li>Module 5 - Google Container Engine</li>
+<li>Module 6 - Google Compute Engine 與 Network 功能</li>
+<li>GCP 的大數據分析工具 / 機器學習與深度學習</li>
+</ul>
+  </div>
+  <p style="margin-top: 10px;">
+    <a href="https://timfanda35.github.io/2017/04/19/google-cloud-onboard-20170419/"> 繼續閱讀 >>> </a>
+  </p>
+  <hr>
 </article>
 
     
@@ -190,7 +361,7 @@
   <footer class="gfooter">
   <div class="inner">
     <div class="container">
-      <p class="copy"><small>(c) 2019 Bear Su&#39;s blog</small></p>
+      <p class="copy"><small>(c) 2019 Bear Su&#39;s Blog</small></p>
 
       <nav class="footer-nav">
         <div class="inner">
