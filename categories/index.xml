@@ -94,9 +94,18 @@
     </item>
     
     <item>
+      <title>Gce</title>
+      <link>https://timfanda35.github.io/categories/gce/</link>
+      <pubDate>Sat, 01 Feb 2020 12:00:00 +0800</pubDate>
+      
+      <guid>https://timfanda35.github.io/categories/gce/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Gcp</title>
       <link>https://timfanda35.github.io/categories/gcp/</link>
-      <pubDate>Sat, 01 Sep 2018 16:10:00 +0800</pubDate>
+      <pubDate>Sat, 01 Feb 2020 12:00:00 +0800</pubDate>
       
       <guid>https://timfanda35.github.io/categories/gcp/</guid>
       <description></description>
@@ -126,6 +135,15 @@
       <pubDate>Wed, 19 Apr 2017 15:16:00 +0800</pubDate>
       
       <guid>https://timfanda35.github.io/categories/google/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hashicorp</title>
+      <link>https://timfanda35.github.io/categories/hashicorp/</link>
+      <pubDate>Sat, 01 Feb 2020 12:00:00 +0800</pubDate>
+      
+      <guid>https://timfanda35.github.io/categories/hashicorp/</guid>
       <description></description>
     </item>
     
@@ -162,6 +180,15 @@
       <pubDate>Tue, 22 Mar 2016 11:28:00 +0800</pubDate>
       
       <guid>https://timfanda35.github.io/categories/newrelic/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Packer</title>
+      <link>https://timfanda35.github.io/categories/packer/</link>
+      <pubDate>Sat, 01 Feb 2020 12:00:00 +0800</pubDate>
+      
+      <guid>https://timfanda35.github.io/categories/packer/</guid>
       <description></description>
     </item>
     
