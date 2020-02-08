@@ -7,10 +7,23 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) 2019 Bear Su&#39;s Blog</copyright>
-    <lastBuildDate>Sat, 01 Feb 2020 12:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 08 Feb 2020 12:00:00 +0800</lastBuildDate>
     
 	<atom:link href="https://timfanda35.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Packer on GCP with Cloud Build</title>
+      <link>https://timfanda35.github.io/2020/02/08/packer-on-gcp-with-cloud-build/</link>
+      <pubDate>Sat, 08 Feb 2020 12:00:00 +0800</pubDate>
+      
+      <guid>https://timfanda35.github.io/2020/02/08/packer-on-gcp-with-cloud-build/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;//images/2020-02-08/packer-on-gcp-with-cloud-build/cover.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a style=&#34;background-color:black;color:white;text-decoration:none;padding:4px 6px;font-family:-apple-system, BlinkMacSystemFont, &amp;quot;San Francisco&amp;quot;, &amp;quot;Helvetica Neue&amp;quot;, Helvetica, Ubuntu, Roboto, Noto, &amp;quot;Segoe UI&amp;quot;, Arial, sans-serif;font-size:12px;font-weight:bold;line-height:1.2;display:inline-block;border-radius:3px&#34; href=&#34;https://unsplash.com/@shadejay?utm_medium=referral&amp;amp;utm_campaign=photographer-credit&amp;amp;utm_content=creditBadge&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34; title=&#34;Download free do whatever you want high-resolution photos from Antony Xia&#34;&gt;&lt;span style=&#34;display:inline-block;padding:2px 3px&#34;&gt;&lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; style=&#34;height:12px;width:auto;position:relative;vertical-align:middle;top:-2px;fill:white&#34; viewBox=&#34;0 0 32 32&#34;&gt;&lt;title&gt;unsplash-logo&lt;/title&gt;&lt;path d=&#34;M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z&#34;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/span&gt;&lt;span style=&#34;display:inline-block;padding:2px 3px&#34;&gt;Antony Xia&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://timfanda35.github.io/2020/02/01/packer-on-gcp/&#34;&gt;上一篇&lt;/a&gt;使用 Packet 將建置 VM Image 的步驟自動化。本文將會使用 GCP 上的 Cloud Build 來與 Source Control 做結合，達成只要上 code 就會建置新版本的 VM Image。&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Packer on GCP</title>
