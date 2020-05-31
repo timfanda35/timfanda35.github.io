@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1">
+  <title>使用 Embulk 從 SQL Server 匯入資料至 BigQuery &middot; Bear Su&#39;s Blog -  Running Bear!!! </title>
+  <meta name="generator" content="Hugo 0.53" />
+  <meta name="description" content="Running Bear!!!"> 
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="使用 Embulk 從 SQL Server 匯入資料至 BigQuery"/>
+<meta name="twitter:description" content="
+
+unsplash-logoAntony Xia
+
+本文將使用開源軟體 Embulk  SQL Server 匯入資料至 BigQuery。
+
+一般批次匯入 BigQuery 皆會先從 SQL Server 匯出資料表成 CSV 格式後，再透過 ETL 工具或是直接執行 BigQuery Load Job 匯入。在網路上也有商業的 ETL 軟體與服務能夠直接串接 SQL Server 至 BigQuery，省去自己匯出 CSV 的麻煩。
+
+SQL Server 匯出成 BigQuery 可以接受的 CSV 格式，比較麻煩的主要有兩點：
+
+
+文字欄位的分隔。若欄位值有包含半形逗號(,)或是包含半形逗號(,)與雙引號(&ldquo;)，若沒有正確地處理這兩個符號，在解析 CSV 欄位的時候就會難以判斷分隔欄位導致匯入失敗。
+NULL 值。SQL Server 匯出 CSV 時，會在欄位值中填入 NULL ，但在匯入 BigQeury 時會被解析成字串，所以必須要先將欄位值為 NULL 的欄位修改為空值再匯入。
+"/>
+
+  <meta property="og:title" content="使用 Embulk 從 SQL Server 匯入資料至 BigQuery" />
+<meta property="og:description" content="
+
+unsplash-logoAntony Xia
+
+本文將使用開源軟體 Embulk  SQL Server 匯入資料至 BigQuery。
+
+一般批次匯入 BigQuery 皆會先從 SQL Server 匯出資料表成 CSV 格式後，再透過 ETL 工具或是直接執行 BigQuery Load Job 匯入。在網路上也有商業的 ETL 軟體與服務能夠直接串接 SQL Server 至 BigQuery，省去自己匯出 CSV 的麻煩。
+
+SQL Server 匯出成 BigQuery 可以接受的 CSV 格式，比較麻煩的主要有兩點：
+
+
+文字欄位的分隔。若欄位值有包含半形逗號(,)或是包含半形逗號(,)與雙引號(&ldquo;)，若沒有正確地處理這兩個符號，在解析 CSV 欄位的時候就會難以判斷分隔欄位導致匯入失敗。
+NULL 值。SQL Server 匯出 CSV 時，會在欄位值中填入 NULL ，但在匯入 BigQeury 時會被解析成字串，所以必須要先將欄位值為 NULL 的欄位修改為空值再匯入。
+" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://timfanda35.github.io/2020/05/31/embulk-from-sqlserver-to-bigquery/" /><meta property="article:published_time" content="2020-05-31T12:00:00&#43;08:00"/>
+<meta property="article:modified_time" content="2020-05-31T12:00:00&#43;08:00"/>
+
+
+  <!-- RSS autodiscovery --> 
+
+  
+<meta itemprop="name" content="使用 Embulk 從 SQL Server 匯入資料至 BigQuery">
+<meta itemprop="description" content="
+
+unsplash-logoAntony Xia
+
+本文將使用開源軟體 Embulk  SQL Server 匯入資料至 BigQuery。
+
+一般批次匯入 BigQuery 皆會先從 SQL Server 匯出資料表成 CSV 格式後，再透過 ETL 工具或是直接執行 BigQuery Load Job 匯入。在網路上也有商業的 ETL 軟體與服務能夠直接串接 SQL Server 至 BigQuery，省去自己匯出 CSV 的麻煩。
+
+SQL Server 匯出成 BigQuery 可以接受的 CSV 格式，比較麻煩的主要有兩點：
+
+
+文字欄位的分隔。若欄位值有包含半形逗號(,)或是包含半形逗號(,)與雙引號(&ldquo;)，若沒有正確地處理這兩個符號，在解析 CSV 欄位的時候就會難以判斷分隔欄位導致匯入失敗。
+NULL 值。SQL Server 匯出 CSV 時，會在欄位值中填入 NULL ，但在匯入 BigQeury 時會被解析成字串，所以必須要先將欄位值為 NULL 的欄位修改為空值再匯入。
+">
+
+
+<meta itemprop="datePublished" content="2020-05-31T12:00:00&#43;08:00" />
+<meta itemprop="dateModified" content="2020-05-31T12:00:00&#43;08:00" />
+<meta itemprop="wordCount" content="478">
+
+
+
+<meta itemprop="keywords" content="" />
+
+  <link href="https://fonts.googleapis.com/css?family=Lato:400" rel="stylesheet">
+  <link rel="stylesheet" href="https://timfanda35.github.io/css/style.css">
+  <script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "WebSite",
+  "name": "Bear Su&#39;s Blog",
+  "url": "https://timfanda35.github.io/2020/05/31/embulk-from-sqlserver-to-bigquery/"
+}
+</script>
+
+</head>
+
+<body>
+  <header class="gheader">
+  <div class="container">
+    <nav class="navbar ">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="https://timfanda35.github.io">
+          <p class="brand">Bear Su&#39;s Blog</p>
+        </a>
+
+        <div class="navbar-burger burger" data-target="navMenubd-example">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+
+      <div id="navMenubd-example" class="navbar-menu">
+        <div class="navbar-start">
+          
+          <a class="navbar-item" href="/categories/">
+            Categories
+          </a>
+          
+          <a class="navbar-item" href="https://github.com/timfanda35">
+            GitHub
+          </a>
+          
+          <a class="navbar-item" href="https://www.linkedin.com/in/bearsu">
+            Linkedin
+          </a>
+          
+          <a class="navbar-item" href="https://twitter.com/Fandayo">
+            Twitter
+          </a>
+          
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
+
+
+  <div class="main-content">
+    <div class="container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="title">使用 Embulk 從 SQL Server 匯入資料至 BigQuery</h1>
+      <div class="meta">
+        <time class="pub-time"  datetime="2020-05-31T12:00:00&#43;08:00">
+          2020.05.31
+        </time>
+        <div class="terms">
+          
+          <div class="categories">
+            
+              <a class="categories-item" href="/categories/gcp">gcp</a>
+            
+              <a class="categories-item" href="/categories/bigquery">bigquery</a>
+            
+              <a class="categories-item" href="/categories/sqlserver">sqlserver</a>
+            
+              <a class="categories-item" href="/categories/embulk">embulk</a>
+            
+          </div>
+          
+          
+        </div>
+      </div>
+    </header>
+    <div class="post-body">
+      <p><img src="/images/2020-05-31/embulk-from-sqlserver-to-bigquery/cover.jpg" alt="" /></p>
+
+<p><a style="background-color:black;color:white;text-decoration:none;padding:4px 6px;font-family:-apple-system, BlinkMacSystemFont, &quot;San Francisco&quot;, &quot;Helvetica Neue&quot;, Helvetica, Ubuntu, Roboto, Noto, &quot;Segoe UI&quot;, Arial, sans-serif;font-size:12px;font-weight:bold;line-height:1.2;display:inline-block;border-radius:3px" href="https://unsplash.com/@shadejay?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer" title="Download free do whatever you want high-resolution photos from Antony Xia"><span style="display:inline-block;padding:2px 3px"><svg xmlns="http://www.w3.org/2000/svg" style="height:12px;width:auto;position:relative;vertical-align:middle;top:-2px;fill:white" viewBox="0 0 32 32"><title>unsplash-logo</title><path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path></svg></span><span style="display:inline-block;padding:2px 3px">Antony Xia</span></a></p>
+
+<p>本文將使用開源軟體 Embulk  SQL Server 匯入資料至 BigQuery。</p>
+
+<p>一般批次匯入 BigQuery 皆會先從 SQL Server 匯出資料表成 CSV 格式後，再透過 ETL 工具或是直接執行 BigQuery Load Job 匯入。在網路上也有商業的 ETL 軟體與服務能夠直接串接 SQL Server 至 BigQuery，省去自己匯出 CSV 的麻煩。</p>
+
+<p>SQL Server 匯出成 BigQuery 可以接受的 CSV 格式，比較麻煩的主要有兩點：</p>
+
+<ol>
+<li>文字欄位的分隔。若欄位值有包含半形逗號(,)或是包含半形逗號(,)與雙引號(&ldquo;)，若沒有正確地處理這兩個符號，在解析 CSV 欄位的時候就會難以判斷分隔欄位導致匯入失敗。</li>
+<li>NULL 值。SQL Server 匯出 CSV 時，會在欄位值中填入 NULL ，但在匯入 BigQeury 時會被解析成字串，所以必須要先將欄位值為 NULL 的欄位修改為空值再匯入。</li>
+</ol>
+
+<h2 id="embulk-簡介">Embulk 簡介</h2>
+
+<p><a href="[https://github.com/embulk/embulk](https://github.com/embulk/embulk)">Embulk</a> 是一個使用 JRuby 開發的開源 Bulk Data Loader，支援多種資料來源與目的地。</p>
+
+<blockquote>
+<p>Embulk is a parallel bulk data loader that helps data transfer between various storages, databases, NoSQL and cloud services.</p>
+</blockquote>
+
+<p>透過安裝不同的 input/output plugin 即可支援不同的資料庫或儲存媒介；設定檔為 YAML 格式，也能做成 liquid 格式的範本，動態改變設定檔中的值而不必重新再寫一份類似內容只為了少數變化。</p>
+
+<h2 id="embulk-安裝">Embulk 安裝</h2>
+
+<p>本文環境以 Google Compute Engine，作業系統為 Linux Centos7 為例。</p>
+
+<p>Google Compute Engine 上的 Service Account 權限為：</p>
+
+<ul>
+<li>Storage: 讀寫</li>
+<li>BigQuery: 已啟用</li>
+</ul>
+
+<p>安裝 Open JDK 1.8</p>
+
+<pre><code class="language-bash">sudo yum update -y
+sudo yum install -y java-1.8.0-openjdk-devel
+</code></pre>
+
+<p>安裝 Embulk 最新版於使用者目錄</p>
+
+<pre><code class="language-bash">curl --create-dirs -o ~/.embulk/bin/embulk -L &quot;https://dl.embulk.org/embulk-latest.jar&quot;
+chmod +x ~/.embulk/bin/embulk
+echo 'export PATH=&quot;$HOME/.embulk/bin:$PATH&quot;' &gt;&gt; ~/.bashrc
+source ~/.bashrc
+</code></pre>
+
+<p>測試範例，可以觀察在 <code>try1</code> 目錄下的檔案，與 <code>config.yml</code> 的內容。</p>
+
+<pre><code class="language-bash"># 產生測試來源
+embulk example ./try1
+
+# 猜測欄位並產生設定檔
+embulk guess   ./try1/seed.yml -o config.yml
+
+# 預覽載入作業
+embulk preview config.yml
+
+# 執行載入作業
+embulk run     config.yml
+</code></pre>
+
+<p>若沒有任何錯誤就可以往下一步邁進。</p>
+
+<p><code>./try1</code> 目錄：</p>
+
+<pre><code class="language-bash">./try1/
+├── csv
+│   └── sample_01.csv.gz
+└── seed.yml
+</code></pre>
+
+<p><code>./try1/seed.yml</code> 內容，這裡只有 input/output plugin 等基本設定：</p>
+
+<pre><code class="language-yaml">in:
+  type: file
+  path_prefix: '/home/USER_NAME/./try1/csv/sample_'
+out:
+  type: stdout
+</code></pre>
+
+<p><code>config.yml</code>  內容，透過 <code>guess</code> 指令，從 <code>seed.yml</code> 於原始資料產生內容更加詳盡的設定檔：</p>
+
+<pre><code class="language-yaml">in:
+  type: file
+  path_prefix: /home/USER_NAME/./try1/csv/sample_
+  decoders:
+  - {type: gzip}
+  parser:
+    charset: UTF-8
+    newline: LF
+    type: csv
+    delimiter: ','
+    quote: '&quot;'
+    escape: '&quot;'
+    null_string: 'NULL'
+    trim_if_not_quoted: false
+    skip_header_lines: 1
+    allow_extra_columns: false
+    allow_optional_columns: false
+    columns:
+    - {name: id, type: long}
+    - {name: account, type: long}
+    - {name: time, type: timestamp, format: '%Y-%m-%d %H:%M:%S'}
+    - {name: purchase, type: timestamp, format: '%Y%m%d'}
+    - {name: comment, type: string}
+out: {type: stdout}
+</code></pre>
+
+<p>從 <code>config.yml</code> 中可以得知，將會從 File 類型的資料來源，匯入至標準輸出，也就是顯示在指令輸出中。</p>
+
+<h2 id="embulk-plugin">Embulk Plugin</h2>
+
+<p>本文我們將安裝 <a href="[https://github.com/embulk/embulk-input-jdbc](https://github.com/embulk/embulk-input-jdbc)">SQL Server Input Plugin(embulk-input-jdbc)</a> 與 <a href="[https://github.com/embulk/embulk-output-bigquery](https://github.com/embulk/embulk-output-bigquery)">BigQuery Output Plugin</a>。</p>
+
+<pre><code class="language-bash">embulk gem install embulk-input-sqlserver
+embulk gem install embulk-output-bigquery
+</code></pre>
+
+<h2 id="撰寫設定檔">撰寫設定檔</h2>
+
+<p>假設要使用的 SQL Server 資料表 Schema 如下：</p>
+
+<pre><code class="language-sql">CREATE TABLE PurchaseUsers (
+    id         INT IDENTITY,
+    name       VARCHAR(255) NOT NULL,
+    create_at  DATETIME DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY(id)
+);
+</code></pre>
+
+<p>設定檔可以寫成這樣，並命名為 <code>config.yml.liquid</code>：</p>
+
+<pre><code class="language-yaml">in:
+  type: sqlserver
+  host: &quot;{{ env.IN_SOURCE_HOST }}&quot;
+  user: &quot;{{ env.IN_SOURCE_DB_USER }}&quot;
+  password: &quot;{{ env.IN_SOURCE_DB_PASS }}&quot;
+  database: &quot;{{ env.IN_SOURCE_DB }}&quot;
+  table: &quot;PurchaseUsers&quot;
+  select: &quot;create_at, id, name&quot;
+  column_options:
+    create_at: {type: timestamp}
+    id: {type: long}
+    name: {type: string}
+out:
+  type: bigquery
+  auth_method: application_default
+  project: &quot;{{ env.GCP_PROJECT_ID }}&quot;
+  dataset: &quot;{{ env.BQ_DATASET }}&quot;
+  table:   &quot;PurchaseUsers&quot;
+  compression: GZIP
+  gcs_bucket: &quot;{{ env.GCP_PROJECT_ID }}-embulk&quot;
+  auto_create_gcs_bucket: true
+  column_options:
+  - {name: create_at, type: DATETIME, format: '%Y-%m-%d %H:%M:%S'}
+  - {name: id, type: INTEGER}
+  - {name: name, type: STRING}
+</code></pre>
+
+<p>其中 <code>{{ env.variable_name }}</code> 格式的字串是 <a href="[https://shopify.github.io/liquid/](https://shopify.github.io/liquid/)">liquid</a> 的語法，可以代入環境變數。要注意的是，設定檔要使用 liquid 格式範本，檔名就必須以 liquid 結尾，如 <code>config.yml.liquid</code>。</p>
+
+<p><code>output.gcs_bucket</code> 欄位是必填的，BigQuery Output Plugin 背後其實也是先將資料變成 CSV 上傳到 Google Cloud Storage Bucket 後再執行 Load Job 載入至 BigQuery。 <code>output.auto_create_gcs_bucket</code> 則是設定成自動建立。</p>
+
+<p><code>output.auth_method</code> 的值為 <code>application_default</code>，由於本文環境於 Google Compute Engine 上執行，所以 Embulk 會直接使用 Google Compute Engine 預設的 Service Account 權限呼叫 Google Cloud Storage 與 BigQuery API。其他方式可參考 <a href="[https://github.com/embulk/embulk-output-bigquery#authentication](https://github.com/embulk/embulk-output-bigquery#authentication)">BigQuery Output Plugin Authentication 章節</a>。</p>
+
+<p>我們可以很簡單地寫一個 Shell Script 使用以上的設定去執行載入任務，填寫要代入設定檔的機敏資訊：</p>
+
+<pre><code class="language-bash">#!/bin/bash
+
+export GCP_PROJECT_ID=&quot;&lt;PROJECT_ID&gt;&quot;
+export BQ_DATASET=&quot;&lt;DATASET&gt;&quot;
+
+export IN_SOURCE_HOST=&quot;&lt;SQLServer HOST&gt;&quot;
+export IN_SOURCE_DB_USER=&quot;&lt;LOGIN USER&gt;&quot;
+export IN_SOURCE_DB_PASS=&quot;&lt;LOGIN PASSWORD&gt;&quot;
+export IN_SOURCE_DB=&quot;&lt;DATABASE&gt;&quot;
+
+embulk run config.yml.liquid
+</code></pre>
+
+<p>執行 Shell Script：</p>
+
+<pre><code class="language-bash">chmod u+x run.sh
+./run.sh
+</code></pre>
+    </div>
+    <footer class="post-footer">
+      
+      <div class="share">
+        
+      </div>
+
+      <div class="pagenation">
+        <ul class="pagenation-list">
+          
+          <li class="pager previous">
+            <a href="https://timfanda35.github.io/2020/02/08/packer-on-gcp-with-cloud-build/" data-toggle="tooltip" data-placement="top" title="Packer on GCP with Cloud Build">&larr; Previous Post</a>
+          </li>
+          
+          
+        </ul>
+      </div>
+    </footer>
+  </article>
+
+  
+  <article class="related"></article>
+
+  <script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "NewsArticle",
+  "mainEntityOfPage": {
+    "@type": "NewsArticle",
+    "@id": "https://timfanda35.github.io/2020/05/31/embulk-from-sqlserver-to-bigquery/",
+    "headline": "unsplash-logoAntony Xia本文將使用開源軟體 Embulk SQL Server 匯入資料至 BigQuery。一般批次匯入 BigQuery 皆會先從 SQL Server 匯出資料表成 CSV 格",
+    "author": "Bear Su",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Bear Su",
+      "logo": ""
+    },
+    "image": "",
+    "datePublished": "2020-05-31"
+  },
+  "headline": "unsplash-logoAntony Xia本文將使用開源軟體 Embulk SQL Server 匯入資料至 BigQuery。一般批次匯入 BigQuery 皆會先從 SQL Server 匯出資料表成 CSV 格",
+  "alternativeHeadline": "Bear Su&#39;s Blog",
+  "datePublished": "2020-05-31",
+  "dateModified": "2020-05-31",
+  "url": "https://timfanda35.github.io/2020/05/31/embulk-from-sqlserver-to-bigquery/",
+  "wordCount": "478",
+  "author": {
+    "@type": "Person",
+    "name": "Bear Su"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Bear Su"
+  },
+  "image": "",
+  "genre": "gcpbigquerysqlserverembulk",
+  
+  "description": ""
+}
+</script>
+
+  <script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Person",
+  "@id": "https://timfanda35.github.io/2020/05/31/embulk-from-sqlserver-to-bigquery/",
+  "name": "Bear Su"
+}
+</script>
+
+
+    </div>
+  </div>
+
+  <footer class="gfooter">
+  <div class="inner">
+    <div class="container">
+      <p class="copy"><small>(c) 2019 Bear Su&#39;s Blog</small></p>
+
+      <nav class="footer-nav">
+        <div class="inner">
+          
+        </div>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-5708312-7', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+
+<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+<script src="https://timfanda35.github.io/js/script.js"></script>
+
+</body>
+</html>

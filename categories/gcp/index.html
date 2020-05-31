@@ -20,7 +20,7 @@
 <meta property="og:description" content="Running Bear!!!" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://timfanda35.github.io/categories/gcp/" />
-<meta property="og:updated_time" content="2020-02-08T12:00:00&#43;08:00"/>
+<meta property="og:updated_time" content="2020-05-31T12:00:00&#43;08:00"/>
 
 
   <!-- RSS autodiscovery --> 
@@ -96,6 +96,54 @@
             <h2 class="title">「Gcp」 List</h2>
           </header>
           <div class="archive-body">
+            
+              <article class="post-item">
+  <p class="title">
+    <a href="https://timfanda35.github.io/2020/05/31/embulk-from-sqlserver-to-bigquery/">使用 Embulk 從 SQL Server 匯入資料至 BigQuery</a>
+  </p>
+  <footer class="meta">
+    <time class="pub-time"  datetime="2020-05-31T12:00:00&#43;08:00">
+      2020.05.31
+    </time>
+    <div class="terms">
+      
+      <div class="categories">
+        
+          <a class="categories-item" href="/categories/gcp">gcp</a>
+        
+          <a class="categories-item" href="/categories/bigquery">bigquery</a>
+        
+          <a class="categories-item" href="/categories/sqlserver">sqlserver</a>
+        
+          <a class="categories-item" href="/categories/embulk">embulk</a>
+        
+      </div>
+      
+      
+    </div>
+  </footer>
+  <div style="margin-top: 10px;">
+    <p><img src="/images/2020-05-31/embulk-from-sqlserver-to-bigquery/cover.jpg" alt="" /></p>
+
+<p><a style="background-color:black;color:white;text-decoration:none;padding:4px 6px;font-family:-apple-system, BlinkMacSystemFont, &quot;San Francisco&quot;, &quot;Helvetica Neue&quot;, Helvetica, Ubuntu, Roboto, Noto, &quot;Segoe UI&quot;, Arial, sans-serif;font-size:12px;font-weight:bold;line-height:1.2;display:inline-block;border-radius:3px" href="https://unsplash.com/@shadejay?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer" title="Download free do whatever you want high-resolution photos from Antony Xia"><span style="display:inline-block;padding:2px 3px"><svg xmlns="http://www.w3.org/2000/svg" style="height:12px;width:auto;position:relative;vertical-align:middle;top:-2px;fill:white" viewBox="0 0 32 32"><title>unsplash-logo</title><path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path></svg></span><span style="display:inline-block;padding:2px 3px">Antony Xia</span></a></p>
+
+<p>本文將使用開源軟體 Embulk  SQL Server 匯入資料至 BigQuery。</p>
+
+<p>一般批次匯入 BigQuery 皆會先從 SQL Server 匯出資料表成 CSV 格式後，再透過 ETL 工具或是直接執行 BigQuery Load Job 匯入。在網路上也有商業的 ETL 軟體與服務能夠直接串接 SQL Server 至 BigQuery，省去自己匯出 CSV 的麻煩。</p>
+
+<p>SQL Server 匯出成 BigQuery 可以接受的 CSV 格式，比較麻煩的主要有兩點：</p>
+
+<ol>
+<li>文字欄位的分隔。若欄位值有包含半形逗號(,)或是包含半形逗號(,)與雙引號(&ldquo;)，若沒有正確地處理這兩個符號，在解析 CSV 欄位的時候就會難以判斷分隔欄位導致匯入失敗。</li>
+<li>NULL 值。SQL Server 匯出 CSV 時，會在欄位值中填入 NULL ，但在匯入 BigQeury 時會被解析成字串，所以必須要先將欄位值為 NULL 的欄位修改為空值再匯入。</li>
+</ol>
+  </div>
+  <p style="margin-top: 10px;">
+    <a href="https://timfanda35.github.io/2020/05/31/embulk-from-sqlserver-to-bigquery/"> 繼續閱讀 >>> </a>
+  </p>
+  <hr>
+</article>
+
             
               <article class="post-item">
   <p class="title">

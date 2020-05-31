@@ -31,6 +31,15 @@
     </item>
     
     <item>
+      <title>Bigquery</title>
+      <link>https://timfanda35.github.io/categories/bigquery/</link>
+      <pubDate>Sun, 31 May 2020 12:00:00 +0800</pubDate>
+      
+      <guid>https://timfanda35.github.io/categories/bigquery/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Brakeman</title>
       <link>https://timfanda35.github.io/categories/brakeman/</link>
       <pubDate>Tue, 22 Mar 2016 11:28:00 +0800</pubDate>
@@ -85,6 +94,15 @@
     </item>
     
     <item>
+      <title>Embulk</title>
+      <link>https://timfanda35.github.io/categories/embulk/</link>
+      <pubDate>Sun, 31 May 2020 12:00:00 +0800</pubDate>
+      
+      <guid>https://timfanda35.github.io/categories/embulk/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Freetype</title>
       <link>https://timfanda35.github.io/categories/freetype/</link>
       <pubDate>Wed, 17 May 2017 13:28:00 +0800</pubDate>
@@ -105,7 +123,7 @@
     <item>
       <title>Gcp</title>
       <link>https://timfanda35.github.io/categories/gcp/</link>
-      <pubDate>Sat, 08 Feb 2020 12:00:00 +0800</pubDate>
+      <pubDate>Sun, 31 May 2020 12:00:00 +0800</pubDate>
       
       <guid>https://timfanda35.github.io/categories/gcp/</guid>
       <description></description>
@@ -243,6 +261,15 @@
       <pubDate>Thu, 11 Aug 2016 09:15:00 +0800</pubDate>
       
       <guid>https://timfanda35.github.io/categories/shell/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Sqlserver</title>
+      <link>https://timfanda35.github.io/categories/sqlserver/</link>
+      <pubDate>Sun, 31 May 2020 12:00:00 +0800</pubDate>
+      
+      <guid>https://timfanda35.github.io/categories/sqlserver/</guid>
       <description></description>
     </item>
     

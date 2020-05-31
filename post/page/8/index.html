@@ -16,7 +16,7 @@
 <meta property="og:description" content="Running Bear!!!" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://timfanda35.github.io/post/" />
-<meta property="og:updated_time" content="2015-10-13T08:23:00&#43;08:00"/>
+<meta property="og:updated_time" content="2015-10-14T08:26:00&#43;08:00"/>
 
 
   <!-- RSS autodiscovery --> 
@@ -89,6 +89,61 @@
       
   
   <div class="archive-body">
+    
+      <article class="post-item">
+  <p class="title">
+    <a href="https://timfanda35.github.io/2015/10/14/ruby-percent-literals/">Ruby 的 %Q, %q, %W, %w, %x, %r, %s, %i</a>
+  </p>
+  <footer class="meta">
+    <time class="pub-time"  datetime="2015-10-14T08:26:00&#43;08:00">
+      2015.10.14
+    </time>
+    <div class="terms">
+      
+      <div class="categories">
+        
+          <a class="categories-item" href="/categories/ruby">ruby</a>
+        
+      </div>
+      
+      
+    </div>
+  </footer>
+  <div style="margin-top: 10px;">
+    <p>有時候在看其他人的 Ruby 程式碼時，常常發現有 <code>%w</code>, <code>%r</code> 等 % 開頭的程式碼。上網查了一下，才知道這些叫做 <a href="http://ruby-doc.org/core-2.2.2/doc/syntax/literals_rdoc.html#label-Percent+Strings">Percent literals(或Percent Strings)</a>。</p>
+
+<p>以下內容是改寫自 <a href="https://simpleror.wordpress.com/2009/03/15/q-q-w-w-x-r-s/">%Q, %q, %W, %w, %x, %r, %s</a> 與 <a href="https://ruby-china.org/topics/18512">Ruby 里的 %Q, %q, %W, %w, %x, %r, %s, %i (译)</a>。</p>
+
+<p>執行環境：</p>
+
+<ul>
+<li>ruby: 2.2.2</li>
+<li>console: irb</li>
+</ul>
+
+<h2 id="q">%Q</h2>
+
+<hr />
+
+<p>代替雙引號字串，如果在字串中有很多雙引號的時候很好用</p>
+
+<pre><code class="language-ruby">&gt;&gt; what_frank_said = 'Hello!'
+=&gt; &quot;Hello!&quot;
+
+&gt;&gt; %Q(Joe said: &quot;Frank said: &quot;#{what_frank_said}&quot;&quot;)
+=&gt; &quot;Joe said: \&quot;Frank said: \&quot;Hello!\&quot;\&quot;&quot;
+
+&gt;&gt; puts %Q(Joe said: &quot;Frank said: &quot;#{what_frank_said}&quot;&quot;)
+Joe said: &quot;Frank said: &quot;Hello!&quot;&quot;
+=&gt; nil
+</code></pre>
+  </div>
+  <p style="margin-top: 10px;">
+    <a href="https://timfanda35.github.io/2015/10/14/ruby-percent-literals/"> 繼續閱讀 >>> </a>
+  </p>
+  <hr>
+</article>
+
     
       <article class="post-item">
   <p class="title">
@@ -277,43 +332,6 @@ class Foo class &lt;&lt; self def class_bar1 #... end def class_bar2 #... end en
   </div>
   <p style="margin-top: 10px;">
     <a href="https://timfanda35.github.io/2015/07/31/instance-method-and-class-method-difference/"> 繼續閱讀 >>> </a>
-  </p>
-  <hr>
-</article>
-
-    
-      <article class="post-item">
-  <p class="title">
-    <a href="https://timfanda35.github.io/2015/07/30/helper-method-to-use/">helper 的使用方法</a>
-  </p>
-  <footer class="meta">
-    <time class="pub-time"  datetime="2015-07-30T13:37:00&#43;08:00">
-      2015.07.30
-    </time>
-    <div class="terms">
-      
-      <div class="categories">
-        
-          <a class="categories-item" href="/categories/ruby">ruby</a>
-        
-          <a class="categories-item" href="/categories/rails">rails</a>
-        
-      </div>
-      
-      
-    </div>
-  </footer>
-  <div style="margin-top: 10px;">
-    Helper 是協助在 View 呈現資料的方法，通常都用來包裝程式邏輯，或是簡化撰寫 View 的作業。
-Helper 檔案都會放在 app/helpers 底下，預設就有一個 application_helper.rb 的檔案。
-一份 Helper 檔案範例如下，要注意是定義一個 Module，而非 Class：
-module FooHelper def bar ... end end  之後就能在 View 中使用 bar 方法了。
-如果想將 Controller 的方法變成 Helper 方法讓 View 呼叫，可以用 helper_method 方法達成：
-class ApplicationController &lt; ActionController::Base # define helper method helper_method :foo protected def foo ... end end  至於想要在 rails console 測試 helper ：
- 因為 Helper 預設只能在 Template 中使用，如果想在 rails console 中呼叫，必須加上 helper，例如 helper.
-  </div>
-  <p style="margin-top: 10px;">
-    <a href="https://timfanda35.github.io/2015/07/30/helper-method-to-use/"> 繼續閱讀 >>> </a>
   </p>
   <hr>
 </article>
