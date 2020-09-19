@@ -7156,7 +7156,7 @@ body {
 .meta {
   margin-top: 8px; }
   .meta .pub-time {
-    font-family: "Lato", sans-serif;
+    font-family: "Courier New", "Lato", sans-serif;
     color: #8d8d8d; }
 
 .terms {
@@ -7258,10 +7258,9 @@ body {
   min-height: 200px; }
   .taxonomy-list {
     text-align: left; }
-    .taxonomy-list-item {
-      display: inline-block; }
+    .taxonomy-list-item {}
       .taxonomy-list-item + .taxonomy-list-item {
-        margin-left: 2em; }
+        margin-top: 2em; }
       .taxonomy-list-item a {
         color: #2d2d2d; }
         .taxonomy-list-item a:hover {
@@ -7299,3 +7298,9 @@ body {
     background-color: transparent; }
   .gheader .navbar-item {
     color: #eaeaea; }
+
+/* Customzie */
+.pub-time {
+  font-family: "Courier New", "Lato", sans-serif;
+  font-weight: bold;
+  font-style: italic;}
