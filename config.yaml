@@ -7,6 +7,13 @@ copyright: "(c) 2021 Bear Su's Blog"
 theme: hugo-gentoo-theme-custom
 contentDir: content/posts
 
+# https://jdhao.github.io/2019/12/29/hugo_html_not_shown/
+markup:
+  defaultMarkdownHandler: "goldmark"
+  goldmark:
+    renderer:
+      unsafe: true
+
 googleAnalytics: UA-5708312-7
 
 paginate: 10
