@@ -1,0 +1,26 @@
+{{ define "main" }}
+
+<div class="taxonomy">
+  <ul class="taxonomy-list">
+    {{ $data := .Data }}
+    {{ range $key, $value := .Data.Terms }}
+      <li class="taxonomy-list-item">
+        <p class="title">
+          <a href="/{{ $data.Plural }}/{{ $key | urlize }}">{{ $key }}</a><span>({{ len $value }})</span>
+        </p>
+        <ul>
+        {{ range $page := $value }}
+          <li>
+            <time class="pub-time"  datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" | safeHTML }}">
+              {{ .Lastmod.Format ( .Site.Params.dateformat | default "2006.01.02") }}
+            </time>
+            <a href="{{ $page.Permalink }}">{{ $page.Title }}</a>
+          </li>
+        {{ end }}
+        </ul>
+      </li>
+    {{ end }}
+  </ul>
+</div>
+
+{{ end }}
