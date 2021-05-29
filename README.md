@@ -13,9 +13,3 @@ Local Test
 ```bash
 make
 ```
-
-Publish
-
-```bash
-make deploy
-```
