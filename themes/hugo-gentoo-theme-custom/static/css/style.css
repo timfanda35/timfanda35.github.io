@@ -7239,8 +7239,7 @@ body {
   .post-body p + p {
     margin-top: 0.5em; }
   .post-body p code {
-      font-family: Monaco, Consolas, 'Courier New', Courier, Monaco, monospace;
-      font-size: 0.5em; }
+      font-family: Monaco, Consolas, 'Courier New', Courier, Monaco, monospace;}
   .post-body ol,
   .post-body ul {
     margin: 1.4rem 0 1.4rem 2.4rem; }
