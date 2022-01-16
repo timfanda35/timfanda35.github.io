@@ -8,7 +8,7 @@ title: ActiveRecord merge method
 url: /2017/03/19/active-record-merge-method/
 ---
 
-![](http://i.imgur.com/EsiorQx.jpg)
+![](https://i.imgur.com/EsiorQx.jpg)
 
 [圖片來源](https://www.pakutaso.com/20160628181pc-11.html)
 

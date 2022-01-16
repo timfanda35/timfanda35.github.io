@@ -7,7 +7,7 @@ title: Ruby Pre-defined variables
 url: /2017/02/26/ruby-pre-defined-variables/
 ---
 
-![](http://i.imgur.com/EsiorQx.jpg)
+![](https://i.imgur.com/EsiorQx.jpg)
 
 [圖片來源](https://www.pakutaso.com/20160628181pc-11.html)
 [フリー写真素材ぱくたそ](https://www.pakutaso.com/)
