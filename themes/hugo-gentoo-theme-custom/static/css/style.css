@@ -7189,6 +7189,15 @@ body {
   background-color: #d84817;
   color: #eaeaea;
   transition: 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) 0s; }
+  @media screen and (max-width: 768px) {
+    .categories-item {
+      display: inline-block;
+      border-radius: 12px;
+      min-width: 48px;
+      height: 48px;
+      line-height: 48px;
+      padding: 0 12px;
+      margin-top: 4px}}
   .categories-item:hover {
     background-color: #eaeaea;
     color: #d84817; }
