@@ -2,6 +2,12 @@
 
 Render by [Hugo](https://gohugo.io/).
 
+Install Hugo
+
+```
+brew install hugo
+```
+
 Add Post
 
 ```bash
