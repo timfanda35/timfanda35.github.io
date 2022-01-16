@@ -9,7 +9,7 @@ title: Ruby 透過 FreeType 產生點陣文字
 url: /2017/05/17/ruby-by-using-treetype-to-draw-text-to-a-ascii-art/
 ---
 
-![](http://i.imgur.com/EsiorQx.jpg)
+![](https://i.imgur.com/EsiorQx.jpg)
 
 [圖片來源](https://www.pakutaso.com/20160628181pc-11.html)
 [フリー写真素材ぱくたそ](https://www.pakutaso.com/)
