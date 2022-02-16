@@ -7161,6 +7161,8 @@ body {
     @media screen and (max-width: 768px) {
       .meta .pub-time {
         display: block; }
+      .meta .terms {
+        margin-left: 0px; }
     }
 
 .terms {
@@ -7189,8 +7191,9 @@ body {
       padding-right: 6px; }
 
 .categories-item {
+  border-radius: 8px;
   padding: 4px 8px;
-  background-color: #d84817;
+  background-color: #4a4a4a;
   color: #eaeaea;
   transition: 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) 0s; }
   @media screen and (max-width: 768px) {
@@ -7204,7 +7207,7 @@ body {
       margin-top: 4px}}
   .categories-item:hover {
     background-color: #eaeaea;
-    color: #d84817; }
+    color: #4a4a4a; }
 
 .categories + .tag {
   margin-left: 0.8em; }
@@ -7299,7 +7302,7 @@ body {
         padding-right: 15px; } }
 
 .gfooter {
-  padding: 14px 0;
+  padding: 14px 10px;
   background-color: #2d2d2d;
   border-bottom: 3px solid #d84817; }
   .gfooter .copy {
