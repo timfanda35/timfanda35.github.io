@@ -135,10 +135,14 @@ a {
 
 code {
   background-color: #b5b5b5;
-  color: 0a0a0a;
+  color: #0a0a0a;
   font-size: 0.875em;
   font-weight: normal;
-  padding: 0.25em 0.5em 0.25em; }
+  padding: 0.25em 0.5em 0.25em;
+  border: #0a0a0a;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 5px; }
 
 hr {
   background-color: #dbdbdb;
@@ -7240,9 +7244,11 @@ body {
   .post-body h4 + p {
     margin-top: 0.6em; }
   .post-body p + p {
-    margin-top: 0.5em; }
+    margin-top: 0.8em; }
+  .post-body p {
+    font-size: 1.2rem;}
   .post-body p code {
-      font-family: Monaco, Consolas, 'Courier New', Courier, Monaco, monospace;}
+    font-size: 0.7rem; }
   .post-body ol,
   .post-body ul {
     margin: 1.4rem 0 1.4rem 2.4rem; }
@@ -7253,6 +7259,8 @@ body {
       margin: 1.4rem 0 1.4rem 2.4rem; }
   .post-body ul {
     list-style-type: disc; }
+  .post-body li code {
+    font-size: 0.7rem; }
   .post-body img {
     margin: 1.2rem 0; }
   .post-body blockquote {
