@@ -9,9 +9,9 @@ url: /2022/02/19/active-support-message-encryptor/
 
 啟動 Rails Server 時，如果沒有 `config/master.key` ，或是 `config/master.key` 無法解密 `config/credentials.yml.enc`，就會出現 `ActiveSupport::MessageEncryptor` 的錯誤
 
-為 Production 環境準備一個 `config/master.key` 跟 `config/credentials.yml.enc` 在管理與部屬上不太方便，如果可以像是 `config/environments` 下的環境設定一樣就好了
+為 Production 環境準備一個 `config/master.key` 跟 `config/credentials.yml.enc` 在管理與部屬上不太方便
 
-在 Rails 6 之後，可以依據環境變數產生並套不同的 credentials
+在 Rails 6 之後，可以依據環境變數產生並套用不同的 credentials
 
 ## Rails credentials
 
