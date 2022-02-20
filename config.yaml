@@ -20,6 +20,8 @@ paginate: 10
 
 params:
   description: "Running Bear!!!"
+  images:
+  - images/bear.jpeg
   author: "Bear Su"
   likerID: "timfanda35"
 
