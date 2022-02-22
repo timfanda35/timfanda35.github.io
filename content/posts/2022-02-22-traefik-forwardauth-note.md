@@ -119,6 +119,8 @@ docker-compose up
 
 在測試過程中可以觀察 httpbin 印出的 access log。
 
+開啟另一個 terminal session 用來執行以下測試的指令。
+
 ## 測試驗證成功的請求
 
 ```
@@ -162,9 +164,7 @@ curl \
 
 ## 停止測試環境
 
-```
-docker-compose down
-```
+於剛剛執行 `docker-compute up` 指令的 terminal session 輸入 `crtl` + `c` 停止 containers。
 
 ## Ref
 
