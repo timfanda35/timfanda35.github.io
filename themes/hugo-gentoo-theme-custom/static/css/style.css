@@ -7330,3 +7330,15 @@ body {
   font-family: "Courier New", "Lato", sans-serif;
   font-weight: bold;
   font-style: italic;}
+
+.toc-wrap {
+  border-width: 1px;
+  border-style: solid;}
+  .toc-wrap h2 {
+    margin-top: 0.2rem;
+    margin-left: 0.5rem;}
+  .toc-wrap ul  {
+    margin-top: 0;
+    margin-bottom: 0.5rem;}
+  .toc-wrap ul ul {
+    margin: 0 0 0 1.5rem;}
