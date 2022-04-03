@@ -7265,7 +7265,11 @@ body {
     margin: 1.2rem 0; }
   .post-body blockquote {
     border-left: 3px solid #363636;
-    padding-left: 2rem; }
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+    background-color: #dddddd;
+    font-weight: 500;
+    font-style: italic; }
   .post-body pre {
     background-color: #363636;
     /* margin: 2.8em 0; */
