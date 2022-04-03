@@ -14,6 +14,10 @@ markup:
   goldmark:
     renderer:
       unsafe: true
+  tableOfContents:
+    endLevel: 6
+    ordered: false
+    startLevel: 2
 
 googleAnalytics: UA-5708312-7
 
