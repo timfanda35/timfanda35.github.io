@@ -11,7 +11,7 @@ title: "如何設定 Vue3 開發環境使用 HTTPS 連線"
 url: /2022/05/15/vue3-devserver-https/
 ---
 
-如果 Vue3 專案是使用 `vue-cli-service` 作為主要開發環境，那摩可以透過編輯 `vue.config.js` 讓開發環境使用的 Server 支援 HTTPS。
+如果 Vue3 專案是使用 `vue-cli-service` 作為主要開發環境，可以透過編輯 `vue.config.js` 讓開發環境使用的 Server 支援 HTTPS。
 
 ## 設定
 
@@ -37,7 +37,7 @@ module.exports = {
 yarn serve
 ```
 
-並確認輸出內容。Local 與 Network 的值將會同樣是 `https://localhost:8080/`。(除非 Port 8080 已被其他服務用走，才會更換成其他 Port)
+確認輸出內容。Local 與 Network 的值將會同樣是 `https://localhost:8080/`。(除非 Port 8080 已被其他服務用走，才會更換成其他 Port)
 
 ```
  DONE  Compiled successfully in 1942ms                                                       11:27:13 PM
