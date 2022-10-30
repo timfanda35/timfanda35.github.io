@@ -22,14 +22,14 @@ brew install libpq
 
 在安裝過程中 Summary 會顯示 libpg 安裝的位置。
 
-```
+```shell
 ==> Summary
 🍺  /opt/homebrew/Cellar/libpq/15.0: 2,366 files, 28.5MB
 ```
 
 我們將該位置紀錄成環境變數
  
-```
+```shell
 LIBPG_PATH=/opt/homebrew/Cellar/libpq/15.0
 ```
 
