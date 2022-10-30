@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>newrelic on Bear Su's Blog</title><link>https://blog.bear-su.dev/categories/newrelic/</link><description>Recent content in newrelic on Bear Su's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>Copyright © 2015 - 2022 Bear Su's Blog</copyright><lastBuildDate>Tue, 22 Mar 2016 11:28:00 +0800</lastBuildDate><atom:link href="https://blog.bear-su.dev/categories/newrelic/index.xml" rel="self" type="application/rss+xml"/><item><title>推薦協助提高程式碼品質的 Gem</title><link>https://blog.bear-su.dev/2016/03/22/gems-for-improving-code-quality/</link><pubDate>Tue, 22 Mar 2016 11:28:00 +0800</pubDate><guid>https://blog.bear-su.dev/2016/03/22/gems-for-improving-code-quality/</guid><description>&lt;p>用 Rails 開發網站時除了寫測試之外，還可以透過一些 gem 來協助維護 code 的品質&lt;/p>
+&lt;p>這篇推薦幾個 gem：&lt;/p>
+&lt;p>&lt;a href="https://github.com/presidentbeef/brakeman">Brakeman - 檢查安全性&lt;/a>&lt;/p>
+&lt;p>&lt;a href="https://github.com/flyerhzm/bullet">Bullet - 檢查 N+1 Query&lt;/a>&lt;/p>
+&lt;p>&lt;a href="https://github.com/whitesmith/rubycritic">RubyCritic - 靜態分析程式碼(已整合多套工具)&lt;/a>&lt;/p>
+&lt;p>&lt;a href="https://github.com/newrelic/rpm">New Relic RPM - 監測網站效能&lt;/a>&lt;/p></description></item></channel></rss>

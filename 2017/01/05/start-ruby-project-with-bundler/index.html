@@ -1,0 +1,191 @@
+<!doctype html><html lang=en-us>
+<head>
+<link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png>
+<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
+<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png>
+<link rel=manifest href=/site.webmanifest>
+<link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5>
+<meta name=msapplication-TileColor content="#da532c">
+<meta name=theme-color content="#ffffff">
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta http-equiv=x-ua-compatible content="ie=edge,chrome=1">
+<title>Start ruby project with bundler &#183; Bear Su's Blog - Running Bear!!! </title>
+<meta name=generator content="Hugo 0.92.0">
+<meta name=description content="Running Bear!!!">
+<meta name=twitter:card content="summary_large_image">
+<meta name=twitter:image content="https://blog.bear-su.dev/images/bear.jpeg">
+<meta name=twitter:title content="Start ruby project with bundler">
+<meta name=twitter:description content="有時候會想要寫個 side project
+不是只有一個檔案的 script
+因為會用到其他人寫好的 gem，想要用 bundler 來管理
+在這裡紀錄一下建立用 bundler 管理依賴的 ruby 專案的起始步驟">
+<meta property="og:title" content="Start ruby project with bundler">
+<meta property="og:description" content="有時候會想要寫個 side project
+不是只有一個檔案的 script
+因為會用到其他人寫好的 gem，想要用 bundler 來管理
+在這裡紀錄一下建立用 bundler 管理依賴的 ruby 專案的起始步驟">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://blog.bear-su.dev/2017/01/05/start-ruby-project-with-bundler/"><meta property="og:image" content="https://blog.bear-su.dev/images/bear.jpeg"><meta property="article:section" content>
+<meta property="article:published_time" content="2017-01-05T12:00:00+08:00">
+<meta property="article:modified_time" content="2017-01-05T12:00:00+08:00">
+<link href rel=alternate type=application/rss+xml title="Bear Su's Blog">
+<link href rel=feed type=application/rss+xml title="Bear Su's Blog">
+<meta itemprop=name content="Start ruby project with bundler">
+<meta itemprop=description content="有時候會想要寫個 side project
+不是只有一個檔案的 script
+因為會用到其他人寫好的 gem，想要用 bundler 來管理
+在這裡紀錄一下建立用 bundler 管理依賴的 ruby 專案的起始步驟"><meta itemprop=datePublished content="2017-01-05T12:00:00+08:00">
+<meta itemprop=dateModified content="2017-01-05T12:00:00+08:00">
+<meta itemprop=wordCount content="118"><meta itemprop=image content="https://blog.bear-su.dev/images/bear.jpeg">
+<meta itemprop=keywords content>
+<link href="https://fonts.googleapis.com/css?family=Lato:400" rel=stylesheet>
+<link rel=stylesheet href=https://blog.bear-su.dev/css/style.css>
+<script type=application/ld+json>{"@context":"http://schema.org","@type":"WebSite","name":"Bear Su\u0027s Blog","url":"https:\/\/blog.bear-su.dev\/2017\/01\/05\/start-ruby-project-with-bundler\/"}</script>
+</head>
+<body>
+<header class=gheader>
+<div class=container>
+<nav class=navbar>
+<div class=navbar-brand>
+<a class=navbar-item href=https://blog.bear-su.dev>
+<p class=brand>Bear Su's Blog</p>
+</a>
+<div class="navbar-burger burger" data-target=navMenubd-example>
+<span></span>
+<span></span>
+<span></span>
+</div>
+</div>
+<div id=navMenubd-example class=navbar-menu>
+<div class=navbar-start>
+<a class=navbar-item href=/categories/>
+Categories
+</a>
+<a class=navbar-item href=https://github.com/timfanda35>
+GitHub
+</a>
+<a class=navbar-item href=https://www.linkedin.com/in/bearsu>
+Linkedin
+</a>
+<a class=navbar-item href=https://twitter.com/Fandayo>
+Twitter
+</a>
+</div>
+</div>
+</nav>
+</div>
+</header>
+<div class=main-content>
+<div class=container>
+<article class=post>
+<header class=post-header>
+<h1 class=title>Start ruby project with bundler</h1>
+<div class=meta>
+<time class=pub-time datetime=2017-01-05T12:00:00+08:00>
+2017.01.05
+</time>
+<div class=terms>
+<div class=categories>
+<a class=categories-item href=/categories/ruby>ruby</a>
+</div>
+</div>
+</div>
+</header>
+<div class=post-body>
+<div class=toc-wrap>
+<h2>Table of Contents</h2>
+<nav id=TableOfContents></nav>
+</div>
+<p>有時候會想要寫個 side project</p>
+<p>不是只有一個檔案的 script</p>
+<p>因為會用到其他人寫好的 gem，想要用 <a href=http://bundler.io/>bundler</a> 來管理</p>
+<p>在這裡紀錄一下建立用 <a href=http://bundler.io/>bundler</a> 管理依賴的 ruby 專案的起始步驟</p>
+<p>首先先建立一個目錄，並移動到該目錄下</p>
+<pre tabindex=0><code>$ mkdir project
+$ cd project
+</code></pre><p>執行指令初始化目錄</p>
+<pre tabindex=0><code>$ bundle init
+
+# 如果沒有 bundle 指令，可能是沒有安裝 bundler 的關係
+$ gem install bundler 
+</code></pre><p>以上指令會在目錄下產生 <code>Gemfile</code>，當然這檔案你也可以自己打，不過打指令產生不是好記又快嗎？</p>
+<pre tabindex=0><code># frozen_string_literal: true
+# A sample Gemfile
+source &quot;https://rubygems.org&quot;
+
+# gem &quot;rails&quot;
+</code></pre><p>記得編輯完 <code>Gemfile</code> 要執行 <code>bundle install</code> 安裝 gem</p>
+<p>接下來新增一個作為專案起始檔案 <code>app.rb</code>，在檔案開頭加上</p>
+<pre tabindex=0><code>require 'rubygems'
+require 'bundler/setup'
+</code></pre><p><code>require 'bundler/setup'</code> 會將 <code>Gemfile</code> 的 gem 加入到 <code>LOAD_PATH</code> 裡，這樣就可以用 <code>require</code> 引入<code>Gemfile</code> 裡面的 gem 了</p>
+<p>但如果你要引入的 gem 很多，懶得一個個引入的話，可以用 <code>Bundler.require</code> 一次引入 <code>Gemfile</code> 裡面全部的 gem，如將 <code>app.rb</code> 修改如下：</p>
+<pre tabindex=0><code>require 'rubygems'
+require 'bundler/setup'
+Bundler.require
+</code></pre><p>不過 <code>Bundler.require</code> 在 require 的時候是直接使用 gem 的名稱，如果有 gem 在 require 的時候要用不同的名稱的話，必須在 <code>Gemfile</code> 裡指名 require 時的名稱，如</p>
+<pre tabindex=0><code># Gemfile
+gem 'rack-cache', :require =&gt; 'rack/cache'
+</code></pre><p>到這邊就已經可以用 <code>Gemfile</code> 來管理專案所以用到的 gem ，可以開始開發囉！</p>
+</div>
+<footer class=post-footer>
+<hr>
+<div style=margin-top:2.5rem>
+<div style=display:flex;justify-content:center;width:100%>
+<p style=color:gray>
+如果覺得這篇文章對您有所幫助，歡迎贊助我一杯咖啡 ☕️
+</p>
+</div>
+<div style=display:flex;justify-content:center;width:100%>
+<p style=color:gray>
+祝您有美好的一天 ❤️
+</p>
+</div>
+<div style=display:flex;justify-content:center;width:100%;margin-top:1rem>
+<script type=text/javascript src=https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js data-name=bmc-button data-slug=timfanda35 data-color=#FFDD00 data-emoji data-font=Bree data-text="Buy me a coffee" data-outline-color=#000000 data-font-color=#000000 data-coffee-color=#ffffff></script>
+</div>
+</div>
+<hr>
+<div style=margin-top:1rem>
+<script src=https://utteranc.es/client.js repo=timfanda35/timfanda35.github.io issue-term=pathname label=comment theme=github-light crossorigin=anonymous async></script>
+</div>
+<div class=share>
+</div>
+<div class=pagenation>
+<ul class=pagenation-list>
+<li class="pager previous">
+<a href=https://blog.bear-su.dev/2017/01/04/remove-rvm/ data-toggle=tooltip data-placement=top title="Remove RVM">&larr; Previous Post</a>
+</li>
+<li class="pager next">
+<a href=https://blog.bear-su.dev/2017/01/24/swagger-grape-rack/ data-toggle=tooltip data-placement=top title="swagger + grape + rack">Next Post &rarr;</a>
+</li>
+</ul>
+</div>
+</footer>
+</article>
+<article class=related></article>
+<script type=application/ld+json>{"@context":"http://schema.org","@type":"NewsArticle","mainEntityOfPage":{"@type":"NewsArticle","@id":"https:\/\/blog.bear-su.dev\/2017\/01\/05\/start-ruby-project-with-bundler\/","headline":"有時候會想要寫個 side project不是只有一個檔案的 script因為會用到其他人寫好的 gem，想要用 bundler 來管理在這裡紀錄一下建立用 bundler 管理依賴的 ruby 專案的起始步驟首先先建立","author":"Bear Su","publisher":{"@type":"Organization","name":"Bear Su","logo":""},"image":"","datePublished":"2017-01-05"},"headline":"有時候會想要寫個 side project不是只有一個檔案的 script因為會用到其他人寫好的 gem，想要用 bundler 來管理在這裡紀錄一下建立用 bundler 管理依賴的 ruby 專案的起始步驟首先先建立","alternativeHeadline":"Bear Su\u0027s Blog","datePublished":"2017-01-05","dateModified":"2017-01-05","url":"https:\/\/blog.bear-su.dev\/2017\/01\/05\/start-ruby-project-with-bundler\/","wordCount":"118","author":{"@type":"Person","name":"Bear Su"},"publisher":{"@type":"Organization","name":"Bear Su"},"image":"","genre":"ruby","description":""}</script>
+<script type=application/ld+json>{"@context":"http://schema.org","@type":"Person","@id":"https:\/\/blog.bear-su.dev\/2017\/01\/05\/start-ruby-project-with-bundler\/","name":"Bear Su"}</script>
+</div>
+</div>
+<footer class=gfooter>
+<div class=inner>
+<div class=container>
+<p class=copy>
+<small>Copyright © 2015 - 2022 Bear Su's Blog</small>
+<small> | 本部落格有使用 Google Analytic 及 Cookie</small>
+</p>
+<nav class=footer-nav>
+<div class=inner>
+</div>
+</nav>
+</div>
+</div>
+</footer>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KJXNT5CQCS"></script>
+<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-KJXNT5CQCS',{anonymize_ip:!1})}</script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin=anonymous referrerpolicy=no-referrer></script>
+<script src=https://blog.bear-su.dev/js/script.js></script>
+</body>
+</html>

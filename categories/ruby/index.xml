@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>ruby on Bear Su's Blog</title><link>https://blog.bear-su.dev/categories/ruby/</link><description>Recent content in ruby on Bear Su's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>Copyright © 2015 - 2022 Bear Su's Blog</copyright><lastBuildDate>Sun, 30 Oct 2022 12:00:00 +0800</lastBuildDate><atom:link href="https://blog.bear-su.dev/categories/ruby/index.xml" rel="self" type="application/rss+xml"/><item><title>在 Mac 上安裝 pg gem</title><link>https://blog.bear-su.dev/2022/10/30/install-pg-gem-on-mac/</link><pubDate>Sun, 30 Oct 2022 12:00:00 +0800</pubDate><guid>https://blog.bear-su.dev/2022/10/30/install-pg-gem-on-mac/</guid><description>想在 Mac OS 上安裝 pg gem 但不想要安裝整套 PostgreSQL。
+pg gem 在 Mac OS 上需要 native build，依賴 libpg 套件。
+用 Homebrew 安裝 libpq ¶ brew install libpq 在安裝過程中 Summary 會顯示 libpg 安裝的位置。
+==&amp;gt; Summary 🍺 /opt/homebrew/Cellar/libpq/15.0: 2,366 files, 28.5MB 我們將該位置紀錄成環境變數
+LIBPG_PATH=/opt/homebrew/Cellar/libpq/15.0 自訂建置參數安裝 pg gem ¶ gem install pg -- \ --with-pg-include=$LIBPG_PATH/include \ --with-pg-lib=$LIBPG_PATH/lib</description></item><item><title>gem install fail with docker in docker</title><link>https://blog.bear-su.dev/2022/02/16/gem-install-fail-with-dind/</link><pubDate>Wed, 16 Feb 2022 12:00:00 +0800</pubDate><guid>https://blog.bear-su.dev/2022/02/16/gem-install-fail-with-dind/</guid><description>打算照著 GitLab 文件，用 dind 的方式建置 Container Image，但在執行 CI Job 時，收到了錯誤訊息
+You don't have write permission for the /usr/local/bundle .gitlab-ci.yml 內容(參考官方文件)如下：
+build: image: docker:19.03.12 stage: build services: - docker:19.03.12-dind script: - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY - docker build -t $CI_REGISTRY/group/project/image:latest . - docker push $CI_REGISTRY/group/project/image:latest 專案使用的 Dockerfile 內容如下：
+FROM ruby:2.7.4-alpine RUN apk add --no-cache --update build-base tzdata yarn mysql-dev libc6-compat RUN gem install bundler --no-document 查了一下，發現因為 Alpine 3.14 images can fail on Docker versions older than 20.</description></item><item><title>Ruby 透過 FreeType 產生點陣文字</title><link>https://blog.bear-su.dev/2017/05/17/ruby-by-using-treetype-to-draw-text-to-a-ascii-art/</link><pubDate>Wed, 17 May 2017 13:28:00 +0800</pubDate><guid>https://blog.bear-su.dev/2017/05/17/ruby-by-using-treetype-to-draw-text-to-a-ascii-art/</guid><description>&lt;p>&lt;img src="https://i.imgur.com/EsiorQx.jpg" alt="">&lt;/p>
+&lt;p>&lt;a href="https://www.pakutaso.com/20160628181pc-11.html">圖片來源&lt;/a>
+&lt;a href="https://www.pakutaso.com/">フリー写真素材ぱくたそ&lt;/a>&lt;/p>
+&lt;p>最近因為工作上的需求，需要將使用者輸入的文字轉成 16 x 16 的點陣文字&lt;/p>
+&lt;p>在網路上找到 jserv 這篇 &lt;a href="http://blog.linux.org.tw/~jserv/archives/002050.html">透過 FreeType 繪製 Unicode ASCII Art&lt;/a> 而有了實作的方向&lt;/p></description></item><item><title>Ruby gem daemons 筆記</title><link>https://blog.bear-su.dev/2017/03/26/ruby-gem-daemons-note/</link><pubDate>Sun, 26 Mar 2017 08:04:00 +0800</pubDate><guid>https://blog.bear-su.dev/2017/03/26/ruby-gem-daemons-note/</guid><description>&lt;p>&lt;img src="http://i.imgur.com/ZjslPbL.jpg" alt="">&lt;/p>
+&lt;p>&lt;a href="https://www.pakutaso.com/20170137024post-10119.html">圖片來源&lt;/a>
+&lt;a href="https://www.pakutaso.com/">フリー写真素材ぱくたそ&lt;/a>&lt;/p>
+&lt;p>&lt;a href="https://github.com/thuehlinger/daemons">daemons gem&lt;/a> 是一個能夠讓 ruby 程式以行程(process)獨立執行的 gem&lt;/p>
+&lt;p>當你想要有一個程式能夠在背景持續執行時，就可以可慮使用 &lt;a href="https://github.com/thuehlinger/daemons">daemons gem&lt;/a> 來協助開發&lt;/p></description></item><item><title>Ruby Association Certified Ruby Programmer Silver 考試準備</title><link>https://blog.bear-su.dev/2017/03/19/ruby-association-certified-ruby-programmer-silver-exam-preparation/</link><pubDate>Sun, 19 Mar 2017 06:35:00 +0800</pubDate><guid>https://blog.bear-su.dev/2017/03/19/ruby-association-certified-ruby-programmer-silver-exam-preparation/</guid><description>&lt;p>&lt;img src="http://i.imgur.com/3PXgdKS.jpg" alt="Imgur">&lt;/p>
+&lt;p>&lt;a href="https://unsplash.com/search/silver?photo=j1HU-Oll7KI">圖片來源&lt;/a>
+&lt;a href="https://www.pakutaso.com/">フリー写真素材ぱくたそ&lt;/a>&lt;/p>
+&lt;p>其實去年就考過並通過測驗了&lt;/p>
+&lt;p>但一直很懶得整理就是了 XD&lt;/p>
+&lt;p>因為中文資訊不怎麼多，有很大部分都是看日文網站來準備的&lt;/p>
+&lt;p>&lt;a href="http://www.ruby.or.jp/en/certification/examination/">官方資訊&lt;/a>&lt;/p></description></item><item><title>Ruby Time and Date</title><link>https://blog.bear-su.dev/2017/03/05/ruby-time-and-date/</link><pubDate>Sun, 05 Mar 2017 13:33:00 +0800</pubDate><guid>https://blog.bear-su.dev/2017/03/05/ruby-time-and-date/</guid><description>&lt;p>&lt;img src="https://i.imgur.com/EsiorQx.jpg" alt="">&lt;/p>
+&lt;p>&lt;a href="https://www.pakutaso.com/20160628181pc-11.html">圖片來源&lt;/a>
+&lt;a href="https://www.pakutaso.com/">フリー写真素材ぱくたそ&lt;/a>&lt;/p>
+&lt;p>內容是我在準備認證考試時，看文件所留下的一些紀錄&lt;/p></description></item><item><title>Ruby Pre-defined variables</title><link>https://blog.bear-su.dev/2017/02/26/ruby-pre-defined-variables/</link><pubDate>Sun, 26 Feb 2017 07:41:00 +0800</pubDate><guid>https://blog.bear-su.dev/2017/02/26/ruby-pre-defined-variables/</guid><description>&lt;p>&lt;img src="https://i.imgur.com/EsiorQx.jpg" alt="">&lt;/p>
+&lt;p>&lt;a href="https://www.pakutaso.com/20160628181pc-11.html">圖片來源&lt;/a>
+&lt;a href="https://www.pakutaso.com/">フリー写真素材ぱくたそ&lt;/a>&lt;/p>
+&lt;p>ruby 本身有先定義了一些變數與常數&lt;/p>
+&lt;p>可以用在取得系統資訊，或是除錯上&lt;/p>
+&lt;p>有些變數可以使得在開發時少打一些程式碼，但相對的可讀性可能就會降低一些(不是所有人都熟悉符號的意義)&lt;/p>
+&lt;p>這裡紀錄一些我覺得值得一提的部分&lt;/p></description></item><item><title>Ruby Array 的一些筆記</title><link>https://blog.bear-su.dev/2017/02/19/ruby-array-methods/</link><pubDate>Sun, 19 Feb 2017 14:16:00 +0800</pubDate><guid>https://blog.bear-su.dev/2017/02/19/ruby-array-methods/</guid><description>&lt;p>&lt;img src="https://i.imgur.com/EsiorQx.jpg" alt="">&lt;/p>
+&lt;p>&lt;a href="https://www.pakutaso.com/20160628181pc-11.html">圖片來源&lt;/a>
+&lt;a href="https://www.pakutaso.com/">フリー写真素材ぱくたそ&lt;/a>&lt;/p>
+&lt;p>紀錄一下我覺得值得一提的那些陣列兩三事&lt;/p></description></item><item><title>Ruby/Rails load setting file</title><link>https://blog.bear-su.dev/2017/02/11/ruby-rails-load-setting-file/</link><pubDate>Sat, 11 Feb 2017 11:59:00 +0800</pubDate><guid>https://blog.bear-su.dev/2017/02/11/ruby-rails-load-setting-file/</guid><description>&lt;p>最近在網路上看到了這兩篇文章：&lt;/p>
+&lt;p>&lt;a href="https://ruby-china.org/topics/32126">Rails 最佳实践之配置管理&lt;/a>&lt;/p>
+&lt;p>&lt;a href="http://railsfun.tw/t/rails-database-yml-global-settings/996">在 Rails 內建立類似 database.yml 的設定文件（global settings）&lt;/a>&lt;/p>
+&lt;p>才知道原來 Rails 4.2 之後有好用的 &lt;code>config_for&lt;/code> 方法啊&lt;/p></description></item><item><title>ruby-refinement</title><link>https://blog.bear-su.dev/2017/02/05/ruby-refinement/</link><pubDate>Sun, 05 Feb 2017 05:58:00 +0800</pubDate><guid>https://blog.bear-su.dev/2017/02/05/ruby-refinement/</guid><description>&lt;p>今天整理收集的文章時看到了這篇 &lt;a href="https://www.toptal.com/ruby/tips-and-practices?utm_medium=sponsored_post&amp;amp;utm_campaign=ruby_tips&amp;amp;utm_source=facebook.com">Ruby Best Practices and Tips by Toptal Developers&lt;/a>&lt;/p>
+&lt;p>發現裡面的範例有到用 refinement&lt;/p>
+&lt;p>雖然之前知道有這個語法，但看了範例才知道該怎麼用&lt;/p></description></item><item><title>logger tip</title><link>https://blog.bear-su.dev/2017/02/04/logger-tip/</link><pubDate>Sat, 04 Feb 2017 07:05:00 +0800</pubDate><guid>https://blog.bear-su.dev/2017/02/04/logger-tip/</guid><description>&lt;p>所謂有記有保庇&lt;/p>
+&lt;p>log 能夠幫助瞭解程式在執行的時候做了什麼事&lt;/p>
+&lt;p>log 記得好在除錯的時候能幫上很大的忙&lt;/p>
+&lt;p>這邊紀錄跟 logger 的一些相關技巧&lt;/p></description></item><item><title>swagger + grape + rack</title><link>https://blog.bear-su.dev/2017/01/24/swagger-grape-rack/</link><pubDate>Tue, 24 Jan 2017 06:43:00 +0800</pubDate><guid>https://blog.bear-su.dev/2017/01/24/swagger-grape-rack/</guid><description>&lt;p>常常聽到 &lt;a href="http://swagger.io/">swagger&lt;/a> 跟 &lt;a href="https://github.com/ruby-grape/grape">grape&lt;/a> 的名字&lt;/p>
+&lt;p>所以用一個很陽春的&lt;a href="https://github.com/timfanda35/test-grape-api">專案&lt;/a>練習一下要如何使用&lt;/p></description></item><item><title>Start ruby project with bundler</title><link>https://blog.bear-su.dev/2017/01/05/start-ruby-project-with-bundler/</link><pubDate>Thu, 05 Jan 2017 12:00:00 +0800</pubDate><guid>https://blog.bear-su.dev/2017/01/05/start-ruby-project-with-bundler/</guid><description>&lt;p>有時候會想要寫個 side project&lt;/p>
+&lt;p>不是只有一個檔案的 script&lt;/p>
+&lt;p>因為會用到其他人寫好的 gem，想要用 &lt;a href="http://bundler.io/">bundler&lt;/a> 來管理&lt;/p>
+&lt;p>在這裡紀錄一下建立用 &lt;a href="http://bundler.io/">bundler&lt;/a> 管理依賴的 ruby 專案的起始步驟&lt;/p></description></item><item><title>Remove RVM</title><link>https://blog.bear-su.dev/2017/01/04/remove-rvm/</link><pubDate>Wed, 04 Jan 2017 09:46:00 +0800</pubDate><guid>https://blog.bear-su.dev/2017/01/04/remove-rvm/</guid><description>最近在整理筆記，慢慢會把一些東西搬上來
+一開始學 Rails 的時候是用 RVM 在管理 ruby 版本，後來則改用了 rbenv
+兩者如果同時安裝在同一台電腦上的話就會有奇怪的問題發生
+而且實際上兩者的主要功能都差不多
+所以如果要使用 rbenv 的話，記得要把RVM 砍掉
+移除 RVM
+$ rvm implode $ rm -rf ~/.rvm 移除 .bashrc 與 .bash_profile 內 rvm 相關的東西</description></item><item><title>RubyConf Taiwan 2016 第一天</title><link>https://blog.bear-su.dev/2016/12/02/ruby-conf-taiwan-2016-day-1/</link><pubDate>Fri, 02 Dec 2016 15:51:00 +0800</pubDate><guid>https://blog.bear-su.dev/2016/12/02/ruby-conf-taiwan-2016-day-1/</guid><description>&lt;p>今年第一次參加 &lt;a href="https://2016.rubyconf.tw/">RubyConf Taiwan 2016&lt;/a>&lt;/p>
+&lt;p>紀錄今天聽到的議程：&lt;/p>
+&lt;ul>
+&lt;li>[Beware of Alpha Syndrome](&lt;a href="https://2016.rubyconf.tw/#Yukihiro">https://2016.rubyconf.tw/#Yukihiro&lt;/a> (Matz) Matsumoto)&lt;/li>
+&lt;li>[Breaking Bad Habits with GitLab CI](&lt;a href="https://2016.rubyconf.tw/#Ivan">https://2016.rubyconf.tw/#Ivan&lt;/a> Nemytchenko)&lt;/li>
+&lt;li>[Optimizing ruby core](&lt;a href="https://2016.rubyconf.tw/#Shyouhei">https://2016.rubyconf.tw/#Shyouhei&lt;/a> Urabe)&lt;/li>
+&lt;li>[How to write complex data pipelines in Ruby](&lt;a href="https://2016.rubyconf.tw/#Kazuyuki">https://2016.rubyconf.tw/#Kazuyuki&lt;/a> Honda) | &lt;a href="https://speakerdeck.com/hakobera/how-to-write-complex-data-pipeline-in-ruby">簡報&lt;/a>&lt;/li>
+&lt;li>[It&amp;rsquo;s More Fun to Compute](&lt;a href="https://2016.rubyconf.tw/#Julian">https://2016.rubyconf.tw/#Julian&lt;/a> Cheal)&lt;/li>
+&lt;li>[How I made a pure-Ruby word2vec program more than 3x faster](&lt;a href="https://2016.rubyconf.tw/#Kei">https://2016.rubyconf.tw/#Kei&lt;/a> Sawada) | &lt;a href="https://speakerdeck.com/remore/how-i-made-a-pure-ruby-word2vec-program-more-than-3x-faster">簡報&lt;/a>&lt;/li>
+&lt;li>[How to Write Middleware in Ruby](&lt;a href="https://2016.rubyconf.tw/#Satoshi">https://2016.rubyconf.tw/#Satoshi&lt;/a> Tagomori) | &lt;a href="http://www.slideshare.net/tagomoris/how-to-write-middleware-in-ruby">簡報&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>之後如有提供投影片再補充連結&lt;/p></description></item><item><title>RubyConf Taiwan 2016 第二天</title><link>https://blog.bear-su.dev/2016/12/02/ruby-conf-taiwan-2016-day-2/</link><pubDate>Fri, 02 Dec 2016 15:51:00 +0800</pubDate><guid>https://blog.bear-su.dev/2016/12/02/ruby-conf-taiwan-2016-day-2/</guid><description>&lt;p>今年第一次參加 &lt;a href="https://2016.rubyconf.tw/">RubyConf Taiwan 2016&lt;/a>&lt;/p>
+&lt;p>今天有記得要多做一些紀錄，但還是零零散散啊&amp;hellip;&lt;/p>
+&lt;p>紀錄今天聽到的議程：&lt;/p>
+&lt;ul>
+&lt;li>[利用Ruby撰寫勒索軟體並探討如何安全的使用密碼系統](&lt;a href="https://2016.rubyconf.tw/#Zong-Yu">https://2016.rubyconf.tw/#Zong-Yu&lt;/a> Wu)&lt;/li>
+&lt;li>[Ruby, facing the change of world-wide server-class microprocessors](&lt;a href="https://2016.rubyconf.tw/#Luba">https://2016.rubyconf.tw/#Luba&lt;/a> Tang)&lt;/li>
+&lt;li>[Building maintainable command-line tools with MRuby](&lt;a href="https://2016.rubyconf.tw/#Eric">https://2016.rubyconf.tw/#Eric&lt;/a> Hodel)&lt;/li>
+&lt;li>[Buidling HUGE web apps: Rails at 1,000,000 Lines of Code](&lt;a href="https://2016.rubyconf.tw/#Brad">https://2016.rubyconf.tw/#Brad&lt;/a> Urani)&lt;/li>
+&lt;li>[Solving your onboarding problems with Ruby](&lt;a href="https://2016.rubyconf.tw/#Layne">https://2016.rubyconf.tw/#Layne&lt;/a> McNish)&lt;/li>
+&lt;li>[利用 Sidekiq Enterprise 打造高效率與高可靠度的爬蟲系統
+](&lt;a href="https://2016.rubyconf.tw/#Chien-Wei">https://2016.rubyconf.tw/#Chien-Wei&lt;/a> Chu)&lt;/li>
+&lt;li>[What is the Rack Hijacking API](&lt;a href="https://2016.rubyconf.tw/#Kiyoshi">https://2016.rubyconf.tw/#Kiyoshi&lt;/a> Nomo) | &lt;a href="http://www.slideshare.net/TokyoIncidents/what-is-rack-hijacking-api-69807904">簡報&lt;/a>&lt;/li>
+&lt;li>[Large scale Rails applications](&lt;a href="https://2016.rubyconf.tw/#Florian">https://2016.rubyconf.tw/#Florian&lt;/a> Dutey)&lt;/li>
+&lt;li>[How we replaced salary negotiations with a Sinatra app](&lt;a href="https://2016.rubyconf.tw/#Konstantin">https://2016.rubyconf.tw/#Konstantin&lt;/a> Hasse) | &lt;a href="https://speakerdeck.com/rkh/how-we-replaced-salary-negotiations-with-a-sinatra-app">簡報&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>之後如有提供投影片再補充連結&lt;/p></description></item><item><title>Side Project: Pocket to mail</title><link>https://blog.bear-su.dev/2016/11/26/pocket-to-mail/</link><pubDate>Sat, 26 Nov 2016 06:53:00 +0800</pubDate><guid>https://blog.bear-su.dev/2016/11/26/pocket-to-mail/</guid><description>&lt;p>最近寫的小專案 &lt;a href="https://github.com/timfanda35/pocket_to_mail">pocket_to_mail&lt;/a>&lt;/p>
+&lt;p>主要原因是之前都是使用 &lt;a href="https://getpocket.com/">Pocket&lt;/a> 在收藏網路文章&lt;/p>
+&lt;p>然後在有空的時候再打開 &lt;a href="https://getpocket.com/">Pocket&lt;/a> 整理&lt;/p>
+&lt;p>不過每次要整理的時候看到一大堆文章就&amp;hellip;懶了&lt;/p>
+&lt;p>所以決定寫一個小專案來解決這個問題&lt;/p></description></item><item><title>RailsFun-0907筆記</title><link>https://blog.bear-su.dev/2016/09/08/railsfun-0907-note/</link><pubDate>Thu, 08 Sep 2016 01:46:00 +0800</pubDate><guid>https://blog.bear-su.dev/2016/09/08/railsfun-0907-note/</guid><description>&lt;p>受到朋友的邀請&lt;/p>
+&lt;p>藉著這機會參加了一直很想去但又沒去的 RailsFun 聚會&lt;/p>
+&lt;p>得到了蠻多新知識&lt;/p>
+&lt;p>在下次聚會之前可以來好好研究一下&lt;/p></description></item><item><title>透過 jwt 使用 Google Analytics API</title><link>https://blog.bear-su.dev/2016/06/15/use-jwt-request-google-analytics-api/</link><pubDate>Wed, 15 Jun 2016 14:21:00 +0800</pubDate><guid>https://blog.bear-su.dev/2016/06/15/use-jwt-request-google-analytics-api/</guid><description>&lt;p>最近需要希望能夠不用網頁登入就能取得 Gooogle Analytics 的資料&lt;/p>
+&lt;p>但因為跟 &lt;a href="ref1">google-api-ruby-client&lt;/a> 不熟，只會用網頁登入&lt;/p>
+&lt;p>在搜尋後看到了這一篇&lt;a href="https://zespia.tw/blog/2014/07/28/use-google-analytics-api-on-server/">《在伺服器上使用 Google Analytics API》&lt;/a>&lt;/p>
+&lt;p>I got it!!!&lt;/p></description></item><item><title>Rails 安裝教學</title><link>https://blog.bear-su.dev/2016/04/21/installrails/</link><pubDate>Thu, 21 Apr 2016 09:09:00 +0800</pubDate><guid>https://blog.bear-su.dev/2016/04/21/installrails/</guid><description>我想要推薦這一個網站 InstallRails.com
+這個網站一步步教你在不同平台安裝開發 rails 的環境，圖文並茂，說明詳細
+以 Mac 平台來說，會安裝的項目有：
+Xcode Homebrew Git RVM Ruby Rails Sublime Text 不過在教學中安裝管理 Ruby 版本的工具是 rvm
+我自己喜歡用的管理 Ruby 版本的工具是 rbenv
+除了安裝 Rails，在請別人安裝 Ruby 的時候我也會丟這個網站給他，請他依步驟做到安裝 RVM
+可以省下很多說明的時間 ?</description></item><item><title>推薦協助提高程式碼品質的 Gem</title><link>https://blog.bear-su.dev/2016/03/22/gems-for-improving-code-quality/</link><pubDate>Tue, 22 Mar 2016 11:28:00 +0800</pubDate><guid>https://blog.bear-su.dev/2016/03/22/gems-for-improving-code-quality/</guid><description>&lt;p>用 Rails 開發網站時除了寫測試之外，還可以透過一些 gem 來協助維護 code 的品質&lt;/p>
+&lt;p>這篇推薦幾個 gem：&lt;/p>
+&lt;p>&lt;a href="https://github.com/presidentbeef/brakeman">Brakeman - 檢查安全性&lt;/a>&lt;/p>
+&lt;p>&lt;a href="https://github.com/flyerhzm/bullet">Bullet - 檢查 N+1 Query&lt;/a>&lt;/p>
+&lt;p>&lt;a href="https://github.com/whitesmith/rubycritic">RubyCritic - 靜態分析程式碼(已整合多套工具)&lt;/a>&lt;/p>
+&lt;p>&lt;a href="https://github.com/newrelic/rpm">New Relic RPM - 監測網站效能&lt;/a>&lt;/p></description></item><item><title>用 Ruby 建立 Web 專案的一些起始 gem</title><link>https://blog.bear-su.dev/2015/10/17/ruby-web-start-gem/</link><pubDate>Sat, 17 Oct 2015 05:36:00 +0800</pubDate><guid>https://blog.bear-su.dev/2015/10/17/ruby-web-start-gem/</guid><description>&lt;p>Ruby 有許多 gem 可以用來做 web 開發，以下列出一些我所找到可以作為起頭的 gem 提供大家參考。&lt;/p>
+&lt;p>有任何錯誤與建議歡迎告知:)&lt;/p>
+&lt;hr>
+&lt;h1 id="web">Web &lt;a href="#web">¶&lt;/a>&lt;/h1>
+&lt;h2 id="rackhttprackgithubio">&lt;a href="http://rack.github.io">Rack&lt;/a> &lt;a href="#rackhttprackgithubio">¶&lt;/a>&lt;/h2>
+&lt;hr />
+&lt;blockquote>
+&lt;p>提供 webserver 最小的功能介面，大多 Ruby 的 web 開發框架都是基於 Rack 所開發的。&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="railshttprubyonrailsorg">&lt;a href="http://rubyonrails.org">Rails&lt;/a> &lt;a href="#railshttprubyonrailsorg">¶&lt;/a>&lt;/h2>
+&lt;hr />
+&lt;blockquote>
+&lt;p>最知名的魔法書，能快速地開發功能豐富的網站。&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="sinatrahttpwwwsinatrarbcom">&lt;a href="http://www.sinatrarb.com">Sinatra&lt;/a> &lt;a href="#sinatrahttpwwwsinatrarbcom">¶&lt;/a>&lt;/h2>
+&lt;hr />
+&lt;blockquote>
+&lt;p>比 Rails 輕量的開發框架，適合用來開發小型專案或是 API。&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="padrinohttpwwwpadrinorbcom">&lt;a href="http://www.padrinorb.com">Padrino&lt;/a> &lt;a href="#padrinohttpwwwpadrinorbcom">¶&lt;/a>&lt;/h2>
+&lt;hr />
+&lt;blockquote>
+&lt;p>基於 Sinatra 的開發框架，提供更多方便的資源開發網站。&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="cubahttpcubais">&lt;a href="http://cuba.is">Cuba&lt;/a> &lt;a href="#cubahttpcubais">¶&lt;/a>&lt;/h2>
+&lt;hr />
+&lt;blockquote>
+&lt;p>試圖比使用 Sinatra 寫更少 code 的開發框架，官方 Slide 表示效能比 Sinatra 好。&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="frankyhttpsgithubcomadlerhsiehfranky">&lt;a href="https://github.com/adlerhsieh/franky">Franky&lt;/a> &lt;a href="#frankyhttpsgithubcomadlerhsiehfranky">¶&lt;/a>&lt;/h2>
+&lt;hr />
+&lt;blockquote>
+&lt;p>產生小型的 web 專案，適合用來實驗想法的小專案。&lt;/p>
+&lt;/blockquote></description></item><item><title>Ruby 學習資源</title><link>https://blog.bear-su.dev/2015/10/16/ruby-learning-resource/</link><pubDate>Fri, 16 Oct 2015 14:24:00 +0800</pubDate><guid>https://blog.bear-su.dev/2015/10/16/ruby-learning-resource/</guid><description>&lt;p>紀錄一下收藏的學習資源&lt;/p>
+&lt;p>有任何錯誤或建議都歡迎告知 :)&lt;/p>
+&lt;hr>
+&lt;h1 id="ruby">Ruby &lt;a href="#ruby">¶&lt;/a>&lt;/h1>
+&lt;h2 id="learn-ruby-the-hard-way---笨方法學-rubyhttplrthwgithubio">&lt;a href="http://lrthw.github.io">Learn Ruby The Hard Way - 笨方法學 Ruby&lt;/a> &lt;a href="#learn-ruby-the-hard-way---%e7%ac%a8%e6%96%b9%e6%b3%95%e5%ad%b8-rubyhttplrthwgithubio">¶&lt;/a>&lt;/h2>
+&lt;hr />
+&lt;blockquote>
+&lt;p>練習量很足夠的電子書，推薦用來練基本功。
+另外可以先看這篇 &lt;a href="http://blog.cgmlife.net/posts/2014/04/14/when-read-learn-ruby-the-hard-way-some-problems-you-may-meet">閱讀 Learn Ruby The Hard Way 時可能會遇到的問題&lt;/a> 做一下心理建設 XD&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="code-cademyhttpswwwcodecademycomtracksruby">&lt;a href="https://www.codecademy.com/tracks/ruby">Code Cademy&lt;/a> &lt;a href="#code-cademyhttpswwwcodecademycomtracksruby">¶&lt;/a>&lt;/h2>
+&lt;hr />
+&lt;blockquote>
+&lt;p>練習量很充足的互動課程，完成關卡得到的 Badge 更能增加成就感。&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="code-schoolhttpswwwcodeschoolcompathsruby">&lt;a href="https://www.codeschool.com/paths/ruby">Code School&lt;/a> &lt;a href="#code-schoolhttpswwwcodeschoolcompathsruby">¶&lt;/a>&lt;/h2>
+&lt;hr />
+&lt;blockquote>
+&lt;p>Try Ruby 很適合入門體驗 Ruby 寫作的感覺。有許多主題式的課程與影片，大多數都需要付費才能觀看。完成課程的 Badge 可以貼到 &lt;a href="https://www.linkedin.com">Linkedin&lt;/a> 上。&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="ruby-documenthttpruby-docorg">&lt;a href="http://ruby-doc.org">Ruby Document&lt;/a> &lt;a href="#ruby-documenthttpruby-docorg">¶&lt;/a>&lt;/h2>
+&lt;hr />
+&lt;blockquote>
+&lt;p>Ruby 的文件，有空就翻一翻，說不定會有新的體悟。&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="ruby-warriorhttpswwwblocioruby-warrior">&lt;a href="https://www.bloc.io/ruby-warrior/#/">Ruby Warrior&lt;/a> &lt;a href="#ruby-warriorhttpswwwblocioruby-warrior">¶&lt;/a>&lt;/h2>
+&lt;hr />
+&lt;blockquote>
+&lt;p>用 Ruby 操作主角破關的遊戲。類似的還有&lt;a href="http://codecombat.com/">CodeCombat&lt;/a>&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="codewarshttpwwwcodewarscom">&lt;a href="http://www.codewars.com/">Codewars&lt;/a> &lt;a href="#codewarshttpwwwcodewarscom">¶&lt;/a>&lt;/h2>
+&lt;hr />
+&lt;blockquote>
+&lt;p>有很多題目關卡可以讓你練習，不過也有很多需要知道演算法才有辦法過關。
+你也可以閱覽其他人的程式碼，對於寫作大有幫助。&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="the-odin-projecthttpwwwtheodinprojectcomruby-programming">&lt;a href="http://www.theodinproject.com/ruby-programming">The odin project&lt;/a> &lt;a href="#the-odin-projecthttpwwwtheodinprojectcomruby-programming">¶&lt;/a>&lt;/h2>
+&lt;hr />
+&lt;h1 id="w3cshoolcchttpwwww3cschoolccrubyruby-tutorialhtml">&lt;a href="http://www.w3cschool.cc/ruby/ruby-tutorial.html">w3cshool.cc&lt;/a> &lt;a href="#w3cshoolcchttpwwww3cschoolccrubyruby-tutorialhtml">¶&lt;/a>&lt;/h1></description></item><item><title>Ruby 的 %Q, %q, %W, %w, %x, %r, %s, %i</title><link>https://blog.bear-su.dev/2015/10/14/ruby-percent-literals/</link><pubDate>Wed, 14 Oct 2015 08:26:00 +0800</pubDate><guid>https://blog.bear-su.dev/2015/10/14/ruby-percent-literals/</guid><description>&lt;p>有時候在看其他人的 Ruby 程式碼時，常常發現有 &lt;code>%w&lt;/code>, &lt;code>%r&lt;/code> 等 % 開頭的程式碼。上網查了一下，才知道這些叫做 &lt;a href="http://ruby-doc.org/core-2.2.2/doc/syntax/literals_rdoc.html#label-Percent+Strings">Percent literals(或Percent Strings)&lt;/a>。&lt;/p>
+&lt;p>以下內容是改寫自 &lt;a href="https://simpleror.wordpress.com/2009/03/15/q-q-w-w-x-r-s/">%Q, %q, %W, %w, %x, %r, %s&lt;/a> 與 &lt;a href="https://ruby-china.org/topics/18512">Ruby 里的 %Q, %q, %W, %w, %x, %r, %s, %i (译)&lt;/a>。&lt;/p>
+&lt;p>執行環境：&lt;/p>
+&lt;ul>
+&lt;li>ruby: 2.2.2&lt;/li>
+&lt;li>console: irb&lt;/li>
+&lt;/ul>
+&lt;h2 id="q">%Q &lt;a href="#q">¶&lt;/a>&lt;/h2>
+&lt;hr />
+&lt;hr>
+&lt;p>代替雙引號字串，如果在字串中有很多雙引號的時候很好用&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-ruby" data-lang="ruby">&lt;span style="color:#f92672">&amp;gt;&amp;gt;&lt;/span> what_frank_said &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#39;Hello!&amp;#39;&lt;/span>
+&lt;span style="color:#f92672">=&amp;gt;&lt;/span> &lt;span style="color:#e6db74">&amp;#34;Hello!&amp;#34;&lt;/span>
+&lt;span style="color:#f92672">&amp;gt;&amp;gt;&lt;/span> &lt;span style="color:#e6db74">%Q(Joe said: &amp;#34;Frank said: &amp;#34;&lt;/span>&lt;span style="color:#e6db74">#{&lt;/span>what_frank_said&lt;span style="color:#e6db74">}&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&amp;#34;)&lt;/span>
+&lt;span style="color:#f92672">=&amp;gt;&lt;/span> &lt;span style="color:#e6db74">&amp;#34;Joe said: &lt;/span>&lt;span style="color:#ae81ff">\&amp;#34;&lt;/span>&lt;span style="color:#e6db74">Frank said: &lt;/span>&lt;span style="color:#ae81ff">\&amp;#34;&lt;/span>&lt;span style="color:#e6db74">Hello!&lt;/span>&lt;span style="color:#ae81ff">\&amp;#34;\&amp;#34;&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>
+&lt;span style="color:#f92672">&amp;gt;&amp;gt;&lt;/span> puts &lt;span style="color:#e6db74">%Q(Joe said: &amp;#34;Frank said: &amp;#34;&lt;/span>&lt;span style="color:#e6db74">#{&lt;/span>what_frank_said&lt;span style="color:#e6db74">}&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&amp;#34;)&lt;/span>
+&lt;span style="color:#66d9ef">Joe&lt;/span> &lt;span style="color:#e6db74">said&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;Frank said: &amp;#34;&lt;/span>&lt;span style="color:#66d9ef">Hello&lt;/span>&lt;span style="color:#f92672">!&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&amp;#34;&lt;/span>
+&lt;span style="color:#f92672">=&amp;gt;&lt;/span> &lt;span style="color:#66d9ef">nil&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>MAC OSX ruby console 無法輸入中文</title><link>https://blog.bear-su.dev/2015/10/13/mac-osx-ruby-console-can-not-input-chinese/</link><pubDate>Tue, 13 Oct 2015 08:23:00 +0800</pubDate><guid>https://blog.bear-su.dev/2015/10/13/mac-osx-ruby-console-can-not-input-chinese/</guid><description>&lt;p>我是在 MAC OSX 上使用 rbenv 安裝 ruby，在換了新電腦重新安裝環境後突然發現在不管在 irb 還是 pry 中都無法輸入中文，而且操作上怪怪的。&lt;/p>
+&lt;p>在網上搜尋後找到了這篇 &lt;a href="http://blog.58share.com/?p=404">mac 无法在irb中输入中文&lt;/a>&lt;/p>
+&lt;p>首先用 &lt;a href="http://brew.sh/index_zh-tw.html">Homebrew&lt;/a> 安裝 readline&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">brew install readline
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>instance method 與 class method 的差別</title><link>https://blog.bear-su.dev/2015/07/31/instance-method-and-class-method-difference/</link><pubDate>Fri, 31 Jul 2015 06:02:00 +0800</pubDate><guid>https://blog.bear-su.dev/2015/07/31/instance-method-and-class-method-difference/</guid><description>簡單來說，instance method 需要一個實體物件才能呼叫，而 class method 則是可以直接用類別呼叫
+class Foo # 宣告 class method 需要在 method 名稱前加上 self. def self.class_bar # ... end def instance_bar # ... end end # class method 的呼叫方式 Foo.class_bar # instance_bar 的呼叫方式 Foo.new.instance_bar 由以上範例程式可以看到，instance_bar 方法需要 Foo.new 先建立一個實體物件，才能夠呼叫到 instance_bar 這個 instance method。換句話說類別是無法呼叫 instance method，而實體變數也無法呼叫 class method
+另一種宣告 class method 的方法
+class Foo class &amp;lt;&amp;lt; self def class_bar1 #... end def class_bar2 #... end end end Monkey patch instance method 與 class method 的方法</description></item><item><title>helper 的使用方法</title><link>https://blog.bear-su.dev/2015/07/30/helper-method-to-use/</link><pubDate>Thu, 30 Jul 2015 13:37:00 +0800</pubDate><guid>https://blog.bear-su.dev/2015/07/30/helper-method-to-use/</guid><description>Helper 是協助在 View 呈現資料的方法，通常都用來包裝程式邏輯，或是簡化撰寫 View 的作業。
+Helper 檔案都會放在 app/helpers 底下，預設就有一個 application_helper.rb 的檔案。
+一份 Helper 檔案範例如下，要注意是定義一個 Module，而非 Class：
+module FooHelper def bar ... end end 之後就能在 View 中使用 bar 方法了。
+如果想將 Controller 的方法變成 Helper 方法讓 View 呼叫，可以用 helper_method 方法達成：
+class ApplicationController &amp;lt; ActionController::Base # define helper method helper_method :foo protected def foo ... end end 至於想要在 rails console 測試 helper ：
+因為 Helper 預設只能在 Template 中使用，如果想在 rails console 中呼叫，必須加上 helper，例如 helper.</description></item><item><title>form_for 與 strong parameter 的關係</title><link>https://blog.bear-su.dev/2015/07/30/form-for-and-strong-relationship-parameter/</link><pubDate>Thu, 30 Jul 2015 13:01:00 +0800</pubDate><guid>https://blog.bear-su.dev/2015/07/30/form-for-and-strong-relationship-parameter/</guid><description>form_for 是用 Rails 做網頁很常用的 Helper 方法，他的方便之處在於很輕鬆的產生與 Model 對應的 HTML 表單。
+大部份的時候都會將使用者輸入的資料，用 Hash 表示 Model 的方式傳送到伺服器上。
+但是有兩個問題：
+伺服器直接依照傳入的參數更新資料，如果有心人士偷塞了 Model 有的欄位，資料就會被改掉。 親自寫判斷去過濾傳入的參數，如果 Model 的種類一多，欄位一多就會變得很麻煩。 這邊可以用 strong parameter 來很簡單地過濾掉，傳入的 Model 參數中含有非預期的參數。
+假設 Foo 定義如下，其中 security_field 欄位並不想被隨意修改，所以沒有呈現在表單上。
+# schema create_table &amp;#34;foos&amp;#34;, force: :cascade do |t| t.string &amp;#34;name&amp;#34; t.integer &amp;#34;bar&amp;#34; t.string &amp;#34;security_field&amp;#34; t.datetime &amp;#34;created_at&amp;#34;, null: false t.datetime &amp;#34;updated_at&amp;#34;, null: false end 但有心人士仍然可以發送這樣的請求給伺服器，試圖去修改資料庫的值。
+{ &amp;#34;id&amp;#34;: 1, &amp;#34;foo&amp;#34;: { &amp;#34;name&amp;#34;: &amp;#34;foo&amp;#34;, &amp;#34;bar&amp;#34;: 1, &amp;#34;security_field&amp;#34;: &amp;#34;bad value&amp;#34; } } 在這邊最簡單的方法就是用 strong parameter 來過濾，在 Controller 中寫一個 private method，要更新 Modle 時就使用該 method 來取得過濾後的參數來更新。</description></item><item><title>ActiveRecord has_many :through 關聯</title><link>https://blog.bear-su.dev/2015/07/30/activerecord-has-associated/</link><pubDate>Thu, 30 Jul 2015 11:59:00 +0800</pubDate><guid>https://blog.bear-su.dev/2015/07/30/activerecord-has-associated/</guid><description>在 Rails 中 Model 常常使用到一對多的關係，像是一台車有四個輪子，但每個輪子都只屬於一台車
+我們會用 has_many ， belongs_to 來定義 Model 之間的關係，在 Tire 的資料表需要有 car_id 欄位來儲存所屬車子的 ID。
+class Car has_many :tires end class Tire belongs_to :car end 而多對多的關係就會用到 has_many :through，取個例子：在學校裡，一個社團可以有多名成員，每位成員也可以參加多個社團，這樣的關係就是「多對多關係」。
+# 一個社團可以有多名成員 group |-- member |-- member `-- member # 每位成員可以參加多個社團 member |-- group |-- group `-- group 我們無法只靠兩張表來表現多對多的關係，所以這時候需要再新增一個 Model，透過(:through)這一個 Model 來建立多得多的關係。
+# group1 的成員有 member1, member2, member3 # group2 的成員有 member3 # group3 的成員有 member3 group1 -- group_member -- member1 |- group_member -- member2 | `- group_member -- member3 | group2 -- group_member -| group3 -- group_member -&amp;#39; # 反過來說 # member1 參加了 group1 # member2 參加了 group1 # member3 參加了 group1, group2, group3 以上圖為例，Model 定義如下：</description></item></channel></rss>

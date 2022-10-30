@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>cloud logging on Bear Su's Blog</title><link>https://blog.bear-su.dev/categories/cloud-logging/</link><description>Recent content in cloud logging on Bear Su's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>Copyright © 2015 - 2022 Bear Su's Blog</copyright><lastBuildDate>Sun, 20 Feb 2022 12:00:00 +0800</lastBuildDate><atom:link href="https://blog.bear-su.dev/categories/cloud-logging/index.xml" rel="self" type="application/rss+xml"/><item><title>Docker log on Google Compute Engine</title><link>https://blog.bear-su.dev/2022/02/20/docker-log-on-gce/</link><pubDate>Sun, 20 Feb 2022 12:00:00 +0800</pubDate><guid>https://blog.bear-su.dev/2022/02/20/docker-log-on-gce/</guid><description>在 Google Compute Engine 上安裝 Docker，想要將 Container 的 log 匯出至 Google Cloud Logging，可以將 Docker Log Driver 改成 gcplogs 後重新啟動 Docker service。
+編輯 /etc/docker/daemon.json，在設定檔中加入 log-driver 設定：
+{ &amp;#34;log-driver&amp;#34;:&amp;#34;gcplogs&amp;#34; } 記得重新啟動 Docker Service 載入變更後的設定：
+sudo systemctl restart docker 這樣 Container 寫入 stdout 的 log 就會被送至 Google Cloud Logging。
+其他相關的參數設定可參考文末連結。
+Ref ¶ https://docs.docker.com/config/containers/logging/gcplogs/</description></item></channel></rss>

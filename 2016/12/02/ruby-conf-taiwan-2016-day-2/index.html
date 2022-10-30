@@ -1,0 +1,390 @@
+<!doctype html><html lang=en-us>
+<head>
+<link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png>
+<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
+<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png>
+<link rel=manifest href=/site.webmanifest>
+<link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5>
+<meta name=msapplication-TileColor content="#da532c">
+<meta name=theme-color content="#ffffff">
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta http-equiv=x-ua-compatible content="ie=edge,chrome=1">
+<title>RubyConf Taiwan 2016 第二天 &#183; Bear Su's Blog - Running Bear!!! </title>
+<meta name=generator content="Hugo 0.92.0">
+<meta name=description content="Running Bear!!!">
+<meta name=twitter:card content="summary_large_image">
+<meta name=twitter:image content="https://blog.bear-su.dev/images/bear.jpeg">
+<meta name=twitter:title content="RubyConf Taiwan 2016 第二天">
+<meta name=twitter:description content="今年第一次參加 RubyConf Taiwan 2016
+今天有記得要多做一些紀錄，但還是零零散散啊&mldr;
+紀錄今天聽到的議程：
+
+[利用Ruby撰寫勒索軟體並探討如何安全的使用密碼系統](https://2016.rubyconf.tw/#Zong-Yu Wu)
+[Ruby, facing the change of world-wide server-class microprocessors](https://2016.rubyconf.tw/#Luba Tang)
+[Building maintainable command-line tools with MRuby](https://2016.rubyconf.tw/#Eric Hodel)
+[Buidling HUGE web apps: Rails at 1,000,000 Lines of Code](https://2016.rubyconf.tw/#Brad Urani)
+[Solving your onboarding problems with Ruby](https://2016.rubyconf.tw/#Layne McNish)
+[利用 Sidekiq Enterprise 打造高效率與高可靠度的爬蟲系統
+](https://2016.rubyconf.tw/#Chien-Wei Chu)
+[What is the Rack Hijacking API](https://2016.rubyconf.tw/#Kiyoshi Nomo) | 簡報
+[Large scale Rails applications](https://2016.rubyconf.tw/#Florian Dutey)
+[How we replaced salary negotiations with a Sinatra app](https://2016.rubyconf.tw/#Konstantin Hasse) | 簡報
+
+之後如有提供投影片再補充連結">
+<meta property="og:title" content="RubyConf Taiwan 2016 第二天">
+<meta property="og:description" content="今年第一次參加 RubyConf Taiwan 2016
+今天有記得要多做一些紀錄，但還是零零散散啊&mldr;
+紀錄今天聽到的議程：
+
+[利用Ruby撰寫勒索軟體並探討如何安全的使用密碼系統](https://2016.rubyconf.tw/#Zong-Yu Wu)
+[Ruby, facing the change of world-wide server-class microprocessors](https://2016.rubyconf.tw/#Luba Tang)
+[Building maintainable command-line tools with MRuby](https://2016.rubyconf.tw/#Eric Hodel)
+[Buidling HUGE web apps: Rails at 1,000,000 Lines of Code](https://2016.rubyconf.tw/#Brad Urani)
+[Solving your onboarding problems with Ruby](https://2016.rubyconf.tw/#Layne McNish)
+[利用 Sidekiq Enterprise 打造高效率與高可靠度的爬蟲系統
+](https://2016.rubyconf.tw/#Chien-Wei Chu)
+[What is the Rack Hijacking API](https://2016.rubyconf.tw/#Kiyoshi Nomo) | 簡報
+[Large scale Rails applications](https://2016.rubyconf.tw/#Florian Dutey)
+[How we replaced salary negotiations with a Sinatra app](https://2016.rubyconf.tw/#Konstantin Hasse) | 簡報
+
+之後如有提供投影片再補充連結">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://blog.bear-su.dev/2016/12/02/ruby-conf-taiwan-2016-day-2/"><meta property="og:image" content="https://blog.bear-su.dev/images/bear.jpeg"><meta property="article:section" content>
+<meta property="article:published_time" content="2016-12-02T15:51:00+08:00">
+<meta property="article:modified_time" content="2016-12-02T15:51:00+08:00">
+<link href rel=alternate type=application/rss+xml title="Bear Su's Blog">
+<link href rel=feed type=application/rss+xml title="Bear Su's Blog">
+<meta itemprop=name content="RubyConf Taiwan 2016 第二天">
+<meta itemprop=description content="今年第一次參加 RubyConf Taiwan 2016
+今天有記得要多做一些紀錄，但還是零零散散啊&mldr;
+紀錄今天聽到的議程：
+
+[利用Ruby撰寫勒索軟體並探討如何安全的使用密碼系統](https://2016.rubyconf.tw/#Zong-Yu Wu)
+[Ruby, facing the change of world-wide server-class microprocessors](https://2016.rubyconf.tw/#Luba Tang)
+[Building maintainable command-line tools with MRuby](https://2016.rubyconf.tw/#Eric Hodel)
+[Buidling HUGE web apps: Rails at 1,000,000 Lines of Code](https://2016.rubyconf.tw/#Brad Urani)
+[Solving your onboarding problems with Ruby](https://2016.rubyconf.tw/#Layne McNish)
+[利用 Sidekiq Enterprise 打造高效率與高可靠度的爬蟲系統
+](https://2016.rubyconf.tw/#Chien-Wei Chu)
+[What is the Rack Hijacking API](https://2016.rubyconf.tw/#Kiyoshi Nomo) | 簡報
+[Large scale Rails applications](https://2016.rubyconf.tw/#Florian Dutey)
+[How we replaced salary negotiations with a Sinatra app](https://2016.rubyconf.tw/#Konstantin Hasse) | 簡報
+
+之後如有提供投影片再補充連結"><meta itemprop=datePublished content="2016-12-02T15:51:00+08:00">
+<meta itemprop=dateModified content="2016-12-02T15:51:00+08:00">
+<meta itemprop=wordCount content="551"><meta itemprop=image content="https://blog.bear-su.dev/images/bear.jpeg">
+<meta itemprop=keywords content>
+<link href="https://fonts.googleapis.com/css?family=Lato:400" rel=stylesheet>
+<link rel=stylesheet href=https://blog.bear-su.dev/css/style.css>
+<script type=application/ld+json>{"@context":"http://schema.org","@type":"WebSite","name":"Bear Su\u0027s Blog","url":"https:\/\/blog.bear-su.dev\/2016\/12\/02\/ruby-conf-taiwan-2016-day-2\/"}</script>
+</head>
+<body>
+<header class=gheader>
+<div class=container>
+<nav class=navbar>
+<div class=navbar-brand>
+<a class=navbar-item href=https://blog.bear-su.dev>
+<p class=brand>Bear Su's Blog</p>
+</a>
+<div class="navbar-burger burger" data-target=navMenubd-example>
+<span></span>
+<span></span>
+<span></span>
+</div>
+</div>
+<div id=navMenubd-example class=navbar-menu>
+<div class=navbar-start>
+<a class=navbar-item href=/categories/>
+Categories
+</a>
+<a class=navbar-item href=https://github.com/timfanda35>
+GitHub
+</a>
+<a class=navbar-item href=https://www.linkedin.com/in/bearsu>
+Linkedin
+</a>
+<a class=navbar-item href=https://twitter.com/Fandayo>
+Twitter
+</a>
+</div>
+</div>
+</nav>
+</div>
+</header>
+<div class=main-content>
+<div class=container>
+<article class=post>
+<header class=post-header>
+<h1 class=title>RubyConf Taiwan 2016 第二天</h1>
+<div class=meta>
+<time class=pub-time datetime=2016-12-02T15:51:00+08:00>
+2016.12.02
+</time>
+<div class=terms>
+<div class=categories>
+<a class=categories-item href=/categories/ruby>ruby</a>
+</div>
+</div>
+</div>
+</header>
+<div class=post-body>
+<div class=toc-wrap>
+<h2>Table of Contents</h2>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#利用ruby撰寫勒索軟體並探討如何安全的使用密碼系統https2016rubyconftwzong-yu-wu>[利用Ruby撰寫勒索軟體並探討如何安全的使用密碼系統](<a href=https://2016.rubyconf.tw/#Zong-Yu>https://2016.rubyconf.tw/#Zong-Yu</a> Wu)</a></li>
+<li><a href=#ruby-facing-the-change-of-world-wide-server-class-microprocessorshttps2016rubyconftwluba-tang>[Ruby, facing the change of world-wide server-class microprocessors](<a href=https://2016.rubyconf.tw/#Luba>https://2016.rubyconf.tw/#Luba</a> Tang)</a></li>
+<li><a href=#building-maintainable-command-line-tools-with-mrubyhttps2016rubyconftweric-hodel>[Building maintainable command-line tools with MRuby](<a href=https://2016.rubyconf.tw/#Eric>https://2016.rubyconf.tw/#Eric</a> Hodel)</a></li>
+<li><a href=#buidling-huge-web-apps-rails-at-1000000-lines-of-codehttps2016rubyconftwbrad-urani>[Buidling HUGE web apps: Rails at 1,000,000 Lines of Code](<a href=https://2016.rubyconf.tw/#Brad>https://2016.rubyconf.tw/#Brad</a> Urani)</a></li>
+<li><a href=#solving-your-onboarding-problems-with-rubyhttps2016rubyconftwlayne-mcnish>[Solving your onboarding problems with Ruby](<a href=https://2016.rubyconf.tw/#Layne>https://2016.rubyconf.tw/#Layne</a> McNish)</a></li>
+<li><a href=#利用-sidekiq-enterprise-打造高效率與高可靠度的爬蟲系統>[利用 Sidekiq Enterprise 打造高效率與高可靠度的爬蟲系統</a></li>
+<li><a href=#what-is-the-rack-hijacking-apihttps2016rubyconftwkiyoshi-nomo>[What is the Rack Hijacking API](<a href=https://2016.rubyconf.tw/#Kiyoshi>https://2016.rubyconf.tw/#Kiyoshi</a> Nomo)</a></li>
+<li><a href=#large-scale-rails-applicationshttps2016rubyconftwflorian-dutey>[Large scale Rails applications](<a href=https://2016.rubyconf.tw/#Florian>https://2016.rubyconf.tw/#Florian</a> Dutey)</a></li>
+<li><a href=#how-we-replaced-salary-negotiations-with-a-sinatra-apphttps2016rubyconftwkonstantin-hasse>[How we replaced salary negotiations with a Sinatra app](<a href=https://2016.rubyconf.tw/#Konstantin>https://2016.rubyconf.tw/#Konstantin</a> Hasse)</a></li>
+</ul>
+</nav>
+</div>
+<p>今年第一次參加 <a href=https://2016.rubyconf.tw/>RubyConf Taiwan 2016</a></p>
+<p>今天有記得要多做一些紀錄，但還是零零散散啊&mldr;</p>
+<p>紀錄今天聽到的議程：</p>
+<ul>
+<li>[利用Ruby撰寫勒索軟體並探討如何安全的使用密碼系統](<a href=https://2016.rubyconf.tw/#Zong-Yu>https://2016.rubyconf.tw/#Zong-Yu</a> Wu)</li>
+<li>[Ruby, facing the change of world-wide server-class microprocessors](<a href=https://2016.rubyconf.tw/#Luba>https://2016.rubyconf.tw/#Luba</a> Tang)</li>
+<li>[Building maintainable command-line tools with MRuby](<a href=https://2016.rubyconf.tw/#Eric>https://2016.rubyconf.tw/#Eric</a> Hodel)</li>
+<li>[Buidling HUGE web apps: Rails at 1,000,000 Lines of Code](<a href=https://2016.rubyconf.tw/#Brad>https://2016.rubyconf.tw/#Brad</a> Urani)</li>
+<li>[Solving your onboarding problems with Ruby](<a href=https://2016.rubyconf.tw/#Layne>https://2016.rubyconf.tw/#Layne</a> McNish)</li>
+<li>[利用 Sidekiq Enterprise 打造高效率與高可靠度的爬蟲系統
+](<a href=https://2016.rubyconf.tw/#Chien-Wei>https://2016.rubyconf.tw/#Chien-Wei</a> Chu)</li>
+<li>[What is the Rack Hijacking API](<a href=https://2016.rubyconf.tw/#Kiyoshi>https://2016.rubyconf.tw/#Kiyoshi</a> Nomo) | <a href=http://www.slideshare.net/TokyoIncidents/what-is-rack-hijacking-api-69807904>簡報</a></li>
+<li>[Large scale Rails applications](<a href=https://2016.rubyconf.tw/#Florian>https://2016.rubyconf.tw/#Florian</a> Dutey)</li>
+<li>[How we replaced salary negotiations with a Sinatra app](<a href=https://2016.rubyconf.tw/#Konstantin>https://2016.rubyconf.tw/#Konstantin</a> Hasse) | <a href=https://speakerdeck.com/rkh/how-we-replaced-salary-negotiations-with-a-sinatra-app>簡報</a></li>
+</ul>
+<p>之後如有提供投影片再補充連結</p>
+<h2 id=利用ruby撰寫勒索軟體並探討如何安全的使用密碼系統https2016rubyconftwzong-yu-wu>[利用Ruby撰寫勒索軟體並探討如何安全的使用密碼系統](<a href=https://2016.rubyconf.tw/#Zong-Yu>https://2016.rubyconf.tw/#Zong-Yu</a> Wu) <a href=#%e5%88%a9%e7%94%a8ruby%e6%92%b0%e5%af%ab%e5%8b%92%e7%b4%a2%e8%bb%9f%e9%ab%94%e4%b8%a6%e6%8e%a2%e8%a8%8e%e5%a6%82%e4%bd%95%e5%ae%89%e5%85%a8%e7%9a%84%e4%bd%bf%e7%94%a8%e5%af%86%e7%a2%bc%e7%b3%bb%e7%b5%b1https2016rubyconftwzong-yu-wu>¶</a></h2>
+<hr>
+<p>這場說明勒索軟體如何加密電腦檔案</p>
+<p>加密的演算法不建議 rc4, des</p>
+<p>建議使用 AES CBC 模式或 RSA 長度大於 2048</p>
+<p>在這場看到有趣的 gem:</p>
+<p><a href=https://github.com/zongyuwu/RansomRB>RansomRB</a></p>
+<p><strong>務必看完說明並使用 VM 或 docker 測試，不然檔案系統被加密就 GG 了</strong></p>
+<h2 id=ruby-facing-the-change-of-world-wide-server-class-microprocessorshttps2016rubyconftwluba-tang>[Ruby, facing the change of world-wide server-class microprocessors](<a href=https://2016.rubyconf.tw/#Luba>https://2016.rubyconf.tw/#Luba</a> Tang) <a href=#ruby-facing-the-change-of-world-wide-server-class-microprocessorshttps2016rubyconftwluba-tang>¶</a></h2>
+<hr>
+<p>cloud server 市場 arm 有成長趨勢</p>
+<p>Adapterive compiler = iterative compiler +workload</p>
+<p><a href=http://skymizer.com/>Skymizer</a> 與<a href=https://womany.net/>女人迷</a>合作，正在 AWS 上研究，預計未來會提供 benchmark for real-world workload</p>
+<h2 id=building-maintainable-command-line-tools-with-mrubyhttps2016rubyconftweric-hodel>[Building maintainable command-line tools with MRuby](<a href=https://2016.rubyconf.tw/#Eric>https://2016.rubyconf.tw/#Eric</a> Hodel) <a href=#building-maintainable-command-line-tools-with-mrubyhttps2016rubyconftweric-hodel>¶</a></h2>
+<hr>
+<p>可以透過 <a href=http://mruby-cli.org/>mruby-cli</a> 跨平台編譯</p>
+<p><a href=http://mruby.org/>mruby</a> 很像 ruby，但並不是 ruby</p>
+<p>可以透過一些方法，加速測試</p>
+<p><a href=http://mruby.org/>mruby</a> 提供 <code>bintest</code> 測試編譯後的執行檔</p>
+<p>資源：</p>
+<p><a href=http://mruby.org/>mruby</a></p>
+<p><a href=http://mruby-cli.org/>mruby-cli</a></p>
+<p><a href=http://mruby.org/libraries/>mrbgems</a></p>
+<p><a href=https://github.com/iij/mruby-mtest>mruby-mtest</a></p>
+<h2 id=buidling-huge-web-apps-rails-at-1000000-lines-of-codehttps2016rubyconftwbrad-urani>[Buidling HUGE web apps: Rails at 1,000,000 Lines of Code](<a href=https://2016.rubyconf.tw/#Brad>https://2016.rubyconf.tw/#Brad</a> Urani) <a href=#buidling-huge-web-apps-rails-at-1000000-lines-of-codehttps2016rubyconftwbrad-urani>¶</a></h2>
+<hr>
+<p>跟自行創業不同，為企業建立網站系統，面對的挑戰是實現上千個功能，而不只是做好一件事</p>
+<p>面對開發效率，以及客戶的需求變更，講者分享一些經驗：</p>
+<p>Autonomy, trust.</p>
+<p>Always start with the simplest code that works:</p>
+<ul>
+<li>Do not over-engineer</li>
+<li>Do not build things you do not need yet</li>
+</ul>
+<p>Always start with the simplest process that works</p>
+<ul>
+<li>Simple tools</li>
+<li>Simple git</li>
+</ul>
+<p>Code review</p>
+<ul>
+<li>Estimate style</li>
+<li>Meeting schedule</li>
+</ul>
+<p>Encourage full stack developing.</p>
+<p>Prioritize training</p>
+<ul>
+<li>Technical</li>
+<li>Business</li>
+</ul>
+<p>Do not over-automate, wait until it becomes a problem.</p>
+<p>Internal open source.</p>
+<p>Architectural consistency</p>
+<h2 id=solving-your-onboarding-problems-with-rubyhttps2016rubyconftwlayne-mcnish>[Solving your onboarding problems with Ruby](<a href=https://2016.rubyconf.tw/#Layne>https://2016.rubyconf.tw/#Layne</a> McNish) <a href=#solving-your-onboarding-problems-with-rubyhttps2016rubyconftwlayne-mcnish>¶</a></h2>
+<hr>
+<p>如何讓團隊的新成員能夠儘早加入開發？</p>
+<p>除了寫文件之外還有什麼能做的呢？</p>
+<p>還記得剛上工時，第一件事就是要建立開發環境，這通常都要弄上一整天</p>
+<p><em>Automate all the things</em></p>
+<p>像是寫個 <code>install.sh</code> 或是 <code>rake</code> !!!</p>
+<p>這裡有一些資源提供參考：</p>
+<p><a href=https://github.com/github/scripts-to-rule-them-all>Scripts To Rule Them All</a></p>
+<p><a href=https://github.com/thoughtbot/laptop>Laptop - A script to set up an macOS laptop for web development.</a></p>
+<p><a href=https://www.vagrantup.com/>Vagrant</a></p>
+<p>在開發方面可以提供 git pre-push hooks，提醒新成員開發規範</p>
+<p>給予新成員一些小且能快速取得成就感的任務，能使他更快融入團隊的開發環境</p>
+<p>想想還有什麼能做的呢？</p>
+<h2 id=利用-sidekiq-enterprise-打造高效率與高可靠度的爬蟲系統>[利用 Sidekiq Enterprise 打造高效率與高可靠度的爬蟲系統 <a href=#%e5%88%a9%e7%94%a8-sidekiq-enterprise-%e6%89%93%e9%80%a0%e9%ab%98%e6%95%88%e7%8e%87%e8%88%87%e9%ab%98%e5%8f%af%e9%9d%a0%e5%ba%a6%e7%9a%84%e7%88%ac%e8%9f%b2%e7%b3%bb%e7%b5%b1>¶</a></h2>
+<hr>
+<p>](<a href=https://2016.rubyconf.tw/#Chien-Wei>https://2016.rubyconf.tw/#Chien-Wei</a> Chu)</p>
+<p>目前台灣上市股票有 2000 多家公司，每家都要提供 1000 多種數據給使用者</p>
+<p>而且這 1000 多種數據的更新頻率不一樣</p>
+<p>過去只依賴 <code>cron</code>，效率不夠好，資源利用也有問題</p>
+<p>後來選擇了用 <a href=http://sidekiq.org/>sidekiq enterprice</a></p>
+<p><a href=http://sidekiq.org/>sidekiq</a> 有三種版本</p>
+<ul>
+<li><a href=http://sidekiq.org/>sidekiq (OSS)</a></li>
+<li><a href=http://sidekiq.org/>sidekiq pro</a></li>
+<li><a href=http://sidekiq.org/>sidekiq enterprise</a></li>
+</ul>
+<p>建立一張資料表紀錄每個任務的下次開始執行的時間，再利用 <code>cron</code> 每天定時從表中取出需要開始執行的任務，放進 <a href=http://sidekiq.org/>sidekiq</a> 的 Queue 中</p>
+<p>透過 enterprice 版本所提供的功能，可以解決像是每秒連線數上限的任務排程問題</p>
+<p>透過 proxy server 變更來源ip 來突破目標網站的 ip 封鎖</p>
+<h2 id=what-is-the-rack-hijacking-apihttps2016rubyconftwkiyoshi-nomo>[What is the Rack Hijacking API](<a href=https://2016.rubyconf.tw/#Kiyoshi>https://2016.rubyconf.tw/#Kiyoshi</a> Nomo) <a href=#what-is-the-rack-hijacking-apihttps2016rubyconftwkiyoshi-nomo>¶</a></h2>
+<hr>
+<p><a href=http://www.slideshare.net/TokyoIncidents/what-is-rack-hijacking-api-69807904>簡報</a></p>
+<p>這場演講我跟不太上，就自行上網找資料了</p>
+<p><a href=http://old.blog.phusion.nl/2013/01/23/the-new-rack-socket-hijacking-api/>參考資料</a></p>
+<p>程式碼：</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-ruby data-lang=ruby><span style=color:#75715e># file: config.ru</span>
+<span style=color:#75715e># encoding: utf-8</span>
+require <span style=color:#e6db74>&#39;thread&#39;</span>
+
+<span style=color:#75715e># Streams the response &#34;Line 1&#34; .. &#34;Line 10&#34;, with</span>
+<span style=color:#75715e># 1 second sleep time between each line.</span>
+<span style=color:#75715e>#</span>
+<span style=color:#75715e># Non-Phusion Passenger users may have to turn off their</span>
+<span style=color:#75715e># web servers&#39; buffering options for streaming to work.</span>
+<span style=color:#75715e># Phusion Passenger 4 users don&#39;t have to do anything, it</span>
+<span style=color:#75715e># works out-of-the-box thanks to our real-time response</span>
+<span style=color:#75715e># buffering feature.</span>
+app <span style=color:#f92672>=</span> lambda <span style=color:#66d9ef>do</span> <span style=color:#f92672>|</span>env<span style=color:#f92672>|</span>
+  <span style=color:#75715e># Fully hijack the client socket.</span>
+  env<span style=color:#f92672>[</span><span style=color:#e6db74>&#39;rack.hijack&#39;</span><span style=color:#f92672>].</span>call
+  io <span style=color:#f92672>=</span> env<span style=color:#f92672>[</span><span style=color:#e6db74>&#39;rack.hijack_io&#39;</span><span style=color:#f92672>]</span>
+  <span style=color:#66d9ef>begin</span>
+    io<span style=color:#f92672>.</span>write(<span style=color:#e6db74>&#34;Status: 200</span><span style=color:#ae81ff>\r\n</span><span style=color:#e6db74>&#34;</span>)
+    io<span style=color:#f92672>.</span>write(<span style=color:#e6db74>&#34;Connection: close</span><span style=color:#ae81ff>\r\n</span><span style=color:#e6db74>&#34;</span>)
+    io<span style=color:#f92672>.</span>write(<span style=color:#e6db74>&#34;Content-Type: text/plain</span><span style=color:#ae81ff>\r\n</span><span style=color:#e6db74>&#34;</span>)
+    io<span style=color:#f92672>.</span>write(<span style=color:#e6db74>&#34;</span><span style=color:#ae81ff>\r\n</span><span style=color:#e6db74>&#34;</span>)
+    <span style=color:#ae81ff>10</span><span style=color:#f92672>.</span>times <span style=color:#66d9ef>do</span> <span style=color:#f92672>|</span>i<span style=color:#f92672>|</span>
+      io<span style=color:#f92672>.</span>write(<span style=color:#e6db74>&#34;Line </span><span style=color:#e6db74>#{</span>i <span style=color:#f92672>+</span> <span style=color:#ae81ff>1</span><span style=color:#e6db74>}</span><span style=color:#e6db74>!</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>)
+      io<span style=color:#f92672>.</span>flush
+      sleep <span style=color:#ae81ff>1</span>
+    <span style=color:#66d9ef>end</span>
+  <span style=color:#66d9ef>ensure</span>
+    io<span style=color:#f92672>.</span>close
+  <span style=color:#66d9ef>end</span>
+<span style=color:#66d9ef>end</span>
+
+run app
+</code></pre></div><p>執行</p>
+<pre tabindex=0><code>$ rackup
+Puma starting in single mode...
+* Version 3.6.0 (ruby 2.2.5-p319), codename: Sleepy Sunday Serenity
+* Min threads: 0, max threads: 16
+* Environment: development
+* Listening on tcp://localhost:9292
+</code></pre><p>在另一個 terminal 測試</p>
+<pre tabindex=0><code>$ curl http://localhost:9292
+Status: 200
+Connection: close
+Content-Type: text/plain
+
+Line 1!
+Line 2!
+Line 3!
+Line 4!
+Line 5!
+Line 6!
+</code></pre><p>按 <code>CTRL + c</code> 跳出</p>
+<h2 id=large-scale-rails-applicationshttps2016rubyconftwflorian-dutey>[Large scale Rails applications](<a href=https://2016.rubyconf.tw/#Florian>https://2016.rubyconf.tw/#Florian</a> Dutey) <a href=#large-scale-rails-applicationshttps2016rubyconftwflorian-dutey>¶</a></h2>
+<hr>
+<p>看到了 Fat models 與 Skinny controllers</p>
+<p>使用一些方式來重構：</p>
+<ul>
+<li>Single Responsibility Principle(SRP)</li>
+<li>Domain specific language</li>
+<li>Services</li>
+<li>Forms. like Model</li>
+<li>Policies</li>
+<li>Adapter model</li>
+</ul>
+<h2 id=how-we-replaced-salary-negotiations-with-a-sinatra-apphttps2016rubyconftwkonstantin-hasse>[How we replaced salary negotiations with a Sinatra app](<a href=https://2016.rubyconf.tw/#Konstantin>https://2016.rubyconf.tw/#Konstantin</a> Hasse) <a href=#how-we-replaced-salary-negotiations-with-a-sinatra-apphttps2016rubyconftwkonstantin-hasse>¶</a></h2>
+<hr>
+<p><a href=https://speakerdeck.com/rkh/how-we-replaced-salary-negotiations-with-a-sinatra-app>簡報</a></p>
+<p>談論薪資，為你的能力與貢獻給予酬勞</p>
+<p>提到<a href=https://zh.wikipedia.org/wiki/22K%E5%A4%A2%E6%83%B3%E9%AB%98%E9%A3%9B>22k夢想高飛</a></p>
+<p>開發了一個 sinatra salary framework</p>
+<p>列了一張等級表，每個等級標示需符合的能力與對應的薪水</p>
+<p>員工每年應該至少升一級</p>
+<p>還需要考慮員工所在地區的生活品質所需要的薪資</p>
+<p>參考<a href=https://zh.wikipedia.org/zh-tw/%E5%B7%A8%E7%84%A1%E9%9C%B8%E6%8C%87%E6%95%B8>大麥克指數</a></p>
+<p>在這場看到有趣的資源:</p>
+<p><a href=http://rkh.im/move>同樣生活品質所需的薪水換算</a></p>
+<p><a href=https://github.com/rkh/income-tax>income_tax</a></p>
+</div>
+<footer class=post-footer>
+<hr>
+<div style=margin-top:2.5rem>
+<div style=display:flex;justify-content:center;width:100%>
+<p style=color:gray>
+如果覺得這篇文章對您有所幫助，歡迎贊助我一杯咖啡 ☕️
+</p>
+</div>
+<div style=display:flex;justify-content:center;width:100%>
+<p style=color:gray>
+祝您有美好的一天 ❤️
+</p>
+</div>
+<div style=display:flex;justify-content:center;width:100%;margin-top:1rem>
+<script type=text/javascript src=https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js data-name=bmc-button data-slug=timfanda35 data-color=#FFDD00 data-emoji data-font=Bree data-text="Buy me a coffee" data-outline-color=#000000 data-font-color=#000000 data-coffee-color=#ffffff></script>
+</div>
+</div>
+<hr>
+<div style=margin-top:1rem>
+<script src=https://utteranc.es/client.js repo=timfanda35/timfanda35.github.io issue-term=pathname label=comment theme=github-light crossorigin=anonymous async></script>
+</div>
+<div class=share>
+</div>
+<div class=pagenation>
+<ul class=pagenation-list>
+<li class="pager previous">
+<a href=https://blog.bear-su.dev/2016/11/26/pocket-to-mail/ data-toggle=tooltip data-placement=top title="Side Project: Pocket to mail">&larr; Previous Post</a>
+</li>
+<li class="pager next">
+<a href=https://blog.bear-su.dev/2016/12/02/ruby-conf-taiwan-2016-day-1/ data-toggle=tooltip data-placement=top title="RubyConf Taiwan 2016 第一天">Next Post &rarr;</a>
+</li>
+</ul>
+</div>
+</footer>
+</article>
+<article class=related></article>
+<script type=application/ld+json>{"@context":"http://schema.org","@type":"NewsArticle","mainEntityOfPage":{"@type":"NewsArticle","@id":"https:\/\/blog.bear-su.dev\/2016\/12\/02\/ruby-conf-taiwan-2016-day-2\/","headline":"今年第一次參加 RubyConf Taiwan 2016今天有記得要多做一些紀錄，但還是零零散散啊\u0026hellip;紀錄今天聽到的議程： [利用Ruby撰寫勒索軟體並探討如何安全的使用密碼系統](https:\/\/2016.","author":"Bear Su","publisher":{"@type":"Organization","name":"Bear Su","logo":""},"image":"","datePublished":"2016-12-02"},"headline":"今年第一次參加 RubyConf Taiwan 2016今天有記得要多做一些紀錄，但還是零零散散啊\u0026hellip;紀錄今天聽到的議程： [利用Ruby撰寫勒索軟體並探討如何安全的使用密碼系統](https:\/\/2016.","alternativeHeadline":"Bear Su\u0027s Blog","datePublished":"2016-12-02","dateModified":"2016-12-02","url":"https:\/\/blog.bear-su.dev\/2016\/12\/02\/ruby-conf-taiwan-2016-day-2\/","wordCount":"551","author":{"@type":"Person","name":"Bear Su"},"publisher":{"@type":"Organization","name":"Bear Su"},"image":"","genre":"ruby","description":""}</script>
+<script type=application/ld+json>{"@context":"http://schema.org","@type":"Person","@id":"https:\/\/blog.bear-su.dev\/2016\/12\/02\/ruby-conf-taiwan-2016-day-2\/","name":"Bear Su"}</script>
+</div>
+</div>
+<footer class=gfooter>
+<div class=inner>
+<div class=container>
+<p class=copy>
+<small>Copyright © 2015 - 2022 Bear Su's Blog</small>
+<small> | 本部落格有使用 Google Analytic 及 Cookie</small>
+</p>
+<nav class=footer-nav>
+<div class=inner>
+</div>
+</nav>
+</div>
+</div>
+</footer>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KJXNT5CQCS"></script>
+<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-KJXNT5CQCS',{anonymize_ip:!1})}</script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin=anonymous referrerpolicy=no-referrer></script>
+<script src=https://blog.bear-su.dev/js/script.js></script>
+</body>
+</html>

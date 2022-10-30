@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>logger on Bear Su's Blog</title><link>https://blog.bear-su.dev/categories/logger/</link><description>Recent content in logger on Bear Su's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>Copyright © 2015 - 2022 Bear Su's Blog</copyright><lastBuildDate>Sat, 04 Feb 2017 07:05:00 +0800</lastBuildDate><atom:link href="https://blog.bear-su.dev/categories/logger/index.xml" rel="self" type="application/rss+xml"/><item><title>logger tip</title><link>https://blog.bear-su.dev/2017/02/04/logger-tip/</link><pubDate>Sat, 04 Feb 2017 07:05:00 +0800</pubDate><guid>https://blog.bear-su.dev/2017/02/04/logger-tip/</guid><description>&lt;p>所謂有記有保庇&lt;/p>
+&lt;p>log 能夠幫助瞭解程式在執行的時候做了什麼事&lt;/p>
+&lt;p>log 記得好在除錯的時候能幫上很大的忙&lt;/p>
+&lt;p>這邊紀錄跟 logger 的一些相關技巧&lt;/p></description></item></channel></rss>

@@ -1,0 +1,271 @@
+<!doctype html><html lang=en-us>
+<head>
+<link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png>
+<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
+<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png>
+<link rel=manifest href=/site.webmanifest>
+<link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5>
+<meta name=msapplication-TileColor content="#da532c">
+<meta name=theme-color content="#ffffff">
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta http-equiv=x-ua-compatible content="ie=edge,chrome=1">
+<title>Ruby gem daemons 筆記 &#183; Bear Su's Blog - Running Bear!!! </title>
+<meta name=generator content="Hugo 0.92.0">
+<meta name=description content="Running Bear!!!">
+<meta name=twitter:card content="summary_large_image">
+<meta name=twitter:image content="https://blog.bear-su.dev/images/bear.jpeg">
+<meta name=twitter:title content="Ruby gem daemons 筆記">
+<meta name=twitter:description content="
+圖片來源
+フリー写真素材ぱくたそ
+daemons gem 是一個能夠讓 ruby 程式以行程(process)獨立執行的 gem
+當你想要有一個程式能夠在背景持續執行時，就可以可慮使用 daemons gem 來協助開發">
+<meta property="og:title" content="Ruby gem daemons 筆記">
+<meta property="og:description" content="
+圖片來源
+フリー写真素材ぱくたそ
+daemons gem 是一個能夠讓 ruby 程式以行程(process)獨立執行的 gem
+當你想要有一個程式能夠在背景持續執行時，就可以可慮使用 daemons gem 來協助開發">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://blog.bear-su.dev/2017/03/26/ruby-gem-daemons-note/"><meta property="og:image" content="https://blog.bear-su.dev/images/bear.jpeg"><meta property="article:section" content>
+<meta property="article:published_time" content="2017-03-26T08:04:00+08:00">
+<meta property="article:modified_time" content="2017-03-26T08:04:00+08:00">
+<link href rel=alternate type=application/rss+xml title="Bear Su's Blog">
+<link href rel=feed type=application/rss+xml title="Bear Su's Blog">
+<meta itemprop=name content="Ruby gem daemons 筆記">
+<meta itemprop=description content="
+圖片來源
+フリー写真素材ぱくたそ
+daemons gem 是一個能夠讓 ruby 程式以行程(process)獨立執行的 gem
+當你想要有一個程式能夠在背景持續執行時，就可以可慮使用 daemons gem 來協助開發"><meta itemprop=datePublished content="2017-03-26T08:04:00+08:00">
+<meta itemprop=dateModified content="2017-03-26T08:04:00+08:00">
+<meta itemprop=wordCount content="274"><meta itemprop=image content="https://blog.bear-su.dev/images/bear.jpeg">
+<meta itemprop=keywords content>
+<link href="https://fonts.googleapis.com/css?family=Lato:400" rel=stylesheet>
+<link rel=stylesheet href=https://blog.bear-su.dev/css/style.css>
+<script type=application/ld+json>{"@context":"http://schema.org","@type":"WebSite","name":"Bear Su\u0027s Blog","url":"https:\/\/blog.bear-su.dev\/2017\/03\/26\/ruby-gem-daemons-note\/"}</script>
+</head>
+<body>
+<header class=gheader>
+<div class=container>
+<nav class=navbar>
+<div class=navbar-brand>
+<a class=navbar-item href=https://blog.bear-su.dev>
+<p class=brand>Bear Su's Blog</p>
+</a>
+<div class="navbar-burger burger" data-target=navMenubd-example>
+<span></span>
+<span></span>
+<span></span>
+</div>
+</div>
+<div id=navMenubd-example class=navbar-menu>
+<div class=navbar-start>
+<a class=navbar-item href=/categories/>
+Categories
+</a>
+<a class=navbar-item href=https://github.com/timfanda35>
+GitHub
+</a>
+<a class=navbar-item href=https://www.linkedin.com/in/bearsu>
+Linkedin
+</a>
+<a class=navbar-item href=https://twitter.com/Fandayo>
+Twitter
+</a>
+</div>
+</div>
+</nav>
+</div>
+</header>
+<div class=main-content>
+<div class=container>
+<article class=post>
+<header class=post-header>
+<h1 class=title>Ruby gem daemons 筆記</h1>
+<div class=meta>
+<time class=pub-time datetime=2017-03-26T08:04:00+08:00>
+2017.03.26
+</time>
+<div class=terms>
+<div class=categories>
+<a class=categories-item href=/categories/ruby>ruby</a>
+</div>
+</div>
+</div>
+</header>
+<div class=post-body>
+<div class=toc-wrap>
+<h2>Table of Contents</h2>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#寫個範例>寫個範例</a></li>
+<li><a href=#尾聲>尾聲</a></li>
+<li><a href=#參考>參考</a></li>
+</ul>
+</nav>
+</div>
+<p><img src=http://i.imgur.com/ZjslPbL.jpg alt></p>
+<p><a href=https://www.pakutaso.com/20170137024post-10119.html>圖片來源</a>
+<a href=https://www.pakutaso.com/>フリー写真素材ぱくたそ</a></p>
+<p><a href=https://github.com/thuehlinger/daemons>daemons gem</a> 是一個能夠讓 ruby 程式以行程(process)獨立執行的 gem</p>
+<p>當你想要有一個程式能夠在背景持續執行時，就可以可慮使用 <a href=https://github.com/thuehlinger/daemons>daemons gem</a> 來協助開發</p>
+<p>什麼是 daemon？可以參考鳥哥的文章 <a href=http://linux.vbird.org/linux_basic/0560daemons.php#daemon>17.1 什麼是 daemon 與服務 (service)</a></p>
+<p>簡單來說可以當作是在背景一直執行的服務</p>
+<p>透過 <a href=https://github.com/thuehlinger/daemons>daemons gem</a> 你可以：</p>
+<ol>
+<li>將其他 script 作為 daemon 執行</li>
+<li>將 proc 丟到 daemon 執行</li>
+<li>將目前執行的程式變成 daemon 執行</li>
+</ol>
+<h2 id=寫個範例>寫個範例 <a href=#%e5%af%ab%e5%80%8b%e7%af%84%e4%be%8b>¶</a></h2>
+<hr>
+<p>範例程式(<code>main.rb</code>)是一個可以用在程式中建立 <strong>每 5 秒將 Process 名稱寫入 Log</strong> 的 daemon：</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-ruby data-lang=ruby><span style=color:#75715e># main.rb</span>
+require <span style=color:#e6db74>&#39;daemons&#39;</span>
+require <span style=color:#e6db74>&#34;logger&#34;</span>
+
+<span style=color:#75715e># 在執行的時候先取得當前目錄的絕對路徑</span>
+<span style=color:#66d9ef>DIR</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>File</span><span style=color:#f92672>.</span>absolute_path(<span style=color:#66d9ef>File</span><span style=color:#f92672>.</span>dirname(__FILE__))
+
+<span style=color:#66d9ef>class</span> <span style=color:#a6e22e>TittleDaemon</span>
+  <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>run</span>(name)
+    <span style=color:#75715e># 修改行程 (Process) 顯示的名稱</span>
+    <span style=color:#66d9ef>Process</span><span style=color:#f92672>.</span>setproctitle(name)
+
+    logger <span style=color:#f92672>=</span> <span style=color:#66d9ef>Logger</span><span style=color:#f92672>.</span>new(log_path(name), <span style=color:#e6db74>&#39;daily&#39;</span>)
+
+    <span style=color:#66d9ef>loop</span> <span style=color:#66d9ef>do</span>
+      logger<span style=color:#f92672>.</span>info <span style=color:#e6db74>&#34;daemon </span><span style=color:#e6db74>#{</span>name<span style=color:#e6db74>}</span><span style=color:#e6db74> is running&#34;</span>
+      sleep(<span style=color:#ae81ff>5</span>)
+    <span style=color:#66d9ef>end</span>
+  <span style=color:#66d9ef>end</span>
+
+  <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>log_path</span>(name)
+    <span style=color:#66d9ef>File</span><span style=color:#f92672>.</span>join(<span style=color:#66d9ef>DIR</span>, <span style=color:#e6db74>&#34;</span><span style=color:#e6db74>#{</span>name<span style=color:#e6db74>}</span><span style=color:#e6db74>-running.log&#34;</span>)
+  <span style=color:#66d9ef>end</span>
+<span style=color:#66d9ef>end</span>
+
+<span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Main</span>
+  <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>start</span>(name)
+    options <span style=color:#f92672>=</span> {
+      <span style=color:#e6db74>:ARGV</span>                 <span style=color:#f92672>=&gt;</span> <span style=color:#f92672>[</span><span style=color:#e6db74>&#39;start&#39;</span><span style=color:#f92672>]</span>, <span style=color:#75715e># 啟動 daemon</span>
+      <span style=color:#e6db74>:backtrace</span>            <span style=color:#f92672>=&gt;</span> <span style=color:#66d9ef>true</span> <span style=color:#75715e># 如果有發生例外會記錄到 log 中</span>
+    }
+    <span style=color:#66d9ef>Daemons</span><span style=color:#f92672>.</span>run_proc(name, options) { <span style=color:#66d9ef>TittleDaemon</span><span style=color:#f92672>.</span>new<span style=color:#f92672>.</span>run(name) }
+  <span style=color:#66d9ef>end</span>
+
+  <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>stop</span>(name)
+    options <span style=color:#f92672>=</span> {
+      <span style=color:#e6db74>:ARGV</span>               <span style=color:#f92672>=&gt;</span> <span style=color:#f92672>[</span><span style=color:#e6db74>&#39;stop&#39;</span><span style=color:#f92672>]</span>, <span style=color:#75715e># 停止 daemon</span>
+      <span style=color:#e6db74>:backtrace</span>          <span style=color:#f92672>=&gt;</span> <span style=color:#66d9ef>true</span> <span style=color:#75715e># 如果有發生例外會記錄到 log 中</span>
+    }
+    <span style=color:#66d9ef>Daemons</span><span style=color:#f92672>.</span>run_proc(name, options) { <span style=color:#66d9ef>TittleDaemon</span><span style=color:#f92672>.</span>new<span style=color:#f92672>.</span>run(name) }
+  <span style=color:#66d9ef>end</span>
+<span style=color:#66d9ef>end</span>
+</code></pre></div><p>操作：</p>
+<p>首先在 Terminal 中開啟 <code>irb</code>，並加上 <code>-r</code> 參數在啟動 irb 的同時 <code>require ./main.rb</code></p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ irb -r ./main.rb 
+</code></pre></div><p>在 irb 中建立 <code>Main</code> 的實體，並啟動一個名為 <code>little-daemon</code> 的 daemon</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-ruby data-lang=ruby><span style=color:#f92672>&gt;</span> main <span style=color:#f92672>=</span> <span style=color:#66d9ef>Main</span><span style=color:#f92672>.</span>new
+<span style=color:#f92672>&gt;</span> main<span style=color:#f92672>.</span>start(<span style=color:#e6db74>&#34;little-daemon&#34;</span>)
+</code></pre></div><p><img src=http://i.imgur.com/zjbm1MX.png alt=Imgur></p>
+<p>開啟另一個 Terminal 執行</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ ps aux | grep little
+</code></pre></div><p><img src=http://i.imgur.com/MiADDw1.png alt=Imgur></p>
+<p>發現有一個名為 <code>little-daemon</code> 的行程正在執行</p>
+<p>回到第一個 Terminal，這次我們請啟動另一個名為 <code>little-daemon2</code> 的 daemon</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-ruby data-lang=ruby><span style=color:#f92672>&gt;</span> main<span style=color:#f92672>.</span>start(<span style=color:#e6db74>&#34;little-daemon2&#34;</span>)
+</code></pre></div><p><img src=http://i.imgur.com/6Lmdl7o.png alt=Imgur></p>
+<p>在第二個 Terminal 執行以下指令可以觀察到 <code>little-daemon2</code> 也在執行了</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ ps aux | grep little
+</code></pre></div><p><img src=http://i.imgur.com/xUn2Gzm.png alt=Imgur></p>
+<p>看看目錄底下有什麼：</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ ls -lh
+</code></pre></div><p><img src=http://i.imgur.com/FLyCAyh.png alt=Imgur></p>
+<p>可以發現除了預計會產生的 log 之外，還多了兩個結尾為 <code>.pid</code> 的檔案</p>
+<p>用文字編輯器可以打開，裡面是記錄 daemon 的 PID</p>
+<p>透過 PID 我們可以傳送訊號給 daemon ，像是立即停止，或是做其他運用</p>
+<p>可以參考鳥哥文章 <a href=http://linux.vbird.org/linux_basic/0440processcontrol.php#whatis>16.1 什麼是程序 (process)</a></p>
+<p>最後我們回到第一個 Terminal 停止剛剛啟動的 daemon</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-ruby data-lang=ruby><span style=color:#f92672>&gt;</span> main <span style=color:#f92672>=</span> <span style=color:#66d9ef>Main</span><span style=color:#f92672>.</span>new
+<span style=color:#f92672>&gt;</span> main<span style=color:#f92672>.</span>stop(<span style=color:#e6db74>&#34;little-daemon&#34;</span>)
+<span style=color:#f92672>&gt;</span> main<span style=color:#f92672>.</span>stop(<span style=color:#e6db74>&#34;little-daemon2&#34;</span>)
+</code></pre></div><p><img src=http://i.imgur.com/pk8hCA3.png alt=Imgur></p>
+<p>在第二個 Terminal 執行以下指令會發現 daemon 已經停止，結尾為 <code>.pid</code> 的檔案也已經被刪除了</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ ps aux | grep little
+$ ls -lh
+</code></pre></div><p><img src=http://i.imgur.com/G5IycHI.png alt=Imgur></p>
+<h2 id=尾聲>尾聲 <a href=#%e5%b0%be%e8%81%b2>¶</a></h2>
+<hr>
+<p>想要更了解 <a href=https://github.com/thuehlinger/daemons>daemons</a> 的話，推薦玩玩 GitHub 上的 <a href=https://github.com/thuehlinger/daemons/tree/master/examples>範例</a></p>
+<p>還有看看程式碼裡的<a href=https://github.com/thuehlinger/daemons/blob/master/lib/daemons.rb>註解</a></p>
+<p>了解一下傳入的 <code>options</code> 有哪些選項可以使用</p>
+<p>要注意的是程式碼一直都有在更新，記得在閱讀的時候要將 branch 調成目前所使用的版本才不會錯亂喲</p>
+<p><img src=http://i.imgur.com/gTTPWT2.png alt=Imgur></p>
+<h2 id=參考>參考 <a href=#%e5%8f%83%e8%80%83>¶</a></h2>
+<hr>
+<p><a href=https://github.com/thuehlinger/daemons>Ruby daemons gem official repository</a></p>
+<p><a href=http://linux.vbird.org/>歡迎光臨鳥哥的 Linux 私房菜</a></p>
+</div>
+<footer class=post-footer>
+<hr>
+<div style=margin-top:2.5rem>
+<div style=display:flex;justify-content:center;width:100%>
+<p style=color:gray>
+如果覺得這篇文章對您有所幫助，歡迎贊助我一杯咖啡 ☕️
+</p>
+</div>
+<div style=display:flex;justify-content:center;width:100%>
+<p style=color:gray>
+祝您有美好的一天 ❤️
+</p>
+</div>
+<div style=display:flex;justify-content:center;width:100%;margin-top:1rem>
+<script type=text/javascript src=https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js data-name=bmc-button data-slug=timfanda35 data-color=#FFDD00 data-emoji data-font=Bree data-text="Buy me a coffee" data-outline-color=#000000 data-font-color=#000000 data-coffee-color=#ffffff></script>
+</div>
+</div>
+<hr>
+<div style=margin-top:1rem>
+<script src=https://utteranc.es/client.js repo=timfanda35/timfanda35.github.io issue-term=pathname label=comment theme=github-light crossorigin=anonymous async></script>
+</div>
+<div class=share>
+</div>
+<div class=pagenation>
+<ul class=pagenation-list>
+<li class="pager previous">
+<a href=https://blog.bear-su.dev/2017/03/19/ruby-association-certified-ruby-programmer-silver-exam-preparation/ data-toggle=tooltip data-placement=top title="Ruby Association Certified Ruby Programmer Silver 考試準備">&larr; Previous Post</a>
+</li>
+<li class="pager next">
+<a href=https://blog.bear-su.dev/2017/04/19/google-cloud-onboard-20170419/ data-toggle=tooltip data-placement=top title="Google Cloud OnBoard 20170419">Next Post &rarr;</a>
+</li>
+</ul>
+</div>
+</footer>
+</article>
+<article class=related></article>
+<script type=application/ld+json>{"@context":"http://schema.org","@type":"NewsArticle","mainEntityOfPage":{"@type":"NewsArticle","@id":"https:\/\/blog.bear-su.dev\/2017\/03\/26\/ruby-gem-daemons-note\/","headline":"圖片來源 フリー写真素材ぱくたそdaemons gem 是一個能夠讓 ruby 程式以行程(process)獨立執行的 gem當你想要有一個程式能夠在背景持續執行時，就可以可慮使用 daemons gem 來協助開發什麼","author":"Bear Su","publisher":{"@type":"Organization","name":"Bear Su","logo":""},"image":"","datePublished":"2017-03-26"},"headline":"圖片來源 フリー写真素材ぱくたそdaemons gem 是一個能夠讓 ruby 程式以行程(process)獨立執行的 gem當你想要有一個程式能夠在背景持續執行時，就可以可慮使用 daemons gem 來協助開發什麼","alternativeHeadline":"Bear Su\u0027s Blog","datePublished":"2017-03-26","dateModified":"2017-03-26","url":"https:\/\/blog.bear-su.dev\/2017\/03\/26\/ruby-gem-daemons-note\/","wordCount":"274","author":{"@type":"Person","name":"Bear Su"},"publisher":{"@type":"Organization","name":"Bear Su"},"image":"","genre":"ruby","description":""}</script>
+<script type=application/ld+json>{"@context":"http://schema.org","@type":"Person","@id":"https:\/\/blog.bear-su.dev\/2017\/03\/26\/ruby-gem-daemons-note\/","name":"Bear Su"}</script>
+</div>
+</div>
+<footer class=gfooter>
+<div class=inner>
+<div class=container>
+<p class=copy>
+<small>Copyright © 2015 - 2022 Bear Su's Blog</small>
+<small> | 本部落格有使用 Google Analytic 及 Cookie</small>
+</p>
+<nav class=footer-nav>
+<div class=inner>
+</div>
+</nav>
+</div>
+</div>
+</footer>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KJXNT5CQCS"></script>
+<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-KJXNT5CQCS',{anonymize_ip:!1})}</script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin=anonymous referrerpolicy=no-referrer></script>
+<script src=https://blog.bear-su.dev/js/script.js></script>
+</body>
+</html>

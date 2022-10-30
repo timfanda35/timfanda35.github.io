@@ -1,0 +1,229 @@
+<!doctype html><html lang=en-us>
+<head>
+<link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png>
+<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
+<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png>
+<link rel=manifest href=/site.webmanifest>
+<link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5>
+<meta name=msapplication-TileColor content="#da532c">
+<meta name=theme-color content="#ffffff">
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta http-equiv=x-ua-compatible content="ie=edge,chrome=1">
+<title>Vim 指令( buffer 與 window ) &#183; Bear Su's Blog - Running Bear!!! </title>
+<meta name=generator content="Hugo 0.92.0">
+<meta name=description content="Running Bear!!!">
+<meta name=twitter:card content="summary_large_image">
+<meta name=twitter:image content="https://blog.bear-su.dev/images/bear.jpeg">
+<meta name=twitter:title content="Vim 指令( buffer 與 window )">
+<meta name=twitter:description content="最近在看 Vim Videos - Posted by Derek Wyatt on 來學 Vim 的操作，這篇是我看完 Vim Novice Video Tutorials 章節中所做的筆記
+一般游標移動的指令，我在 Vim 指令(游標移動) 這篇有紀錄過就不再贅述了
+以下主要紀錄有關在 Vim 中操作 buffer 與 window 的指令
+有任何錯誤或建議都歡迎告知:)">
+<meta property="og:title" content="Vim 指令( buffer 與 window )">
+<meta property="og:description" content="最近在看 Vim Videos - Posted by Derek Wyatt on 來學 Vim 的操作，這篇是我看完 Vim Novice Video Tutorials 章節中所做的筆記
+一般游標移動的指令，我在 Vim 指令(游標移動) 這篇有紀錄過就不再贅述了
+以下主要紀錄有關在 Vim 中操作 buffer 與 window 的指令
+有任何錯誤或建議都歡迎告知:)">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://blog.bear-su.dev/2015/10/22/vim-buffer-window/"><meta property="og:image" content="https://blog.bear-su.dev/images/bear.jpeg"><meta property="article:section" content>
+<meta property="article:published_time" content="2015-10-22T13:29:00+08:00">
+<meta property="article:modified_time" content="2015-10-22T13:29:00+08:00">
+<link href rel=alternate type=application/rss+xml title="Bear Su's Blog">
+<link href rel=feed type=application/rss+xml title="Bear Su's Blog">
+<meta itemprop=name content="Vim 指令( buffer 與 window )">
+<meta itemprop=description content="最近在看 Vim Videos - Posted by Derek Wyatt on 來學 Vim 的操作，這篇是我看完 Vim Novice Video Tutorials 章節中所做的筆記
+一般游標移動的指令，我在 Vim 指令(游標移動) 這篇有紀錄過就不再贅述了
+以下主要紀錄有關在 Vim 中操作 buffer 與 window 的指令
+有任何錯誤或建議都歡迎告知:)"><meta itemprop=datePublished content="2015-10-22T13:29:00+08:00">
+<meta itemprop=dateModified content="2015-10-22T13:29:00+08:00">
+<meta itemprop=wordCount content="281"><meta itemprop=image content="https://blog.bear-su.dev/images/bear.jpeg">
+<meta itemprop=keywords content>
+<link href="https://fonts.googleapis.com/css?family=Lato:400" rel=stylesheet>
+<link rel=stylesheet href=https://blog.bear-su.dev/css/style.css>
+<script type=application/ld+json>{"@context":"http://schema.org","@type":"WebSite","name":"Bear Su\u0027s Blog","url":"https:\/\/blog.bear-su.dev\/2015\/10\/22\/vim-buffer-window\/"}</script>
+</head>
+<body>
+<header class=gheader>
+<div class=container>
+<nav class=navbar>
+<div class=navbar-brand>
+<a class=navbar-item href=https://blog.bear-su.dev>
+<p class=brand>Bear Su's Blog</p>
+</a>
+<div class="navbar-burger burger" data-target=navMenubd-example>
+<span></span>
+<span></span>
+<span></span>
+</div>
+</div>
+<div id=navMenubd-example class=navbar-menu>
+<div class=navbar-start>
+<a class=navbar-item href=/categories/>
+Categories
+</a>
+<a class=navbar-item href=https://github.com/timfanda35>
+GitHub
+</a>
+<a class=navbar-item href=https://www.linkedin.com/in/bearsu>
+Linkedin
+</a>
+<a class=navbar-item href=https://twitter.com/Fandayo>
+Twitter
+</a>
+</div>
+</div>
+</nav>
+</div>
+</header>
+<div class=main-content>
+<div class=container>
+<article class=post>
+<header class=post-header>
+<h1 class=title>Vim 指令( buffer 與 window )</h1>
+<div class=meta>
+<time class=pub-time datetime=2015-10-22T13:29:00+08:00>
+2015.10.22
+</time>
+<div class=terms>
+<div class=categories>
+<a class=categories-item href=/categories/vim>vim</a>
+</div>
+</div>
+</div>
+</header>
+<div class=post-body>
+<div class=toc-wrap>
+<h2>Table of Contents</h2>
+<nav id=TableOfContents></nav>
+</div>
+<p>最近在看 <a href=http://derekwyatt.org/vim/tutorials/>Vim Videos - Posted by Derek Wyatt on</a> 來學 Vim 的操作，這篇是我看完 <a href=http://derekwyatt.org/vim/tutorials/novice/>Vim Novice Video Tutorials</a> 章節中所做的筆記</p>
+<p>一般游標移動的指令，我在 <a href=posts/304816-vim-command>Vim 指令(游標移動)</a> 這篇有紀錄過就不再贅述了</p>
+<p>以下主要紀錄有關在 Vim 中操作 buffer 與 window 的指令</p>
+<p>有任何錯誤或建議都歡迎告知:)</p>
+<hr>
+<h1 id=buffer>buffer <a href=#buffer>¶</a></h1>
+<p>buffer 簡單來說就是目前 Vim 所開啟的檔案的編輯區</p>
+<p>當我們在用 Vim 開啟檔案時，Vim 會將檔案內容讀入 buffer 之中，我們平常就是在編輯 buffer 中的資料</p>
+<p>最後存檔時，執行 <code>w</code> ，就是將 buffer 的內容寫回去檔案中</p>
+<p>以下指令可以透過執行 <code>:h buffer</code> 查看說明文件</p>
+<h1 id=顯示與切換-buffer>顯示與切換 buffer <a href=#%e9%a1%af%e7%a4%ba%e8%88%87%e5%88%87%e6%8f%9b-buffer>¶</a></h1>
+<p><code>:ls</code> 列出所有 buffer，<code>:ls!</code> 為連系統隱藏的 buffer 都列出來</p>
+<p><code>:b [N]</code> 切換到編號 <code>[N]</code> 的 buffer</p>
+<p><code>:bn</code> 切換到下一個 buffer，<code>:bn!</code> 為強制切換</p>
+<p><code>:bN</code> 切換到上一個 buffer，<code>:bN!</code> 為強制切換</p>
+<p><code>:bf</code> 切換到第一個 buffer，<code>:bf!</code> 為強制切換</p>
+<p><code>:bl</code> 切換到最後一個 buffer，<code>:bl!</code> 為強制切換</p>
+<h1 id=新增與刪除-buffer>新增與刪除 buffer <a href=#%e6%96%b0%e5%a2%9e%e8%88%87%e5%88%aa%e9%99%a4-buffer>¶</a></h1>
+<p><code>:badd [filename]</code> 將 <code>[filename]</code> 加入 buffer 列表中</p>
+<p><code>:bd [N]</code>、<code>:bd [filename]</code> 刪除編號為 <code>[N]</code> 或是檔名為 <code>[filename]</code> 的 buffer，<code>:bd!</code> 為強制刪除，若不帶任何參數則刪除目前正在編輯的 buffer</p>
+<h1 id=對所有-buffer-同時操作>對所有 buffer 同時操作 <a href=#%e5%b0%8d%e6%89%80%e6%9c%89-buffer-%e5%90%8c%e6%99%82%e6%93%8d%e4%bd%9c>¶</a></h1>
+<p><code>:bufdo [cmd]</code> 對所有 buffer 執行 <code>[cmd]</code> 指令，<code>:bufdo! [cmd]</code> 為強制執行</p>
+<p><code>:wall</code> 將所有 buffer 寫入變更(存檔)，<code>:wall!</code> 為強制寫入</p>
+<p><code>:qall</code> 關閉所有 buffer，<code>:qall!</code> 為強制關閉</p>
+<h1 id=切換-buffer-時可能會遇到的問題>切換 buffer 時可能會遇到的問題 <a href=#%e5%88%87%e6%8f%9b-buffer-%e6%99%82%e5%8f%af%e8%83%bd%e6%9c%83%e9%81%87%e5%88%b0%e7%9a%84%e5%95%8f%e9%a1%8c>¶</a></h1>
+<p>一般如果從未存檔的 buffer 切換到另一個 buffer 時，會出現以下訊息</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>E37: No write since last change <span style=color:#f92672>(</span>add ! to override<span style=color:#f92672>)</span>
+</code></pre></div><p>這是提醒你要儲存變更，以免遺失　buffer 中的資料，你在指令後方加上 <code>!</code> 強制切換</p>
+<p>你也可以執行 <code>:set hidden</code> 或在 <code>~/.vimrc</code> 中設置這個設定，將非顯示的 buffer 隱藏起來</p>
+<p>這樣就不會再跳出提醒，順利切換了</p>
+<hr>
+<h1 id=window>window <a href=#window>¶</a></h1>
+<p>可以在畫面中切出許多編輯視窗，用來查看、比對不同檔案，不用為開多個終端機(Terminal)排列傷腦筋</p>
+<p>以下指令可以透過執行 <code>:h window</code> 查看說明文件</p>
+<h1 id=新增分割視窗>新增分割視窗 <a href=#%e6%96%b0%e5%a2%9e%e5%88%86%e5%89%b2%e8%a6%96%e7%aa%97>¶</a></h1>
+<p><code>:sp [filename]</code> 往上新增水平分割視窗，如未輸入 <code>[filename]</code>，新視窗的內容跟原視窗相同</p>
+<p><code>Ctrl+w s</code> 往上新增水平分割視窗，新視窗的內容跟原視窗相同</p>
+<p><code>:vs [filename]</code> 往左新增垂直分割視窗，如未輸入 <code>[filename]</code>，新視窗的內容跟原視窗相同</p>
+<p><code>Ctrl+w v</code> 往左新增垂直分割視窗，新視窗的內容跟原視窗相同</p>
+<p><code>:new</code> 新增空檔案的新水平分割視窗(往上新增)</p>
+<p><code>:vnew</code> 新增空檔案的新垂直分割視窗(往左新增)</p>
+<h1 id=在視窗之間移動>在視窗之間移動 <a href=#%e5%9c%a8%e8%a6%96%e7%aa%97%e4%b9%8b%e9%96%93%e7%a7%bb%e5%8b%95>¶</a></h1>
+<p><code>Ctrl+w h</code> 游標移動到左方視窗</p>
+<p><code>Ctrl+w j</code> 游標移動到下方視窗</p>
+<p><code>Ctrl+w k</code> 游標移動到上方視窗</p>
+<p><code>Ctrl+w l</code> 游標移動到右方視窗</p>
+<p><code>Ctrl+w w</code> 游標移動到下一個視窗</p>
+<p><code>:close</code> 或 <code>Ctrl+w c</code> 關閉目前視窗</p>
+<h1 id=移動視窗位置>移動視窗位置 <a href=#%e7%a7%bb%e5%8b%95%e8%a6%96%e7%aa%97%e4%bd%8d%e7%bd%ae>¶</a></h1>
+<p><code>Ctrl+w H</code> 將目前視窗移到左方</p>
+<p><code>Ctrl+w J</code> 將目前視窗移到下方</p>
+<p><code>Ctrl+w K</code> 將目前視窗移到上方</p>
+<p><code>Ctrl+w L</code> 將目前視窗移到右方</p>
+<p><code>Ctrl+w x</code> 與下一個視窗互換位置</p>
+<p><code>Ctrl+w Ctrl+r</code> 輪轉視窗，每個視窗往下一個位置移動，最後的視窗會到第一個位置</p>
+<h1 id=其他>其他 <a href=#%e5%85%b6%e4%bb%96>¶</a></h1>
+<p><code>Ctrl+w o</code> 畫面只保留目前視窗，關閉其他視窗。如果有設定 <code>:set hidden</code>，則其他視窗會隱藏起來</p>
+<hr>
+<h1 id=window-與-buffer-的操作>window 與 buffer 的操作 <a href=#window-%e8%88%87-buffer-%e7%9a%84%e6%93%8d%e4%bd%9c>¶</a></h1>
+<p><code>:sb [N]</code> 新增視窗，新視窗的內容為 buffer 編號 <code>[N]</code></p>
+<p><code>:sbn</code> 新增視窗，新視窗的內容為下一個 buffer</p>
+<p><code>:sball</code> 將所有 buffer 的內容變為視窗顯示在畫面上</p>
+<p>以上指令的結果都是水平分割，視窗上下排列，若要垂直分割的話，可以在指令前面加上 <code>:vert</code></p>
+<p>例如 <code>:vert ball</code> 就是將所有 buffer 的內容變為垂直分割視窗，左右排列顯示在畫面上</p>
+<hr>
+<h1 id=參考>參考 <a href=#%e5%8f%83%e8%80%83>¶</a></h1>
+<p><a href=http://derekwyatt.org/vim/tutorials/>Vim Videos - Posted by Derek Wyatt on</a></p>
+<p><a href=http://www.openfoundry.org/tw/tech-column/2383-vim--buffers-and-windows>Vim - 編輯緩衝區以及編輯視窗 (Buffers and Windows)</a></p>
+<p><a href=http://usevim.com/2012/10/19/vim101-set-hidden/>Vim 101: Set Hidden</a></p>
+</div>
+<footer class=post-footer>
+<hr>
+<div style=margin-top:2.5rem>
+<div style=display:flex;justify-content:center;width:100%>
+<p style=color:gray>
+如果覺得這篇文章對您有所幫助，歡迎贊助我一杯咖啡 ☕️
+</p>
+</div>
+<div style=display:flex;justify-content:center;width:100%>
+<p style=color:gray>
+祝您有美好的一天 ❤️
+</p>
+</div>
+<div style=display:flex;justify-content:center;width:100%;margin-top:1rem>
+<script type=text/javascript src=https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js data-name=bmc-button data-slug=timfanda35 data-color=#FFDD00 data-emoji data-font=Bree data-text="Buy me a coffee" data-outline-color=#000000 data-font-color=#000000 data-coffee-color=#ffffff></script>
+</div>
+</div>
+<hr>
+<div style=margin-top:1rem>
+<script src=https://utteranc.es/client.js repo=timfanda35/timfanda35.github.io issue-term=pathname label=comment theme=github-light crossorigin=anonymous async></script>
+</div>
+<div class=share>
+</div>
+<div class=pagenation>
+<ul class=pagenation-list>
+<li class="pager previous">
+<a href=https://blog.bear-su.dev/2015/10/18/install-the-powerline/ data-toggle=tooltip data-placement=top title="安裝 Powerline">&larr; Previous Post</a>
+</li>
+<li class="pager next">
+<a href=https://blog.bear-su.dev/2016/03/04/weekly-collection/ data-toggle=tooltip data-placement=top title=週刊收集>Next Post &rarr;</a>
+</li>
+</ul>
+</div>
+</footer>
+</article>
+<article class=related></article>
+<script type=application/ld+json>{"@context":"http://schema.org","@type":"NewsArticle","mainEntityOfPage":{"@type":"NewsArticle","@id":"https:\/\/blog.bear-su.dev\/2015\/10\/22\/vim-buffer-window\/","headline":"最近在看 Vim Videos - Posted by Derek Wyatt on 來學 Vim 的操作，這篇是我看完 Vim Novice Video Tutorials 章節中所做的筆記一般游標移動的指令，我在 V","author":"Bear Su","publisher":{"@type":"Organization","name":"Bear Su","logo":""},"image":"","datePublished":"2015-10-22"},"headline":"最近在看 Vim Videos - Posted by Derek Wyatt on 來學 Vim 的操作，這篇是我看完 Vim Novice Video Tutorials 章節中所做的筆記一般游標移動的指令，我在 V","alternativeHeadline":"Bear Su\u0027s Blog","datePublished":"2015-10-22","dateModified":"2015-10-22","url":"https:\/\/blog.bear-su.dev\/2015\/10\/22\/vim-buffer-window\/","wordCount":"281","author":{"@type":"Person","name":"Bear Su"},"publisher":{"@type":"Organization","name":"Bear Su"},"image":"","genre":"vim","description":""}</script>
+<script type=application/ld+json>{"@context":"http://schema.org","@type":"Person","@id":"https:\/\/blog.bear-su.dev\/2015\/10\/22\/vim-buffer-window\/","name":"Bear Su"}</script>
+</div>
+</div>
+<footer class=gfooter>
+<div class=inner>
+<div class=container>
+<p class=copy>
+<small>Copyright © 2015 - 2022 Bear Su's Blog</small>
+<small> | 本部落格有使用 Google Analytic 及 Cookie</small>
+</p>
+<nav class=footer-nav>
+<div class=inner>
+</div>
+</nav>
+</div>
+</div>
+</footer>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KJXNT5CQCS"></script>
+<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-KJXNT5CQCS',{anonymize_ip:!1})}</script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin=anonymous referrerpolicy=no-referrer></script>
+<script src=https://blog.bear-su.dev/js/script.js></script>
+</body>
+</html>

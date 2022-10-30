@@ -1,0 +1,329 @@
+<!doctype html><html lang=en-us>
+<head>
+<link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png>
+<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
+<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png>
+<link rel=manifest href=/site.webmanifest>
+<link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5>
+<meta name=msapplication-TileColor content="#da532c">
+<meta name=theme-color content="#ffffff">
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta http-equiv=x-ua-compatible content="ie=edge,chrome=1">
+<title>透過 jwt 使用 Google Analytics API &#183; Bear Su's Blog - Running Bear!!! </title>
+<meta name=generator content="Hugo 0.92.0">
+<meta name=description content="Running Bear!!!">
+<meta name=twitter:card content="summary_large_image">
+<meta name=twitter:image content="https://blog.bear-su.dev/images/bear.jpeg">
+<meta name=twitter:title content="透過 jwt 使用 Google Analytics API">
+<meta name=twitter:description content="最近需要希望能夠不用網頁登入就能取得 Gooogle Analytics 的資料
+但因為跟 google-api-ruby-client 不熟，只會用網頁登入
+在搜尋後看到了這一篇《在伺服器上使用 Google Analytics API》
+I got it!!!">
+<meta property="og:title" content="透過 jwt 使用 Google Analytics API">
+<meta property="og:description" content="最近需要希望能夠不用網頁登入就能取得 Gooogle Analytics 的資料
+但因為跟 google-api-ruby-client 不熟，只會用網頁登入
+在搜尋後看到了這一篇《在伺服器上使用 Google Analytics API》
+I got it!!!">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://blog.bear-su.dev/2016/06/15/use-jwt-request-google-analytics-api/"><meta property="og:image" content="https://blog.bear-su.dev/images/bear.jpeg"><meta property="article:section" content>
+<meta property="article:published_time" content="2016-06-15T14:21:00+08:00">
+<meta property="article:modified_time" content="2016-06-15T14:21:00+08:00">
+<link href rel=alternate type=application/rss+xml title="Bear Su's Blog">
+<link href rel=feed type=application/rss+xml title="Bear Su's Blog">
+<meta itemprop=name content="透過 jwt 使用 Google Analytics API">
+<meta itemprop=description content="最近需要希望能夠不用網頁登入就能取得 Gooogle Analytics 的資料
+但因為跟 google-api-ruby-client 不熟，只會用網頁登入
+在搜尋後看到了這一篇《在伺服器上使用 Google Analytics API》
+I got it!!!"><meta itemprop=datePublished content="2016-06-15T14:21:00+08:00">
+<meta itemprop=dateModified content="2016-06-15T14:21:00+08:00">
+<meta itemprop=wordCount content="471"><meta itemprop=image content="https://blog.bear-su.dev/images/bear.jpeg">
+<meta itemprop=keywords content>
+<link href="https://fonts.googleapis.com/css?family=Lato:400" rel=stylesheet>
+<link rel=stylesheet href=https://blog.bear-su.dev/css/style.css>
+<script type=application/ld+json>{"@context":"http://schema.org","@type":"WebSite","name":"Bear Su\u0027s Blog","url":"https:\/\/blog.bear-su.dev\/2016\/06\/15\/use-jwt-request-google-analytics-api\/"}</script>
+</head>
+<body>
+<header class=gheader>
+<div class=container>
+<nav class=navbar>
+<div class=navbar-brand>
+<a class=navbar-item href=https://blog.bear-su.dev>
+<p class=brand>Bear Su's Blog</p>
+</a>
+<div class="navbar-burger burger" data-target=navMenubd-example>
+<span></span>
+<span></span>
+<span></span>
+</div>
+</div>
+<div id=navMenubd-example class=navbar-menu>
+<div class=navbar-start>
+<a class=navbar-item href=/categories/>
+Categories
+</a>
+<a class=navbar-item href=https://github.com/timfanda35>
+GitHub
+</a>
+<a class=navbar-item href=https://www.linkedin.com/in/bearsu>
+Linkedin
+</a>
+<a class=navbar-item href=https://twitter.com/Fandayo>
+Twitter
+</a>
+</div>
+</div>
+</nav>
+</div>
+</header>
+<div class=main-content>
+<div class=container>
+<article class=post>
+<header class=post-header>
+<h1 class=title>透過 jwt 使用 Google Analytics API</h1>
+<div class=meta>
+<time class=pub-time datetime=2016-06-15T14:21:00+08:00>
+2016.06.15
+</time>
+<div class=terms>
+<div class=categories>
+<a class=categories-item href=/categories/ruby>ruby</a>
+<a class=categories-item href=/categories/jwt>jwt</a>
+</div>
+</div>
+</div>
+</header>
+<div class=post-body>
+<div class=toc-wrap>
+<h2>Table of Contents</h2>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#設定>設定</a></li>
+<li><a href=#coding>Coding</a></li>
+<li><a href=#參考>參考</a></li>
+</ul>
+</nav>
+</div>
+<p>最近需要希望能夠不用網頁登入就能取得 Gooogle Analytics 的資料</p>
+<p>但因為跟 <a href=ref1>google-api-ruby-client</a> 不熟，只會用網頁登入</p>
+<p>在搜尋後看到了這一篇<a href=https://zespia.tw/blog/2014/07/28/use-google-analytics-api-on-server/>《在伺服器上使用 Google Analytics API》</a></p>
+<p>I got it!!!</p>
+<h2 id=設定>設定 <a href=#%e8%a8%ad%e5%ae%9a>¶</a></h2>
+<hr>
+<p>設定就照著 <a href=https://developers.google.com/analytics/devguides/reporting/core/v4/authorization>Analytics Reporting API - Authorization</a> 做</p>
+<p>在 <a href=https://console.developers.google.com/>Google Developers Console</a> 建立一個新專案，並啟用 <strong>Analytics API</strong></p>
+<p>然後在憑證頁面建立 <strong>服務帳戶金鑰</strong>，並將下載的 <code>JSON</code> 檔案改名成 <code>client-secret.json</code> 稍後使用</p>
+<p><img src=http://user-image.logdown.io/user/6114/blog/6123/post/737458/a7I54QGYStublsdKRH0m_1.png alt=1.png></p>
+<p>建立好服務帳戶後，點擊管理服務帳戶，</p>
+<p><img src=http://user-image.logdown.io/user/6114/blog/6123/post/737458/ACst1ndT0GLmbn3AIxEA_2.png alt=2.png></p>
+<p>複製剛剛新增的服務帳戶的<strong>服務帳戶 ID</strong></p>
+<p><img src=http://user-image.logdown.io/user/6114/blog/6123/post/737458/pC6xYwZQTIKckGKNmUtv_3.png alt=3.png></p>
+<p>到 <a href=https://analytics.google.com>Google Analytics</a> 的管理頁面，點擊<strong>資源</strong>下的<strong>使用者管理</strong></p>
+<p><img src=http://user-image.logdown.io/user/6114/blog/6123/post/737458/4VRh5c2pQVOAp2fdPTla_4.png alt=4.png></p>
+<p>加入剛剛複製的<strong>服務帳戶 ID</strong></p>
+<p><img src=http://user-image.logdown.io/user/6114/blog/6123/post/737458/zerjIhaQaCk5872MgOow_5.png alt=5.png></p>
+<p>再到 <a href=https://analytics.google.com>Google Analytics</a> 的管理頁面，點擊<strong>資料檢視</strong>下的<strong>檢視設定</strong></p>
+<p>複製 <strong>資料檢視編號</strong> 稍後使用</p>
+<p><img src=http://user-image.logdown.io/user/6114/blog/6123/post/737458/VPzNGyZ5T76E4LjPmJ8v_6.png alt=6.png></p>
+<h2 id=coding>Coding <a href=#coding>¶</a></h2>
+<hr>
+<p>立即來段程式碼 <code>main.rb</code>，記得修改 <code>ga_id</code> 的值</p>
+<p>在同一目錄下放置設定步驟所下載的 <code>client-secret.json</code></p>
+<p>執行指令為： <code>ruby main.rb</code></p>
+<p>在這之前，你可能會需要執行 <code>gem install oj jwt faraday awesome_print</code> 安裝依賴的 gem</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-ruby data-lang=ruby><span style=color:#75715e># main.rb</span>
+
+require <span style=color:#e6db74>&#39;oj&#39;</span>
+require <span style=color:#e6db74>&#39;jwt&#39;</span>
+require <span style=color:#e6db74>&#39;faraday&#39;</span>
+require <span style=color:#e6db74>&#39;awesome_print&#39;</span>
+
+<span style=color:#75715e># 將設定步驟所下載的 JSON 改名成 client-secret.json</span>
+<span style=color:#75715e># 並放置在此 .rb 檔在相同的目錄下</span>
+<span style=color:#75715e># 以下將 client-secret.json 的內容讀取至 config hash 中</span>
+secert_json_path <span style=color:#f92672>=</span> <span style=color:#66d9ef>File</span><span style=color:#f92672>.</span>expand_path(<span style=color:#e6db74>&#39;../client-secret.json&#39;</span>, __FILE__)
+
+<span style=color:#66d9ef>unless</span> <span style=color:#66d9ef>File</span><span style=color:#f92672>.</span>exist?(secert_json_path)
+  puts <span style=color:#e6db74>&#34;client-secret.json not found!!!&#34;</span>
+  exit
+<span style=color:#66d9ef>end</span>
+
+secert_json <span style=color:#f92672>=</span> <span style=color:#66d9ef>File</span><span style=color:#f92672>.</span>read(secert_json_path)
+config <span style=color:#f92672>=</span> <span style=color:#66d9ef>Oj</span><span style=color:#f92672>.</span>load(secert_json)
+
+<span style=color:#75715e># 產生 jwt sign ，這裡使用 jwt gem</span>
+<span style=color:#75715e># 依照 Google 說明文件建立 body 的部分</span>
+<span style=color:#75715e># 再透過 jwt gem 用 private key 對 jwt_body 簽名產生所需要的字串</span>
+jwt_body <span style=color:#f92672>=</span> {
+  <span style=color:#e6db74>&#34;iss&#34;</span>: config<span style=color:#f92672>[</span><span style=color:#e6db74>&#39;client_email&#39;</span><span style=color:#f92672>]</span>,
+  <span style=color:#e6db74>&#34;scope&#34;</span>: <span style=color:#e6db74>&#34;https://www.googleapis.com/auth/analytics.readonly&#34;</span>,
+  <span style=color:#e6db74>&#34;aud&#34;</span>: <span style=color:#e6db74>&#34;https://www.googleapis.com/oauth2/v4/token&#34;</span>,
+  <span style=color:#e6db74>&#34;iat&#34;</span>: <span style=color:#66d9ef>Time</span><span style=color:#f92672>.</span>now<span style=color:#f92672>.</span>to_i,
+  <span style=color:#e6db74>&#34;exp&#34;</span>: <span style=color:#66d9ef>Time</span><span style=color:#f92672>.</span>now<span style=color:#f92672>.</span>to_i <span style=color:#f92672>+</span> <span style=color:#ae81ff>3600</span>
+}
+
+rsa_private <span style=color:#f92672>=</span> <span style=color:#66d9ef>OpenSSL</span><span style=color:#f92672>::</span><span style=color:#66d9ef>PKey</span><span style=color:#f92672>::</span><span style=color:#66d9ef>RSA</span><span style=color:#f92672>.</span>new(config<span style=color:#f92672>[</span><span style=color:#e6db74>&#39;private_key&#39;</span><span style=color:#f92672>]</span>)
+jwt_sign <span style=color:#f92672>=</span> <span style=color:#66d9ef>JWT</span><span style=color:#f92672>.</span>encode jwt_body, rsa_private, <span style=color:#e6db74>&#39;RS256&#39;</span>
+
+<span style=color:#75715e># 這裡利用 faraday gem 送出 post 請求</span>
+<span style=color:#75715e># 參數依照 Google 說明文件設定</span>
+conn <span style=color:#f92672>=</span> <span style=color:#66d9ef>Faraday</span><span style=color:#f92672>.</span>new(<span style=color:#e6db74>:url</span> <span style=color:#f92672>=&gt;</span> <span style=color:#e6db74>&#39;https://www.googleapis.com&#39;</span>) <span style=color:#66d9ef>do</span> <span style=color:#f92672>|</span>faraday<span style=color:#f92672>|</span>
+  faraday<span style=color:#f92672>.</span>request  <span style=color:#e6db74>:url_encoded</span>
+  faraday<span style=color:#f92672>.</span>adapter  <span style=color:#66d9ef>Faraday</span><span style=color:#f92672>.</span>default_adapter
+<span style=color:#66d9ef>end</span>
+
+resp <span style=color:#f92672>=</span> conn<span style=color:#f92672>.</span>post <span style=color:#66d9ef>do</span> <span style=color:#f92672>|</span>req<span style=color:#f92672>|</span>
+  req<span style=color:#f92672>.</span>url <span style=color:#e6db74>&#39;/oauth2/v4/token&#39;</span>
+  req<span style=color:#f92672>.</span>body <span style=color:#f92672>=</span> {
+    <span style=color:#e6db74>grant_type</span>: <span style=color:#e6db74>&#34;urn:ietf:params:oauth:grant-type:jwt-bearer&#34;</span>,
+    <span style=color:#e6db74>assertion</span>: jwt_sign
+  }
+<span style=color:#66d9ef>end</span>
+
+jwt_token <span style=color:#f92672>=</span>  <span style=color:#66d9ef>Oj</span><span style=color:#f92672>.</span>load(resp<span style=color:#f92672>.</span>body)
+puts <span style=color:#e6db74>&#34;jwt_token&#34;</span>
+ap jwt_token
+
+<span style=color:#75715e>#回傳成功，取得時效為 3,600 秒的 jwt token</span>
+<span style=color:#75715e>#{</span>
+<span style=color:#75715e>#    &#34;access_token&#34; =&gt; &#34;bla bla token&#34;,</span>
+<span style=color:#75715e>#      &#34;token_type&#34; =&gt; &#34;Bearer&#34;,</span>
+<span style=color:#75715e>#      &#34;expires_in&#34; =&gt; 3600</span>
+<span style=color:#75715e>#}</span>
+
+<span style=color:#75715e># 這裡使用 V3 API 做示範</span>
+<span style=color:#75715e># ga_id 填入設定步驟取得的&#34;資料檢視編號&#34;</span>
+ga_id <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;replace to your info&#34;</span>
+ga_resp <span style=color:#f92672>=</span> conn<span style=color:#f92672>.</span>get <span style=color:#66d9ef>do</span> <span style=color:#f92672>|</span>req<span style=color:#f92672>|</span>
+  req<span style=color:#f92672>.</span>url <span style=color:#e6db74>&#39;/analytics/v3/data/ga&#39;</span>
+  req<span style=color:#f92672>.</span>headers<span style=color:#f92672>[</span><span style=color:#e6db74>&#39;Authorization&#39;</span><span style=color:#f92672>]</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;Bearer </span><span style=color:#e6db74>#{</span>jwt_token<span style=color:#f92672>[</span><span style=color:#e6db74>&#39;access_token&#39;</span><span style=color:#f92672>]</span><span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span>
+  req<span style=color:#f92672>.</span>params <span style=color:#f92672>=</span> {
+    <span style=color:#e6db74>&#34;ids&#34;</span>: <span style=color:#e6db74>&#34;ga:</span><span style=color:#e6db74>#{</span>ga_id<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span>,
+    <span style=color:#e6db74>&#34;start-date&#34;</span>: <span style=color:#66d9ef>Time</span><span style=color:#f92672>.</span>now<span style=color:#f92672>.</span>strftime(<span style=color:#e6db74>&#34;%Y-%m-01&#34;</span>),
+    <span style=color:#e6db74>&#34;end-date&#34;</span>: <span style=color:#66d9ef>Time</span><span style=color:#f92672>.</span>now<span style=color:#f92672>.</span>strftime(<span style=color:#e6db74>&#34;%Y-%m-%d&#34;</span>),
+    <span style=color:#e6db74>&#34;metrics&#34;</span>: <span style=color:#e6db74>&#34;ga:sessions,ga:bounces&#34;</span>
+  }
+<span style=color:#66d9ef>end</span>
+
+puts <span style=color:#e6db74>&#34;ga response&#34;</span>
+ap <span style=color:#66d9ef>Oj</span><span style=color:#f92672>.</span>load(ga_resp<span style=color:#f92672>.</span>body)
+
+<span style=color:#75715e># 請求成功就可以取得 JSON 資料了</span>
+<span style=color:#75715e># {</span>
+<span style=color:#75715e>#                    &#34;kind&#34; =&gt; &#34;analytics#gaData&#34;,</span>
+<span style=color:#75715e>#                      &#34;id&#34; =&gt; &#34;https://www.googleapis.com/analytics/v3/data/ga?ids=ga:---------&amp;metrics=ga:sessions,ga:bounces&amp;start-date=2016-06-01&amp;end-date=2016-06-15&#34;,</span>
+<span style=color:#75715e>#                   &#34;query&#34; =&gt; {</span>
+<span style=color:#75715e>#          &#34;start-date&#34; =&gt; &#34;2016-06-01&#34;,</span>
+<span style=color:#75715e>#            &#34;end-date&#34; =&gt; &#34;2016-06-15&#34;,</span>
+<span style=color:#75715e>#                 &#34;ids&#34; =&gt; &#34;ga:---------&#34;,</span>
+<span style=color:#75715e>#             &#34;metrics&#34; =&gt; [</span>
+<span style=color:#75715e>#             [0] &#34;ga:sessions&#34;,</span>
+<span style=color:#75715e>#             [1] &#34;ga:bounces&#34;</span>
+<span style=color:#75715e>#         ],</span>
+<span style=color:#75715e>#         &#34;start-index&#34; =&gt; 1,</span>
+<span style=color:#75715e>#         &#34;max-results&#34; =&gt; 1000</span>
+<span style=color:#75715e>#     },</span>
+<span style=color:#75715e>#            &#34;itemsPerPage&#34; =&gt; 1000,</span>
+<span style=color:#75715e>#            &#34;totalResults&#34; =&gt; 1,</span>
+<span style=color:#75715e>#                &#34;selfLink&#34; =&gt; &#34;https://www.googleapis.com/analytics/v3/data/ga?ids=ga:---------&amp;metrics=ga:sessions,ga:bounces&amp;start-date=2016-06-01&amp;end-date=2016-06-15&#34;,</span>
+<span style=color:#75715e>#             &#34;profileInfo&#34; =&gt; {</span>
+<span style=color:#75715e>#                     &#34;profileId&#34; =&gt; &#34;---------&#34;,</span>
+<span style=color:#75715e>#                     &#34;accountId&#34; =&gt; &#34;---------&#34;,</span>
+<span style=color:#75715e>#                 &#34;webPropertyId&#34; =&gt; &#34;UA-----------&#34;,</span>
+<span style=color:#75715e>#         &#34;internalWebPropertyId&#34; =&gt; &#34;---------&#34;,</span>
+<span style=color:#75715e>#                   &#34;profileName&#34; =&gt; &#34;所有網站資料&#34;,</span>
+<span style=color:#75715e>#                       &#34;tableId&#34; =&gt; &#34;ga:---------&#34;</span>
+<span style=color:#75715e>#     },</span>
+<span style=color:#75715e>#     &#34;containsSampledData&#34; =&gt; false,</span>
+<span style=color:#75715e>#           &#34;columnHeaders&#34; =&gt; [</span>
+<span style=color:#75715e>#         [0] {</span>
+<span style=color:#75715e>#                   &#34;name&#34; =&gt; &#34;ga:sessions&#34;,</span>
+<span style=color:#75715e>#             &#34;columnType&#34; =&gt; &#34;METRIC&#34;,</span>
+<span style=color:#75715e>#               &#34;dataType&#34; =&gt; &#34;INTEGER&#34;</span>
+<span style=color:#75715e>#         },</span>
+<span style=color:#75715e>#         [1] {</span>
+<span style=color:#75715e>#                   &#34;name&#34; =&gt; &#34;ga:bounces&#34;,</span>
+<span style=color:#75715e>#             &#34;columnType&#34; =&gt; &#34;METRIC&#34;,</span>
+<span style=color:#75715e>#               &#34;dataType&#34; =&gt; &#34;INTEGER&#34;</span>
+<span style=color:#75715e>#         }</span>
+<span style=color:#75715e>#     ],</span>
+<span style=color:#75715e>#     &#34;totalsForAllResults&#34; =&gt; {</span>
+<span style=color:#75715e>#         &#34;ga:sessions&#34; =&gt; &#34;106&#34;,</span>
+<span style=color:#75715e>#          &#34;ga:bounces&#34; =&gt; &#34;89&#34;</span>
+<span style=color:#75715e>#     },</span>
+<span style=color:#75715e>#                    &#34;rows&#34; =&gt; [</span>
+<span style=color:#75715e>#         [0] [</span>
+<span style=color:#75715e>#             [0] &#34;106&#34;,</span>
+<span style=color:#75715e>#             [1] &#34;89&#34;</span>
+<span style=color:#75715e>#         ]</span>
+<span style=color:#75715e>#     ]</span>
+<span style=color:#75715e># }</span>
+</code></pre></div><p>接下來就是嗑文件開發符合需求的功能了！</p>
+<h2 id=參考>參考 <a href=#%e5%8f%83%e8%80%83>¶</a></h2>
+<hr>
+<p><a href=https://zespia.tw/blog/2014/07/28/use-google-analytics-api-on-server/>《在伺服器上使用 Google Analytics API》</a></p>
+<p><a href=https://developers.google.com/analytics/devguides/reporting/core/v4/authorization>Analytics Reporting API - Authorization</a></p>
+<p><a href=https://developers.google.com/analytics/devguides/reporting/core/v4/migration>Migrate Analytics API V3 to V4</a></p>
+<p><a href=https://developers.google.com/analytics/devguides/reporting/core/dimsmets>Dimensions & Metrics Explorer</a></p>
+<p><a href=https://developers.google.com/analytics/devguides/reporting/core/v3/reference>API - Reference Guide</a></p>
+</div>
+<footer class=post-footer>
+<hr>
+<div style=margin-top:2.5rem>
+<div style=display:flex;justify-content:center;width:100%>
+<p style=color:gray>
+如果覺得這篇文章對您有所幫助，歡迎贊助我一杯咖啡 ☕️
+</p>
+</div>
+<div style=display:flex;justify-content:center;width:100%>
+<p style=color:gray>
+祝您有美好的一天 ❤️
+</p>
+</div>
+<div style=display:flex;justify-content:center;width:100%;margin-top:1rem>
+<script type=text/javascript src=https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js data-name=bmc-button data-slug=timfanda35 data-color=#FFDD00 data-emoji data-font=Bree data-text="Buy me a coffee" data-outline-color=#000000 data-font-color=#000000 data-coffee-color=#ffffff></script>
+</div>
+</div>
+<hr>
+<div style=margin-top:1rem>
+<script src=https://utteranc.es/client.js repo=timfanda35/timfanda35.github.io issue-term=pathname label=comment theme=github-light crossorigin=anonymous async></script>
+</div>
+<div class=share>
+</div>
+<div class=pagenation>
+<ul class=pagenation-list>
+<li class="pager previous">
+<a href=https://blog.bear-su.dev/2016/06/13/rails-hosting-survey-2016/ data-toggle=tooltip data-placement=top title="Rails Hosting Survey 2016">&larr; Previous Post</a>
+</li>
+<li class="pager next">
+<a href=https://blog.bear-su.dev/2016/07/27/elixir-char-list/ data-toggle=tooltip data-placement=top title="Elixir Char List">Next Post &rarr;</a>
+</li>
+</ul>
+</div>
+</footer>
+</article>
+<article class=related></article>
+<script type=application/ld+json>{"@context":"http://schema.org","@type":"NewsArticle","mainEntityOfPage":{"@type":"NewsArticle","@id":"https:\/\/blog.bear-su.dev\/2016\/06\/15\/use-jwt-request-google-analytics-api\/","headline":"最近需要希望能夠不用網頁登入就能取得 Gooogle Analytics 的資料但因為跟 google-api-ruby-client 不熟，只會用網頁登入在搜尋後看到了這一篇《在伺服器上使用 Google Analyt","author":"Bear Su","publisher":{"@type":"Organization","name":"Bear Su","logo":""},"image":"","datePublished":"2016-06-15"},"headline":"最近需要希望能夠不用網頁登入就能取得 Gooogle Analytics 的資料但因為跟 google-api-ruby-client 不熟，只會用網頁登入在搜尋後看到了這一篇《在伺服器上使用 Google Analyt","alternativeHeadline":"Bear Su\u0027s Blog","datePublished":"2016-06-15","dateModified":"2016-06-15","url":"https:\/\/blog.bear-su.dev\/2016\/06\/15\/use-jwt-request-google-analytics-api\/","wordCount":"471","author":{"@type":"Person","name":"Bear Su"},"publisher":{"@type":"Organization","name":"Bear Su"},"image":"","genre":"rubyjwt","description":""}</script>
+<script type=application/ld+json>{"@context":"http://schema.org","@type":"Person","@id":"https:\/\/blog.bear-su.dev\/2016\/06\/15\/use-jwt-request-google-analytics-api\/","name":"Bear Su"}</script>
+</div>
+</div>
+<footer class=gfooter>
+<div class=inner>
+<div class=container>
+<p class=copy>
+<small>Copyright © 2015 - 2022 Bear Su's Blog</small>
+<small> | 本部落格有使用 Google Analytic 及 Cookie</small>
+</p>
+<nav class=footer-nav>
+<div class=inner>
+</div>
+</nav>
+</div>
+</div>
+</footer>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KJXNT5CQCS"></script>
+<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-KJXNT5CQCS',{anonymize_ip:!1})}</script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin=anonymous referrerpolicy=no-referrer></script>
+<script src=https://blog.bear-su.dev/js/script.js></script>
+</body>
+</html>

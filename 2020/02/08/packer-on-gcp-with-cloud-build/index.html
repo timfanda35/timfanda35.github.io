@@ -1,0 +1,242 @@
+<!doctype html><html lang=en-us>
+<head>
+<link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png>
+<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
+<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png>
+<link rel=manifest href=/site.webmanifest>
+<link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5>
+<meta name=msapplication-TileColor content="#da532c">
+<meta name=theme-color content="#ffffff">
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta http-equiv=x-ua-compatible content="ie=edge,chrome=1">
+<title>Packer on GCP with Cloud Build &#183; Bear Su's Blog - Running Bear!!! </title>
+<meta name=generator content="Hugo 0.92.0">
+<meta name=description content="Running Bear!!!">
+<meta name=twitter:card content="summary_large_image">
+<meta name=twitter:image content="https://blog.bear-su.dev/images/bear.jpeg">
+<meta name=twitter:title content="Packer on GCP with Cloud Build">
+<meta name=twitter:description content="
+unsplash-logoAntony Xia
+上一篇使用 Packet 將建置 VM Image 的步驟自動化。本文將會使用 GCP 上的 Cloud Build 來與 Source Control 做結合，達成只要上 code 就會建置新版本的 VM Image。">
+<meta property="og:title" content="Packer on GCP with Cloud Build">
+<meta property="og:description" content="
+unsplash-logoAntony Xia
+上一篇使用 Packet 將建置 VM Image 的步驟自動化。本文將會使用 GCP 上的 Cloud Build 來與 Source Control 做結合，達成只要上 code 就會建置新版本的 VM Image。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://blog.bear-su.dev/2020/02/08/packer-on-gcp-with-cloud-build/"><meta property="og:image" content="https://blog.bear-su.dev/images/bear.jpeg"><meta property="article:section" content>
+<meta property="article:published_time" content="2020-02-08T12:00:00+08:00">
+<meta property="article:modified_time" content="2020-02-08T12:00:00+08:00">
+<link href rel=alternate type=application/rss+xml title="Bear Su's Blog">
+<link href rel=feed type=application/rss+xml title="Bear Su's Blog">
+<meta itemprop=name content="Packer on GCP with Cloud Build">
+<meta itemprop=description content="
+unsplash-logoAntony Xia
+上一篇使用 Packet 將建置 VM Image 的步驟自動化。本文將會使用 GCP 上的 Cloud Build 來與 Source Control 做結合，達成只要上 code 就會建置新版本的 VM Image。"><meta itemprop=datePublished content="2020-02-08T12:00:00+08:00">
+<meta itemprop=dateModified content="2020-02-08T12:00:00+08:00">
+<meta itemprop=wordCount content="198"><meta itemprop=image content="https://blog.bear-su.dev/images/bear.jpeg">
+<meta itemprop=keywords content>
+<link href="https://fonts.googleapis.com/css?family=Lato:400" rel=stylesheet>
+<link rel=stylesheet href=https://blog.bear-su.dev/css/style.css>
+<script type=application/ld+json>{"@context":"http://schema.org","@type":"WebSite","name":"Bear Su\u0027s Blog","url":"https:\/\/blog.bear-su.dev\/2020\/02\/08\/packer-on-gcp-with-cloud-build\/"}</script>
+</head>
+<body>
+<header class=gheader>
+<div class=container>
+<nav class=navbar>
+<div class=navbar-brand>
+<a class=navbar-item href=https://blog.bear-su.dev>
+<p class=brand>Bear Su's Blog</p>
+</a>
+<div class="navbar-burger burger" data-target=navMenubd-example>
+<span></span>
+<span></span>
+<span></span>
+</div>
+</div>
+<div id=navMenubd-example class=navbar-menu>
+<div class=navbar-start>
+<a class=navbar-item href=/categories/>
+Categories
+</a>
+<a class=navbar-item href=https://github.com/timfanda35>
+GitHub
+</a>
+<a class=navbar-item href=https://www.linkedin.com/in/bearsu>
+Linkedin
+</a>
+<a class=navbar-item href=https://twitter.com/Fandayo>
+Twitter
+</a>
+</div>
+</div>
+</nav>
+</div>
+</header>
+<div class=main-content>
+<div class=container>
+<article class=post>
+<header class=post-header>
+<h1 class=title>Packer on GCP with Cloud Build</h1>
+<div class=meta>
+<time class=pub-time datetime=2020-02-08T12:00:00+08:00>
+2020.02.08
+</time>
+<div class=terms>
+<div class=categories>
+<a class=categories-item href=/categories/gcp>gcp</a>
+<a class=categories-item href=/categories/gce>gce</a>
+<a class=categories-item href=/categories/hashicorp>hashicorp</a>
+<a class=categories-item href=/categories/packer>packer</a>
+<a class=categories-item href=/categories/cloudbuild>cloudbuild</a>
+</div>
+</div>
+</div>
+</header>
+<div class=post-body>
+<div class=toc-wrap>
+<h2>Table of Contents</h2>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#與-github-連結>與 GitHub 連結</a></li>
+<li><a href=#觸發-cloud-build-建置>觸發 Cloud Build 建置</a></li>
+</ul>
+</nav>
+</div>
+<p><img src=/images/2020-02-08/packer-on-gcp-with-cloud-build/cover.jpg alt></p>
+<p><a style="background-color:#000;color:#fff;text-decoration:none;padding:4px 6px;font-family:-apple-system,BlinkMacSystemFont,san francisco,helvetica neue,Helvetica,Ubuntu,Roboto,Noto,segoe ui,Arial,sans-serif;font-size:12px;font-weight:700;line-height:1.2;display:inline-block;border-radius:3px" href="https://unsplash.com/@shadejay?utm_medium=referral&utm_campaign=photographer-credit&utm_content=creditBadge" target=_blank rel="noopener noreferrer" title="Download free do whatever you want high-resolution photos from Antony Xia"><span style="display:inline-block;padding:2px 3px"><svg xmlns="http://www.w3.org/2000/svg" style="height:12px;width:auto;position:relative;vertical-align:middle;top:-2px;fill:#fff" viewBox="0 0 32 32"><title>unsplash-logo</title><path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"/></svg></span><span style="display:inline-block;padding:2px 3px">Antony Xia</span></a></p>
+<p><a href=/2020/02/01/packer-on-gcp/>上一篇</a>使用 Packet 將建置 VM Image 的步驟自動化。本文將會使用 GCP 上的 Cloud Build 來與 Source Control 做結合，達成只要上 code 就會建置新版本的 VM Image。</p>
+<p><em><strong>本文假設使用者已安裝並熟悉 Google Cloud SDK(gcloud)</strong></em></p>
+<p>為 gcloud 指令指定目前的專案</p>
+<pre><code>gcloud config set project YOUR_PROJECT_ID
+</code></pre>
+<p>啟用 Cloud Build API 與 Storage API</p>
+<pre><code>gcloud services enable cloudbuild.googleapis.com
+gcloud services enable compute.googleapis.com
+gcloud services enable storage-api.googleapis.com
+</code></pre>
+<p>給予 Cloud Build Service Account 專案編輯者的權限，使其可以操作專案中的 GCP 服務。</p>
+<p>例如建立 VM，建立 VM Image 等。</p>
+<pre><code>PROJECT=$(gcloud config get-value core/project)
+CLOUD_BUILD_ACCOUNT=$(gcloud projects get-iam-policy $PROJECT --filter=&quot;(bindings.role:roles/cloudbuild.builds.builder)&quot;  --flatten=&quot;bindings[].members&quot; --format=&quot;value(bindings.members[])&quot;)
+gcloud projects add-iam-policy-binding $PROJECT \
+  --member $CLOUD_BUILD_ACCOUNT \
+  --role roles/editor
+</code></pre>
+<p>於上一篇的專案目錄中新增 <code>cloudbuild.yaml</code></p>
+<pre><code>steps:
+- name: 'hashicorp/packer'
+  env:
+  - 'GCP_PROJECT_ID=$PROJECT_ID'
+  args:
+  - build
+  - template.json
+</code></pre>
+<p>專案目錄如下：</p>
+<pre><code>cloudbuild.yml
+index.html
+template.json
+</code></pre>
+<p>於專案目錄下手動觸發 Cloud Build 建置</p>
+<pre><code>gcloud builds submit
+</code></pre>
+<p>看到以下訊息即是建置成功！可以到 Image 頁面確認。</p>
+<pre><code>Build 'googlecompute' finished.
+</code></pre>
+<h2 id=與-github-連結>與 GitHub 連結 <a href=#%e8%88%87-github-%e9%80%a3%e7%b5%90>¶</a></h2>
+<hr>
+<p>先在 GitHub 建立一個 Repo，並將專案目錄上傳上去。</p>
+<p>訪問頁面 <a href=https://console.cloud.google.com/cloud-build/triggers>https://console.cloud.google.com/cloud-build/triggers</a></p>
+<p>點擊「Connect repository」。</p>
+<p><img src=/images/2020-02-08/packer-on-gcp-with-cloud-build/001.png alt></p>
+<p>勾選「GitHub (Cloud Build GitHub App)」，點擊「Continue」。</p>
+<p><img src=/images/2020-02-08/packer-on-gcp-with-cloud-build/002.png alt></p>
+<p>點擊「Authorize Google Cloud Build by Google Cloud Build」。</p>
+<p><img src=/images/2020-02-08/packer-on-gcp-with-cloud-build/003.png alt></p>
+<p>點擊「Install Google Cloud Build」安裝 GitHub APP。 這會彈出授權視窗。</p>
+<p><img src=/images/2020-02-08/packer-on-gcp-with-cloud-build/004.png alt></p>
+<p>點擊個人帳號。</p>
+<p><img src=/images/2020-02-08/packer-on-gcp-with-cloud-build/005.png alt></p>
+<p>點擊「Install」。(可以只選擇測試的 repo，你可以隨時在 GitHub Setting 中的 Applications 頁面中設定)</p>
+<p><img src=/images/2020-02-08/packer-on-gcp-with-cloud-build/006.png alt></p>
+<p>勾選想要連結的 Repo，勾選同意事項。點擊「Connect repository」。</p>
+<p><img src=/images/2020-02-08/packer-on-gcp-with-cloud-build/007.png alt></p>
+<p>點擊「Create push trigger」。</p>
+<p>這邊以最簡單的方式建立，任一 Branch 有更新就會觸發建置。</p>
+<p><img src=/images/2020-02-08/packer-on-gcp-with-cloud-build/008.png alt></p>
+<h2 id=觸發-cloud-build-建置>觸發 Cloud Build 建置 <a href=#%e8%a7%b8%e7%99%bc-cloud-build-%e5%bb%ba%e7%bd%ae>¶</a></h2>
+<hr>
+<p>編輯專案目錄下 <code>index.html</code></p>
+<pre><code>&lt;h1&gt;Hello, Packer on Cloud Build!&lt;/h1&gt;
+</code></pre>
+<p>推上 GitHub Repo。</p>
+<p>就可以在頁面 <a href=https://console.cloud.google.com/cloud-build/builds>https://console.cloud.google.com/cloud-build/builds</a> 看到有新的建置正在進行了。</p>
+<p><img src=/images/2020-02-08/packer-on-gcp-with-cloud-build/009.png alt></p>
+<p>參考連結：</p>
+<ul>
+<li><a href=https://github.com/timfanda35/packer-on-gcp-cloubuild-demo>參考 Repo</a></li>
+<li><a href=https://cloud.google.com/cloud-build/docs/building/build-vm-images-with-packer>Building VM images using Packer</a></li>
+<li><a href=https://cloud.google.com/cloud-build/docs/configuring-builds/substitute-variable-values>Substituting variable values</a></li>
+<li><a href=https://cloud.google.com/cloud-build/docs/run-builds-on-github>Running builds on GitHub</a></li>
+</ul>
+</div>
+<footer class=post-footer>
+<hr>
+<div style=margin-top:2.5rem>
+<div style=display:flex;justify-content:center;width:100%>
+<p style=color:gray>
+如果覺得這篇文章對您有所幫助，歡迎贊助我一杯咖啡 ☕️
+</p>
+</div>
+<div style=display:flex;justify-content:center;width:100%>
+<p style=color:gray>
+祝您有美好的一天 ❤️
+</p>
+</div>
+<div style=display:flex;justify-content:center;width:100%;margin-top:1rem>
+<script type=text/javascript src=https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js data-name=bmc-button data-slug=timfanda35 data-color=#FFDD00 data-emoji data-font=Bree data-text="Buy me a coffee" data-outline-color=#000000 data-font-color=#000000 data-coffee-color=#ffffff></script>
+</div>
+</div>
+<hr>
+<div style=margin-top:1rem>
+<script src=https://utteranc.es/client.js repo=timfanda35/timfanda35.github.io issue-term=pathname label=comment theme=github-light crossorigin=anonymous async></script>
+</div>
+<div class=share>
+</div>
+<div class=pagenation>
+<ul class=pagenation-list>
+<li class="pager previous">
+<a href=https://blog.bear-su.dev/2020/02/01/packer-on-gcp/ data-toggle=tooltip data-placement=top title="Packer on GCP">&larr; Previous Post</a>
+</li>
+<li class="pager next">
+<a href=https://blog.bear-su.dev/2020/05/31/embulk-from-sqlserver-to-bigquery/ data-toggle=tooltip data-placement=top title="使用 Embulk 從 SQL Server 匯入資料至 BigQuery">Next Post &rarr;</a>
+</li>
+</ul>
+</div>
+</footer>
+</article>
+<article class=related></article>
+<script type=application/ld+json>{"@context":"http://schema.org","@type":"NewsArticle","mainEntityOfPage":{"@type":"NewsArticle","@id":"https:\/\/blog.bear-su.dev\/2020\/02\/08\/packer-on-gcp-with-cloud-build\/","headline":"unsplash-logoAntony Xia上一篇使用 Packet 將建置 VM Image 的步驟自動化。本文將會使用 GCP 上的 Cloud Build 來與 Source Control 做結合，達成只要上 ","author":"Bear Su","publisher":{"@type":"Organization","name":"Bear Su","logo":""},"image":"","datePublished":"2020-02-08"},"headline":"unsplash-logoAntony Xia上一篇使用 Packet 將建置 VM Image 的步驟自動化。本文將會使用 GCP 上的 Cloud Build 來與 Source Control 做結合，達成只要上 ","alternativeHeadline":"Bear Su\u0027s Blog","datePublished":"2020-02-08","dateModified":"2020-02-08","url":"https:\/\/blog.bear-su.dev\/2020\/02\/08\/packer-on-gcp-with-cloud-build\/","wordCount":"198","author":{"@type":"Person","name":"Bear Su"},"publisher":{"@type":"Organization","name":"Bear Su"},"image":"","genre":"gcpgcehashicorppackercloudbuild","description":""}</script>
+<script type=application/ld+json>{"@context":"http://schema.org","@type":"Person","@id":"https:\/\/blog.bear-su.dev\/2020\/02\/08\/packer-on-gcp-with-cloud-build\/","name":"Bear Su"}</script>
+</div>
+</div>
+<footer class=gfooter>
+<div class=inner>
+<div class=container>
+<p class=copy>
+<small>Copyright © 2015 - 2022 Bear Su's Blog</small>
+<small> | 本部落格有使用 Google Analytic 及 Cookie</small>
+</p>
+<nav class=footer-nav>
+<div class=inner>
+</div>
+</nav>
+</div>
+</div>
+</footer>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KJXNT5CQCS"></script>
+<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-KJXNT5CQCS',{anonymize_ip:!1})}</script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin=anonymous referrerpolicy=no-referrer></script>
+<script src=https://blog.bear-su.dev/js/script.js></script>
+</body>
+</html>

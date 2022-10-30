@@ -1,0 +1,219 @@
+<!doctype html><html lang=en-us>
+<head>
+<link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png>
+<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
+<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png>
+<link rel=manifest href=/site.webmanifest>
+<link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5>
+<meta name=msapplication-TileColor content="#da532c">
+<meta name=theme-color content="#ffffff">
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta http-equiv=x-ua-compatible content="ie=edge,chrome=1">
+<title>form_for 與 strong parameter 的關係 &#183; Bear Su's Blog - Running Bear!!! </title>
+<meta name=generator content="Hugo 0.92.0">
+<meta name=description content="Running Bear!!!">
+<meta name=twitter:card content="summary_large_image">
+<meta name=twitter:image content="https://blog.bear-su.dev/images/bear.jpeg">
+<meta name=twitter:title content="form_for 與 strong parameter 的關係">
+<meta name=twitter:description content="form_for 是用 Rails 做網頁很常用的 Helper 方法，他的方便之處在於很輕鬆的產生與 Model 對應的 HTML 表單。
+大部份的時候都會將使用者輸入的資料，用 Hash 表示 Model 的方式傳送到伺服器上。
+但是有兩個問題：
+ 伺服器直接依照傳入的參數更新資料，如果有心人士偷塞了 Model 有的欄位，資料就會被改掉。 親自寫判斷去過濾傳入的參數，如果 Model 的種類一多，欄位一多就會變得很麻煩。  這邊可以用 strong parameter 來很簡單地過濾掉，傳入的 Model 參數中含有非預期的參數。
+假設 Foo 定義如下，其中 security_field 欄位並不想被隨意修改，所以沒有呈現在表單上。
+# schema create_table &#34;foos&#34;, force: :cascade do |t| t.string &#34;name&#34; t.integer &#34;bar&#34; t.string &#34;security_field&#34; t.datetime &#34;created_at&#34;, null: false t.datetime &#34;updated_at&#34;, null: false end 但有心人士仍然可以發送這樣的請求給伺服器，試圖去修改資料庫的值。
+{ &#34;id&#34;: 1, &#34;foo&#34;: { &#34;name&#34;: &#34;foo&#34;, &#34;bar&#34;: 1, &#34;security_field&#34;: &#34;bad value&#34; } } 在這邊最簡單的方法就是用 strong parameter 來過濾，在 Controller 中寫一個 private method，要更新 Modle 時就使用該 method 來取得過濾後的參數來更新。">
+<meta property="og:title" content="form_for 與 strong parameter 的關係">
+<meta property="og:description" content="form_for 是用 Rails 做網頁很常用的 Helper 方法，他的方便之處在於很輕鬆的產生與 Model 對應的 HTML 表單。
+大部份的時候都會將使用者輸入的資料，用 Hash 表示 Model 的方式傳送到伺服器上。
+但是有兩個問題：
+ 伺服器直接依照傳入的參數更新資料，如果有心人士偷塞了 Model 有的欄位，資料就會被改掉。 親自寫判斷去過濾傳入的參數，如果 Model 的種類一多，欄位一多就會變得很麻煩。  這邊可以用 strong parameter 來很簡單地過濾掉，傳入的 Model 參數中含有非預期的參數。
+假設 Foo 定義如下，其中 security_field 欄位並不想被隨意修改，所以沒有呈現在表單上。
+# schema create_table &#34;foos&#34;, force: :cascade do |t| t.string &#34;name&#34; t.integer &#34;bar&#34; t.string &#34;security_field&#34; t.datetime &#34;created_at&#34;, null: false t.datetime &#34;updated_at&#34;, null: false end 但有心人士仍然可以發送這樣的請求給伺服器，試圖去修改資料庫的值。
+{ &#34;id&#34;: 1, &#34;foo&#34;: { &#34;name&#34;: &#34;foo&#34;, &#34;bar&#34;: 1, &#34;security_field&#34;: &#34;bad value&#34; } } 在這邊最簡單的方法就是用 strong parameter 來過濾，在 Controller 中寫一個 private method，要更新 Modle 時就使用該 method 來取得過濾後的參數來更新。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://blog.bear-su.dev/2015/07/30/form-for-and-strong-relationship-parameter/"><meta property="og:image" content="https://blog.bear-su.dev/images/bear.jpeg"><meta property="article:section" content>
+<meta property="article:published_time" content="2015-07-30T13:01:00+08:00">
+<meta property="article:modified_time" content="2015-07-30T13:01:00+08:00">
+<link href rel=alternate type=application/rss+xml title="Bear Su's Blog">
+<link href rel=feed type=application/rss+xml title="Bear Su's Blog">
+<meta itemprop=name content="form_for 與 strong parameter 的關係">
+<meta itemprop=description content="form_for 是用 Rails 做網頁很常用的 Helper 方法，他的方便之處在於很輕鬆的產生與 Model 對應的 HTML 表單。
+大部份的時候都會將使用者輸入的資料，用 Hash 表示 Model 的方式傳送到伺服器上。
+但是有兩個問題：
+ 伺服器直接依照傳入的參數更新資料，如果有心人士偷塞了 Model 有的欄位，資料就會被改掉。 親自寫判斷去過濾傳入的參數，如果 Model 的種類一多，欄位一多就會變得很麻煩。  這邊可以用 strong parameter 來很簡單地過濾掉，傳入的 Model 參數中含有非預期的參數。
+假設 Foo 定義如下，其中 security_field 欄位並不想被隨意修改，所以沒有呈現在表單上。
+# schema create_table &#34;foos&#34;, force: :cascade do |t| t.string &#34;name&#34; t.integer &#34;bar&#34; t.string &#34;security_field&#34; t.datetime &#34;created_at&#34;, null: false t.datetime &#34;updated_at&#34;, null: false end 但有心人士仍然可以發送這樣的請求給伺服器，試圖去修改資料庫的值。
+{ &#34;id&#34;: 1, &#34;foo&#34;: { &#34;name&#34;: &#34;foo&#34;, &#34;bar&#34;: 1, &#34;security_field&#34;: &#34;bad value&#34; } } 在這邊最簡單的方法就是用 strong parameter 來過濾，在 Controller 中寫一個 private method，要更新 Modle 時就使用該 method 來取得過濾後的參數來更新。"><meta itemprop=datePublished content="2015-07-30T13:01:00+08:00">
+<meta itemprop=dateModified content="2015-07-30T13:01:00+08:00">
+<meta itemprop=wordCount content="126"><meta itemprop=image content="https://blog.bear-su.dev/images/bear.jpeg">
+<meta itemprop=keywords content>
+<link href="https://fonts.googleapis.com/css?family=Lato:400" rel=stylesheet>
+<link rel=stylesheet href=https://blog.bear-su.dev/css/style.css>
+<script type=application/ld+json>{"@context":"http://schema.org","@type":"WebSite","name":"Bear Su\u0027s Blog","url":"https:\/\/blog.bear-su.dev\/2015\/07\/30\/form-for-and-strong-relationship-parameter\/"}</script>
+</head>
+<body>
+<header class=gheader>
+<div class=container>
+<nav class=navbar>
+<div class=navbar-brand>
+<a class=navbar-item href=https://blog.bear-su.dev>
+<p class=brand>Bear Su's Blog</p>
+</a>
+<div class="navbar-burger burger" data-target=navMenubd-example>
+<span></span>
+<span></span>
+<span></span>
+</div>
+</div>
+<div id=navMenubd-example class=navbar-menu>
+<div class=navbar-start>
+<a class=navbar-item href=/categories/>
+Categories
+</a>
+<a class=navbar-item href=https://github.com/timfanda35>
+GitHub
+</a>
+<a class=navbar-item href=https://www.linkedin.com/in/bearsu>
+Linkedin
+</a>
+<a class=navbar-item href=https://twitter.com/Fandayo>
+Twitter
+</a>
+</div>
+</div>
+</nav>
+</div>
+</header>
+<div class=main-content>
+<div class=container>
+<article class=post>
+<header class=post-header>
+<h1 class=title>form_for 與 strong parameter 的關係</h1>
+<div class=meta>
+<time class=pub-time datetime=2015-07-30T13:01:00+08:00>
+2015.07.30
+</time>
+<div class=terms>
+<div class=categories>
+<a class=categories-item href=/categories/ruby>ruby</a>
+<a class=categories-item href=/categories/rails>rails</a>
+</div>
+</div>
+</div>
+</header>
+<div class=post-body>
+<div class=toc-wrap>
+<h2>Table of Contents</h2>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#參考資料>參考資料</a></li>
+</ul>
+</nav>
+</div>
+<p><code>form_for</code> 是用 Rails 做網頁很常用的 Helper 方法，他的方便之處在於很輕鬆的產生與 Model 對應的 HTML 表單。</p>
+<p>大部份的時候都會將使用者輸入的資料，用 Hash 表示 Model 的方式傳送到伺服器上。</p>
+<p>但是有兩個問題：</p>
+<ul>
+<li>伺服器直接依照傳入的參數更新資料，如果有心人士偷塞了 Model 有的欄位，資料就會被改掉。</li>
+<li>親自寫判斷去過濾傳入的參數，如果 Model 的種類一多，欄位一多就會變得很麻煩。</li>
+</ul>
+<p>這邊可以用 <code>strong parameter</code> 來很簡單地過濾掉，傳入的 Model 參數中含有非預期的參數。</p>
+<p>假設 Foo 定義如下，其中 <code>security_field</code> 欄位並不想被隨意修改，所以沒有呈現在表單上。</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-ruby data-lang=ruby><span style=color:#75715e># schema</span>
+create_table <span style=color:#e6db74>&#34;foos&#34;</span>, <span style=color:#e6db74>force</span>: <span style=color:#e6db74>:cascade</span> <span style=color:#66d9ef>do</span> <span style=color:#f92672>|</span>t<span style=color:#f92672>|</span>
+  t<span style=color:#f92672>.</span>string   <span style=color:#e6db74>&#34;name&#34;</span>
+  t<span style=color:#f92672>.</span>integer  <span style=color:#e6db74>&#34;bar&#34;</span>
+  t<span style=color:#f92672>.</span>string   <span style=color:#e6db74>&#34;security_field&#34;</span>
+  t<span style=color:#f92672>.</span>datetime <span style=color:#e6db74>&#34;created_at&#34;</span>, <span style=color:#e6db74>null</span>: <span style=color:#66d9ef>false</span>
+  t<span style=color:#f92672>.</span>datetime <span style=color:#e6db74>&#34;updated_at&#34;</span>, <span style=color:#e6db74>null</span>: <span style=color:#66d9ef>false</span>
+<span style=color:#66d9ef>end</span>
+</code></pre></div><p>但有心人士仍然可以發送這樣的請求給伺服器，試圖去修改資料庫的值。</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-json data-lang=json>{
+  <span style=color:#f92672>&#34;id&#34;</span>: <span style=color:#ae81ff>1</span>,
+  <span style=color:#f92672>&#34;foo&#34;</span>: {
+    <span style=color:#f92672>&#34;name&#34;</span>: <span style=color:#e6db74>&#34;foo&#34;</span>,
+    <span style=color:#f92672>&#34;bar&#34;</span>: <span style=color:#ae81ff>1</span>,
+    <span style=color:#f92672>&#34;security_field&#34;</span>: <span style=color:#e6db74>&#34;bad value&#34;</span>
+  }
+}
+</code></pre></div><p>在這邊最簡單的方法就是用 <code>strong parameter</code> 來過濾，在 <code>Controller</code> 中寫一個 private method，要更新 Modle 時就使用該 method 來取得過濾後的參數來更新。</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-ruby data-lang=ruby><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>FoosController</span> <span style=color:#f92672>&lt;</span> <span style=color:#66d9ef>ApplicationController</span>
+  <span style=color:#f92672>...</span>
+  
+  <span style=color:#66d9ef>private</span>
+  
+  <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>foo_params</span>
+    <span style=color:#75715e># 只允許通過 :name, :bar 參數</span>
+  	params<span style=color:#f92672>.</span>require(<span style=color:#e6db74>:foo</span>)<span style=color:#f92672>.</span>permit(<span style=color:#e6db74>:name</span>, <span style=color:#e6db74>:bar</span>)
+  <span style=color:#66d9ef>end</span>
+<span style=color:#66d9ef>end</span>
+</code></pre></div><p>如果有參數包含關聯 Modle，即巢狀表單，會寫成如下：</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-ruby data-lang=ruby><span style=color:#75715e># 只允許通過 :name, :bar 以及關聯的 member :id :name 參數</span>
+<span style=color:#75715e># 記得要允許關聯 Model 的 :id 參數，不然會無法正確更新</span>
+params<span style=color:#f92672>.</span>require(<span style=color:#e6db74>:foo</span>)<span style=color:#f92672>.</span>permit(<span style=color:#e6db74>:name</span>, <span style=color:#e6db74>:bar</span>, <span style=color:#e6db74>member_attributes</span>:<span style=color:#f92672>[</span><span style=color:#e6db74>:id</span>, <span style=color:#e6db74>:name</span><span style=color:#f92672>]</span>)
+</code></pre></div><h2 id=參考資料>參考資料 <a href=#%e5%8f%83%e8%80%83%e8%b3%87%e6%96%99>¶</a></h2>
+<hr>
+<p><a href=http://rocodev.gitbooks.io/rails-102/content/chapter1-mvc/c/strong_parameters.html>Rails102</a>
+<a href=http://guides.rubyonrails.org/action_controller_overview.html#strong-parameters>Rails Guide</a></p>
+</div>
+<footer class=post-footer>
+<hr>
+<div style=margin-top:2.5rem>
+<div style=display:flex;justify-content:center;width:100%>
+<p style=color:gray>
+如果覺得這篇文章對您有所幫助，歡迎贊助我一杯咖啡 ☕️
+</p>
+</div>
+<div style=display:flex;justify-content:center;width:100%>
+<p style=color:gray>
+祝您有美好的一天 ❤️
+</p>
+</div>
+<div style=display:flex;justify-content:center;width:100%;margin-top:1rem>
+<script type=text/javascript src=https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js data-name=bmc-button data-slug=timfanda35 data-color=#FFDD00 data-emoji data-font=Bree data-text="Buy me a coffee" data-outline-color=#000000 data-font-color=#000000 data-coffee-color=#ffffff></script>
+</div>
+</div>
+<hr>
+<div style=margin-top:1rem>
+<script src=https://utteranc.es/client.js repo=timfanda35/timfanda35.github.io issue-term=pathname label=comment theme=github-light crossorigin=anonymous async></script>
+</div>
+<div class=share>
+</div>
+<div class=pagenation>
+<ul class=pagenation-list>
+<li class="pager previous">
+<a href=https://blog.bear-su.dev/2015/07/30/activerecord-has-associated/ data-toggle=tooltip data-placement=top title="ActiveRecord has_many :through 關聯">&larr; Previous Post</a>
+</li>
+<li class="pager next">
+<a href=https://blog.bear-su.dev/2015/07/30/helper-method-to-use/ data-toggle=tooltip data-placement=top title="helper 的使用方法">Next Post &rarr;</a>
+</li>
+</ul>
+</div>
+</footer>
+</article>
+<article class=related></article>
+<script type=application/ld+json>{"@context":"http://schema.org","@type":"NewsArticle","mainEntityOfPage":{"@type":"NewsArticle","@id":"https:\/\/blog.bear-su.dev\/2015\/07\/30\/form-for-and-strong-relationship-parameter\/","headline":"form_for 是用 Rails 做網頁很常用的 Helper 方法，他的方便之處在於很輕鬆的產生與 Model 對應的 HTML 表單。大部份的時候都會將使用者輸入的資料，用 Hash 表示 Model 的方式傳送到","author":"Bear Su","publisher":{"@type":"Organization","name":"Bear Su","logo":""},"image":"","datePublished":"2015-07-30"},"headline":"form_for 是用 Rails 做網頁很常用的 Helper 方法，他的方便之處在於很輕鬆的產生與 Model 對應的 HTML 表單。大部份的時候都會將使用者輸入的資料，用 Hash 表示 Model 的方式傳送到","alternativeHeadline":"Bear Su\u0027s Blog","datePublished":"2015-07-30","dateModified":"2015-07-30","url":"https:\/\/blog.bear-su.dev\/2015\/07\/30\/form-for-and-strong-relationship-parameter\/","wordCount":"126","author":{"@type":"Person","name":"Bear Su"},"publisher":{"@type":"Organization","name":"Bear Su"},"image":"","genre":"rubyrails","description":""}</script>
+<script type=application/ld+json>{"@context":"http://schema.org","@type":"Person","@id":"https:\/\/blog.bear-su.dev\/2015\/07\/30\/form-for-and-strong-relationship-parameter\/","name":"Bear Su"}</script>
+</div>
+</div>
+<footer class=gfooter>
+<div class=inner>
+<div class=container>
+<p class=copy>
+<small>Copyright © 2015 - 2022 Bear Su's Blog</small>
+<small> | 本部落格有使用 Google Analytic 及 Cookie</small>
+</p>
+<nav class=footer-nav>
+<div class=inner>
+</div>
+</nav>
+</div>
+</div>
+</footer>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KJXNT5CQCS"></script>
+<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-KJXNT5CQCS',{anonymize_ip:!1})}</script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin=anonymous referrerpolicy=no-referrer></script>
+<script src=https://blog.bear-su.dev/js/script.js></script>
+</body>
+</html>

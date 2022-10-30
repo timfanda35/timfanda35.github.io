@@ -1,0 +1,260 @@
+<!doctype html><html lang=en-us>
+<head>
+<link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png>
+<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
+<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png>
+<link rel=manifest href=/site.webmanifest>
+<link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5>
+<meta name=msapplication-TileColor content="#da532c">
+<meta name=theme-color content="#ffffff">
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta http-equiv=x-ua-compatible content="ie=edge,chrome=1">
+<title>logger tip &#183; Bear Su's Blog - Running Bear!!! </title>
+<meta name=generator content="Hugo 0.92.0">
+<meta name=description content="Running Bear!!!">
+<meta name=twitter:card content="summary_large_image">
+<meta name=twitter:image content="https://blog.bear-su.dev/images/bear.jpeg">
+<meta name=twitter:title content="logger tip">
+<meta name=twitter:description content="所謂有記有保庇
+log 能夠幫助瞭解程式在執行的時候做了什麼事
+log 記得好在除錯的時候能幫上很大的忙
+這邊紀錄跟 logger 的一些相關技巧">
+<meta property="og:title" content="logger tip">
+<meta property="og:description" content="所謂有記有保庇
+log 能夠幫助瞭解程式在執行的時候做了什麼事
+log 記得好在除錯的時候能幫上很大的忙
+這邊紀錄跟 logger 的一些相關技巧">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://blog.bear-su.dev/2017/02/04/logger-tip/"><meta property="og:image" content="https://blog.bear-su.dev/images/bear.jpeg"><meta property="article:section" content>
+<meta property="article:published_time" content="2017-02-04T07:05:00+08:00">
+<meta property="article:modified_time" content="2017-02-04T07:05:00+08:00">
+<link href rel=alternate type=application/rss+xml title="Bear Su's Blog">
+<link href rel=feed type=application/rss+xml title="Bear Su's Blog">
+<meta itemprop=name content="logger tip">
+<meta itemprop=description content="所謂有記有保庇
+log 能夠幫助瞭解程式在執行的時候做了什麼事
+log 記得好在除錯的時候能幫上很大的忙
+這邊紀錄跟 logger 的一些相關技巧"><meta itemprop=datePublished content="2017-02-04T07:05:00+08:00">
+<meta itemprop=dateModified content="2017-02-04T07:05:00+08:00">
+<meta itemprop=wordCount content="282"><meta itemprop=image content="https://blog.bear-su.dev/images/bear.jpeg">
+<meta itemprop=keywords content>
+<link href="https://fonts.googleapis.com/css?family=Lato:400" rel=stylesheet>
+<link rel=stylesheet href=https://blog.bear-su.dev/css/style.css>
+<script type=application/ld+json>{"@context":"http://schema.org","@type":"WebSite","name":"Bear Su\u0027s Blog","url":"https:\/\/blog.bear-su.dev\/2017\/02\/04\/logger-tip\/"}</script>
+</head>
+<body>
+<header class=gheader>
+<div class=container>
+<nav class=navbar>
+<div class=navbar-brand>
+<a class=navbar-item href=https://blog.bear-su.dev>
+<p class=brand>Bear Su's Blog</p>
+</a>
+<div class="navbar-burger burger" data-target=navMenubd-example>
+<span></span>
+<span></span>
+<span></span>
+</div>
+</div>
+<div id=navMenubd-example class=navbar-menu>
+<div class=navbar-start>
+<a class=navbar-item href=/categories/>
+Categories
+</a>
+<a class=navbar-item href=https://github.com/timfanda35>
+GitHub
+</a>
+<a class=navbar-item href=https://www.linkedin.com/in/bearsu>
+Linkedin
+</a>
+<a class=navbar-item href=https://twitter.com/Fandayo>
+Twitter
+</a>
+</div>
+</div>
+</nav>
+</div>
+</header>
+<div class=main-content>
+<div class=container>
+<article class=post>
+<header class=post-header>
+<h1 class=title>logger tip</h1>
+<div class=meta>
+<time class=pub-time datetime=2017-02-04T07:05:00+08:00>
+2017.02.04
+</time>
+<div class=terms>
+<div class=categories>
+<a class=categories-item href=/categories/ruby>ruby</a>
+<a class=categories-item href=/categories/rails>rails</a>
+<a class=categories-item href=/categories/logger>logger</a>
+</div>
+</div>
+</div>
+</header>
+<div class=post-body>
+<div class=toc-wrap>
+<h2>Table of Contents</h2>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#rotate>Rotate</a></li>
+<li><a href=#lograge>lograge</a></li>
+<li><a href=#自訂-rails-logger>自訂 Rails Logger</a></li>
+<li><a href=#logger>Logger</a></li>
+</ul>
+</nav>
+</div>
+<p>所謂有記有保庇</p>
+<p>log 能夠幫助瞭解程式在執行的時候做了什麼事</p>
+<p>log 記得好在除錯的時候能幫上很大的忙</p>
+<p>這邊紀錄跟 logger 的一些相關技巧</p>
+<h2 id=rotate>Rotate <a href=#rotate>¶</a></h2>
+<hr>
+<p>為了避免過多的 log 佔據硬碟空間</p>
+<p>在 Linux 上可以透過 logrotate 保留部分的 log</p>
+<p>參考資料：</p>
+<p>[使用 logrotate 定期整理 Rails Log 檔案] (<a href=https://ihower.tw/blog/archives/3565>https://ihower.tw/blog/archives/3565</a>)</p>
+<p>[Rotating Rails Production Logs with LogRotate] (<a href=https://gorails.com/guides/rotating-rails-production-logs-with-logrotate>https://gorails.com/guides/rotating-rails-production-logs-with-logrotate</a>)</p>
+<p>範例：</p>
+<pre tabindex=0><code>sudo vi /etc/logrotate.conf
+</code></pre><pre tabindex=0><code>/home/deploy/app/current/log/*.log {
+  daily
+  missingok
+  rotate 7
+  compress
+  delaycompress
+  notifempty
+  copytruncate
+}
+</code></pre><h2 id=lograge>lograge <a href=#lograge>¶</a></h2>
+<hr>
+<p><a href=https://github.com/roidrage/lograge>lograge</a> 是可以精簡 Rails log 的一個 gem</p>
+<p>將原本輸出的 log</p>
+<pre tabindex=0><code>Started GET &quot;/&quot; for 127.0.0.1 at 2012-03-10 14:28:14 +0100
+Processing by HomeController#index as HTML
+  Rendered text template within layouts/application (0.0ms)
+  Rendered layouts/_assets.html.erb (2.0ms)
+  Rendered layouts/_top.html.erb (2.6ms)
+  Rendered layouts/_about.html.erb (0.3ms)
+  Rendered layouts/_google_analytics.html.erb (0.4ms)
+Completed 200 OK in 79ms (Views: 78.8ms | ActiveRecord: 0.0ms)
+</code></pre><p>變成</p>
+<pre tabindex=0><code>method=GET path=/jobs/833552.json format=json controller=JobsController  action=show status=200 duration=58.33 view=40.43 db=15.26
+</code></pre><p>設定方式很簡單</p>
+<p>在 <code>Gemfile</code> 中加上以下設定，並執行 <code>bundle install</code> 安裝</p>
+<pre tabindex=0><code>gem &quot;lograge&quot;
+</code></pre><p>再將以下設定加到 <code>config/initializers/lograge.rb</code> 或是 <code>config/environments/production.rb</code></p>
+<pre tabindex=0><code>## MyApp 改成你專案的名稱
+MyApp::Application.configure do
+  config.lograge.enabled = true
+end
+</code></pre><h2 id=自訂-rails-logger>自訂 Rails Logger <a href=#%e8%87%aa%e8%a8%82-rails-logger>¶</a></h2>
+<hr>
+<p>要將 log 導向其他系統儲存，推薦以下兩篇閱讀：</p>
+<p><a href=https://ruby-china.org/topics/27523>Rails Log Process</a></p>
+<p><a href=https://ruby-china.org/topics/29417>Rails Log 格式化 + Kids日志收集</a></p>
+<h2 id=logger>Logger <a href=#logger>¶</a></h2>
+<hr>
+<p>Ruby 本身就有 <code>Logger</code> 類別，只要在程式中 <code>require</code> 就可以用了</p>
+<p><a href=http://ruby-doc.org/stdlib-2.1.0/libdoc/logger/rdoc/Logger.html>document</a></p>
+<p>預設格式如下：</p>
+<pre tabindex=0><code>SeverityID, [DateTime #pid] SeverityLabel -- ProgName: message
+</code></pre><p>輸出會長得像這樣：</p>
+<pre tabindex=0><code>I, [1999-03-03T02:34:24.895701 #19074]  INFO -- Main: info.
+</code></pre><p>可以修改時間的顯示格式：</p>
+<pre tabindex=0><code>logger.datetime_format = '%Y-%m-%d %H:%M:%S'
+# e.g. &quot;2004-01-03 00:54:26&quot;
+</code></pre><p>也能自訂 log 顯示格式</p>
+<pre tabindex=0><code>logger.formatter = proc do |severity, datetime, progname, msg|
+  &quot;#{datetime}: #{msg}\n&quot;
+end
+# e.g. &quot;2005-09-22 08:51:08 +0900: hello world&quot;
+</code></pre><p>另外可以透過初始化傳入的參數，指定 log 檔案的儲存限制</p>
+<pre tabindex=0><code>logger = Logger.new('foo.log', 10, 1024000) # 保留 10 份日誌檔，每個檔案最大 1024000 bytes
+logger = Logger.new('log.log', 'daily')     # 按天產生
+logger = Logger.new('log.log', 'weekly')    # 按周產生
+logger = Logger.new('log.log', 'monthly')   # 按月產生
+</code></pre><p>如果你想紀錄錯誤的 stack 可以用以下方式：</p>
+<pre tabindex=0><code>logger.error err.backtrace.join(&quot;\n&quot;)
+</code></pre><p>將日誌同時輸出到不同位置：</p>
+<p>參考： <a href=http://stackoverflow.com/questions/6407141/how-can-i-have-ruby-logger-log-output-to-stdout-as-well-as-file>How can I have ruby logger log output to stdout as well as file?</a></p>
+<pre tabindex=0><code>class MultiIO
+  def initialize(*targets)
+     @targets = targets
+  end
+
+  def write(*args)
+    @targets.each {|t| t.write(*args)}
+  end
+
+  def close
+    @targets.each(&amp;:close)
+  end
+end
+
+log_file = File.open(&quot;log/debug.log&quot;, &quot;a&quot;)
+Logger.new MultiIO.new(STDOUT, log_file)
+</code></pre>
+</div>
+<footer class=post-footer>
+<hr>
+<div style=margin-top:2.5rem>
+<div style=display:flex;justify-content:center;width:100%>
+<p style=color:gray>
+如果覺得這篇文章對您有所幫助，歡迎贊助我一杯咖啡 ☕️
+</p>
+</div>
+<div style=display:flex;justify-content:center;width:100%>
+<p style=color:gray>
+祝您有美好的一天 ❤️
+</p>
+</div>
+<div style=display:flex;justify-content:center;width:100%;margin-top:1rem>
+<script type=text/javascript src=https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js data-name=bmc-button data-slug=timfanda35 data-color=#FFDD00 data-emoji data-font=Bree data-text="Buy me a coffee" data-outline-color=#000000 data-font-color=#000000 data-coffee-color=#ffffff></script>
+</div>
+</div>
+<hr>
+<div style=margin-top:1rem>
+<script src=https://utteranc.es/client.js repo=timfanda35/timfanda35.github.io issue-term=pathname label=comment theme=github-light crossorigin=anonymous async></script>
+</div>
+<div class=share>
+</div>
+<div class=pagenation>
+<ul class=pagenation-list>
+<li class="pager previous">
+<a href=https://blog.bear-su.dev/2017/01/24/swagger-grape-rack/ data-toggle=tooltip data-placement=top title="swagger + grape + rack">&larr; Previous Post</a>
+</li>
+<li class="pager next">
+<a href=https://blog.bear-su.dev/2017/02/05/ruby-refinement/ data-toggle=tooltip data-placement=top title=ruby-refinement>Next Post &rarr;</a>
+</li>
+</ul>
+</div>
+</footer>
+</article>
+<article class=related></article>
+<script type=application/ld+json>{"@context":"http://schema.org","@type":"NewsArticle","mainEntityOfPage":{"@type":"NewsArticle","@id":"https:\/\/blog.bear-su.dev\/2017\/02\/04\/logger-tip\/","headline":"所謂有記有保庇log 能夠幫助瞭解程式在執行的時候做了什麼事log 記得好在除錯的時候能幫上很大的忙這邊紀錄跟 logger 的一些相關技巧Rotate ¶ 為了避免過多的 log 佔據硬碟空間在 Linux 上可以透過","author":"Bear Su","publisher":{"@type":"Organization","name":"Bear Su","logo":""},"image":"","datePublished":"2017-02-04"},"headline":"所謂有記有保庇log 能夠幫助瞭解程式在執行的時候做了什麼事log 記得好在除錯的時候能幫上很大的忙這邊紀錄跟 logger 的一些相關技巧Rotate ¶ 為了避免過多的 log 佔據硬碟空間在 Linux 上可以透過","alternativeHeadline":"Bear Su\u0027s Blog","datePublished":"2017-02-04","dateModified":"2017-02-04","url":"https:\/\/blog.bear-su.dev\/2017\/02\/04\/logger-tip\/","wordCount":"282","author":{"@type":"Person","name":"Bear Su"},"publisher":{"@type":"Organization","name":"Bear Su"},"image":"","genre":"rubyrailslogger","description":""}</script>
+<script type=application/ld+json>{"@context":"http://schema.org","@type":"Person","@id":"https:\/\/blog.bear-su.dev\/2017\/02\/04\/logger-tip\/","name":"Bear Su"}</script>
+</div>
+</div>
+<footer class=gfooter>
+<div class=inner>
+<div class=container>
+<p class=copy>
+<small>Copyright © 2015 - 2022 Bear Su's Blog</small>
+<small> | 本部落格有使用 Google Analytic 及 Cookie</small>
+</p>
+<nav class=footer-nav>
+<div class=inner>
+</div>
+</nav>
+</div>
+</div>
+</footer>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KJXNT5CQCS"></script>
+<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-KJXNT5CQCS',{anonymize_ip:!1})}</script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin=anonymous referrerpolicy=no-referrer></script>
+<script src=https://blog.bear-su.dev/js/script.js></script>
+</body>
+</html>

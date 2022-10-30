@@ -1,0 +1,184 @@
+<!doctype html><html lang=en-us>
+<head>
+<link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png>
+<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
+<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png>
+<link rel=manifest href=/site.webmanifest>
+<link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5>
+<meta name=msapplication-TileColor content="#da532c">
+<meta name=theme-color content="#ffffff">
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta http-equiv=x-ua-compatible content="ie=edge,chrome=1">
+<title>在 Mac 上安裝 pg gem &#183; Bear Su's Blog - Running Bear!!! </title>
+<meta name=generator content="Hugo 0.92.0">
+<meta name=description content="Running Bear!!!">
+<meta name=twitter:card content="summary_large_image">
+<meta name=twitter:image content="https://blog.bear-su.dev/images/bear.jpeg">
+<meta name=twitter:title content="在 Mac 上安裝 pg gem">
+<meta name=twitter:description content="想在 Mac OS 上安裝 pg gem 但不想要安裝整套 PostgreSQL。
+pg gem 在 Mac OS 上需要 native build，依賴 libpg 套件。
+用 Homebrew 安裝 libpq ¶ brew install libpq 在安裝過程中 Summary 會顯示 libpg 安裝的位置。
+==> Summary 🍺 /opt/homebrew/Cellar/libpq/15.0: 2,366 files, 28.5MB 我們將該位置紀錄成環境變數
+LIBPG_PATH=/opt/homebrew/Cellar/libpq/15.0 自訂建置參數安裝 pg gem ¶ gem install pg -- \ 	--with-pg-include=$LIBPG_PATH/include \ 	--with-pg-lib=$LIBPG_PATH/lib ">
+<meta property="og:title" content="在 Mac 上安裝 pg gem">
+<meta property="og:description" content="想在 Mac OS 上安裝 pg gem 但不想要安裝整套 PostgreSQL。
+pg gem 在 Mac OS 上需要 native build，依賴 libpg 套件。
+用 Homebrew 安裝 libpq ¶ brew install libpq 在安裝過程中 Summary 會顯示 libpg 安裝的位置。
+==> Summary 🍺 /opt/homebrew/Cellar/libpq/15.0: 2,366 files, 28.5MB 我們將該位置紀錄成環境變數
+LIBPG_PATH=/opt/homebrew/Cellar/libpq/15.0 自訂建置參數安裝 pg gem ¶ gem install pg -- \ 	--with-pg-include=$LIBPG_PATH/include \ 	--with-pg-lib=$LIBPG_PATH/lib ">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://blog.bear-su.dev/2022/10/30/install-pg-gem-on-mac/"><meta property="og:image" content="https://blog.bear-su.dev/images/bear.jpeg"><meta property="article:section" content>
+<meta property="article:published_time" content="2022-10-30T12:00:00+08:00">
+<meta property="article:modified_time" content="2022-10-30T12:00:00+08:00">
+<link href rel=alternate type=application/rss+xml title="Bear Su's Blog">
+<link href rel=feed type=application/rss+xml title="Bear Su's Blog">
+<meta itemprop=name content="在 Mac 上安裝 pg gem">
+<meta itemprop=description content="想在 Mac OS 上安裝 pg gem 但不想要安裝整套 PostgreSQL。
+pg gem 在 Mac OS 上需要 native build，依賴 libpg 套件。
+用 Homebrew 安裝 libpq ¶ brew install libpq 在安裝過程中 Summary 會顯示 libpg 安裝的位置。
+==> Summary 🍺 /opt/homebrew/Cellar/libpq/15.0: 2,366 files, 28.5MB 我們將該位置紀錄成環境變數
+LIBPG_PATH=/opt/homebrew/Cellar/libpq/15.0 自訂建置參數安裝 pg gem ¶ gem install pg -- \ 	--with-pg-include=$LIBPG_PATH/include \ 	--with-pg-lib=$LIBPG_PATH/lib "><meta itemprop=datePublished content="2022-10-30T12:00:00+08:00">
+<meta itemprop=dateModified content="2022-10-30T12:00:00+08:00">
+<meta itemprop=wordCount content="52"><meta itemprop=image content="https://blog.bear-su.dev/images/bear.jpeg">
+<meta itemprop=keywords content>
+<link href="https://fonts.googleapis.com/css?family=Lato:400" rel=stylesheet>
+<link rel=stylesheet href=https://blog.bear-su.dev/css/style.css>
+<script type=application/ld+json>{"@context":"http://schema.org","@type":"WebSite","name":"Bear Su\u0027s Blog","url":"https:\/\/blog.bear-su.dev\/2022\/10\/30\/install-pg-gem-on-mac\/"}</script>
+</head>
+<body>
+<header class=gheader>
+<div class=container>
+<nav class=navbar>
+<div class=navbar-brand>
+<a class=navbar-item href=https://blog.bear-su.dev>
+<p class=brand>Bear Su's Blog</p>
+</a>
+<div class="navbar-burger burger" data-target=navMenubd-example>
+<span></span>
+<span></span>
+<span></span>
+</div>
+</div>
+<div id=navMenubd-example class=navbar-menu>
+<div class=navbar-start>
+<a class=navbar-item href=/categories/>
+Categories
+</a>
+<a class=navbar-item href=https://github.com/timfanda35>
+GitHub
+</a>
+<a class=navbar-item href=https://www.linkedin.com/in/bearsu>
+Linkedin
+</a>
+<a class=navbar-item href=https://twitter.com/Fandayo>
+Twitter
+</a>
+</div>
+</div>
+</nav>
+</div>
+</header>
+<div class=main-content>
+<div class=container>
+<article class=post>
+<header class=post-header>
+<h1 class=title>在 Mac 上安裝 pg gem</h1>
+<div class=meta>
+<time class=pub-time datetime=2022-10-30T12:00:00+08:00>
+2022.10.30
+</time>
+<div class=terms>
+<div class=categories>
+<a class=categories-item href=/categories/ruby>ruby</a>
+<a class=categories-item href=/categories/mac>mac</a>
+<a class=categories-item href=/categories/pg>pg</a>
+<a class=categories-item href=/categories/postgresql>postgresql</a>
+</div>
+</div>
+</div>
+</header>
+<div class=post-body>
+<div class=toc-wrap>
+<h2>Table of Contents</h2>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#用-homebrew-安裝-libpq>用 Homebrew 安裝 libpq</a></li>
+<li><a href=#自訂建置參數安裝-pg-gem>自訂建置參數安裝 pg gem</a></li>
+</ul>
+</nav>
+</div>
+<p>想在 Mac OS 上安裝 pg gem 但不想要安裝整套 PostgreSQL。</p>
+<p><code>pg</code> gem 在 Mac OS 上需要 native build，依賴 <code>libpg</code> 套件。</p>
+<h2 id=用-homebrew-安裝-libpq>用 Homebrew 安裝 libpq <a href=#%e7%94%a8-homebrew-%e5%ae%89%e8%a3%9d-libpq>¶</a></h2>
+<hr>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>brew install libpq
+</code></pre></div><p>在安裝過程中 Summary 會顯示 libpg 安裝的位置。</p>
+<pre tabindex=0><code>==&gt; Summary
+🍺  /opt/homebrew/Cellar/libpq/15.0: 2,366 files, 28.5MB
+</code></pre><p>我們將該位置紀錄成環境變數</p>
+<pre tabindex=0><code>LIBPG_PATH=/opt/homebrew/Cellar/libpq/15.0
+</code></pre><h2 id=自訂建置參數安裝-pg-gem>自訂建置參數安裝 pg gem <a href=#%e8%87%aa%e8%a8%82%e5%bb%ba%e7%bd%ae%e5%8f%83%e6%95%b8%e5%ae%89%e8%a3%9d-pg-gem>¶</a></h2>
+<hr>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>gem install pg -- <span style=color:#ae81ff>\
+</span><span style=color:#ae81ff></span>	--with-pg-include<span style=color:#f92672>=</span>$LIBPG_PATH/include <span style=color:#ae81ff>\
+</span><span style=color:#ae81ff></span>	--with-pg-lib<span style=color:#f92672>=</span>$LIBPG_PATH/lib
+</code></pre></div>
+</div>
+<footer class=post-footer>
+<hr>
+<div style=margin-top:2.5rem>
+<div style=display:flex;justify-content:center;width:100%>
+<p style=color:gray>
+如果覺得這篇文章對您有所幫助，歡迎贊助我一杯咖啡 ☕️
+</p>
+</div>
+<div style=display:flex;justify-content:center;width:100%>
+<p style=color:gray>
+祝您有美好的一天 ❤️
+</p>
+</div>
+<div style=display:flex;justify-content:center;width:100%;margin-top:1rem>
+<script type=text/javascript src=https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js data-name=bmc-button data-slug=timfanda35 data-color=#FFDD00 data-emoji data-font=Bree data-text="Buy me a coffee" data-outline-color=#000000 data-font-color=#000000 data-coffee-color=#ffffff></script>
+</div>
+</div>
+<hr>
+<div style=margin-top:1rem>
+<script src=https://utteranc.es/client.js repo=timfanda35/timfanda35.github.io issue-term=pathname label=comment theme=github-light crossorigin=anonymous async></script>
+</div>
+<div class=share>
+</div>
+<div class=pagenation>
+<ul class=pagenation-list>
+<li class="pager previous">
+<a href=https://blog.bear-su.dev/2022/05/15/vue3-devserver-https/ data-toggle=tooltip data-placement=top title="如何設定 Vue3 開發環境使用 HTTPS 連線">&larr; Previous Post</a>
+</li>
+</ul>
+</div>
+</footer>
+</article>
+<article class=related></article>
+<script type=application/ld+json>{"@context":"http://schema.org","@type":"NewsArticle","mainEntityOfPage":{"@type":"NewsArticle","@id":"https:\/\/blog.bear-su.dev\/2022\/10\/30\/install-pg-gem-on-mac\/","headline":"想在 Mac OS 上安裝 pg gem 但不想要安裝整套 PostgreSQL。pg gem 在 Mac OS 上需要 native build，依賴 libpg 套件。用 Homebrew 安裝 libpq ¶ br","author":"Bear Su","publisher":{"@type":"Organization","name":"Bear Su","logo":""},"image":"","datePublished":"2022-10-30"},"headline":"想在 Mac OS 上安裝 pg gem 但不想要安裝整套 PostgreSQL。pg gem 在 Mac OS 上需要 native build，依賴 libpg 套件。用 Homebrew 安裝 libpq ¶ br","alternativeHeadline":"Bear Su\u0027s Blog","datePublished":"2022-10-30","dateModified":"2022-10-30","url":"https:\/\/blog.bear-su.dev\/2022\/10\/30\/install-pg-gem-on-mac\/","wordCount":"52","author":{"@type":"Person","name":"Bear Su"},"publisher":{"@type":"Organization","name":"Bear Su"},"image":"","genre":"rubymacpgpostgresql","description":""}</script>
+<script type=application/ld+json>{"@context":"http://schema.org","@type":"Person","@id":"https:\/\/blog.bear-su.dev\/2022\/10\/30\/install-pg-gem-on-mac\/","name":"Bear Su"}</script>
+</div>
+</div>
+<footer class=gfooter>
+<div class=inner>
+<div class=container>
+<p class=copy>
+<small>Copyright © 2015 - 2022 Bear Su's Blog</small>
+<small> | 本部落格有使用 Google Analytic 及 Cookie</small>
+</p>
+<nav class=footer-nav>
+<div class=inner>
+</div>
+</nav>
+</div>
+</div>
+</footer>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KJXNT5CQCS"></script>
+<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-KJXNT5CQCS',{anonymize_ip:!1})}</script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin=anonymous referrerpolicy=no-referrer></script>
+<script src=https://blog.bear-su.dev/js/script.js></script>
+</body>
+</html>

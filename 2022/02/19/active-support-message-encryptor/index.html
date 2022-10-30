@@ -1,0 +1,237 @@
+<!doctype html><html lang=en-us>
+<head>
+<link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png>
+<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
+<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png>
+<link rel=manifest href=/site.webmanifest>
+<link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5>
+<meta name=msapplication-TileColor content="#da532c">
+<meta name=theme-color content="#ffffff">
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta http-equiv=x-ua-compatible content="ie=edge,chrome=1">
+<title>Rails ActiveSupport::MessageEncryptor &#183; Bear Su's Blog - Running Bear!!! </title>
+<meta name=generator content="Hugo 0.92.0">
+<meta name=description content="Running Bear!!!">
+<meta name=twitter:card content="summary_large_image">
+<meta name=twitter:image content="https://blog.bear-su.dev/images/bear.jpeg">
+<meta name=twitter:title content="Rails ActiveSupport::MessageEncryptor">
+<meta name=twitter:description content="啟動 Rails Server 時，如果沒有 config/master.key ，或是 config/master.key 無法解密 config/credentials.yml.enc，就會出現 ActiveSupport::MessageEncryptor 的錯誤
+為 Production 環境準備一個 config/master.key 跟 config/credentials.yml.enc 在管理與部屬上不太方便
+在 Rails 6 之後，可以依據環境變數產生並套用不同的 credentials
+Rails credentials ¶ 執行指令查看 rails credentials 相關說明
+rails credentials:help 輸出(節錄部分)
+... === Environment Specific Credentials The `credentials` command supports passing an `--environment` option to create an environment specific override. That override will take precedence over the global `config/credentials.yml.enc` file when running in that environment. So: bin/rails credentials:edit --environment development will create `config/credentials/development.">
+<meta property="og:title" content="Rails ActiveSupport::MessageEncryptor">
+<meta property="og:description" content="啟動 Rails Server 時，如果沒有 config/master.key ，或是 config/master.key 無法解密 config/credentials.yml.enc，就會出現 ActiveSupport::MessageEncryptor 的錯誤
+為 Production 環境準備一個 config/master.key 跟 config/credentials.yml.enc 在管理與部屬上不太方便
+在 Rails 6 之後，可以依據環境變數產生並套用不同的 credentials
+Rails credentials ¶ 執行指令查看 rails credentials 相關說明
+rails credentials:help 輸出(節錄部分)
+... === Environment Specific Credentials The `credentials` command supports passing an `--environment` option to create an environment specific override. That override will take precedence over the global `config/credentials.yml.enc` file when running in that environment. So: bin/rails credentials:edit --environment development will create `config/credentials/development.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://blog.bear-su.dev/2022/02/19/active-support-message-encryptor/"><meta property="og:image" content="https://blog.bear-su.dev/images/bear.jpeg"><meta property="article:section" content>
+<meta property="article:published_time" content="2022-02-19T12:00:00+08:00">
+<meta property="article:modified_time" content="2022-02-19T12:00:00+08:00">
+<link href rel=alternate type=application/rss+xml title="Bear Su's Blog">
+<link href rel=feed type=application/rss+xml title="Bear Su's Blog">
+<meta itemprop=name content="Rails ActiveSupport::MessageEncryptor">
+<meta itemprop=description content="啟動 Rails Server 時，如果沒有 config/master.key ，或是 config/master.key 無法解密 config/credentials.yml.enc，就會出現 ActiveSupport::MessageEncryptor 的錯誤
+為 Production 環境準備一個 config/master.key 跟 config/credentials.yml.enc 在管理與部屬上不太方便
+在 Rails 6 之後，可以依據環境變數產生並套用不同的 credentials
+Rails credentials ¶ 執行指令查看 rails credentials 相關說明
+rails credentials:help 輸出(節錄部分)
+... === Environment Specific Credentials The `credentials` command supports passing an `--environment` option to create an environment specific override. That override will take precedence over the global `config/credentials.yml.enc` file when running in that environment. So: bin/rails credentials:edit --environment development will create `config/credentials/development."><meta itemprop=datePublished content="2022-02-19T12:00:00+08:00">
+<meta itemprop=dateModified content="2022-02-19T12:00:00+08:00">
+<meta itemprop=wordCount content="192"><meta itemprop=image content="https://blog.bear-su.dev/images/bear.jpeg">
+<meta itemprop=keywords content>
+<link href="https://fonts.googleapis.com/css?family=Lato:400" rel=stylesheet>
+<link rel=stylesheet href=https://blog.bear-su.dev/css/style.css>
+<script type=application/ld+json>{"@context":"http://schema.org","@type":"WebSite","name":"Bear Su\u0027s Blog","url":"https:\/\/blog.bear-su.dev\/2022\/02\/19\/active-support-message-encryptor\/"}</script>
+</head>
+<body>
+<header class=gheader>
+<div class=container>
+<nav class=navbar>
+<div class=navbar-brand>
+<a class=navbar-item href=https://blog.bear-su.dev>
+<p class=brand>Bear Su's Blog</p>
+</a>
+<div class="navbar-burger burger" data-target=navMenubd-example>
+<span></span>
+<span></span>
+<span></span>
+</div>
+</div>
+<div id=navMenubd-example class=navbar-menu>
+<div class=navbar-start>
+<a class=navbar-item href=/categories/>
+Categories
+</a>
+<a class=navbar-item href=https://github.com/timfanda35>
+GitHub
+</a>
+<a class=navbar-item href=https://www.linkedin.com/in/bearsu>
+Linkedin
+</a>
+<a class=navbar-item href=https://twitter.com/Fandayo>
+Twitter
+</a>
+</div>
+</div>
+</nav>
+</div>
+</header>
+<div class=main-content>
+<div class=container>
+<article class=post>
+<header class=post-header>
+<h1 class=title>Rails ActiveSupport::MessageEncryptor</h1>
+<div class=meta>
+<time class=pub-time datetime=2022-02-19T12:00:00+08:00>
+2022.02.19
+</time>
+<div class=terms>
+<div class=categories>
+<a class=categories-item href=/categories/rails>rails</a>
+</div>
+</div>
+</div>
+</header>
+<div class=post-body>
+<div class=toc-wrap>
+<h2>Table of Contents</h2>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#rails-credentials>Rails credentials</a></li>
+<li><a href=#新增編輯-credentials>新增/編輯 credentials</a></li>
+<li><a href=#查看-credentials>查看 credentials</a></li>
+<li><a href=#使用-credentials>使用 credentials</a></li>
+<li><a href=#使用環境變數>使用環境變數</a></li>
+<li><a href=#ref>Ref</a></li>
+</ul>
+</nav>
+</div>
+<p>啟動 Rails Server 時，如果沒有 <code>config/master.key</code> ，或是 <code>config/master.key</code> 無法解密 <code>config/credentials.yml.enc</code>，就會出現 <code>ActiveSupport::MessageEncryptor</code> 的錯誤</p>
+<p>為 Production 環境準備一個 <code>config/master.key</code> 跟 <code>config/credentials.yml.enc</code> 在管理與部屬上不太方便</p>
+<p>在 Rails 6 之後，可以依據環境變數產生並套用不同的 credentials</p>
+<h2 id=rails-credentials>Rails credentials <a href=#rails-credentials>¶</a></h2>
+<hr>
+<p>執行指令查看 rails credentials 相關說明</p>
+<pre tabindex=0><code>rails credentials:help
+</code></pre><p>輸出(節錄部分)</p>
+<pre tabindex=0><code>...
+
+
+=== Environment Specific Credentials
+
+The `credentials` command supports passing an `--environment` option to create an
+environment specific override. That override will take precedence over the
+global `config/credentials.yml.enc` file when running in that environment. So:
+
+   bin/rails credentials:edit --environment development
+
+will create `config/credentials/development.yml.enc` with the corresponding
+encryption key in `config/credentials/development.key` if the credentials file
+doesn't exist.
+
+The encryption key can also be put in `ENV[&quot;RAILS_MASTER_KEY&quot;]`, which takes
+precedence over the file encryption key.
+
+In addition to that, the default credentials lookup paths can be overridden through
+`config.credentials.content_path` and `config.credentials.key_path`.
+</code></pre><h2 id=新增編輯-credentials>新增/編輯 credentials <a href=#%e6%96%b0%e5%a2%9e%e7%b7%a8%e8%bc%af-credentials>¶</a></h2>
+<hr>
+<p>建立給 production environment 用的 credentials</p>
+<pre tabindex=0><code>rails credentials:edit --environment production
+</code></pre><p>credentials 與 key 放在 <code>config/credentials</code> 目錄下，檔案為：</p>
+<ul>
+<li><code>config/credentials/production.key</code></li>
+<li><code>config/credentials/production.yml.enc</code></li>
+</ul>
+<p>記得在 <code>.gitignore</code> 中新增規則排除 key</p>
+<pre tabindex=0><code>/config/credentials/*.key
+</code></pre><h2 id=查看-credentials>查看 credentials <a href=#%e6%9f%a5%e7%9c%8b-credentials>¶</a></h2>
+<hr>
+<pre tabindex=0><code>rails credentials:show --environment production
+</code></pre><h2 id=使用-credentials>使用 credentials <a href=#%e4%bd%bf%e7%94%a8-credentials>¶</a></h2>
+<hr>
+<p>在 Rails 程式中，我們可以這樣使用 credentials</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-ruby data-lang=ruby><span style=color:#75715e># 取得全部 config hash</span>
+<span style=color:#66d9ef>Rails</span><span style=color:#f92672>.</span>application<span style=color:#f92672>.</span>credentials<span style=color:#f92672>.</span>config
+<span style=color:#75715e>#=&gt; {:aws=&gt;{:access_key_id=&gt;&#34;123&#34;, :secret_access_key=&gt;&#34;456&#34;}}</span>
+
+<span style=color:#75715e># 只取部分值</span>
+<span style=color:#66d9ef>Rails</span><span style=color:#f92672>.</span>application<span style=color:#f92672>.</span>credentials<span style=color:#f92672>.</span>aws<span style=color:#f92672>[</span><span style=color:#e6db74>:access_key_id</span><span style=color:#f92672>]</span>
+<span style=color:#75715e>#=&gt; &#34;123&#34;</span>
+</code></pre></div><h2 id=使用環境變數>使用環境變數 <a href=#%e4%bd%bf%e7%94%a8%e7%92%b0%e5%a2%83%e8%ae%8a%e6%95%b8>¶</a></h2>
+<hr>
+<p>我們也可以將 Master key 設為環境變數而不儲存在檔案中，以 Heroku 為例：</p>
+<pre tabindex=0><code>heroku config:set RAILS_MASTER_KEY=`cat config/credentials/production.key`
+</code></pre><p>這樣就不用把 key 上傳 git，或是想辦法塞入檔案了</p>
+<h2 id=ref>Ref <a href=#ref>¶</a></h2>
+<hr>
+<ul>
+<li><a href=https://blog.saeloun.com/2019/10/10/rails-6-adds-support-for-multi-environment-credentials.html>https://blog.saeloun.com/2019/10/10/rails-6-adds-support-for-multi-environment-credentials.html</a></li>
+</ul>
+</div>
+<footer class=post-footer>
+<hr>
+<div style=margin-top:2.5rem>
+<div style=display:flex;justify-content:center;width:100%>
+<p style=color:gray>
+如果覺得這篇文章對您有所幫助，歡迎贊助我一杯咖啡 ☕️
+</p>
+</div>
+<div style=display:flex;justify-content:center;width:100%>
+<p style=color:gray>
+祝您有美好的一天 ❤️
+</p>
+</div>
+<div style=display:flex;justify-content:center;width:100%;margin-top:1rem>
+<script type=text/javascript src=https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js data-name=bmc-button data-slug=timfanda35 data-color=#FFDD00 data-emoji data-font=Bree data-text="Buy me a coffee" data-outline-color=#000000 data-font-color=#000000 data-coffee-color=#ffffff></script>
+</div>
+</div>
+<hr>
+<div style=margin-top:1rem>
+<script src=https://utteranc.es/client.js repo=timfanda35/timfanda35.github.io issue-term=pathname label=comment theme=github-light crossorigin=anonymous async></script>
+</div>
+<div class=share>
+</div>
+<div class=pagenation>
+<ul class=pagenation-list>
+<li class="pager previous">
+<a href=https://blog.bear-su.dev/2022/02/16/gem-install-fail-with-dind/ data-toggle=tooltip data-placement=top title="gem install fail with docker in docker">&larr; Previous Post</a>
+</li>
+<li class="pager next">
+<a href=https://blog.bear-su.dev/2022/02/20/docker-log-on-gce/ data-toggle=tooltip data-placement=top title="Docker log on Google Compute Engine">Next Post &rarr;</a>
+</li>
+</ul>
+</div>
+</footer>
+</article>
+<article class=related></article>
+<script type=application/ld+json>{"@context":"http://schema.org","@type":"NewsArticle","mainEntityOfPage":{"@type":"NewsArticle","@id":"https:\/\/blog.bear-su.dev\/2022\/02\/19\/active-support-message-encryptor\/","headline":"啟動 Rails Server 時，如果沒有 config\/master.key ，或是 config\/master.key 無法解密 config\/credentials.yml.enc，就會出現 ActiveSupp","author":"Bear Su","publisher":{"@type":"Organization","name":"Bear Su","logo":""},"image":"","datePublished":"2022-02-19"},"headline":"啟動 Rails Server 時，如果沒有 config\/master.key ，或是 config\/master.key 無法解密 config\/credentials.yml.enc，就會出現 ActiveSupp","alternativeHeadline":"Bear Su\u0027s Blog","datePublished":"2022-02-19","dateModified":"2022-02-19","url":"https:\/\/blog.bear-su.dev\/2022\/02\/19\/active-support-message-encryptor\/","wordCount":"192","author":{"@type":"Person","name":"Bear Su"},"publisher":{"@type":"Organization","name":"Bear Su"},"image":"","genre":"rails","description":""}</script>
+<script type=application/ld+json>{"@context":"http://schema.org","@type":"Person","@id":"https:\/\/blog.bear-su.dev\/2022\/02\/19\/active-support-message-encryptor\/","name":"Bear Su"}</script>
+</div>
+</div>
+<footer class=gfooter>
+<div class=inner>
+<div class=container>
+<p class=copy>
+<small>Copyright © 2015 - 2022 Bear Su's Blog</small>
+<small> | 本部落格有使用 Google Analytic 及 Cookie</small>
+</p>
+<nav class=footer-nav>
+<div class=inner>
+</div>
+</nav>
+</div>
+</div>
+</footer>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KJXNT5CQCS"></script>
+<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-KJXNT5CQCS',{anonymize_ip:!1})}</script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin=anonymous referrerpolicy=no-referrer></script>
+<script src=https://blog.bear-su.dev/js/script.js></script>
+</body>
+</html>

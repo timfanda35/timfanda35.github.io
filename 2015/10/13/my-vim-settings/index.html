@@ -1,0 +1,373 @@
+<!doctype html><html lang=en-us>
+<head>
+<link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png>
+<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
+<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png>
+<link rel=manifest href=/site.webmanifest>
+<link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5>
+<meta name=msapplication-TileColor content="#da532c">
+<meta name=theme-color content="#ffffff">
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta http-equiv=x-ua-compatible content="ie=edge,chrome=1">
+<title>My Vim 設定 &#183; Bear Su's Blog - Running Bear!!! </title>
+<meta name=generator content="Hugo 0.92.0">
+<meta name=description content="Running Bear!!!">
+<meta name=twitter:card content="summary_large_image">
+<meta name=twitter:image content="https://blog.bear-su.dev/images/bear.jpeg">
+<meta name=twitter:title content="My Vim 設定">
+<meta name=twitter:description content="紀錄一下我的 vim 設定，還在學習中，所以會不定期更新。
+
+安裝 Vundle ¶
+install dependency in ubuntu ¶
+
+
+sudo apt-get install git curl
+Install Vundle ¶
+
+
+git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+Vundle：Vim Plugin 自動下載、安裝、更新與管理工具（Vim Bundle)">
+<meta property="og:title" content="My Vim 設定">
+<meta property="og:description" content="紀錄一下我的 vim 設定，還在學習中，所以會不定期更新。
+
+安裝 Vundle ¶
+install dependency in ubuntu ¶
+
+
+sudo apt-get install git curl
+Install Vundle ¶
+
+
+git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+Vundle：Vim Plugin 自動下載、安裝、更新與管理工具（Vim Bundle)">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://blog.bear-su.dev/2015/10/13/my-vim-settings/"><meta property="og:image" content="https://blog.bear-su.dev/images/bear.jpeg"><meta property="article:section" content>
+<meta property="article:published_time" content="2015-10-13T08:01:00+08:00">
+<meta property="article:modified_time" content="2015-10-13T08:01:00+08:00">
+<link href rel=alternate type=application/rss+xml title="Bear Su's Blog">
+<link href rel=feed type=application/rss+xml title="Bear Su's Blog">
+<meta itemprop=name content="My Vim 設定">
+<meta itemprop=description content="紀錄一下我的 vim 設定，還在學習中，所以會不定期更新。
+
+安裝 Vundle ¶
+install dependency in ubuntu ¶
+
+
+sudo apt-get install git curl
+Install Vundle ¶
+
+
+git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+Vundle：Vim Plugin 自動下載、安裝、更新與管理工具（Vim Bundle)"><meta itemprop=datePublished content="2015-10-13T08:01:00+08:00">
+<meta itemprop=dateModified content="2015-10-13T08:01:00+08:00">
+<meta itemprop=wordCount content="322"><meta itemprop=image content="https://blog.bear-su.dev/images/bear.jpeg">
+<meta itemprop=keywords content>
+<link href="https://fonts.googleapis.com/css?family=Lato:400" rel=stylesheet>
+<link rel=stylesheet href=https://blog.bear-su.dev/css/style.css>
+<script type=application/ld+json>{"@context":"http://schema.org","@type":"WebSite","name":"Bear Su\u0027s Blog","url":"https:\/\/blog.bear-su.dev\/2015\/10\/13\/my-vim-settings\/"}</script>
+</head>
+<body>
+<header class=gheader>
+<div class=container>
+<nav class=navbar>
+<div class=navbar-brand>
+<a class=navbar-item href=https://blog.bear-su.dev>
+<p class=brand>Bear Su's Blog</p>
+</a>
+<div class="navbar-burger burger" data-target=navMenubd-example>
+<span></span>
+<span></span>
+<span></span>
+</div>
+</div>
+<div id=navMenubd-example class=navbar-menu>
+<div class=navbar-start>
+<a class=navbar-item href=/categories/>
+Categories
+</a>
+<a class=navbar-item href=https://github.com/timfanda35>
+GitHub
+</a>
+<a class=navbar-item href=https://www.linkedin.com/in/bearsu>
+Linkedin
+</a>
+<a class=navbar-item href=https://twitter.com/Fandayo>
+Twitter
+</a>
+</div>
+</div>
+</nav>
+</div>
+</header>
+<div class=main-content>
+<div class=container>
+<article class=post>
+<header class=post-header>
+<h1 class=title>My Vim 設定</h1>
+<div class=meta>
+<time class=pub-time datetime=2015-10-13T08:01:00+08:00>
+2015.10.13
+</time>
+<div class=terms>
+<div class=categories>
+<a class=categories-item href=/categories/vim>vim</a>
+</div>
+</div>
+</div>
+</header>
+<div class=post-body>
+<div class=toc-wrap>
+<h2>Table of Contents</h2>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#install-dependency-in-ubuntu>install dependency in ubuntu</a></li>
+<li><a href=#install-vundle>Install Vundle</a></li>
+</ul>
+<ul>
+<li><a href=#plugin-list>Plugin list</a></li>
+<li><a href=#nerdtreehttpsgithubcomscrooloosenerdtree><a href=https://github.com/scrooloose/nerdtree>nerdtree</a></a></li>
+<li><a href=#vim-rubyhttpsgithubcomvim-rubyvim-ruby><a href=https://github.com/vim-ruby/vim-ruby>vim-ruby</a></a></li>
+<li><a href=#vim-railshttpsgithubcomtpopevim-rails><a href=https://github.com/tpope/vim-rails>vim-rails</a></a></li>
+<li><a href=#vim-bundlerhttpsgithubcomtpopevim-bundler><a href=https://github.com/tpope/vim-bundler>vim-bundler</a></a></li>
+<li><a href=#vim-dispatchhttpsgithubcomtpopevim-dispatch><a href=https://github.com/tpope/vim-dispatch>vim-dispatch</a></a></li>
+<li><a href=#vim-rspechttpsgithubcomthoughtbotvim-rspec><a href=https://github.com/thoughtbot/vim-rspec>vim-rspec</a></a></li>
+<li><a href=#tcommenthttpsgithubcomvim-scriptstcomment><a href=https://github.com/vim-scripts/tComment>tComment</a></a></li>
+<li><a href=#vim-css-colorhttpsgithubcomapvim-css-color><a href=https://github.com/ap/vim-css-color>vim-css-color</a></a></li>
+<li><a href=#vim-addon-mw-utilshttpsgithubcommarcwebervim-addon-mw-utils><a href=https://github.com/MarcWeber/vim-addon-mw-utils>vim-addon-mw-utils</a></a></li>
+<li><a href=#vim-tlib_vimhttpsgithubcomtomtomtlib_vim><a href=https://github.com/tomtom/tlib_vim>vim-tlib_vim</a></a></li>
+<li><a href=#vim-snipmatehttpsgithubcomgarbasvim-snipmate><a href=https://github.com/garbas/vim-snipmate>vim-snipmate</a></a></li>
+<li><a href=#vim-snippetshttpsgithubcomhonzavim-snippets><a href=https://github.com/honza/vim-snippets>vim-snippets</a></a></li>
+<li><a href=#vim-better-whitespacehttpsgithubcomntpetersvim-better-whitespace><a href=https://github.com/ntpeters/vim-better-whitespace>vim-better-whitespace</a></a></li>
+<li><a href=#install-plugins>Install Plugins</a></li>
+</ul>
+</nav>
+</div>
+<p>紀錄一下我的 vim 設定，還在學習中，所以會不定期更新。</p>
+<hr>
+<h1 id=安裝-vundle>安裝 Vundle <a href=#%e5%ae%89%e8%a3%9d-vundle>¶</a></h1>
+<h2 id=install-dependency-in-ubuntu>install dependency in ubuntu <a href=#install-dependency-in-ubuntu>¶</a></h2>
+<hr>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>sudo apt-get install git curl
+</code></pre></div><h2 id=install-vundle>Install Vundle <a href=#install-vundle>¶</a></h2>
+<hr>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+</code></pre></div><p><a href=http://blogger.gtwang.org/2014/04/vundle-vim-bundle-plugin-manager.html>Vundle：Vim Plugin 自動下載、安裝、更新與管理工具（Vim Bundle)</a></p>
+<hr>
+<h1 id=configure-vim>Configure Vim <a href=#configure-vim>¶</a></h1>
+<p>編輯 <code>~/.vimrc</code></p>
+<pre tabindex=0><code class=language-config data-lang=config>set nocompatible              &quot; be iMproved, required
+set noswapfile
+set encoding=utf-8
+
+filetype off                  &quot; required
+
+&quot; set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+&quot; let Vundle manage Vundle, required
+Plugin 'gmarik/vundle'
+
+Plugin 'scrooloose/nerdtree'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'tpope/vim-rails'
+Plugin 'tpope/vim-bundler'
+Plugin 'tpope/vim-dispatch'
+Plugin 'thoughtbot/vim-rspec'
+Plugin 'vim-scripts/tComment'
+Plugin 'ap/vim-css-color'
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'garbas/vim-snipmate'
+Plugin 'honza/vim-snippets'
+Plugin 'ntpeters/vim-better-whitespace'
+
+filetype plugin indent on     &quot; required
+
+&quot; RSpec.vim mappings
+map &lt;Leader&gt;t :call RunCurrentSpecFile()&lt;CR&gt;
+map &lt;Leader&gt;s :call RunNearestSpec()&lt;CR&gt;
+map &lt;Leader&gt;l :call RunLastSpec()&lt;CR&gt;
+map &lt;Leader&gt;a :call RunAllSpecs()&lt;CR&gt;
+
+&quot; common setting
+syntax on
+set expandtab
+set shiftwidth=2
+set softtabstop=2
+set tabstop=2
+set number
+set cindent
+set autoindent
+
+&quot; 在所有 window 顯示狀態列
+set laststatus=2
+
+&quot; 提示游標所在的行
+set cursorline
+&quot; set cursorcolumn
+
+&quot; 高光搜尋
+set hlsearch
+
+&quot; default show hidden files
+let NERDTreeShowHidden=1
+&quot; use F3 toggle
+noremap &lt;F3&gt; &lt;ESC&gt;:NERDTreeToggle&lt;CR&gt;
+&quot; user F5 to run rake
+noremap &lt;F5&gt; &lt;ESC&gt;:!rake&lt;CR&gt;
+
+&quot; auto remove unwant space:w
+autocmd BufWritePre * StripWhitespace
+
+</code></pre><hr>
+<h2 id=plugin-list>Plugin list <a href=#plugin-list>¶</a></h2>
+<hr>
+<h2 id=nerdtreehttpsgithubcomscrooloosenerdtree><a href=https://github.com/scrooloose/nerdtree>nerdtree</a> <a href=#nerdtreehttpsgithubcomscrooloosenerdtree>¶</a></h2>
+<hr>
+<blockquote>
+<p>檔案導覽，<a href>文件</a></p>
+</blockquote>
+<h2 id=vim-rubyhttpsgithubcomvim-rubyvim-ruby><a href=https://github.com/vim-ruby/vim-ruby>vim-ruby</a> <a href=#vim-rubyhttpsgithubcomvim-rubyvim-ruby>¶</a></h2>
+<hr>
+<blockquote>
+<p>Ruby 支援，<a href=https://github.com/vim-ruby/vim-ruby/blob/master/doc/vim-ruby.txt>文件</a></p>
+</blockquote>
+<h2 id=vim-railshttpsgithubcomtpopevim-rails><a href=https://github.com/tpope/vim-rails>vim-rails</a> <a href=#vim-railshttpsgithubcomtpopevim-rails>¶</a></h2>
+<hr>
+<blockquote>
+<p>Rails 支援，<a href=https://github.com/tpope/vim-rails/blob/master/doc/rails.txt>文件</a></p>
+</blockquote>
+<h2 id=vim-bundlerhttpsgithubcomtpopevim-bundler><a href=https://github.com/tpope/vim-bundler>vim-bundler</a> <a href=#vim-bundlerhttpsgithubcomtpopevim-bundler>¶</a></h2>
+<hr>
+<blockquote>
+<p>Bundler 指令支援，<a href=https://github.com/tpope/vim-bundler/blob/master/doc/bundler.txt>文件</a></p>
+</blockquote>
+<h2 id=vim-dispatchhttpsgithubcomtpopevim-dispatch><a href=https://github.com/tpope/vim-dispatch>vim-dispatch</a> <a href=#vim-dispatchhttpsgithubcomtpopevim-dispatch>¶</a></h2>
+<hr>
+<blockquote>
+<p>非同步建置與測試，<a href=https://github.com/tpope/vim-dispatch/blob/master/doc/dispatch.txt>文件</a></p>
+</blockquote>
+<h2 id=vim-rspechttpsgithubcomthoughtbotvim-rspec><a href=https://github.com/thoughtbot/vim-rspec>vim-rspec</a> <a href=#vim-rspechttpsgithubcomthoughtbotvim-rspec>¶</a></h2>
+<hr>
+<blockquote>
+<p>Rspec 支援，<a href=https://github.com/thoughtbot/vim-rspec>文件</a></p>
+</blockquote>
+<h2 id=tcommenthttpsgithubcomvim-scriptstcomment><a href=https://github.com/vim-scripts/tComment>tComment</a> <a href=#tcommenthttpsgithubcomvim-scriptstcomment>¶</a></h2>
+<hr>
+<blockquote>
+<p>提供註解的熱鍵，<a href=https://github.com/vim-scripts/tComment/blob/master/doc/tcomment.txt>文件</a></p>
+</blockquote>
+<h2 id=vim-css-colorhttpsgithubcomapvim-css-color><a href=https://github.com/ap/vim-css-color>vim-css-color</a> <a href=#vim-css-colorhttpsgithubcomapvim-css-color>¶</a></h2>
+<hr>
+<blockquote>
+<p>可以在 vim 中看到色碼的顏色</p>
+</blockquote>
+<h2 id=vim-addon-mw-utilshttpsgithubcommarcwebervim-addon-mw-utils><a href=https://github.com/MarcWeber/vim-addon-mw-utils>vim-addon-mw-utils</a> <a href=#vim-addon-mw-utilshttpsgithubcommarcwebervim-addon-mw-utils>¶</a></h2>
+<hr>
+<blockquote>
+<p>For vim-snipmate</p>
+</blockquote>
+<h2 id=vim-tlib_vimhttpsgithubcomtomtomtlib_vim><a href=https://github.com/tomtom/tlib_vim>vim-tlib_vim</a> <a href=#vim-tlib_vimhttpsgithubcomtomtomtlib_vim>¶</a></h2>
+<hr>
+<blockquote>
+<p>For vim-snipmate</p>
+</blockquote>
+<h2 id=vim-snipmatehttpsgithubcomgarbasvim-snipmate><a href=https://github.com/garbas/vim-snipmate>vim-snipmate</a> <a href=#vim-snipmatehttpsgithubcomgarbasvim-snipmate>¶</a></h2>
+<hr>
+<blockquote>
+<p>提供一些常用的程式碼片段，按 tab 補齊，讓寫 code 稍微快一點，<a href=https://github.com/garbas/vim-snipmate/blob/master/doc/SnipMate.txt>文件</a></p>
+</blockquote>
+<h2 id=vim-snippetshttpsgithubcomhonzavim-snippets><a href=https://github.com/honza/vim-snippets>vim-snippets</a> <a href=#vim-snippetshttpsgithubcomhonzavim-snippets>¶</a></h2>
+<hr>
+<blockquote>
+<p>支援更多程式語言的程式碼片段</p>
+</blockquote>
+<h2 id=vim-better-whitespacehttpsgithubcomntpetersvim-better-whitespace><a href=https://github.com/ntpeters/vim-better-whitespace>vim-better-whitespace</a> <a href=#vim-better-whitespacehttpsgithubcomntpetersvim-better-whitespace>¶</a></h2>
+<hr>
+<blockquote>
+<p>顯示行尾多餘空白，並提供移除功能</p>
+</blockquote>
+<hr>
+<h2 id=install-plugins>Install Plugins <a href=#install-plugins>¶</a></h2>
+<hr>
+<p>Run command in terminal:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>vim +PluginInstall +qall
+</code></pre></div><p>Or run command in vim</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>:PluginInstall
+</code></pre></div><hr>
+<h1 id=faq>FAQ <a href=#faq>¶</a></h1>
+<p>Q: Occur error when edit git commit in MAC OSX</p>
+<p>A: run <code>git config --global core.editor /usr/bin/vim</code> to fix.</p>
+<p><a href=http://tooky.co.uk/there-was-a-problem-with-the-editor-vi-git-on-mac-os-x/>Fixing &ldquo;There was a problem with the editor &lsquo;vi&rsquo;&rdquo; for Git on Mac OS X Snow Leopard</a></p>
+<hr>
+<h1 id=參考>參考 <a href=#%e5%8f%83%e8%80%83>¶</a></h1>
+<ul>
+<li><a href=https://masteruby.github.io/productivity-booster/2014/05/02/vim-plugins-for-ruby.html#.VhyteLwkzMU>Vim for Rubyist: 10 useful vim plugins for Ruby</a></li>
+<li><a href=https://reinteractive.net/posts/166-awesome-vim-plugins>Awesome Vim Plugins</a></li>
+<li><a href=http://www.openfoundry.org/en/tech-column/2244--vim-plugin>十個必用的 Vim Plugin</a></li>
+<li><a href=https://www.darkshell.me/2015/05/06/ding-zhi-ni-de-vim/>定制你的 Vim</a></li>
+<li><a href=https://ruby-china.org/topics/25295>手把手将 Vim 打造成开发 Ruby 和 Rails 的强大 IDE</a></li>
+</ul>
+</div>
+<footer class=post-footer>
+<hr>
+<div style=margin-top:2.5rem>
+<div style=display:flex;justify-content:center;width:100%>
+<p style=color:gray>
+如果覺得這篇文章對您有所幫助，歡迎贊助我一杯咖啡 ☕️
+</p>
+</div>
+<div style=display:flex;justify-content:center;width:100%>
+<p style=color:gray>
+祝您有美好的一天 ❤️
+</p>
+</div>
+<div style=display:flex;justify-content:center;width:100%;margin-top:1rem>
+<script type=text/javascript src=https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js data-name=bmc-button data-slug=timfanda35 data-color=#FFDD00 data-emoji data-font=Bree data-text="Buy me a coffee" data-outline-color=#000000 data-font-color=#000000 data-coffee-color=#ffffff></script>
+</div>
+</div>
+<hr>
+<div style=margin-top:1rem>
+<script src=https://utteranc.es/client.js repo=timfanda35/timfanda35.github.io issue-term=pathname label=comment theme=github-light crossorigin=anonymous async></script>
+</div>
+<div class=share>
+</div>
+<div class=pagenation>
+<ul class=pagenation-list>
+<li class="pager previous">
+<a href=https://blog.bear-su.dev/2015/08/05/growthhack-views/ data-toggle=tooltip data-placement=top title="GrowthHack 心得">&larr; Previous Post</a>
+</li>
+<li class="pager next">
+<a href=https://blog.bear-su.dev/2015/10/13/mac-osx-ruby-console-can-not-input-chinese/ data-toggle=tooltip data-placement=top title="MAC OSX ruby console 無法輸入中文">Next Post &rarr;</a>
+</li>
+</ul>
+</div>
+</footer>
+</article>
+<article class=related></article>
+<script type=application/ld+json>{"@context":"http://schema.org","@type":"NewsArticle","mainEntityOfPage":{"@type":"NewsArticle","@id":"https:\/\/blog.bear-su.dev\/2015\/10\/13\/my-vim-settings\/","headline":"紀錄一下我的 vim 設定，還在學習中，所以會不定期更新。 安裝 Vundle ¶ install dependency in ubuntu ¶ sudo apt-get install git curl Install","author":"Bear Su","publisher":{"@type":"Organization","name":"Bear Su","logo":""},"image":"","datePublished":"2015-10-13"},"headline":"紀錄一下我的 vim 設定，還在學習中，所以會不定期更新。 安裝 Vundle ¶ install dependency in ubuntu ¶ sudo apt-get install git curl Install","alternativeHeadline":"Bear Su\u0027s Blog","datePublished":"2015-10-13","dateModified":"2015-10-13","url":"https:\/\/blog.bear-su.dev\/2015\/10\/13\/my-vim-settings\/","wordCount":"322","author":{"@type":"Person","name":"Bear Su"},"publisher":{"@type":"Organization","name":"Bear Su"},"image":"","genre":"vim","description":""}</script>
+<script type=application/ld+json>{"@context":"http://schema.org","@type":"Person","@id":"https:\/\/blog.bear-su.dev\/2015\/10\/13\/my-vim-settings\/","name":"Bear Su"}</script>
+</div>
+</div>
+<footer class=gfooter>
+<div class=inner>
+<div class=container>
+<p class=copy>
+<small>Copyright © 2015 - 2022 Bear Su's Blog</small>
+<small> | 本部落格有使用 Google Analytic 及 Cookie</small>
+</p>
+<nav class=footer-nav>
+<div class=inner>
+</div>
+</nav>
+</div>
+</div>
+</footer>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KJXNT5CQCS"></script>
+<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-KJXNT5CQCS',{anonymize_ip:!1})}</script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin=anonymous referrerpolicy=no-referrer></script>
+<script src=https://blog.bear-su.dev/js/script.js></script>
+</body>
+</html>

@@ -1,0 +1,292 @@
+<!doctype html><html lang=en-us>
+<head>
+<link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png>
+<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
+<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png>
+<link rel=manifest href=/site.webmanifest>
+<link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5>
+<meta name=msapplication-TileColor content="#da532c">
+<meta name=theme-color content="#ffffff">
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta http-equiv=x-ua-compatible content="ie=edge,chrome=1">
+<title>Traefik ForwardAuth 筆記 &#183; Bear Su's Blog - Running Bear!!! </title>
+<meta name=generator content="Hugo 0.92.0">
+<meta name=description content="Running Bear!!!">
+<meta name=twitter:card content="summary_large_image">
+<meta name=twitter:image content="https://blog.bear-su.dev/images/bear.jpeg">
+<meta name=twitter:title content="Traefik ForwardAuth 筆記">
+<meta name=twitter:description content="想要在 Traefik 設定呼叫外部服務來驗證請求是否可以轉發至後端。
+示意圖 ¶ 當請求送往 Traefik 的時候，會先將請求轉發至 Auth Service，透過 Auth Service 回傳的 HTTP Status Code 來決定能不能將請求轉送至 Backend。
+Client <--> Traefik <--> Backend ^ | Forward Auth v Auth Service 使用 Docker Compose 建立測試環境 ¶ 假設本地環境為 Linux-like 作業系統，並已安裝好 Docker、Docker Compose、curl 工具。
+建立目錄
+mkdir traefik-forward-demo cd traefik-forward-demo 新增 traefik 設定檔 ¶ 新增 conf/traefik.yml，設定可參考 server configuration。
+api: insecure: true providers: file: directory: &#34;/etc/traefik&#34; watch: true 新增 conf/dynamic.yml，設定可參考 File provider configuration。為了測試方便，我們分別建立可以驗證成功與失敗的 routers 與 middlewares。">
+<meta property="og:title" content="Traefik ForwardAuth 筆記">
+<meta property="og:description" content="想要在 Traefik 設定呼叫外部服務來驗證請求是否可以轉發至後端。
+示意圖 ¶ 當請求送往 Traefik 的時候，會先將請求轉發至 Auth Service，透過 Auth Service 回傳的 HTTP Status Code 來決定能不能將請求轉送至 Backend。
+Client <--> Traefik <--> Backend ^ | Forward Auth v Auth Service 使用 Docker Compose 建立測試環境 ¶ 假設本地環境為 Linux-like 作業系統，並已安裝好 Docker、Docker Compose、curl 工具。
+建立目錄
+mkdir traefik-forward-demo cd traefik-forward-demo 新增 traefik 設定檔 ¶ 新增 conf/traefik.yml，設定可參考 server configuration。
+api: insecure: true providers: file: directory: &#34;/etc/traefik&#34; watch: true 新增 conf/dynamic.yml，設定可參考 File provider configuration。為了測試方便，我們分別建立可以驗證成功與失敗的 routers 與 middlewares。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://blog.bear-su.dev/2022/02/22/traefik-forwardauth-note/"><meta property="og:image" content="https://blog.bear-su.dev/images/bear.jpeg"><meta property="article:section" content>
+<meta property="article:published_time" content="2022-02-22T12:00:00+08:00">
+<meta property="article:modified_time" content="2022-02-22T12:00:00+08:00">
+<link href rel=alternate type=application/rss+xml title="Bear Su's Blog">
+<link href rel=feed type=application/rss+xml title="Bear Su's Blog">
+<meta itemprop=name content="Traefik ForwardAuth 筆記">
+<meta itemprop=description content="想要在 Traefik 設定呼叫外部服務來驗證請求是否可以轉發至後端。
+示意圖 ¶ 當請求送往 Traefik 的時候，會先將請求轉發至 Auth Service，透過 Auth Service 回傳的 HTTP Status Code 來決定能不能將請求轉送至 Backend。
+Client <--> Traefik <--> Backend ^ | Forward Auth v Auth Service 使用 Docker Compose 建立測試環境 ¶ 假設本地環境為 Linux-like 作業系統，並已安裝好 Docker、Docker Compose、curl 工具。
+建立目錄
+mkdir traefik-forward-demo cd traefik-forward-demo 新增 traefik 設定檔 ¶ 新增 conf/traefik.yml，設定可參考 server configuration。
+api: insecure: true providers: file: directory: &#34;/etc/traefik&#34; watch: true 新增 conf/dynamic.yml，設定可參考 File provider configuration。為了測試方便，我們分別建立可以驗證成功與失敗的 routers 與 middlewares。"><meta itemprop=datePublished content="2022-02-22T12:00:00+08:00">
+<meta itemprop=dateModified content="2022-02-22T12:00:00+08:00">
+<meta itemprop=wordCount content="325"><meta itemprop=image content="https://blog.bear-su.dev/images/bear.jpeg">
+<meta itemprop=keywords content>
+<link href="https://fonts.googleapis.com/css?family=Lato:400" rel=stylesheet>
+<link rel=stylesheet href=https://blog.bear-su.dev/css/style.css>
+<script type=application/ld+json>{"@context":"http://schema.org","@type":"WebSite","name":"Bear Su\u0027s Blog","url":"https:\/\/blog.bear-su.dev\/2022\/02\/22\/traefik-forwardauth-note\/"}</script>
+</head>
+<body>
+<header class=gheader>
+<div class=container>
+<nav class=navbar>
+<div class=navbar-brand>
+<a class=navbar-item href=https://blog.bear-su.dev>
+<p class=brand>Bear Su's Blog</p>
+</a>
+<div class="navbar-burger burger" data-target=navMenubd-example>
+<span></span>
+<span></span>
+<span></span>
+</div>
+</div>
+<div id=navMenubd-example class=navbar-menu>
+<div class=navbar-start>
+<a class=navbar-item href=/categories/>
+Categories
+</a>
+<a class=navbar-item href=https://github.com/timfanda35>
+GitHub
+</a>
+<a class=navbar-item href=https://www.linkedin.com/in/bearsu>
+Linkedin
+</a>
+<a class=navbar-item href=https://twitter.com/Fandayo>
+Twitter
+</a>
+</div>
+</div>
+</nav>
+</div>
+</header>
+<div class=main-content>
+<div class=container>
+<article class=post>
+<header class=post-header>
+<h1 class=title>Traefik ForwardAuth 筆記</h1>
+<div class=meta>
+<time class=pub-time datetime=2022-02-22T12:00:00+08:00>
+2022.02.22
+</time>
+<div class=terms>
+<div class=categories>
+<a class=categories-item href=/categories/docker>docker</a>
+<a class=categories-item href=/categories/traefik>traefik</a>
+</div>
+</div>
+</div>
+</header>
+<div class=post-body>
+<div class=toc-wrap>
+<h2>Table of Contents</h2>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#示意圖>示意圖</a></li>
+<li><a href=#使用-docker-compose-建立測試環境>使用 Docker Compose 建立測試環境</a>
+<ul>
+<li><a href=#新增-traefik-設定檔>新增 traefik 設定檔</a></li>
+</ul>
+</li>
+<li><a href=#啟動測試環境>啟動測試環境</a></li>
+<li><a href=#測試驗證成功的請求>測試驗證成功的請求</a></li>
+<li><a href=#測試驗證失敗的請求>測試驗證失敗的請求</a></li>
+<li><a href=#停止測試環境>停止測試環境</a></li>
+<li><a href=#ref>Ref</a></li>
+</ul>
+</nav>
+</div>
+<p>想要在 Traefik 設定呼叫外部服務來驗證請求是否可以轉發至後端。</p>
+<h2 id=示意圖>示意圖 <a href=#%e7%a4%ba%e6%84%8f%e5%9c%96>¶</a></h2>
+<hr>
+<p>當請求送往 Traefik 的時候，會先將請求轉發至 Auth Service，透過 Auth Service 回傳的 HTTP Status Code 來決定能不能將請求轉送至 Backend。</p>
+<pre tabindex=0><code>Client &lt;--&gt; Traefik &lt;--&gt; Backend
+               ^
+               | Forward Auth
+               v
+             Auth Service
+</code></pre><h2 id=使用-docker-compose-建立測試環境>使用 Docker Compose 建立測試環境 <a href=#%e4%bd%bf%e7%94%a8-docker-compose-%e5%bb%ba%e7%ab%8b%e6%b8%ac%e8%a9%a6%e7%92%b0%e5%a2%83>¶</a></h2>
+<hr>
+<p>假設本地環境為 Linux-like 作業系統，並已安裝好 Docker、Docker Compose、curl 工具。</p>
+<p>建立目錄</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>mkdir traefik-forward-demo
+cd traefik-forward-demo
+</code></pre></div><h3 id=新增-traefik-設定檔>新增 traefik 設定檔 <a href=#%e6%96%b0%e5%a2%9e-traefik-%e8%a8%ad%e5%ae%9a%e6%aa%94>¶</a></h3>
+<p>新增 <code>conf/traefik.yml</code>，設定可參考 <a href=https://doc.traefik.io/traefik/reference/static-configuration/file/>server configuration</a>。</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=color:#f92672>api</span>:
+  <span style=color:#f92672>insecure</span>: <span style=color:#66d9ef>true</span>
+<span style=color:#f92672>providers</span>:
+  <span style=color:#f92672>file</span>:
+    <span style=color:#f92672>directory</span>: <span style=color:#e6db74>&#34;/etc/traefik&#34;</span>
+    <span style=color:#f92672>watch</span>: <span style=color:#66d9ef>true</span>
+</code></pre></div><p>新增 <code>conf/dynamic.yml</code>，設定可參考 <a href=https://doc.traefik.io/traefik/providers/file/>File provider configuration</a>。為了測試方便，我們分別建立可以驗證成功與失敗的 routers 與 middlewares。</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=color:#f92672>http</span>:
+  <span style=color:#f92672>routers</span>:
+    <span style=color:#f92672>succ</span>:
+      <span style=color:#f92672>rule</span>: <span style=color:#e6db74>&#34;Host(`succ-auth.docker.localhost`)&#34;</span>
+      <span style=color:#f92672>service</span>: <span style=color:#ae81ff>myip</span>
+      <span style=color:#f92672>middlewares</span>:
+        - <span style=color:#e6db74>&#34;succ-auth&#34;</span>
+    <span style=color:#f92672>fail</span>:
+      <span style=color:#f92672>rule</span>: <span style=color:#e6db74>&#34;Host(`fail-auth.docker.localhost`)&#34;</span>
+      <span style=color:#f92672>service</span>: <span style=color:#ae81ff>myip</span>
+      <span style=color:#f92672>middlewares</span>:
+        - <span style=color:#e6db74>&#34;fail-auth&#34;</span>
+  <span style=color:#f92672>middlewares</span>:
+    <span style=color:#f92672>succ-auth</span>:
+      <span style=color:#f92672>forwardAuth</span>:
+        <span style=color:#f92672>address</span>: <span style=color:#e6db74>&#34;http://httpbin/headers&#34;</span>
+        <span style=color:#f92672>trustForwardHeader</span>: <span style=color:#66d9ef>true</span>
+    <span style=color:#f92672>fail-auth</span>:
+      <span style=color:#f92672>forwardAuth</span>:
+        <span style=color:#75715e># Set a not found url to make auth fail</span>
+        <span style=color:#f92672>address</span>: <span style=color:#e6db74>&#34;http://httpbin/headersx&#34;</span>
+        <span style=color:#f92672>trustForwardHeader</span>: <span style=color:#66d9ef>true</span>
+  <span style=color:#f92672>services</span>:
+    <span style=color:#f92672>myip</span>:
+      <span style=color:#f92672>loadBalancer</span>:
+        <span style=color:#f92672>passHostHeader</span>: <span style=color:#66d9ef>false</span>
+        <span style=color:#f92672>servers</span>:
+        - <span style=color:#f92672>url</span>: <span style=color:#e6db74>&#34;https://api.ipify.org&#34;</span>
+</code></pre></div><p>新增 <code>docker-compose.yml</code>，建立 traefik container 與用來當作 Auth Service 的 httpbin container。</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=color:#f92672>version</span>: <span style=color:#e6db74>&#39;3&#39;</span>
+
+<span style=color:#f92672>services</span>:
+  <span style=color:#f92672>reverse-proxy</span>:
+    <span style=color:#75715e># The official v2 Traefik docker image</span>
+    <span style=color:#f92672>image</span>: <span style=color:#ae81ff>traefik:v2.5</span>
+    <span style=color:#f92672>ports</span>:
+      <span style=color:#75715e># The HTTP port</span>
+      - <span style=color:#e6db74>&#34;80:80&#34;</span>
+      <span style=color:#75715e># The Web UI (enabled by --api.insecure=true)</span>
+      - <span style=color:#e6db74>&#34;8080:8080&#34;</span>
+    <span style=color:#f92672>volumes</span>:
+      <span style=color:#75715e># So that Traefik can listen to the Docker events</span>
+      - <span style=color:#ae81ff>/var/run/docker.sock:/var/run/docker.sock</span>
+      - <span style=color:#ae81ff>./conf:/etc/traefik</span>
+  <span style=color:#f92672>httpbin</span>:
+    <span style=color:#f92672>image</span>: <span style=color:#ae81ff>kennethreitz/httpbin</span>
+    <span style=color:#f92672>environment</span>: <span style=color:#75715e># Enable httpbin log</span>
+      - <span style=color:#ae81ff>GUNICORN_CMD_ARGS=${GUNICORN_CMD_ARGS}</span>
+</code></pre></div><p>新增 <code>.env</code>，這樣可以讓 httpbin container 印出 access log。</p>
+<pre tabindex=0><code>GUNICORN_CMD_ARGS=&quot;--capture-output --error-logfile - --access-logfile - --access-logformat '%(h)s %(t)s %(r)s %(s)s Host: %({Host}i)s X-MY-ID: %({X-MY-ID}i)s'&quot;
+</code></pre><h2 id=啟動測試環境>啟動測試環境 <a href=#%e5%95%9f%e5%8b%95%e6%b8%ac%e8%a9%a6%e7%92%b0%e5%a2%83>¶</a></h2>
+<hr>
+<p>啟動 containers。</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>docker-compose up
+</code></pre></div><p>在測試過程中可以觀察 httpbin 印出的 access log。</p>
+<p>開啟另一個 terminal session 用來執行以下測試的指令。</p>
+<h2 id=測試驗證成功的請求>測試驗證成功的請求 <a href=#%e6%b8%ac%e8%a9%a6%e9%a9%97%e8%ad%89%e6%88%90%e5%8a%9f%e7%9a%84%e8%ab%8b%e6%b1%82>¶</a></h2>
+<hr>
+<pre tabindex=0><code>curl \
+    -H Host:succ-auth.docker.localhost \
+    -H X-MY-ID:hello@dream \
+    &quot;http://127.0.0.1&quot;
+</code></pre><p>如果成功，畫面將會輸出對外 IP。</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>172.25.0.1
+</code></pre></div><p>由於 Auth Service 回傳 HTTP 狀態碼 200，所以請求會繼續往下送，轉發至 myip service。</p>
+<p><img src=/images/2022-02-22/traefik-forwardauth-note/001.jpg alt></p>
+<h2 id=測試驗證失敗的請求>測試驗證失敗的請求 <a href=#%e6%b8%ac%e8%a9%a6%e9%a9%97%e8%ad%89%e5%a4%b1%e6%95%97%e7%9a%84%e8%ab%8b%e6%b1%82>¶</a></h2>
+<hr>
+<pre tabindex=0><code>curl \
+    -H Host:fail-auth.docker.localhost \
+    -H X-MY-ID:hello@dream \
+    &quot;http://127.0.0.1&quot;
+</code></pre><p>如果成功，畫面將會輸出對外 IP。</p>
+<pre tabindex=0><code>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 3.2 Final//EN&quot;&gt;
+&lt;title&gt;404 Not Found&lt;/title&gt;
+&lt;h1&gt;Not Found&lt;/h1&gt;
+&lt;p&gt;The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.&lt;/p&gt;
+</code></pre><p>由於我們將 fail-auth middleware 驗證的端點指向 Auth Service 不存在的路徑，所以驗證的時候會回傳 HTTP 狀態碼 404，請求就不會繼續往 myip service 送，而是直接把 Auth Service 的回應返回至 client。</p>
+<p><img src=/images/2022-02-22/traefik-forwardauth-note/002.jpg alt></p>
+<h2 id=停止測試環境>停止測試環境 <a href=#%e5%81%9c%e6%ad%a2%e6%b8%ac%e8%a9%a6%e7%92%b0%e5%a2%83>¶</a></h2>
+<hr>
+<p>於剛剛執行 <code>docker-compute up</code> 指令的 terminal session 輸入 <code>crtl</code> + <code>c</code> 停止 containers。</p>
+<h2 id=ref>Ref <a href=#ref>¶</a></h2>
+<hr>
+<ul>
+<li><a href=https://doc.traefik.io/traefik/>https://doc.traefik.io/traefik/</a></li>
+</ul>
+</div>
+<footer class=post-footer>
+<hr>
+<div style=margin-top:2.5rem>
+<div style=display:flex;justify-content:center;width:100%>
+<p style=color:gray>
+如果覺得這篇文章對您有所幫助，歡迎贊助我一杯咖啡 ☕️
+</p>
+</div>
+<div style=display:flex;justify-content:center;width:100%>
+<p style=color:gray>
+祝您有美好的一天 ❤️
+</p>
+</div>
+<div style=display:flex;justify-content:center;width:100%;margin-top:1rem>
+<script type=text/javascript src=https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js data-name=bmc-button data-slug=timfanda35 data-color=#FFDD00 data-emoji data-font=Bree data-text="Buy me a coffee" data-outline-color=#000000 data-font-color=#000000 data-coffee-color=#ffffff></script>
+</div>
+</div>
+<hr>
+<div style=margin-top:1rem>
+<script src=https://utteranc.es/client.js repo=timfanda35/timfanda35.github.io issue-term=pathname label=comment theme=github-light crossorigin=anonymous async></script>
+</div>
+<div class=share>
+</div>
+<div class=pagenation>
+<ul class=pagenation-list>
+<li class="pager previous">
+<a href=https://blog.bear-su.dev/2022/02/20/docker-log-on-gce/ data-toggle=tooltip data-placement=top title="Docker log on Google Compute Engine">&larr; Previous Post</a>
+</li>
+<li class="pager next">
+<a href=https://blog.bear-su.dev/2022/03/27/note-everything-i-know/ data-toggle=tooltip data-placement=top title=[讀書筆記]一人公司起步的思維與挑戰>Next Post &rarr;</a>
+</li>
+</ul>
+</div>
+</footer>
+</article>
+<article class=related></article>
+<script type=application/ld+json>{"@context":"http://schema.org","@type":"NewsArticle","mainEntityOfPage":{"@type":"NewsArticle","@id":"https:\/\/blog.bear-su.dev\/2022\/02\/22\/traefik-forwardauth-note\/","headline":"想要在 Traefik 設定呼叫外部服務來驗證請求是否可以轉發至後端。示意圖 ¶ 當請求送往 Traefik 的時候，會先將請求轉發至 Auth Service，透過 Auth Service 回傳的 HTTP Stat","author":"Bear Su","publisher":{"@type":"Organization","name":"Bear Su","logo":""},"image":"","datePublished":"2022-02-22"},"headline":"想要在 Traefik 設定呼叫外部服務來驗證請求是否可以轉發至後端。示意圖 ¶ 當請求送往 Traefik 的時候，會先將請求轉發至 Auth Service，透過 Auth Service 回傳的 HTTP Stat","alternativeHeadline":"Bear Su\u0027s Blog","datePublished":"2022-02-22","dateModified":"2022-02-22","url":"https:\/\/blog.bear-su.dev\/2022\/02\/22\/traefik-forwardauth-note\/","wordCount":"325","author":{"@type":"Person","name":"Bear Su"},"publisher":{"@type":"Organization","name":"Bear Su"},"image":"","genre":"dockertraefik","description":""}</script>
+<script type=application/ld+json>{"@context":"http://schema.org","@type":"Person","@id":"https:\/\/blog.bear-su.dev\/2022\/02\/22\/traefik-forwardauth-note\/","name":"Bear Su"}</script>
+</div>
+</div>
+<footer class=gfooter>
+<div class=inner>
+<div class=container>
+<p class=copy>
+<small>Copyright © 2015 - 2022 Bear Su's Blog</small>
+<small> | 本部落格有使用 Google Analytic 及 Cookie</small>
+</p>
+<nav class=footer-nav>
+<div class=inner>
+</div>
+</nav>
+</div>
+</div>
+</footer>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KJXNT5CQCS"></script>
+<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-KJXNT5CQCS',{anonymize_ip:!1})}</script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin=anonymous referrerpolicy=no-referrer></script>
+<script src=https://blog.bear-su.dev/js/script.js></script>
+</body>
+</html>

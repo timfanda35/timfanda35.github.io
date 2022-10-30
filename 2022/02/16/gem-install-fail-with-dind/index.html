@@ -1,0 +1,194 @@
+<!doctype html><html lang=en-us>
+<head>
+<link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png>
+<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
+<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png>
+<link rel=manifest href=/site.webmanifest>
+<link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5>
+<meta name=msapplication-TileColor content="#da532c">
+<meta name=theme-color content="#ffffff">
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta http-equiv=x-ua-compatible content="ie=edge,chrome=1">
+<title>gem install fail with docker in docker &#183; Bear Su's Blog - Running Bear!!! </title>
+<meta name=generator content="Hugo 0.92.0">
+<meta name=description content="Running Bear!!!">
+<meta name=twitter:card content="summary_large_image">
+<meta name=twitter:image content="https://blog.bear-su.dev/images/bear.jpeg">
+<meta name=twitter:title content="gem install fail with docker in docker">
+<meta name=twitter:description content="打算照著 GitLab 文件，用 dind 的方式建置 Container Image，但在執行 CI Job 時，收到了錯誤訊息
+You don't have write permission for the /usr/local/bundle .gitlab-ci.yml 內容(參考官方文件)如下：
+build: image: docker:19.03.12 stage: build services: - docker:19.03.12-dind script: - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY - docker build -t $CI_REGISTRY/group/project/image:latest . - docker push $CI_REGISTRY/group/project/image:latest 專案使用的 Dockerfile 內容如下：
+FROM ruby:2.7.4-alpine RUN apk add --no-cache --update build-base tzdata yarn mysql-dev libc6-compat RUN gem install bundler --no-document 查了一下，發現因為 Alpine 3.14 images can fail on Docker versions older than 20.">
+<meta property="og:title" content="gem install fail with docker in docker">
+<meta property="og:description" content="打算照著 GitLab 文件，用 dind 的方式建置 Container Image，但在執行 CI Job 時，收到了錯誤訊息
+You don't have write permission for the /usr/local/bundle .gitlab-ci.yml 內容(參考官方文件)如下：
+build: image: docker:19.03.12 stage: build services: - docker:19.03.12-dind script: - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY - docker build -t $CI_REGISTRY/group/project/image:latest . - docker push $CI_REGISTRY/group/project/image:latest 專案使用的 Dockerfile 內容如下：
+FROM ruby:2.7.4-alpine RUN apk add --no-cache --update build-base tzdata yarn mysql-dev libc6-compat RUN gem install bundler --no-document 查了一下，發現因為 Alpine 3.14 images can fail on Docker versions older than 20.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://blog.bear-su.dev/2022/02/16/gem-install-fail-with-dind/"><meta property="og:image" content="https://blog.bear-su.dev/images/bear.jpeg"><meta property="article:section" content>
+<meta property="article:published_time" content="2022-02-16T12:00:00+08:00">
+<meta property="article:modified_time" content="2022-02-16T12:00:00+08:00">
+<link href rel=alternate type=application/rss+xml title="Bear Su's Blog">
+<link href rel=feed type=application/rss+xml title="Bear Su's Blog">
+<meta itemprop=name content="gem install fail with docker in docker">
+<meta itemprop=description content="打算照著 GitLab 文件，用 dind 的方式建置 Container Image，但在執行 CI Job 時，收到了錯誤訊息
+You don't have write permission for the /usr/local/bundle .gitlab-ci.yml 內容(參考官方文件)如下：
+build: image: docker:19.03.12 stage: build services: - docker:19.03.12-dind script: - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY - docker build -t $CI_REGISTRY/group/project/image:latest . - docker push $CI_REGISTRY/group/project/image:latest 專案使用的 Dockerfile 內容如下：
+FROM ruby:2.7.4-alpine RUN apk add --no-cache --update build-base tzdata yarn mysql-dev libc6-compat RUN gem install bundler --no-document 查了一下，發現因為 Alpine 3.14 images can fail on Docker versions older than 20."><meta itemprop=datePublished content="2022-02-16T12:00:00+08:00">
+<meta itemprop=dateModified content="2022-02-16T12:00:00+08:00">
+<meta itemprop=wordCount content="113"><meta itemprop=image content="https://blog.bear-su.dev/images/bear.jpeg">
+<meta itemprop=keywords content>
+<link href="https://fonts.googleapis.com/css?family=Lato:400" rel=stylesheet>
+<link rel=stylesheet href=https://blog.bear-su.dev/css/style.css>
+<script type=application/ld+json>{"@context":"http://schema.org","@type":"WebSite","name":"Bear Su\u0027s Blog","url":"https:\/\/blog.bear-su.dev\/2022\/02\/16\/gem-install-fail-with-dind\/"}</script>
+</head>
+<body>
+<header class=gheader>
+<div class=container>
+<nav class=navbar>
+<div class=navbar-brand>
+<a class=navbar-item href=https://blog.bear-su.dev>
+<p class=brand>Bear Su's Blog</p>
+</a>
+<div class="navbar-burger burger" data-target=navMenubd-example>
+<span></span>
+<span></span>
+<span></span>
+</div>
+</div>
+<div id=navMenubd-example class=navbar-menu>
+<div class=navbar-start>
+<a class=navbar-item href=/categories/>
+Categories
+</a>
+<a class=navbar-item href=https://github.com/timfanda35>
+GitHub
+</a>
+<a class=navbar-item href=https://www.linkedin.com/in/bearsu>
+Linkedin
+</a>
+<a class=navbar-item href=https://twitter.com/Fandayo>
+Twitter
+</a>
+</div>
+</div>
+</nav>
+</div>
+</header>
+<div class=main-content>
+<div class=container>
+<article class=post>
+<header class=post-header>
+<h1 class=title>gem install fail with docker in docker</h1>
+<div class=meta>
+<time class=pub-time datetime=2022-02-16T12:00:00+08:00>
+2022.02.16
+</time>
+<div class=terms>
+<div class=categories>
+<a class=categories-item href=/categories/gitlab>gitlab</a>
+<a class=categories-item href=/categories/docker>docker</a>
+<a class=categories-item href=/categories/ruby>ruby</a>
+</div>
+</div>
+</div>
+</header>
+<div class=post-body>
+<div class=toc-wrap>
+<h2>Table of Contents</h2>
+<nav id=TableOfContents></nav>
+</div>
+<p>打算照著 <a href=https://docs.gitlab.com/ee/user/packages/container_registry/#container-registry-examples-with-gitlab-cicd>GitLab</a> 文件，用 dind 的方式建置 Container Image，但在執行 CI Job 時，收到了錯誤訊息</p>
+<pre tabindex=0><code>You don't have write permission for the /usr/local/bundle
+</code></pre><p><img src=/images/2022-02-16/gem-install-fail-with-dind/001.png alt></p>
+<p><code>.gitlab-ci.yml</code> 內容(參考官方文件)如下：</p>
+<pre tabindex=0><code>build:
+  image: docker:19.03.12
+  stage: build
+  services:
+    - docker:19.03.12-dind
+  script:
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    - docker build -t $CI_REGISTRY/group/project/image:latest .
+    - docker push $CI_REGISTRY/group/project/image:latest
+</code></pre><p>專案使用的 <code>Dockerfile</code> 內容如下：</p>
+<pre tabindex=0><code>FROM ruby:2.7.4-alpine
+
+RUN apk add --no-cache --update build-base tzdata yarn mysql-dev libc6-compat
+RUN gem install bundler --no-document
+</code></pre><p>查了一下，發現因為 <a href=https://github.com/docker-library/ruby/issues/351>Alpine 3.14 images can fail on Docker versions older than 20.10</a>，所以只要升級 docker 版本就可以了。將 <code>.gitlab-ci.yml</code> 修改如下：</p>
+<pre tabindex=0><code>stages:
+  - build
+
+build:
+  image: docker:20.10.12
+  stage: build
+  services:
+    - docker:20.10.12-dind
+  script:
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    - docker build -t $CI_REGISTRY/group/project/image:latest .
+    - docker push $CI_REGISTRY/group/project/image:latest
+</code></pre>
+</div>
+<footer class=post-footer>
+<hr>
+<div style=margin-top:2.5rem>
+<div style=display:flex;justify-content:center;width:100%>
+<p style=color:gray>
+如果覺得這篇文章對您有所幫助，歡迎贊助我一杯咖啡 ☕️
+</p>
+</div>
+<div style=display:flex;justify-content:center;width:100%>
+<p style=color:gray>
+祝您有美好的一天 ❤️
+</p>
+</div>
+<div style=display:flex;justify-content:center;width:100%;margin-top:1rem>
+<script type=text/javascript src=https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js data-name=bmc-button data-slug=timfanda35 data-color=#FFDD00 data-emoji data-font=Bree data-text="Buy me a coffee" data-outline-color=#000000 data-font-color=#000000 data-coffee-color=#ffffff></script>
+</div>
+</div>
+<hr>
+<div style=margin-top:1rem>
+<script src=https://utteranc.es/client.js repo=timfanda35/timfanda35.github.io issue-term=pathname label=comment theme=github-light crossorigin=anonymous async></script>
+</div>
+<div class=share>
+</div>
+<div class=pagenation>
+<ul class=pagenation-list>
+<li class="pager previous">
+<a href=https://blog.bear-su.dev/2020/05/31/embulk-from-sqlserver-to-bigquery/ data-toggle=tooltip data-placement=top title="使用 Embulk 從 SQL Server 匯入資料至 BigQuery">&larr; Previous Post</a>
+</li>
+<li class="pager next">
+<a href=https://blog.bear-su.dev/2022/02/19/active-support-message-encryptor/ data-toggle=tooltip data-placement=top title="Rails ActiveSupport::MessageEncryptor">Next Post &rarr;</a>
+</li>
+</ul>
+</div>
+</footer>
+</article>
+<article class=related></article>
+<script type=application/ld+json>{"@context":"http://schema.org","@type":"NewsArticle","mainEntityOfPage":{"@type":"NewsArticle","@id":"https:\/\/blog.bear-su.dev\/2022\/02\/16\/gem-install-fail-with-dind\/","headline":"打算照著 GitLab 文件，用 dind 的方式建置 Container Image，但在執行 CI Job 時，收到了錯誤訊息You don\u0027t have write permission for the \/usr\/","author":"Bear Su","publisher":{"@type":"Organization","name":"Bear Su","logo":""},"image":"","datePublished":"2022-02-16"},"headline":"打算照著 GitLab 文件，用 dind 的方式建置 Container Image，但在執行 CI Job 時，收到了錯誤訊息You don\u0027t have write permission for the \/usr\/","alternativeHeadline":"Bear Su\u0027s Blog","datePublished":"2022-02-16","dateModified":"2022-02-16","url":"https:\/\/blog.bear-su.dev\/2022\/02\/16\/gem-install-fail-with-dind\/","wordCount":"113","author":{"@type":"Person","name":"Bear Su"},"publisher":{"@type":"Organization","name":"Bear Su"},"image":"","genre":"gitlabdockerruby","description":""}</script>
+<script type=application/ld+json>{"@context":"http://schema.org","@type":"Person","@id":"https:\/\/blog.bear-su.dev\/2022\/02\/16\/gem-install-fail-with-dind\/","name":"Bear Su"}</script>
+</div>
+</div>
+<footer class=gfooter>
+<div class=inner>
+<div class=container>
+<p class=copy>
+<small>Copyright © 2015 - 2022 Bear Su's Blog</small>
+<small> | 本部落格有使用 Google Analytic 及 Cookie</small>
+</p>
+<nav class=footer-nav>
+<div class=inner>
+</div>
+</nav>
+</div>
+</div>
+</footer>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KJXNT5CQCS"></script>
+<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-KJXNT5CQCS',{anonymize_ip:!1})}</script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin=anonymous referrerpolicy=no-referrer></script>
+<script src=https://blog.bear-su.dev/js/script.js></script>
+</body>
+</html>

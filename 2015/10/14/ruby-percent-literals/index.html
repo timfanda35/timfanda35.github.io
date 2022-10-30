@@ -1,0 +1,322 @@
+<!doctype html><html lang=en-us>
+<head>
+<link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png>
+<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
+<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png>
+<link rel=manifest href=/site.webmanifest>
+<link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5>
+<meta name=msapplication-TileColor content="#da532c">
+<meta name=theme-color content="#ffffff">
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta http-equiv=x-ua-compatible content="ie=edge,chrome=1">
+<title>Ruby 的 %Q, %q, %W, %w, %x, %r, %s, %i &#183; Bear Su's Blog - Running Bear!!! </title>
+<meta name=generator content="Hugo 0.92.0">
+<meta name=description content="Running Bear!!!">
+<meta name=twitter:card content="summary_large_image">
+<meta name=twitter:image content="https://blog.bear-su.dev/images/bear.jpeg">
+<meta name=twitter:title content="Ruby 的 %Q, %q, %W, %w, %x, %r, %s, %i">
+<meta name=twitter:description content="有時候在看其他人的 Ruby 程式碼時，常常發現有 %w, %r 等 % 開頭的程式碼。上網查了一下，才知道這些叫做 Percent literals(或Percent Strings)。
+以下內容是改寫自 %Q, %q, %W, %w, %x, %r, %s 與 Ruby 里的 %Q, %q, %W, %w, %x, %r, %s, %i (译)。
+執行環境：
+
+ruby: 2.2.2
+console: irb
+
+%Q ¶
+
+
+
+代替雙引號字串，如果在字串中有很多雙引號的時候很好用
+>> what_frank_said = 'Hello!'
+=> &#34;Hello!&#34;
+
+>> %Q(Joe said: &#34;Frank said: &#34;#{what_frank_said}&#34;&#34;)
+=> &#34;Joe said: \&#34;Frank said: \&#34;Hello!\&#34;\&#34;&#34;
+
+>> puts %Q(Joe said: &#34;Frank said: &#34;#{what_frank_said}&#34;&#34;)
+Joe said: &#34;Frank said: &#34;Hello!&#34;&#34;
+=> nil
+">
+<meta property="og:title" content="Ruby 的 %Q, %q, %W, %w, %x, %r, %s, %i">
+<meta property="og:description" content="有時候在看其他人的 Ruby 程式碼時，常常發現有 %w, %r 等 % 開頭的程式碼。上網查了一下，才知道這些叫做 Percent literals(或Percent Strings)。
+以下內容是改寫自 %Q, %q, %W, %w, %x, %r, %s 與 Ruby 里的 %Q, %q, %W, %w, %x, %r, %s, %i (译)。
+執行環境：
+
+ruby: 2.2.2
+console: irb
+
+%Q ¶
+
+
+
+代替雙引號字串，如果在字串中有很多雙引號的時候很好用
+>> what_frank_said = 'Hello!'
+=> &#34;Hello!&#34;
+
+>> %Q(Joe said: &#34;Frank said: &#34;#{what_frank_said}&#34;&#34;)
+=> &#34;Joe said: \&#34;Frank said: \&#34;Hello!\&#34;\&#34;&#34;
+
+>> puts %Q(Joe said: &#34;Frank said: &#34;#{what_frank_said}&#34;&#34;)
+Joe said: &#34;Frank said: &#34;Hello!&#34;&#34;
+=> nil
+">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://blog.bear-su.dev/2015/10/14/ruby-percent-literals/"><meta property="og:image" content="https://blog.bear-su.dev/images/bear.jpeg"><meta property="article:section" content>
+<meta property="article:published_time" content="2015-10-14T08:26:00+08:00">
+<meta property="article:modified_time" content="2015-10-14T08:26:00+08:00">
+<link href rel=alternate type=application/rss+xml title="Bear Su's Blog">
+<link href rel=feed type=application/rss+xml title="Bear Su's Blog">
+<meta itemprop=name content="Ruby 的 %Q, %q, %W, %w, %x, %r, %s, %i">
+<meta itemprop=description content="有時候在看其他人的 Ruby 程式碼時，常常發現有 %w, %r 等 % 開頭的程式碼。上網查了一下，才知道這些叫做 Percent literals(或Percent Strings)。
+以下內容是改寫自 %Q, %q, %W, %w, %x, %r, %s 與 Ruby 里的 %Q, %q, %W, %w, %x, %r, %s, %i (译)。
+執行環境：
+
+ruby: 2.2.2
+console: irb
+
+%Q ¶
+
+
+
+代替雙引號字串，如果在字串中有很多雙引號的時候很好用
+>> what_frank_said = 'Hello!'
+=> &#34;Hello!&#34;
+
+>> %Q(Joe said: &#34;Frank said: &#34;#{what_frank_said}&#34;&#34;)
+=> &#34;Joe said: \&#34;Frank said: \&#34;Hello!\&#34;\&#34;&#34;
+
+>> puts %Q(Joe said: &#34;Frank said: &#34;#{what_frank_said}&#34;&#34;)
+Joe said: &#34;Frank said: &#34;Hello!&#34;&#34;
+=> nil
+"><meta itemprop=datePublished content="2015-10-14T08:26:00+08:00">
+<meta itemprop=dateModified content="2015-10-14T08:26:00+08:00">
+<meta itemprop=wordCount content="289"><meta itemprop=image content="https://blog.bear-su.dev/images/bear.jpeg">
+<meta itemprop=keywords content>
+<link href="https://fonts.googleapis.com/css?family=Lato:400" rel=stylesheet>
+<link rel=stylesheet href=https://blog.bear-su.dev/css/style.css>
+<script type=application/ld+json>{"@context":"http://schema.org","@type":"WebSite","name":"Bear Su\u0027s Blog","url":"https:\/\/blog.bear-su.dev\/2015\/10\/14\/ruby-percent-literals\/"}</script>
+</head>
+<body>
+<header class=gheader>
+<div class=container>
+<nav class=navbar>
+<div class=navbar-brand>
+<a class=navbar-item href=https://blog.bear-su.dev>
+<p class=brand>Bear Su's Blog</p>
+</a>
+<div class="navbar-burger burger" data-target=navMenubd-example>
+<span></span>
+<span></span>
+<span></span>
+</div>
+</div>
+<div id=navMenubd-example class=navbar-menu>
+<div class=navbar-start>
+<a class=navbar-item href=/categories/>
+Categories
+</a>
+<a class=navbar-item href=https://github.com/timfanda35>
+GitHub
+</a>
+<a class=navbar-item href=https://www.linkedin.com/in/bearsu>
+Linkedin
+</a>
+<a class=navbar-item href=https://twitter.com/Fandayo>
+Twitter
+</a>
+</div>
+</div>
+</nav>
+</div>
+</header>
+<div class=main-content>
+<div class=container>
+<article class=post>
+<header class=post-header>
+<h1 class=title>Ruby 的 %Q, %q, %W, %w, %x, %r, %s, %i</h1>
+<div class=meta>
+<time class=pub-time datetime=2015-10-14T08:26:00+08:00>
+2015.10.14
+</time>
+<div class=terms>
+<div class=categories>
+<a class=categories-item href=/categories/ruby>ruby</a>
+</div>
+</div>
+</div>
+</header>
+<div class=post-body>
+<div class=toc-wrap>
+<h2>Table of Contents</h2>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#q>%Q</a></li>
+<li><a href=#q-1>%q</a></li>
+<li><a href=#w>%W</a></li>
+<li><a href=#w-1>%w</a></li>
+<li><a href=#x>%x</a></li>
+<li><a href=#r>%r</a></li>
+<li><a href=#s>%s</a></li>
+<li><a href=#i>%i</a></li>
+</ul>
+</nav>
+</div>
+<p>有時候在看其他人的 Ruby 程式碼時，常常發現有 <code>%w</code>, <code>%r</code> 等 % 開頭的程式碼。上網查了一下，才知道這些叫做 <a href=http://ruby-doc.org/core-2.2.2/doc/syntax/literals_rdoc.html#label-Percent+Strings>Percent literals(或Percent Strings)</a>。</p>
+<p>以下內容是改寫自 <a href=https://simpleror.wordpress.com/2009/03/15/q-q-w-w-x-r-s/>%Q, %q, %W, %w, %x, %r, %s</a> 與 <a href=https://ruby-china.org/topics/18512>Ruby 里的 %Q, %q, %W, %w, %x, %r, %s, %i (译)</a>。</p>
+<p>執行環境：</p>
+<ul>
+<li>ruby: 2.2.2</li>
+<li>console: irb</li>
+</ul>
+<h2 id=q>%Q <a href=#q>¶</a></h2>
+<hr>
+<hr>
+<p>代替雙引號字串，如果在字串中有很多雙引號的時候很好用</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-ruby data-lang=ruby><span style=color:#f92672>&gt;&gt;</span> what_frank_said <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;Hello!&#39;</span>
+<span style=color:#f92672>=&gt;</span> <span style=color:#e6db74>&#34;Hello!&#34;</span>
+
+<span style=color:#f92672>&gt;&gt;</span> <span style=color:#e6db74>%Q(Joe said: &#34;Frank said: &#34;</span><span style=color:#e6db74>#{</span>what_frank_said<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;&#34;)</span>
+<span style=color:#f92672>=&gt;</span> <span style=color:#e6db74>&#34;Joe said: </span><span style=color:#ae81ff>\&#34;</span><span style=color:#e6db74>Frank said: </span><span style=color:#ae81ff>\&#34;</span><span style=color:#e6db74>Hello!</span><span style=color:#ae81ff>\&#34;\&#34;</span><span style=color:#e6db74>&#34;</span>
+
+<span style=color:#f92672>&gt;&gt;</span> puts <span style=color:#e6db74>%Q(Joe said: &#34;Frank said: &#34;</span><span style=color:#e6db74>#{</span>what_frank_said<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;&#34;)</span>
+<span style=color:#66d9ef>Joe</span> <span style=color:#e6db74>said</span>: <span style=color:#e6db74>&#34;Frank said: &#34;</span><span style=color:#66d9ef>Hello</span><span style=color:#f92672>!</span><span style=color:#e6db74>&#34;&#34;</span>
+<span style=color:#f92672>=&gt;</span> <span style=color:#66d9ef>nil</span>
+</code></pre></div><p>也可以省略 Q</p>
+<p>在 <a href=https://github.com/bbatsov/ruby-style-guide#percent-literals>Ruby Style Guide</a> 建議使用 <code>%()</code>，因為比 <code>%Q()</code> 短</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-ruby data-lang=ruby><span style=color:#f92672>&gt;&gt;</span> what_frank_said <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;Hello!&#39;</span>
+<span style=color:#f92672>=&gt;</span> <span style=color:#e6db74>&#34;Hello!&#34;</span>
+
+<span style=color:#f92672>&gt;&gt;</span> <span style=color:#e6db74>%(Joe said: &#34;Frank said: &#34;</span><span style=color:#e6db74>#{</span>what_frank_said<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;&#34;)</span>
+<span style=color:#f92672>=&gt;</span> <span style=color:#e6db74>&#34;Joe said: </span><span style=color:#ae81ff>\&#34;</span><span style=color:#e6db74>Frank said: </span><span style=color:#ae81ff>\&#34;</span><span style=color:#e6db74>Hello!</span><span style=color:#ae81ff>\&#34;\&#34;</span><span style=color:#e6db74>&#34;</span>
+
+<span style=color:#f92672>&gt;&gt;</span> puts <span style=color:#e6db74>%(Joe said: &#34;Frank said: &#34;</span><span style=color:#e6db74>#{</span>what_frank_said<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;&#34;)</span>
+<span style=color:#66d9ef>Joe</span> <span style=color:#e6db74>said</span>: <span style=color:#e6db74>&#34;Frank said: &#34;</span><span style=color:#66d9ef>Hello</span><span style=color:#f92672>!</span><span style=color:#e6db74>&#34;&#34;</span>
+<span style=color:#f92672>=&gt;</span> <span style=color:#66d9ef>nil</span>
+</code></pre></div><h2 id=q-1>%q <a href=#q-1>¶</a></h2>
+<hr>
+<hr>
+<p>代替單引號字串，如果在字串中有很多單引號的時候用</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-ruby data-lang=ruby><span style=color:#f92672>&gt;&gt;</span> <span style=color:#e6db74>%q(Joe said: &#39;Frank said: &#39;#{what_frank_said} &#39; &#39;)</span>
+<span style=color:#f92672>=&gt;</span> <span style=color:#e6db74>&#34;Joe said: &#39;Frank said: &#39;</span><span style=color:#ae81ff>\#</span><span style=color:#e6db74>{what_frank_said} &#39; &#39;&#34;</span>
+
+<span style=color:#f92672>&gt;&gt;</span> puts <span style=color:#e6db74>%q(Joe said: &#39;Frank said: &#39;#{what_frank_said} &#39; &#39;)</span>
+<span style=color:#66d9ef>Joe</span> <span style=color:#e6db74>said</span>: <span style=color:#e6db74>&#39;Frank said: &#39;</span><span style=color:#75715e>#{what_frank_said} &#39; &#39;</span>
+<span style=color:#f92672>=&gt;</span> <span style=color:#66d9ef>nil</span>
+</code></pre></div><h2 id=w>%W <a href=#w>¶</a></h2>
+<hr>
+<hr>
+<p>產生用雙引號包起來的字串陣列(用空白做分隔，空白需要用 \ 符號跳過)</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-ruby data-lang=ruby><span style=color:#f92672>&gt;&gt;</span> <span style=color:#e6db74>%W(a b c\ d </span><span style=color:#ae81ff>\#</span><span style=color:#e6db74>e </span><span style=color:#e6db74>#{</span><span style=color:#ae81ff>1</span><span style=color:#e6db74>}</span><span style=color:#e6db74>f)</span>
+<span style=color:#f92672>=&gt;</span> <span style=color:#f92672>[</span><span style=color:#e6db74>&#34;a&#34;</span>, <span style=color:#e6db74>&#34;b&#34;</span>, <span style=color:#e6db74>&#34;c d&#34;</span>, <span style=color:#e6db74>&#34;#e&#34;</span>, <span style=color:#e6db74>&#34;1f&#34;</span><span style=color:#f92672>]</span>
+</code></pre></div><h2 id=w-1>%w <a href=#w-1>¶</a></h2>
+<hr>
+<hr>
+<p>產生用單引號包起來的字串陣列(用空白做分隔，空白需要用 \ 符號跳過)</p>
+<p>可以觀察與使用 <code>%W</code> 出來的差異</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-ruby data-lang=ruby><span style=color:#f92672>&gt;&gt;</span> <span style=color:#e6db74>%w(a b c\ d \#e #{1}f)</span>
+<span style=color:#f92672>=&gt;</span> <span style=color:#f92672>[</span><span style=color:#e6db74>&#34;a&#34;</span>, <span style=color:#e6db74>&#34;b&#34;</span>, <span style=color:#e6db74>&#34;c d&#34;</span>, <span style=color:#e6db74>&#34;</span><span style=color:#ae81ff>\\</span><span style=color:#e6db74>#e&#34;</span>, <span style=color:#e6db74>&#34;</span><span style=color:#ae81ff>\#</span><span style=color:#e6db74>{1}f&#34;</span><span style=color:#f92672>]</span>
+</code></pre></div><h2 id=x>%x <a href=#x>¶</a></h2>
+<hr>
+<hr>
+<p>使用``方法執行一段 shell script 並回傳標準輸出的結果</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-ruby data-lang=ruby><span style=color:#f92672>&gt;&gt;</span> <span style=color:#e6db74>%x(echo foo:</span><span style=color:#e6db74>#{</span><span style=color:#e6db74>&#39;Foo&#39;</span><span style=color:#e6db74>}</span><span style=color:#e6db74>)</span>
+<span style=color:#f92672>=&gt;</span> <span style=color:#e6db74>&#34;foo:Foo</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>
+</code></pre></div><h2 id=r>%r <a href=#r>¶</a></h2>
+<hr>
+<hr>
+<p>產生正規表示式</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-ruby data-lang=ruby><span style=color:#f92672>&gt;&gt;</span> <span style=color:#e6db74>%r(/home/</span><span style=color:#e6db74>#{</span><span style=color:#e6db74>&#39;Foo&#39;</span><span style=color:#e6db74>}</span><span style=color:#e6db74>)</span>
+<span style=color:#f92672>=&gt;</span> <span style=color:#e6db74>/\\/</span>home\\<span style=color:#f92672>/</span><span style=color:#66d9ef>Foo</span><span style=color:#f92672>/</span>
+</code></pre></div><h2 id=s>%s <a href=#s>¶</a></h2>
+<hr>
+<hr>
+<p>產生 symbol，但不會對表示式等內容作轉換</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-ruby data-lang=ruby><span style=color:#f92672>&gt;&gt;</span> <span style=color:#e6db74>%s(foo)</span>
+<span style=color:#f92672>=&gt;</span> <span style=color:#e6db74>:foo</span>
+<span style=color:#f92672>&gt;&gt;</span> <span style=color:#e6db74>%s(foo bar)</span>
+<span style=color:#f92672>=&gt;</span> <span style=color:#e6db74>:&#34;foo bar&#34;</span>
+<span style=color:#f92672>&gt;&gt;</span> <span style=color:#e6db74>%s(#{foo} bar)</span>
+<span style=color:#f92672>=&gt;</span> <span style=color:#e6db74>:&#34;</span><span style=color:#ae81ff>\#</span><span style=color:#e6db74>{foo} bar&#34;</span>
+</code></pre></div><h2 id=i>%i <a href=#i>¶</a></h2>
+<hr>
+<hr>
+<p>產生 symbol 陣列</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-ruby data-lang=ruby><span style=color:#f92672>&gt;&gt;</span> <span style=color:#f92672>%</span>i(a b c)
+<span style=color:#f92672>=&gt;</span> <span style=color:#f92672>[</span><span style=color:#e6db74>:a</span>, <span style=color:#e6db74>:b</span>, <span style=color:#e6db74>:c</span><span style=color:#f92672>]</span>
+</code></pre></div><hr>
+<p>除了用 <code>()</code> 也可以用其他非數字字母的符號或是成對的符號代替：</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-ruby data-lang=ruby><span style=color:#e6db74>%Q(...)</span> 
+<span style=color:#e6db74>%Q[...]</span>
+<span style=color:#e6db74>%Q!...!</span>
+<span style=color:#e6db74>%Q+...+</span>
+<span style=color:#e6db74>%Q{...}</span>
+<span style=color:#e6db74>%Q-...-</span>
+</code></pre></div><p>參考：</p>
+<p><a href=https://simpleror.wordpress.com/2009/03/15/q-q-w-w-x-r-s/>%Q, %q, %W, %w, %x, %r, %s</a></p>
+<p><a href=https://ruby-china.org/topics/18512>Ruby 里的 %Q, %q, %W, %w, %x, %r, %s, %i (译)</a></p>
+<p><a href=http://jokercatz.blogspot.tw/2015/05/ruby-general-delimited-input.html>Ruby : General Delimited Input</a></p>
+<p><a href=http://ruby-doc.org/core-2.2.2/doc/syntax/literals_rdoc.html#label-Percent+Strings>Ruby Doc - Percent Strings</a></p>
+<p><a href=https://github.com/bbatsov/ruby-style-guide#percent-literals>Ruby Style Guide Percent Literals</a></p>
+<p><a href=https://github.com/JuanitoFatas/ruby-style-guide/blob/master/README-zhTW.md#%E7%99%BE%E5%88%86%E6%AF%94%E5%AD%97%E9%9D%A2>Ruby Style Guide 百分比字面</a></p>
+</div>
+<footer class=post-footer>
+<hr>
+<div style=margin-top:2.5rem>
+<div style=display:flex;justify-content:center;width:100%>
+<p style=color:gray>
+如果覺得這篇文章對您有所幫助，歡迎贊助我一杯咖啡 ☕️
+</p>
+</div>
+<div style=display:flex;justify-content:center;width:100%>
+<p style=color:gray>
+祝您有美好的一天 ❤️
+</p>
+</div>
+<div style=display:flex;justify-content:center;width:100%;margin-top:1rem>
+<script type=text/javascript src=https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js data-name=bmc-button data-slug=timfanda35 data-color=#FFDD00 data-emoji data-font=Bree data-text="Buy me a coffee" data-outline-color=#000000 data-font-color=#000000 data-coffee-color=#ffffff></script>
+</div>
+</div>
+<hr>
+<div style=margin-top:1rem>
+<script src=https://utteranc.es/client.js repo=timfanda35/timfanda35.github.io issue-term=pathname label=comment theme=github-light crossorigin=anonymous async></script>
+</div>
+<div class=share>
+</div>
+<div class=pagenation>
+<ul class=pagenation-list>
+<li class="pager previous">
+<a href=https://blog.bear-su.dev/2015/10/13/mac-osx-ruby-console-can-not-input-chinese/ data-toggle=tooltip data-placement=top title="MAC OSX ruby console 無法輸入中文">&larr; Previous Post</a>
+</li>
+<li class="pager next">
+<a href=https://blog.bear-su.dev/2015/10/15/vim-command/ data-toggle=tooltip data-placement=top title="Vim 指令(游標移動)">Next Post &rarr;</a>
+</li>
+</ul>
+</div>
+</footer>
+</article>
+<article class=related></article>
+<script type=application/ld+json>{"@context":"http://schema.org","@type":"NewsArticle","mainEntityOfPage":{"@type":"NewsArticle","@id":"https:\/\/blog.bear-su.dev\/2015\/10\/14\/ruby-percent-literals\/","headline":"有時候在看其他人的 Ruby 程式碼時，常常發現有 %w, %r 等 % 開頭的程式碼。上網查了一下，才知道這些叫做 Percent literals(或Percent Strings)。以下內容是改寫自 %Q, %q,","author":"Bear Su","publisher":{"@type":"Organization","name":"Bear Su","logo":""},"image":"","datePublished":"2015-10-14"},"headline":"有時候在看其他人的 Ruby 程式碼時，常常發現有 %w, %r 等 % 開頭的程式碼。上網查了一下，才知道這些叫做 Percent literals(或Percent Strings)。以下內容是改寫自 %Q, %q,","alternativeHeadline":"Bear Su\u0027s Blog","datePublished":"2015-10-14","dateModified":"2015-10-14","url":"https:\/\/blog.bear-su.dev\/2015\/10\/14\/ruby-percent-literals\/","wordCount":"289","author":{"@type":"Person","name":"Bear Su"},"publisher":{"@type":"Organization","name":"Bear Su"},"image":"","genre":"ruby","description":""}</script>
+<script type=application/ld+json>{"@context":"http://schema.org","@type":"Person","@id":"https:\/\/blog.bear-su.dev\/2015\/10\/14\/ruby-percent-literals\/","name":"Bear Su"}</script>
+</div>
+</div>
+<footer class=gfooter>
+<div class=inner>
+<div class=container>
+<p class=copy>
+<small>Copyright © 2015 - 2022 Bear Su's Blog</small>
+<small> | 本部落格有使用 Google Analytic 及 Cookie</small>
+</p>
+<nav class=footer-nav>
+<div class=inner>
+</div>
+</nav>
+</div>
+</div>
+</footer>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KJXNT5CQCS"></script>
+<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-KJXNT5CQCS',{anonymize_ip:!1})}</script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin=anonymous referrerpolicy=no-referrer></script>
+<script src=https://blog.bear-su.dev/js/script.js></script>
+</body>
+</html>

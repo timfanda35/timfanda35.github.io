@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>rails on Bear Su's Blog</title><link>https://blog.bear-su.dev/categories/rails/</link><description>Recent content in rails on Bear Su's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>Copyright © 2015 - 2022 Bear Su's Blog</copyright><lastBuildDate>Sat, 19 Feb 2022 12:00:00 +0800</lastBuildDate><atom:link href="https://blog.bear-su.dev/categories/rails/index.xml" rel="self" type="application/rss+xml"/><item><title>Rails ActiveSupport::MessageEncryptor</title><link>https://blog.bear-su.dev/2022/02/19/active-support-message-encryptor/</link><pubDate>Sat, 19 Feb 2022 12:00:00 +0800</pubDate><guid>https://blog.bear-su.dev/2022/02/19/active-support-message-encryptor/</guid><description>啟動 Rails Server 時，如果沒有 config/master.key ，或是 config/master.key 無法解密 config/credentials.yml.enc，就會出現 ActiveSupport::MessageEncryptor 的錯誤
+為 Production 環境準備一個 config/master.key 跟 config/credentials.yml.enc 在管理與部屬上不太方便
+在 Rails 6 之後，可以依據環境變數產生並套用不同的 credentials
+Rails credentials ¶ 執行指令查看 rails credentials 相關說明
+rails credentials:help 輸出(節錄部分)
+... === Environment Specific Credentials The `credentials` command supports passing an `--environment` option to create an environment specific override. That override will take precedence over the global `config/credentials.yml.enc` file when running in that environment. So: bin/rails credentials:edit --environment development will create `config/credentials/development.</description></item><item><title>ActiveRecord merge method</title><link>https://blog.bear-su.dev/2017/03/19/active-record-merge-method/</link><pubDate>Sun, 19 Mar 2017 05:13:00 +0800</pubDate><guid>https://blog.bear-su.dev/2017/03/19/active-record-merge-method/</guid><description>&lt;p>&lt;img src="https://i.imgur.com/EsiorQx.jpg" alt="">&lt;/p>
+&lt;p>&lt;a href="https://www.pakutaso.com/20160628181pc-11.html">圖片來源&lt;/a>&lt;/p>
+&lt;p>之前查資料找到這篇 &lt;a href="http://stackoverflow.com/questions/6334537/rails-where-clause-on-model-association">Rails where() clause on model association?&lt;/a>&lt;/p>
+&lt;p>原來在查詢條件包含關聯表欄位的時候還有 &lt;code>merge&lt;/code> 的方法可以用&lt;/p>
+&lt;p>之前都在 &lt;code>joins&lt;/code> 裡面硬刻 SQL query&amp;hellip;&lt;/p></description></item><item><title>Ruby/Rails load setting file</title><link>https://blog.bear-su.dev/2017/02/11/ruby-rails-load-setting-file/</link><pubDate>Sat, 11 Feb 2017 11:59:00 +0800</pubDate><guid>https://blog.bear-su.dev/2017/02/11/ruby-rails-load-setting-file/</guid><description>&lt;p>最近在網路上看到了這兩篇文章：&lt;/p>
+&lt;p>&lt;a href="https://ruby-china.org/topics/32126">Rails 最佳实践之配置管理&lt;/a>&lt;/p>
+&lt;p>&lt;a href="http://railsfun.tw/t/rails-database-yml-global-settings/996">在 Rails 內建立類似 database.yml 的設定文件（global settings）&lt;/a>&lt;/p>
+&lt;p>才知道原來 Rails 4.2 之後有好用的 &lt;code>config_for&lt;/code> 方法啊&lt;/p></description></item><item><title>logger tip</title><link>https://blog.bear-su.dev/2017/02/04/logger-tip/</link><pubDate>Sat, 04 Feb 2017 07:05:00 +0800</pubDate><guid>https://blog.bear-su.dev/2017/02/04/logger-tip/</guid><description>&lt;p>所謂有記有保庇&lt;/p>
+&lt;p>log 能夠幫助瞭解程式在執行的時候做了什麼事&lt;/p>
+&lt;p>log 記得好在除錯的時候能幫上很大的忙&lt;/p>
+&lt;p>這邊紀錄跟 logger 的一些相關技巧&lt;/p></description></item><item><title>RailsFun-0907筆記</title><link>https://blog.bear-su.dev/2016/09/08/railsfun-0907-note/</link><pubDate>Thu, 08 Sep 2016 01:46:00 +0800</pubDate><guid>https://blog.bear-su.dev/2016/09/08/railsfun-0907-note/</guid><description>&lt;p>受到朋友的邀請&lt;/p>
+&lt;p>藉著這機會參加了一直很想去但又沒去的 RailsFun 聚會&lt;/p>
+&lt;p>得到了蠻多新知識&lt;/p>
+&lt;p>在下次聚會之前可以來好好研究一下&lt;/p></description></item><item><title>Rails Hosting Survey 2016</title><link>https://blog.bear-su.dev/2016/06/13/rails-hosting-survey-2016/</link><pubDate>Mon, 13 Jun 2016 02:24:00 +0800</pubDate><guid>https://blog.bear-su.dev/2016/06/13/rails-hosting-survey-2016/</guid><description>連結：http://rails-hosting.com/2016/
+好奇其他 Rails Developers 都用些什麼工具嗎？
+來看看最新的調查吧 :D</description></item><item><title>Rails 安裝教學</title><link>https://blog.bear-su.dev/2016/04/21/installrails/</link><pubDate>Thu, 21 Apr 2016 09:09:00 +0800</pubDate><guid>https://blog.bear-su.dev/2016/04/21/installrails/</guid><description>我想要推薦這一個網站 InstallRails.com
+這個網站一步步教你在不同平台安裝開發 rails 的環境，圖文並茂，說明詳細
+以 Mac 平台來說，會安裝的項目有：
+Xcode Homebrew Git RVM Ruby Rails Sublime Text 不過在教學中安裝管理 Ruby 版本的工具是 rvm
+我自己喜歡用的管理 Ruby 版本的工具是 rbenv
+除了安裝 Rails，在請別人安裝 Ruby 的時候我也會丟這個網站給他，請他依步驟做到安裝 RVM
+可以省下很多說明的時間 ?</description></item><item><title>推薦協助提高程式碼品質的 Gem</title><link>https://blog.bear-su.dev/2016/03/22/gems-for-improving-code-quality/</link><pubDate>Tue, 22 Mar 2016 11:28:00 +0800</pubDate><guid>https://blog.bear-su.dev/2016/03/22/gems-for-improving-code-quality/</guid><description>&lt;p>用 Rails 開發網站時除了寫測試之外，還可以透過一些 gem 來協助維護 code 的品質&lt;/p>
+&lt;p>這篇推薦幾個 gem：&lt;/p>
+&lt;p>&lt;a href="https://github.com/presidentbeef/brakeman">Brakeman - 檢查安全性&lt;/a>&lt;/p>
+&lt;p>&lt;a href="https://github.com/flyerhzm/bullet">Bullet - 檢查 N+1 Query&lt;/a>&lt;/p>
+&lt;p>&lt;a href="https://github.com/whitesmith/rubycritic">RubyCritic - 靜態分析程式碼(已整合多套工具)&lt;/a>&lt;/p>
+&lt;p>&lt;a href="https://github.com/newrelic/rpm">New Relic RPM - 監測網站效能&lt;/a>&lt;/p></description></item><item><title>Ruby 學習資源</title><link>https://blog.bear-su.dev/2015/10/16/ruby-learning-resource/</link><pubDate>Fri, 16 Oct 2015 14:24:00 +0800</pubDate><guid>https://blog.bear-su.dev/2015/10/16/ruby-learning-resource/</guid><description>&lt;p>紀錄一下收藏的學習資源&lt;/p>
+&lt;p>有任何錯誤或建議都歡迎告知 :)&lt;/p>
+&lt;hr>
+&lt;h1 id="ruby">Ruby &lt;a href="#ruby">¶&lt;/a>&lt;/h1>
+&lt;h2 id="learn-ruby-the-hard-way---笨方法學-rubyhttplrthwgithubio">&lt;a href="http://lrthw.github.io">Learn Ruby The Hard Way - 笨方法學 Ruby&lt;/a> &lt;a href="#learn-ruby-the-hard-way---%e7%ac%a8%e6%96%b9%e6%b3%95%e5%ad%b8-rubyhttplrthwgithubio">¶&lt;/a>&lt;/h2>
+&lt;hr />
+&lt;blockquote>
+&lt;p>練習量很足夠的電子書，推薦用來練基本功。
+另外可以先看這篇 &lt;a href="http://blog.cgmlife.net/posts/2014/04/14/when-read-learn-ruby-the-hard-way-some-problems-you-may-meet">閱讀 Learn Ruby The Hard Way 時可能會遇到的問題&lt;/a> 做一下心理建設 XD&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="code-cademyhttpswwwcodecademycomtracksruby">&lt;a href="https://www.codecademy.com/tracks/ruby">Code Cademy&lt;/a> &lt;a href="#code-cademyhttpswwwcodecademycomtracksruby">¶&lt;/a>&lt;/h2>
+&lt;hr />
+&lt;blockquote>
+&lt;p>練習量很充足的互動課程，完成關卡得到的 Badge 更能增加成就感。&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="code-schoolhttpswwwcodeschoolcompathsruby">&lt;a href="https://www.codeschool.com/paths/ruby">Code School&lt;/a> &lt;a href="#code-schoolhttpswwwcodeschoolcompathsruby">¶&lt;/a>&lt;/h2>
+&lt;hr />
+&lt;blockquote>
+&lt;p>Try Ruby 很適合入門體驗 Ruby 寫作的感覺。有許多主題式的課程與影片，大多數都需要付費才能觀看。完成課程的 Badge 可以貼到 &lt;a href="https://www.linkedin.com">Linkedin&lt;/a> 上。&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="ruby-documenthttpruby-docorg">&lt;a href="http://ruby-doc.org">Ruby Document&lt;/a> &lt;a href="#ruby-documenthttpruby-docorg">¶&lt;/a>&lt;/h2>
+&lt;hr />
+&lt;blockquote>
+&lt;p>Ruby 的文件，有空就翻一翻，說不定會有新的體悟。&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="ruby-warriorhttpswwwblocioruby-warrior">&lt;a href="https://www.bloc.io/ruby-warrior/#/">Ruby Warrior&lt;/a> &lt;a href="#ruby-warriorhttpswwwblocioruby-warrior">¶&lt;/a>&lt;/h2>
+&lt;hr />
+&lt;blockquote>
+&lt;p>用 Ruby 操作主角破關的遊戲。類似的還有&lt;a href="http://codecombat.com/">CodeCombat&lt;/a>&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="codewarshttpwwwcodewarscom">&lt;a href="http://www.codewars.com/">Codewars&lt;/a> &lt;a href="#codewarshttpwwwcodewarscom">¶&lt;/a>&lt;/h2>
+&lt;hr />
+&lt;blockquote>
+&lt;p>有很多題目關卡可以讓你練習，不過也有很多需要知道演算法才有辦法過關。
+你也可以閱覽其他人的程式碼，對於寫作大有幫助。&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="the-odin-projecthttpwwwtheodinprojectcomruby-programming">&lt;a href="http://www.theodinproject.com/ruby-programming">The odin project&lt;/a> &lt;a href="#the-odin-projecthttpwwwtheodinprojectcomruby-programming">¶&lt;/a>&lt;/h2>
+&lt;hr />
+&lt;h1 id="w3cshoolcchttpwwww3cschoolccrubyruby-tutorialhtml">&lt;a href="http://www.w3cschool.cc/ruby/ruby-tutorial.html">w3cshool.cc&lt;/a> &lt;a href="#w3cshoolcchttpwwww3cschoolccrubyruby-tutorialhtml">¶&lt;/a>&lt;/h1></description></item><item><title>helper 的使用方法</title><link>https://blog.bear-su.dev/2015/07/30/helper-method-to-use/</link><pubDate>Thu, 30 Jul 2015 13:37:00 +0800</pubDate><guid>https://blog.bear-su.dev/2015/07/30/helper-method-to-use/</guid><description>Helper 是協助在 View 呈現資料的方法，通常都用來包裝程式邏輯，或是簡化撰寫 View 的作業。
+Helper 檔案都會放在 app/helpers 底下，預設就有一個 application_helper.rb 的檔案。
+一份 Helper 檔案範例如下，要注意是定義一個 Module，而非 Class：
+module FooHelper def bar ... end end 之後就能在 View 中使用 bar 方法了。
+如果想將 Controller 的方法變成 Helper 方法讓 View 呼叫，可以用 helper_method 方法達成：
+class ApplicationController &amp;lt; ActionController::Base # define helper method helper_method :foo protected def foo ... end end 至於想要在 rails console 測試 helper ：
+因為 Helper 預設只能在 Template 中使用，如果想在 rails console 中呼叫，必須加上 helper，例如 helper.</description></item><item><title>form_for 與 strong parameter 的關係</title><link>https://blog.bear-su.dev/2015/07/30/form-for-and-strong-relationship-parameter/</link><pubDate>Thu, 30 Jul 2015 13:01:00 +0800</pubDate><guid>https://blog.bear-su.dev/2015/07/30/form-for-and-strong-relationship-parameter/</guid><description>form_for 是用 Rails 做網頁很常用的 Helper 方法，他的方便之處在於很輕鬆的產生與 Model 對應的 HTML 表單。
+大部份的時候都會將使用者輸入的資料，用 Hash 表示 Model 的方式傳送到伺服器上。
+但是有兩個問題：
+伺服器直接依照傳入的參數更新資料，如果有心人士偷塞了 Model 有的欄位，資料就會被改掉。 親自寫判斷去過濾傳入的參數，如果 Model 的種類一多，欄位一多就會變得很麻煩。 這邊可以用 strong parameter 來很簡單地過濾掉，傳入的 Model 參數中含有非預期的參數。
+假設 Foo 定義如下，其中 security_field 欄位並不想被隨意修改，所以沒有呈現在表單上。
+# schema create_table &amp;#34;foos&amp;#34;, force: :cascade do |t| t.string &amp;#34;name&amp;#34; t.integer &amp;#34;bar&amp;#34; t.string &amp;#34;security_field&amp;#34; t.datetime &amp;#34;created_at&amp;#34;, null: false t.datetime &amp;#34;updated_at&amp;#34;, null: false end 但有心人士仍然可以發送這樣的請求給伺服器，試圖去修改資料庫的值。
+{ &amp;#34;id&amp;#34;: 1, &amp;#34;foo&amp;#34;: { &amp;#34;name&amp;#34;: &amp;#34;foo&amp;#34;, &amp;#34;bar&amp;#34;: 1, &amp;#34;security_field&amp;#34;: &amp;#34;bad value&amp;#34; } } 在這邊最簡單的方法就是用 strong parameter 來過濾，在 Controller 中寫一個 private method，要更新 Modle 時就使用該 method 來取得過濾後的參數來更新。</description></item><item><title>ActiveRecord has_many :through 關聯</title><link>https://blog.bear-su.dev/2015/07/30/activerecord-has-associated/</link><pubDate>Thu, 30 Jul 2015 11:59:00 +0800</pubDate><guid>https://blog.bear-su.dev/2015/07/30/activerecord-has-associated/</guid><description>在 Rails 中 Model 常常使用到一對多的關係，像是一台車有四個輪子，但每個輪子都只屬於一台車
+我們會用 has_many ， belongs_to 來定義 Model 之間的關係，在 Tire 的資料表需要有 car_id 欄位來儲存所屬車子的 ID。
+class Car has_many :tires end class Tire belongs_to :car end 而多對多的關係就會用到 has_many :through，取個例子：在學校裡，一個社團可以有多名成員，每位成員也可以參加多個社團，這樣的關係就是「多對多關係」。
+# 一個社團可以有多名成員 group |-- member |-- member `-- member # 每位成員可以參加多個社團 member |-- group |-- group `-- group 我們無法只靠兩張表來表現多對多的關係，所以這時候需要再新增一個 Model，透過(:through)這一個 Model 來建立多得多的關係。
+# group1 的成員有 member1, member2, member3 # group2 的成員有 member3 # group3 的成員有 member3 group1 -- group_member -- member1 |- group_member -- member2 | `- group_member -- member3 | group2 -- group_member -| group3 -- group_member -&amp;#39; # 反過來說 # member1 參加了 group1 # member2 參加了 group1 # member3 參加了 group1, group2, group3 以上圖為例，Model 定義如下：</description></item></channel></rss>

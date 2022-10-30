@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>container on Bear Su's Blog</title><link>https://blog.bear-su.dev/categories/container/</link><description>Recent content in container on Bear Su's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>Copyright © 2015 - 2022 Bear Su's Blog</copyright><lastBuildDate>Sat, 01 Sep 2018 14:40:00 +0800</lastBuildDate><atom:link href="https://blog.bear-su.dev/categories/container/index.xml" rel="self" type="application/rss+xml"/><item><title>用快取加速 Cloud Build 建置容器</title><link>https://blog.bear-su.dev/2018/09/01/cloudbuild-with-cache/</link><pubDate>Sat, 01 Sep 2018 14:40:00 +0800</pubDate><guid>https://blog.bear-su.dev/2018/09/01/cloudbuild-with-cache/</guid><description>&lt;p>&lt;img src="https://i.imgur.com/EsiorQx.jpg" alt="">&lt;/p>
+&lt;p>&lt;a href="https://www.pakutaso.com/20160628181pc-11.html">圖片來源&lt;/a>
+&lt;a href="https://www.pakutaso.com/">フリー写真素材ぱくたそ&lt;/a>&lt;/p>
+&lt;p>參考至 Google Cloud Platform Cloud Build 官方文件：&lt;a href="https://cloud.google.com/cloud-build/docs/speeding-up-builds">Speeding up your Builds&lt;/a>&lt;/p>
+&lt;p>可以使用之前建置過的 Docker Image 來當作快取，來加快建置 Docker Image 的速度&lt;/p>
+&lt;p>這方法需要使用 &lt;code>cloudbuild.yaml&lt;/code>&lt;/p>
+&lt;p>使用方式：&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">gcloud builds submit --config cloudbuild.yaml .
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>或是在設定 cloud build trigger 時指定使用 &lt;code>cloudbuild.yaml&lt;/code>&lt;/p></description></item></channel></rss>

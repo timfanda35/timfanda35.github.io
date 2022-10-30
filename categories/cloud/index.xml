@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>cloud on Bear Su's Blog</title><link>https://blog.bear-su.dev/categories/cloud/</link><description>Recent content in cloud on Bear Su's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>Copyright © 2015 - 2022 Bear Su's Blog</copyright><lastBuildDate>Wed, 19 Apr 2017 15:16:00 +0800</lastBuildDate><atom:link href="https://blog.bear-su.dev/categories/cloud/index.xml" rel="self" type="application/rss+xml"/><item><title>Google Cloud OnBoard 20170419</title><link>https://blog.bear-su.dev/2017/04/19/google-cloud-onboard-20170419/</link><pubDate>Wed, 19 Apr 2017 15:16:00 +0800</pubDate><guid>https://blog.bear-su.dev/2017/04/19/google-cloud-onboard-20170419/</guid><description>&lt;p>&lt;img src="http://i.imgur.com/Yyals6x.jpg" alt="Imgur">&lt;/p>
+&lt;p>今天參加了 &lt;a href="https://cloudplatformonline.com/gcp-tw-googlecloudonboard.html">Google Cloud OnBoard&lt;/a>&lt;/p>
+&lt;p>內容主要是 &lt;a href="https://cloud.google.com/">Google Cloud Platform&lt;/a> (GCP) 入門介紹&lt;/p>
+&lt;p>參加的人超級多，早餐跟下午茶都搶不到 XD&lt;/p>
+&lt;h2 id="主要內容">主要內容 &lt;a href="#%e4%b8%bb%e8%a6%81%e5%85%a7%e5%ae%b9">¶&lt;/a>&lt;/h2>
+&lt;hr />
+&lt;ul>
+&lt;li>Module 1 - Google Cloud Platform 概要&lt;/li>
+&lt;li>Module 2 - 開始學習 Google Cloud Platform 的方法&lt;/li>
+&lt;li>Module 3 - Google App Engine 與 Cloud Datastore&lt;/li>
+&lt;li>Module 4 - Google Cloud Platform 的 Storage 功能&lt;/li>
+&lt;li>Module 5 - Google Container Engine&lt;/li>
+&lt;li>Module 6 - Google Compute Engine 與 Network 功能&lt;/li>
+&lt;li>GCP 的大數據分析工具 / 機器學習與深度學習&lt;/li>
+&lt;/ul></description></item></channel></rss>

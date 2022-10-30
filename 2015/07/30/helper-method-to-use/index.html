@@ -1,0 +1,206 @@
+<!doctype html><html lang=en-us>
+<head>
+<link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png>
+<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
+<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png>
+<link rel=manifest href=/site.webmanifest>
+<link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5>
+<meta name=msapplication-TileColor content="#da532c">
+<meta name=theme-color content="#ffffff">
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta http-equiv=x-ua-compatible content="ie=edge,chrome=1">
+<title>helper 的使用方法 &#183; Bear Su's Blog - Running Bear!!! </title>
+<meta name=generator content="Hugo 0.92.0">
+<meta name=description content="Running Bear!!!">
+<meta name=twitter:card content="summary_large_image">
+<meta name=twitter:image content="https://blog.bear-su.dev/images/bear.jpeg">
+<meta name=twitter:title content="helper 的使用方法">
+<meta name=twitter:description content="Helper 是協助在 View 呈現資料的方法，通常都用來包裝程式邏輯，或是簡化撰寫 View 的作業。
+Helper 檔案都會放在 app/helpers 底下，預設就有一個 application_helper.rb 的檔案。
+一份 Helper 檔案範例如下，要注意是定義一個 Module，而非 Class：
+module FooHelper def bar ... end end 之後就能在 View 中使用 bar 方法了。
+如果想將 Controller 的方法變成 Helper 方法讓 View 呼叫，可以用 helper_method 方法達成：
+class ApplicationController < ActionController::Base # define helper method helper_method :foo protected def foo ... end end 至於想要在 rails console 測試 helper ：
+ 因為 Helper 預設只能在 Template 中使用，如果想在 rails console 中呼叫，必須加上 helper，例如 helper.">
+<meta property="og:title" content="helper 的使用方法">
+<meta property="og:description" content="Helper 是協助在 View 呈現資料的方法，通常都用來包裝程式邏輯，或是簡化撰寫 View 的作業。
+Helper 檔案都會放在 app/helpers 底下，預設就有一個 application_helper.rb 的檔案。
+一份 Helper 檔案範例如下，要注意是定義一個 Module，而非 Class：
+module FooHelper def bar ... end end 之後就能在 View 中使用 bar 方法了。
+如果想將 Controller 的方法變成 Helper 方法讓 View 呼叫，可以用 helper_method 方法達成：
+class ApplicationController < ActionController::Base # define helper method helper_method :foo protected def foo ... end end 至於想要在 rails console 測試 helper ：
+ 因為 Helper 預設只能在 Template 中使用，如果想在 rails console 中呼叫，必須加上 helper，例如 helper.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://blog.bear-su.dev/2015/07/30/helper-method-to-use/"><meta property="og:image" content="https://blog.bear-su.dev/images/bear.jpeg"><meta property="article:section" content>
+<meta property="article:published_time" content="2015-07-30T13:37:00+08:00">
+<meta property="article:modified_time" content="2015-07-30T13:37:00+08:00">
+<link href rel=alternate type=application/rss+xml title="Bear Su's Blog">
+<link href rel=feed type=application/rss+xml title="Bear Su's Blog">
+<meta itemprop=name content="helper 的使用方法">
+<meta itemprop=description content="Helper 是協助在 View 呈現資料的方法，通常都用來包裝程式邏輯，或是簡化撰寫 View 的作業。
+Helper 檔案都會放在 app/helpers 底下，預設就有一個 application_helper.rb 的檔案。
+一份 Helper 檔案範例如下，要注意是定義一個 Module，而非 Class：
+module FooHelper def bar ... end end 之後就能在 View 中使用 bar 方法了。
+如果想將 Controller 的方法變成 Helper 方法讓 View 呼叫，可以用 helper_method 方法達成：
+class ApplicationController < ActionController::Base # define helper method helper_method :foo protected def foo ... end end 至於想要在 rails console 測試 helper ：
+ 因為 Helper 預設只能在 Template 中使用，如果想在 rails console 中呼叫，必須加上 helper，例如 helper."><meta itemprop=datePublished content="2015-07-30T13:37:00+08:00">
+<meta itemprop=dateModified content="2015-07-30T13:37:00+08:00">
+<meta itemprop=wordCount content="120"><meta itemprop=image content="https://blog.bear-su.dev/images/bear.jpeg">
+<meta itemprop=keywords content>
+<link href="https://fonts.googleapis.com/css?family=Lato:400" rel=stylesheet>
+<link rel=stylesheet href=https://blog.bear-su.dev/css/style.css>
+<script type=application/ld+json>{"@context":"http://schema.org","@type":"WebSite","name":"Bear Su\u0027s Blog","url":"https:\/\/blog.bear-su.dev\/2015\/07\/30\/helper-method-to-use\/"}</script>
+</head>
+<body>
+<header class=gheader>
+<div class=container>
+<nav class=navbar>
+<div class=navbar-brand>
+<a class=navbar-item href=https://blog.bear-su.dev>
+<p class=brand>Bear Su's Blog</p>
+</a>
+<div class="navbar-burger burger" data-target=navMenubd-example>
+<span></span>
+<span></span>
+<span></span>
+</div>
+</div>
+<div id=navMenubd-example class=navbar-menu>
+<div class=navbar-start>
+<a class=navbar-item href=/categories/>
+Categories
+</a>
+<a class=navbar-item href=https://github.com/timfanda35>
+GitHub
+</a>
+<a class=navbar-item href=https://www.linkedin.com/in/bearsu>
+Linkedin
+</a>
+<a class=navbar-item href=https://twitter.com/Fandayo>
+Twitter
+</a>
+</div>
+</div>
+</nav>
+</div>
+</header>
+<div class=main-content>
+<div class=container>
+<article class=post>
+<header class=post-header>
+<h1 class=title>helper 的使用方法</h1>
+<div class=meta>
+<time class=pub-time datetime=2015-07-30T13:37:00+08:00>
+2015.07.30
+</time>
+<div class=terms>
+<div class=categories>
+<a class=categories-item href=/categories/ruby>ruby</a>
+<a class=categories-item href=/categories/rails>rails</a>
+</div>
+</div>
+</div>
+</header>
+<div class=post-body>
+<div class=toc-wrap>
+<h2>Table of Contents</h2>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#參考資料>參考資料</a></li>
+</ul>
+</nav>
+</div>
+<p>Helper 是協助在 View 呈現資料的方法，通常都用來包裝程式邏輯，或是簡化撰寫 View 的作業。</p>
+<p>Helper 檔案都會放在 <code>app/helpers</code> 底下，預設就有一個 <code>application_helper.rb</code> 的檔案。</p>
+<p>一份 Helper 檔案範例如下，要注意是定義一個 <strong>Module</strong>，而非 <strong>Class</strong>：</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-ruby data-lang=ruby><span style=color:#66d9ef>module</span> FooHelper
+  <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>bar</span>
+    <span style=color:#f92672>...</span>
+  <span style=color:#66d9ef>end</span>
+<span style=color:#66d9ef>end</span>
+</code></pre></div><p>之後就能在 View 中使用 <code>bar</code> 方法了。</p>
+<p>如果想將 Controller 的方法變成 Helper 方法讓 View 呼叫，可以用 <code>helper_method</code> 方法達成：</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-ruby data-lang=ruby><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>ApplicationController</span> <span style=color:#f92672>&lt;</span> <span style=color:#66d9ef>ActionController</span><span style=color:#f92672>::</span><span style=color:#66d9ef>Base</span>
+  <span style=color:#75715e># define helper method</span>
+  helper_method <span style=color:#e6db74>:foo</span>
+
+  <span style=color:#66d9ef>protected</span>
+
+  <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>foo</span>
+    <span style=color:#f92672>...</span>
+  <span style=color:#66d9ef>end</span>
+<span style=color:#66d9ef>end</span>
+</code></pre></div><p>至於想要在 rails console 測試 helper ：</p>
+<blockquote>
+<p>因為 Helper 預設只能在 Template 中使用，如果想在 rails console 中呼叫，必須加上 helper，例如 <code>helper.link_to</code>。另外，雖然機會不多，如果真的要在 Rails Controller 或 Model 程式中呼叫 Helper，則可以加上 <code>ApplicationController.helpers</code> 前置詞。 - <strong><em>Ruby on Rails 實戰聖經</em></strong></p>
+</blockquote>
+<p>最後推薦瀏覽參考資料 <strong>如何運用 / 設計 Rails Helper</strong> 系列，文章提到很多使用 Helper 的經驗與技巧。</p>
+<h2 id=參考資料>參考資料 <a href=#%e5%8f%83%e8%80%83%e8%b3%87%e6%96%99>¶</a></h2>
+<hr>
+<p><a href=http://rocodev.gitbooks.io/rails-102/content/chapter1-mvc/v/helper.html>Rails102</a>
+<a href=https://ihower.tw/rails4/actionview-helpers.html>Ruby on Rails 實戰聖經</a>
+<a href=http://blog.xdite.net/posts/2011/12/09/how-to-design-helpers>BLOG.XDITE.NET 如何運用 / 設計 Rails Helper (1)</a>
+<a href=http://blog.xdite.net/posts/2011/12/09/how-to-design-helpers>BLOG.XDITE.NET 如何運用 / 設計 Rails Helper (2)</a>
+<a href=http://blog.xdite.net/posts/2011/12/09/how-to-design-helpers>BLOG.XDITE.NET 如何運用 / 設計 Rails Helper (3)</a></p>
+</div>
+<footer class=post-footer>
+<hr>
+<div style=margin-top:2.5rem>
+<div style=display:flex;justify-content:center;width:100%>
+<p style=color:gray>
+如果覺得這篇文章對您有所幫助，歡迎贊助我一杯咖啡 ☕️
+</p>
+</div>
+<div style=display:flex;justify-content:center;width:100%>
+<p style=color:gray>
+祝您有美好的一天 ❤️
+</p>
+</div>
+<div style=display:flex;justify-content:center;width:100%;margin-top:1rem>
+<script type=text/javascript src=https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js data-name=bmc-button data-slug=timfanda35 data-color=#FFDD00 data-emoji data-font=Bree data-text="Buy me a coffee" data-outline-color=#000000 data-font-color=#000000 data-coffee-color=#ffffff></script>
+</div>
+</div>
+<hr>
+<div style=margin-top:1rem>
+<script src=https://utteranc.es/client.js repo=timfanda35/timfanda35.github.io issue-term=pathname label=comment theme=github-light crossorigin=anonymous async></script>
+</div>
+<div class=share>
+</div>
+<div class=pagenation>
+<ul class=pagenation-list>
+<li class="pager previous">
+<a href=https://blog.bear-su.dev/2015/07/30/form-for-and-strong-relationship-parameter/ data-toggle=tooltip data-placement=top title="form_for 與 strong parameter 的關係">&larr; Previous Post</a>
+</li>
+<li class="pager next">
+<a href=https://blog.bear-su.dev/2015/07/31/instance-method-and-class-method-difference/ data-toggle=tooltip data-placement=top title="instance method 與 class method 的差別">Next Post &rarr;</a>
+</li>
+</ul>
+</div>
+</footer>
+</article>
+<article class=related></article>
+<script type=application/ld+json>{"@context":"http://schema.org","@type":"NewsArticle","mainEntityOfPage":{"@type":"NewsArticle","@id":"https:\/\/blog.bear-su.dev\/2015\/07\/30\/helper-method-to-use\/","headline":"Helper 是協助在 View 呈現資料的方法，通常都用來包裝程式邏輯，或是簡化撰寫 View 的作業。Helper 檔案都會放在 app\/helpers 底下，預設就有一個 application_helper.rb","author":"Bear Su","publisher":{"@type":"Organization","name":"Bear Su","logo":""},"image":"","datePublished":"2015-07-30"},"headline":"Helper 是協助在 View 呈現資料的方法，通常都用來包裝程式邏輯，或是簡化撰寫 View 的作業。Helper 檔案都會放在 app\/helpers 底下，預設就有一個 application_helper.rb","alternativeHeadline":"Bear Su\u0027s Blog","datePublished":"2015-07-30","dateModified":"2015-07-30","url":"https:\/\/blog.bear-su.dev\/2015\/07\/30\/helper-method-to-use\/","wordCount":"120","author":{"@type":"Person","name":"Bear Su"},"publisher":{"@type":"Organization","name":"Bear Su"},"image":"","genre":"rubyrails","description":""}</script>
+<script type=application/ld+json>{"@context":"http://schema.org","@type":"Person","@id":"https:\/\/blog.bear-su.dev\/2015\/07\/30\/helper-method-to-use\/","name":"Bear Su"}</script>
+</div>
+</div>
+<footer class=gfooter>
+<div class=inner>
+<div class=container>
+<p class=copy>
+<small>Copyright © 2015 - 2022 Bear Su's Blog</small>
+<small> | 本部落格有使用 Google Analytic 及 Cookie</small>
+</p>
+<nav class=footer-nav>
+<div class=inner>
+</div>
+</nav>
+</div>
+</div>
+</footer>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KJXNT5CQCS"></script>
+<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-KJXNT5CQCS',{anonymize_ip:!1})}</script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin=anonymous referrerpolicy=no-referrer></script>
+<script src=https://blog.bear-su.dev/js/script.js></script>
+</body>
+</html>

@@ -1,0 +1,288 @@
+<!doctype html><html lang=en-us>
+<head>
+<link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png>
+<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
+<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png>
+<link rel=manifest href=/site.webmanifest>
+<link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5>
+<meta name=msapplication-TileColor content="#da532c">
+<meta name=theme-color content="#ffffff">
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta http-equiv=x-ua-compatible content="ie=edge,chrome=1">
+<title>Draw ASCII Diagram with Graph-Easy &#183; Bear Su's Blog - Running Bear!!! </title>
+<meta name=generator content="Hugo 0.92.0">
+<meta name=description content="Running Bear!!!">
+<meta name=twitter:card content="summary_large_image">
+<meta name=twitter:image content="https://blog.bear-su.dev/images/bear.jpeg">
+<meta name=twitter:title content="Draw ASCII Diagram with Graph-Easy">
+<meta name=twitter:description content="因為想要用 ASCII 畫圖，上網搜尋了一番
+需求是可以用指令產生，不依賴 java
+最後找到了 graph-easy
+這是 perl 的模組，可以用來繪製 ASCII Diagram，也能匯出成許多格式">
+<meta property="og:title" content="Draw ASCII Diagram with Graph-Easy">
+<meta property="og:description" content="因為想要用 ASCII 畫圖，上網搜尋了一番
+需求是可以用指令產生，不依賴 java
+最後找到了 graph-easy
+這是 perl 的模組，可以用來繪製 ASCII Diagram，也能匯出成許多格式">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://blog.bear-su.dev/2016/08/11/draw-ascii-diagram-with-graph-easy/"><meta property="og:image" content="https://blog.bear-su.dev/images/bear.jpeg"><meta property="article:section" content>
+<meta property="article:published_time" content="2016-08-11T09:15:00+08:00">
+<meta property="article:modified_time" content="2016-08-11T09:15:00+08:00">
+<link href rel=alternate type=application/rss+xml title="Bear Su's Blog">
+<link href rel=feed type=application/rss+xml title="Bear Su's Blog">
+<meta itemprop=name content="Draw ASCII Diagram with Graph-Easy">
+<meta itemprop=description content="因為想要用 ASCII 畫圖，上網搜尋了一番
+需求是可以用指令產生，不依賴 java
+最後找到了 graph-easy
+這是 perl 的模組，可以用來繪製 ASCII Diagram，也能匯出成許多格式"><meta itemprop=datePublished content="2016-08-11T09:15:00+08:00">
+<meta itemprop=dateModified content="2016-08-11T09:15:00+08:00">
+<meta itemprop=wordCount content="319"><meta itemprop=image content="https://blog.bear-su.dev/images/bear.jpeg">
+<meta itemprop=keywords content>
+<link href="https://fonts.googleapis.com/css?family=Lato:400" rel=stylesheet>
+<link rel=stylesheet href=https://blog.bear-su.dev/css/style.css>
+<script type=application/ld+json>{"@context":"http://schema.org","@type":"WebSite","name":"Bear Su\u0027s Blog","url":"https:\/\/blog.bear-su.dev\/2016\/08\/11\/draw-ascii-diagram-with-graph-easy\/"}</script>
+</head>
+<body>
+<header class=gheader>
+<div class=container>
+<nav class=navbar>
+<div class=navbar-brand>
+<a class=navbar-item href=https://blog.bear-su.dev>
+<p class=brand>Bear Su's Blog</p>
+</a>
+<div class="navbar-burger burger" data-target=navMenubd-example>
+<span></span>
+<span></span>
+<span></span>
+</div>
+</div>
+<div id=navMenubd-example class=navbar-menu>
+<div class=navbar-start>
+<a class=navbar-item href=/categories/>
+Categories
+</a>
+<a class=navbar-item href=https://github.com/timfanda35>
+GitHub
+</a>
+<a class=navbar-item href=https://www.linkedin.com/in/bearsu>
+Linkedin
+</a>
+<a class=navbar-item href=https://twitter.com/Fandayo>
+Twitter
+</a>
+</div>
+</div>
+</nav>
+</div>
+</header>
+<div class=main-content>
+<div class=container>
+<article class=post>
+<header class=post-header>
+<h1 class=title>Draw ASCII Diagram with Graph-Easy</h1>
+<div class=meta>
+<time class=pub-time datetime=2016-08-11T09:15:00+08:00>
+2016.08.11
+</time>
+<div class=terms>
+<div class=categories>
+<a class=categories-item href=/categories/shell>shell</a>
+</div>
+</div>
+</div>
+</header>
+<div class=post-body>
+<div class=toc-wrap>
+<h2>Table of Contents</h2>
+<nav id=TableOfContents></nav>
+</div>
+<p>因為想要用 ASCII 畫圖，上網搜尋了一番</p>
+<p>需求是可以用指令產生，不依賴 java</p>
+<p>最後找到了 <a href=https://github.com/ironcamel/Graph-Easy>graph-easy</a></p>
+<p>這是 perl 的模組，可以用來繪製 ASCII Diagram，也能匯出成許多格式</p>
+<h1 id=install>Install <a href=#install>¶</a></h1>
+<p>這模組依賴 <a href=http://www.graphviz.org/>graphviz</a> 所以需要先安裝，在 OSX 可以用 Homebrew 安裝</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>brew install graphviz
+</code></pre></div><p>再來要透過 cpan 安裝此模組，於指令列輸入</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>cpan
+</code></pre></div><p>cpan 是 perl 的模組安裝工具， OSX 或是 Linux 上都有預設安裝</p>
+<p>如果還沒有用過 cpan 的話，輸入後就一直 YES 下去，直到再次跳出輸入提示</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>cpan<span style=color:#f92672>[</span>1<span style=color:#f92672>]</span>&gt; install Graph::Easy
+</code></pre></div><p>如果沒有權限的話，就先輸入 exit 退出 cpan，用 sudo 轉成 root 身份執行 cpan 安裝</p>
+<pre tabindex=0><code>sudo cpan
+cpan[1]&gt; install Graph::Easy
+</code></pre><h1 id=usage>Usage <a href=#usage>¶</a></h1>
+<p>詳細文件請參考：<a href=http://bloodgate.com/perl/graph/manual/>http://bloodgate.com/perl/graph/manual/</a></p>
+<p>在 <a href=https://github.com/ironcamel/Graph-Easy/tree/master/t/txt>https://github.com/ironcamel/Graph-Easy/tree/master/t/txt</a> 有許多範例</p>
+<p>主要透過 <code>graph-easy source.txt</code> 指令來產生圖形</p>
+<p>註解使用 <code>#</code> ，但記得要接個一個空白再寫內容</p>
+<pre tabindex=0><code>#不OK
+# OK
+</code></pre><p>node 用 <code>[]</code> 表示，預設裡面的內容是 label 的值</p>
+<pre tabindex=0><code>[A]
+
+# 產生
+
++---+
+| A |
++---+
+</code></pre><p>如果要產生兩個同個標籤的 node，就需要用到 attribute 來指定標籤</p>
+<p>用 <code>{}</code> 包起來的就是 attribute，跟在 node 與 edge 後面就能夠設定</p>
+<p>node 是用 <code>[]</code> 包起來的內容來區分不同的 node</p>
+<pre tabindex=0><code>[0] { label: A; }
+[1] { label: B; }
+
+[0] -- [1]
+
+# 產生
+
++---+     +---+
+| A | --- | B |
++---+     +---+
+</code></pre><p>你也可以讓 node 看起來長一點，不過這需要多一點關聯才會看到效果</p>
+<pre tabindex=0><code>[0] { label: A; rows: 3; }
+[1] { label: B; }
+
+[0] --&gt; [1]
+[1] --&gt; [0]
+
+# 產生
+
++---+     +---+
+|   | --&gt; | B |
+| A |     +---+
+|   |       |
+|   | &lt;-----+
++---+
+</code></pre><p>edge 有很多種樣式</p>
+<pre tabindex=0><code>-&gt;              
+=&gt;              
+.&gt;              
+~&gt;              
+- &gt;             
+.-&gt;             
+..-&gt;            
+= &gt;             
+</code></pre><p>選擇圖形的方向，預設是 east</p>
+<pre tabindex=0><code>[0] { label: A; flow: south; }
+[1] { label: B; }
+
+[0] -- [1]
+
+# 產生
+
++---+
+| A |
++---+
+  |
+  |
+  |
++---+
+| B |
++---+
+</code></pre><p>如果想要預設所有 node 或是 edge 的屬性，可以用 <code>graph {}</code> 跟 <code>edge {}</code> 設定</p>
+<pre tabindex=0><code>graph {
+  flow: south;
+}
+
+edge {
+  label: go;
+}
+
+[0] { label: A; }
+[1] { label: B; }
+
+[0] -- [1]
+
+# 產生
+
++-----+
+|  A  |
++-----+
+  |
+  | go
+  |
++-----+
+|  B  |
++-----+
+</code></pre><p>groups</p>
+<pre tabindex=0><code>( group name
+  [A]
+)
+
+# 產生
+
++ - - - - - - -+
+' group name   '
+'              '
+' +----------+ '
+' |    A     | '
+' +----------+ '
+'              '
++ - - - - - - -+
+</code></pre><h1 id=reference>Reference <a href=#reference>¶</a></h1>
+<p><a href=http://weishu.me/2016/01/03/use-pure-ascii-present-graph/>ASCII Art：使用纯文本流程图</a></p>
+<p><a href=https://github.com/ironcamel/Graph-Easy>Graph-Easy</a></p>
+<p><a href=http://bloodgate.com/perl/graph/manual/>Graph::Easy - Manual</a></p>
+</div>
+<footer class=post-footer>
+<hr>
+<div style=margin-top:2.5rem>
+<div style=display:flex;justify-content:center;width:100%>
+<p style=color:gray>
+如果覺得這篇文章對您有所幫助，歡迎贊助我一杯咖啡 ☕️
+</p>
+</div>
+<div style=display:flex;justify-content:center;width:100%>
+<p style=color:gray>
+祝您有美好的一天 ❤️
+</p>
+</div>
+<div style=display:flex;justify-content:center;width:100%;margin-top:1rem>
+<script type=text/javascript src=https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js data-name=bmc-button data-slug=timfanda35 data-color=#FFDD00 data-emoji data-font=Bree data-text="Buy me a coffee" data-outline-color=#000000 data-font-color=#000000 data-coffee-color=#ffffff></script>
+</div>
+</div>
+<hr>
+<div style=margin-top:1rem>
+<script src=https://utteranc.es/client.js repo=timfanda35/timfanda35.github.io issue-term=pathname label=comment theme=github-light crossorigin=anonymous async></script>
+</div>
+<div class=share>
+</div>
+<div class=pagenation>
+<ul class=pagenation-list>
+<li class="pager previous">
+<a href=https://blog.bear-su.dev/2016/07/27/elixir-char-list/ data-toggle=tooltip data-placement=top title="Elixir Char List">&larr; Previous Post</a>
+</li>
+<li class="pager next">
+<a href=https://blog.bear-su.dev/2016/08/21/coscup-2016/ data-toggle=tooltip data-placement=top title="COSCUP 2016">Next Post &rarr;</a>
+</li>
+</ul>
+</div>
+</footer>
+</article>
+<article class=related></article>
+<script type=application/ld+json>{"@context":"http://schema.org","@type":"NewsArticle","mainEntityOfPage":{"@type":"NewsArticle","@id":"https:\/\/blog.bear-su.dev\/2016\/08\/11\/draw-ascii-diagram-with-graph-easy\/","headline":"因為想要用 ASCII 畫圖，上網搜尋了一番需求是可以用指令產生，不依賴 java最後找到了 graph-easy這是 perl 的模組，可以用來繪製 ASCII Diagram，也能匯出成許多格式Install ¶ 這","author":"Bear Su","publisher":{"@type":"Organization","name":"Bear Su","logo":""},"image":"","datePublished":"2016-08-11"},"headline":"因為想要用 ASCII 畫圖，上網搜尋了一番需求是可以用指令產生，不依賴 java最後找到了 graph-easy這是 perl 的模組，可以用來繪製 ASCII Diagram，也能匯出成許多格式Install ¶ 這","alternativeHeadline":"Bear Su\u0027s Blog","datePublished":"2016-08-11","dateModified":"2016-08-11","url":"https:\/\/blog.bear-su.dev\/2016\/08\/11\/draw-ascii-diagram-with-graph-easy\/","wordCount":"319","author":{"@type":"Person","name":"Bear Su"},"publisher":{"@type":"Organization","name":"Bear Su"},"image":"","genre":"shell","description":""}</script>
+<script type=application/ld+json>{"@context":"http://schema.org","@type":"Person","@id":"https:\/\/blog.bear-su.dev\/2016\/08\/11\/draw-ascii-diagram-with-graph-easy\/","name":"Bear Su"}</script>
+</div>
+</div>
+<footer class=gfooter>
+<div class=inner>
+<div class=container>
+<p class=copy>
+<small>Copyright © 2015 - 2022 Bear Su's Blog</small>
+<small> | 本部落格有使用 Google Analytic 及 Cookie</small>
+</p>
+<nav class=footer-nav>
+<div class=inner>
+</div>
+</nav>
+</div>
+</div>
+</footer>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KJXNT5CQCS"></script>
+<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-KJXNT5CQCS',{anonymize_ip:!1})}</script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin=anonymous referrerpolicy=no-referrer></script>
+<script src=https://blog.bear-su.dev/js/script.js></script>
+</body>
+</html>
