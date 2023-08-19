@@ -7264,7 +7264,9 @@ body {
   .post-body p {
     font-size: 1.2rem;}
   .post-body p code {
-    font-size: 0.7rem; }
+    position: relative;
+    bottom: 0.12rem;
+    font-size: 0.8rem;}
   .post-body ol,
   .post-body ul {
     margin: 1.4rem 0 1.4rem 2.4rem; }
