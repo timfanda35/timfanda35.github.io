@@ -7311,13 +7311,15 @@ body {
     .taxonomy-list-item {}
       .taxonomy-list-item + .taxonomy-list-item {
         margin-top: 2em; }
+      .taxonomy-list-item .pub-time {
+        color: #8d8d8d; }
       .taxonomy-list-item a {
-        color: #2d2d2d; }
+        color: #eaeaea; }
         .taxonomy-list-item a:hover {
           color: #d84817; }
-      .taxonomy-list-item > span {
+      .taxonomy-list-item .title span {
         margin-left: 0.4em;
-        color: dimgray; }
+        color: yellow; }
 
 .main-content {
   margin: 60px 0; }
