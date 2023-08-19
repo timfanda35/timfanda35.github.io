@@ -7067,12 +7067,15 @@ label.panel-block {
 
 /* User */
 body {
-  background-color: #eaeaea; }
+  background-color: #040404; }
 
 .footer-nav::after, .pagenation-list::after {
   clear: both;
   content: "";
   display: table; }
+
+.navbar-brand {
+  align-items: center;}
 
 .navbar-brand .brand {
   font-size: 2rem; }
@@ -7083,8 +7086,17 @@ body {
 .navbar-burger span {
   background-color: #eaeaea; }
 
+.navbar-burger:hover {
+  background-color: transparent; }
+
+.navbar-burger:hover span {
+  background-color: #d84817; }
+
 .navbar-burger.is-active span {
-  background-color: #2d2d2d; }
+  background-color: #eaeaea; }
+
+.navbar-burger.is-active:hover span {
+    background-color: #d84817; }
 
 .navbar-item {
   transition: 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) 0s; }
@@ -7134,7 +7146,7 @@ body {
     width: 25%;
     display: inline; }
     .pagenation-list .pager a {
-      color: #363636;
+      color: #c4c4c4;
       transition: 0.2s cubic-bezier(0.165, 0.84, 0.44, 1) 0s; }
       .pagenation-list .pager a:hover {
         color: #d84817; }
@@ -7153,12 +7165,12 @@ body {
   font-size: 1.8rem; }
   .post-item .title a {
     transition: 0.2s cubic-bezier(0.165, 0.84, 0.44, 1) 0s;
-    color: #363636; }
+    color: #c4c4c4; }
     .post-item .title a:hover {
       color: #d84817; }
 
 .meta {
-  margin-top: 8px; }
+  margin-top: 1rem; }
   .meta .pub-time {
     font-family: "Courier New", "Lato", sans-serif;
     color: #8d8d8d; }
@@ -7216,11 +7228,15 @@ body {
 .categories + .tag {
   margin-left: 0.8em; }
 
+.post-header .title {
+  color: #eaeaea;
+}
+
 .post-body {
   margin-top: 1rem;}
   .post-body > * {
     font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
-    color: #4a4a4a; }
+    color: #eaeaea; }
     .post-body > * + * {
       margin-top: 0.5em; }
   .post-body h2 {
@@ -7248,7 +7264,11 @@ body {
   .post-body p {
     font-size: 1.2rem;}
   .post-body p code {
-    font-size: 0.7rem; }
+    position: relative;
+    bottom: 0.12rem;
+    font-family: Monaco, Consolas, 'Courier New', Courier, Monaco, monospace;
+    font-size: 1em;
+    font-size: 0.8rem;}
   .post-body ol,
   .post-body ul {
     margin: 1.4rem 0 1.4rem 2.4rem; }
@@ -7274,10 +7294,10 @@ body {
     background-color: #363636;
     /* margin: 2.8em 0; */
     color: #eaeaea; }
-  .post-body pre, .post-body code {
+  .post-body pre code {
     font-family: Monaco, Consolas, 'Courier New', Courier, Monaco, monospace;
     font-size: 1em;
-    line-height: 1.2; }
+    line-height: 1.8; }
   .post-body a {
     font-weight: 400;
     color: #d84817; }
