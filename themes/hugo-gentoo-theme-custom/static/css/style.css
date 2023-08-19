@@ -7228,11 +7228,15 @@ body {
 .categories + .tag {
   margin-left: 0.8em; }
 
+.post-header .title {
+  color: #eaeaea;
+}
+
 .post-body {
   margin-top: 1rem;}
   .post-body > * {
     font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
-    color: #4a4a4a; }
+    color: #eaeaea; }
     .post-body > * + * {
       margin-top: 0.5em; }
   .post-body h2 {
