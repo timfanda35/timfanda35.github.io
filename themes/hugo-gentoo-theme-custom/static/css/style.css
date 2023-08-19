@@ -7266,6 +7266,8 @@ body {
   .post-body p code {
     position: relative;
     bottom: 0.12rem;
+    font-family: Monaco, Consolas, 'Courier New', Courier, Monaco, monospace;
+    font-size: 1em;
     font-size: 0.8rem;}
   .post-body ol,
   .post-body ul {
@@ -7292,10 +7294,10 @@ body {
     background-color: #363636;
     /* margin: 2.8em 0; */
     color: #eaeaea; }
-  .post-body pre, .post-body code {
+  .post-body pre code {
     font-family: Monaco, Consolas, 'Courier New', Courier, Monaco, monospace;
     font-size: 1em;
-    line-height: 1.2; }
+    line-height: 1.8; }
   .post-body a {
     font-weight: 400;
     color: #d84817; }
