@@ -17,20 +17,20 @@ Rails Version: `7.0.6`
 
 建立測試專案
 
-```
+```bash
 rails new demo
 cd demo
 ```
 
 新增 Controller
 
-```
+```bash
 rails g controller Articles index
 ```
 
 編輯 `config/routes.rb`
 
-```
+```ruby
 Rails.application.routes.draw do
   resources :articles, only: [:index]
 
@@ -40,14 +40,14 @@ end
 
 編輯 `app/views/articles/index.html.erb`
 
-```
+```html
 <h1>Articles#index</h1>
 <%= link_to 'link', 'https://www.google.com' %>
 ```
 
 啟動 Rails Server
 
-```
+```bash
 bin/rails server
 ```
 
@@ -65,7 +65,7 @@ bin/rails server
 
 編輯 `config/routes.rb`
 
-```
+```ruby
 Rails.application.routes.draw do
   resources :articles, only: [:index, :show]
 
@@ -75,20 +75,20 @@ end
 
 編輯 `app/controllers/articles_controller.rb`
 
-```
+```ruby
 class ArticlesController < ApplicationController
   def index
   end
 
   def show
-    redirect_to('https://www.google.com', allow_other_host: true) 
+    redirect_to('https://www.google.com', allow_other_host: true)
   end
 end
 ```
 
 編輯 `app/views/articles/index.html.erb`
 
-```
+```html
 <h1>Articles#index</h1>
 <%= link_to 'link', article_path(0) %>
 ```
@@ -103,7 +103,7 @@ end
 
 編輯 `app/views/articles/index.html.erb`
 
-```
+```html
 <h1>Articles#index</h1>
 <%= link_to 'link', article_path(0), data: { turbo: "false" } %>
 ```
