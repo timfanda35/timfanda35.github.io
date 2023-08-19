@@ -7067,12 +7067,15 @@ label.panel-block {
 
 /* User */
 body {
-  background-color: #eaeaea; }
+  background-color: #040404; }
 
 .footer-nav::after, .pagenation-list::after {
   clear: both;
   content: "";
   display: table; }
+
+.navbar-brand {
+  align-items: center;}
 
 .navbar-brand .brand {
   font-size: 2rem; }
@@ -7083,8 +7086,17 @@ body {
 .navbar-burger span {
   background-color: #eaeaea; }
 
+.navbar-burger:hover {
+  background-color: transparent; }
+
+.navbar-burger:hover span {
+  background-color: #d84817; }
+
 .navbar-burger.is-active span {
-  background-color: #2d2d2d; }
+  background-color: #eaeaea; }
+
+.navbar-burger.is-active:hover span {
+    background-color: #d84817; }
 
 .navbar-item {
   transition: 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) 0s; }
@@ -7134,7 +7146,7 @@ body {
     width: 25%;
     display: inline; }
     .pagenation-list .pager a {
-      color: #363636;
+      color: #c4c4c4;
       transition: 0.2s cubic-bezier(0.165, 0.84, 0.44, 1) 0s; }
       .pagenation-list .pager a:hover {
         color: #d84817; }
@@ -7153,7 +7165,7 @@ body {
   font-size: 1.8rem; }
   .post-item .title a {
     transition: 0.2s cubic-bezier(0.165, 0.84, 0.44, 1) 0s;
-    color: #363636; }
+    color: #c4c4c4; }
     .post-item .title a:hover {
       color: #d84817; }
 
