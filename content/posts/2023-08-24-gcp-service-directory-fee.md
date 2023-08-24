@@ -48,7 +48,7 @@ Networking -> Networking Service Directory Registered Resource
 
 ## 清除資源
 
-由於該專案並不需要再使用該資源，所以我決定直接刪除它。
+由於該專案並不再需要使用該資源，所以我決定直接刪除它。
 
 一開始我想從 Cloud Console 刪除，卻跳出 `Only standard namespaces can be deleted` 的錯誤訊息：
 
