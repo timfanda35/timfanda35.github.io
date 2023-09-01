@@ -17,9 +17,9 @@ url: /2023/09/01/rubymine-auto-completion-freeze/
 
 [RubyMine](https://www.jetbrains.com/ruby/features/) 是 [JetBrains](https://www.jetbrains.com/) 旗下提供 Ruby 開發環境的 IDE。
 
-在使用 RubyMine 進行開發時，IDE 會自動提供 Auto Completion 的備選清單。
+在使用 RubyMine 進行開發時，IDE 會根據輸入的程式碼提供 Auto Completion 的備選清單。
 
-我的作業系統是 macOS，但今天不幸遇到，當 IDE 彈出備選清單後，整個視窗卡住。只能叫出 Mac Activity Monitor 強制關閉。即使我重開了好幾次，只要彈出備選清單就會一樣的情況。
+我的作業系統是 macOS，但今天不幸遇到，當 IDE 彈出備選清單後，整個視窗便卡住了。只能叫出 Mac Activity Monitor 強制關閉。即使我重開了好幾次，只要彈出備選清單就會出現一樣卡住的情況。
 
 ## 解決過程
 
@@ -43,11 +43,11 @@ url: /2023/09/01/rubymine-auto-completion-freeze/
 依照文中的回覆，我刪除了 RubyMine 的 Logs，並重開 RubyMine 但沒有作用。
 
 注意：
-- 以下路徑 `<Mac 使用者名稱>` 需要換成您 Mac 使用者名稱
+- 以下路徑 `<macOS 使用者名稱>` 需要換成您 macOS 使用者名稱
 - 以下路徑 `RubyMine2023.2` 需要換成您目前使用的版本
 
 ```
-/Users/<Mac 使用者名稱>/Library/Logs/JetBrains/RubyMine2023.2/
+/Users/<macOS 使用者名稱>/Library/Logs/JetBrains/RubyMine2023.2/
 ```
 
 我再往下看到另一個回覆說可以刪除 RubyMine 的 `caches`。
@@ -55,7 +55,7 @@ url: /2023/09/01/rubymine-auto-completion-freeze/
 因為我也不了解是哪一份檔案有問題，所以我是刪除 RubyMine `caches` 目錄下的所有檔案
 
 注意：
-- 以下路徑 `<Mac 使用者名稱>` 需要換成您 Mac 使用者名稱
+- 以下路徑 `<macOS 使用者名稱>` 需要換成您 macOS 使用者名稱
 - 以下路徑 `RubyMine2023.2` 需要換成您目前使用的版本
 
 ```
