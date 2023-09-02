@@ -1,8 +1,11 @@
 ---
 categories:
+  - rails
+keywords:
   - ruby
   - rails
   - turbo
+  - turbolink
 comments: true
 date: 2023-07-14T12:00:00+08:00
 title: "Rails 7 link_to 觸發兩次"

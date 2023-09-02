@@ -1,8 +1,11 @@
 ---
 categories:
   - book
+keywords:
+  - book
   - note
   - startup
+  - company
 comments: true
 date: 2022-04-03T12:00:00+08:00
 title: "[讀書筆記]一人公司：為什麼小而美是未來企業發展的趨勢"
@@ -45,7 +48,7 @@ url: /2022/04/03/note-company-of-one/
 2. 自主：擁有自主權與掌控權
 
 3. 快速：減少工作時數，安排工作的優先順序
-  
+
 4. 簡單：業務單純化
 
 ### 關於領導能力

@@ -2,9 +2,14 @@
 ---
 categories:
   - gcp
+keywords:
+  - google cloud platform
+  - google cloud
+  - gcp
   - bigquery
   - sqlserver
   - embulk
+  - datapipeline
 comments: true
 date: 2020-05-31T12:00:00+08:00
 title: 使用 Embulk 從 SQL Server 匯入資料至 BigQuery
@@ -28,7 +33,7 @@ SQL Server 匯出成 BigQuery 可以接受的 CSV 格式，比較麻煩的主要
 
 ## Embulk 簡介
 
-[Embulk]([https://github.com/embulk/embulk](https://github.com/embulk/embulk)) 是一個使用 JRuby 開發的開源 Bulk Data Loader，支援多種資料來源與目的地。 
+[Embulk]([https://github.com/embulk/embulk](https://github.com/embulk/embulk)) 是一個使用 JRuby 開發的開源 Bulk Data Loader，支援多種資料來源與目的地。
 
 > Embulk is a parallel bulk data loader that helps data transfer between various storages, databases, NoSQL and cloud services.
 

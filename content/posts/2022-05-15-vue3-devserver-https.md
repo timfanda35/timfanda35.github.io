@@ -1,9 +1,13 @@
 ---
 categories:
   - vue
+keywords:
+  - vue
   - vue3
   - vue-cli
   - vue-cli-service
+  - frontend
+  - development
   - https
 comments: true
 date: 2022-05-15T12:00:00+08:00
@@ -44,7 +48,7 @@ yarn serve
 
 
   App running at:
-  - Local:   https://localhost:8080/ 
+  - Local:   https://localhost:8080/
   - Network: https://localhost:8080/
 
   Note that the development build is not optimized.

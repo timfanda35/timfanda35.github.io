@@ -1,7 +1,13 @@
 ---
 categories:
   - docker
+keywords:
+  - docker
+  - docker compose
   - traefik
+  - load balancer
+  - load balancing
+  - authentication
 comments: true
 date: 2022-02-22T12:00:00+08:00
 title: Traefik ForwardAuth 筆記
@@ -27,7 +33,7 @@ Client <--> Traefik <--> Backend
 假設本地環境為 Linux-like 作業系統，並已安裝好 Docker、Docker Compose、curl 工具。
 
 建立目錄
- 
+
 ```bash
 mkdir traefik-forward-demo
 cd traefik-forward-demo

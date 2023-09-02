@@ -1,15 +1,22 @@
 ---
 categories:
   - gitlab
+keywords:
+  - gitlab
+  - gitlab ci
+  - ci/cd
   - docker
+  - docker in docker
+  - dind
   - ruby
+  - gem
 comments: true
 date: 2022-02-16T12:00:00+08:00
 title: gem install fail with docker in docker
 url: /2022/02/16/gem-install-fail-with-dind/
 ---
 
-打算照著 [GitLab](https://docs.gitlab.com/ee/user/packages/container_registry/#container-registry-examples-with-gitlab-cicd) 文件，用 dind 的方式建置 Container Image，但在執行 CI Job 時，收到了錯誤訊息 
+打算照著 [GitLab](https://docs.gitlab.com/ee/user/packages/container_registry/#container-registry-examples-with-gitlab-cicd) 文件，用 dind 的方式建置 Container Image，但在執行 CI Job 時，收到了錯誤訊息
 
 ```
 You don't have write permission for the /usr/local/bundle

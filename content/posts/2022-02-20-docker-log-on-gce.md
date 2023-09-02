@@ -1,7 +1,13 @@
 ---
 categories:
   - docker
+keywords:
+  - docker
+  - google cloud platform
+  - google cloud
   - gcp
+  - google compute engine
+  - compute engine
   - gce
   - cloud logging
 comments: true

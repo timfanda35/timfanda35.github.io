@@ -1,5 +1,7 @@
 ---
 categories:
+  - google cloud
+keywords:
   - google cloud platform
   - google cloud
   - gcp
