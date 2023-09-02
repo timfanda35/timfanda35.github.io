@@ -19,7 +19,7 @@ url: /2023/09/01/rubymine-auto-completion-freeze/
 
 在使用 RubyMine 進行開發時，IDE 會根據輸入的程式碼提供 Auto Completion 的備選清單。
 
-我的作業系統是 macOS，但今天不幸遇到，當 IDE 彈出備選清單後，整個視窗便卡住了。只能叫出 Mac Activity Monitor 強制關閉。即使我重開了好幾次，只要彈出備選清單就會出現一樣卡住的情況。
+我的作業系統是 macOS，但今天不幸遇到，當 IDE 彈出備選清單後，整個視窗便卡住了。只能叫出 Activity Monitor 強制關閉。即使我重開了好幾次，只要彈出備選清單就會出現一樣卡住的情況。
 
 ## 解決過程
 
@@ -59,7 +59,7 @@ url: /2023/09/01/rubymine-auto-completion-freeze/
 - 以下路徑 `RubyMine2023.2` 需要換成您目前使用的版本
 
 ```
-/Users/<Mac 使用者名稱>/Library/Caches/JetBrains/RubyMine2023.2/caches/*
+/Users/<macOS 使用者名稱>/Library/Caches/JetBrains/RubyMine2023.2/caches/*
 ```
 
 重新啟動 RubyMine 就恢復正常運作了
