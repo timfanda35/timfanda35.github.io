@@ -1,8 +1,11 @@
 ---
 categories:
   - book
+keywords:
+  - book
   - note
   - startup
+  - company
 comments: true
 date: 2022-03-27T12:00:00+08:00
 title: "[讀書筆記]一人公司起步的思維與挑戰"

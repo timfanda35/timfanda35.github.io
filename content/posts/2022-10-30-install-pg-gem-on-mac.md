@@ -1,7 +1,10 @@
 ---
 categories:
   - ruby
-  - mac
+keywords:
+  - ruby
+  - gem
+  - macOS
   - pg
   - postgresql
 comments: true
@@ -28,7 +31,7 @@ brew install libpq
 ```
 
 我們將該位置紀錄成環境變數
- 
+
 ```shell
 LIBPG_PATH=/opt/homebrew/Cellar/libpq/15.0
 ```

@@ -1,6 +1,12 @@
 ---
 categories:
   - gcp
+keywords:
+  - google cloud platform
+  - google cloud
+  - gcp
+  - google compute engine
+  - compute engine
   - gce
   - hashicorp
   - packer
@@ -144,7 +150,7 @@ Packer 將會自動化以下步驟：
 輸出結果如下：
 
     googlecompute: output will be in this color.
-    
+
     ==> googlecompute: Checking image does not exist...
     ==> googlecompute: Creating temporary SSH key for instance...
     ==> googlecompute: Using image: centos-7-v20191210
@@ -165,7 +171,7 @@ Packer 將會自動化以下步驟：
     ==> googlecompute: Deleting disk...
         googlecompute: Disk has been deleted!
     Build 'googlecompute' finished.
-    
+
     ==> Builds finished. The artifacts of successful builds are:
     --> googlecompute: A disk image was created: nginx-demo-1580527798
 

@@ -1,6 +1,9 @@
 ---
 categories:
   - rails
+keywords:
+  - rails
+  - active support
 comments: true
 date: 2022-02-19T12:00:00+08:00
 title: Rails ActiveSupport::MessageEncryptor

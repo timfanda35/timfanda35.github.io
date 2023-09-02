@@ -1,10 +1,16 @@
 ---
 categories:
   - gcp
+keywords:
+  - google cloud platform
+  - google cloud
+  - gcp
+  - google compute engine
+  - compute engine
   - gce
   - hashicorp
   - packer
-  - cloudbuild
+  - cloud build
 comments: true
 date: 2020-02-08T12:00:00+08:00
 title: Packer on GCP with Cloud Build
