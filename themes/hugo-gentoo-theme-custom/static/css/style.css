@@ -7303,6 +7303,9 @@ body {
     color: #d84817; }
     .post-body a:hover {
       text-decoration: underline; }
+  .post-body strong {
+    color: #eaeaea;
+    font-weight: 700; }
 
 .taxonomy {
   min-height: 200px; }
