@@ -243,7 +243,7 @@ bin/rails server
 
 ### 尋找原因
 
-開啟瀏覽器訪問 http://lcoalhost:9222
+開啟瀏覽器訪問 [http://localhost:9222](http://localhost:9222)
 
 可以看到 `browerless/chrome` container 的測試工具。
 
