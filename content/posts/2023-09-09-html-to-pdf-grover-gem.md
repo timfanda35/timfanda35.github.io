@@ -1,6 +1,6 @@
 ---
 categories:
-  - Rails
+  - rails
 keywords:
   - Rails
   - Ruby
