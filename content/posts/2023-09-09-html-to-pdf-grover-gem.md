@@ -7,6 +7,7 @@ keywords:
   - PDFkit
   - wkhtmltopdf
   - grover
+  - puppeteer
   - gem
   - PDF
   - HTML
@@ -112,7 +113,7 @@ end
 rails g controller string_pdfs index
 ```
 
-編輯 `app/controllers/string_pdfs_controller.rb``
+編輯 `app/controllers/string_pdfs_controller.rb`
 
 ```ruby
 class StringPdfsController < ApplicationController
