@@ -286,6 +286,17 @@ body {
   .gheader .navbar-item {
     color: #eaeaea; }
 
+table th {
+  color: #eaeaea;
+  border: 1px solid #dbdbdb;
+  border-width: 0 0 1px;
+  padding: 0.5em 0.75em;
+  vertical-align: top; }
+table tr:hover {
+  background-color: #d84817; }
+table td {
+  padding: 0.5em 0.75em; }
+
 /* Customzie */
 .pub-time {
   font-family: "Courier New", "Lato", sans-serif;
