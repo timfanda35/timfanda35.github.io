@@ -11,7 +11,7 @@ keywords:
   - gar
 comments: true
 date: 2023-10-29T12:00:00+08:00
-title: "[筆記] 設定 google container registry 到 google artifact registry"
+title: "[筆記] 設定 google container registry 轉址到 google artifact registry"
 url: /2023/10/29/note-gcr-to-gar/
 ---
 
