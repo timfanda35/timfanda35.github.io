@@ -4,7 +4,7 @@ languageCode: en-us
 title: Bear Su's Blog
 copyright: "Copyright © 2015 - 2023 Bear Su's Blog"
 
-theme: hugo-gentoo-theme-custom
+theme: simplecss
 contentDir: content/posts
 enableRobotsTXT: true
 
