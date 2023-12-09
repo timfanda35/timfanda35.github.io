@@ -1,8 +1,8 @@
-<article class="post-item">
-  <p class="title">
+<article>
+  <h3>
     <a href="{{ .Permalink }}">{{ .Title }}</a>
-  </p>
-  <footer class="meta">
+  </h3>
+  <div>
     <time class="pub-time"  datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" | safeHTML }}">
       {{ .Lastmod.Format ( .Site.Params.dateformat | default "2006.01.02") }}
     </time>
@@ -10,18 +10,17 @@
       {{ if .Params.categories }}
       <div class="categories">
         {{ range .Params.categories }}
-          <a class="categories-item" href="{{ "/categories/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
+          <a href="{{ "/categories/" | relLangURL }}{{ . | urlize }}"><mark>{{ . }}</mark></a>
         {{ end }}
       </div>
       {{ end }}
       {{ if .Params.tags }}
       <div class="tag">
         {{ range .Params.tags }}
-          <a class="tag-item" href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
+          <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}"><mark>{{ . }}</mark></a>
         {{ end }}
       </div>
       {{ end }}
     </div>
-  </footer>
-  <hr>
+  </div>
 </article>

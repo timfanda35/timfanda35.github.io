@@ -50,11 +50,15 @@ taxonomies:
 
 menu:
   global:
+  - name: "Home"
+    url: "/"
+    weight: 1
   - name: "Categories"
     url: "/categories/"
+    weight: 2
   - name: "GitHub"
     url: "https://github.com/timfanda35"
+    weight: 3
   - name: "Twitter"
     url: "https://twitter.com/Fandayo"
-  - name: "Linkedin"
-    url: "https://www.linkedin.com/in/bearsu"
+    weight: 4

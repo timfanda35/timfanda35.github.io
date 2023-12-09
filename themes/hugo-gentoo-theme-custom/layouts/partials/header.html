@@ -1,27 +1,12 @@
-<header class="gheader">
-  <div class="container">
-    <nav class="navbar">
-      <div class="navbar-brand">
-        <a class="navbar-item" href="{{ .Site.BaseURL }}">
-          <p class="brand">{{ .Site.Title }}</p>
-        </a>
-
-        <div class="navbar-burger burger" data-target="navMenubd-example">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div><!-- /.navbar-burger -->
-      </div><!-- /.navbar-brand -->
-
-      <div id="navMenubd-example" class="navbar-menu">
-        <div class="navbar-start">
-          {{ range .Site.Menus.global }}
-          <a class="navbar-item" href="{{ .URL }}">
-            {{ .Name }}
-          </a>
-          {{ end }}
-        </div>
-      </div><!-- /.navbar-menu -->
-    </nav>
+<header>
+  <nav>
+    {{ range .Site.Menus.global }}
+    <a href="{{ .URL }}">
+      {{ .Name }}
+    </a>
+    {{ end }}
+  </nav>
+  <div>
+    <h1>{{ .Site.Title }}</h1>
   </div>
 </header>

@@ -2,11 +2,9 @@
 <body>
   {{ partial "header" . }}
 
-  <div class="main-content">
-    <div class="container">
-      {{ block "main" . }}{{ end }}
-    </div>
-  </div>
+  <main>
+    {{ block "main" . }}{{ end }}
+  </main>
 
   {{ partial "footer" . }}
 </body>
