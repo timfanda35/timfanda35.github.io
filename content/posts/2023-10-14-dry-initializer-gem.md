@@ -11,6 +11,8 @@ comments: true
 date: 2023-10-14T12:00:00+08:00
 title: "dry-initializer 介紹"
 url: /2023/10/14/dry-initializer-gem/
+images:
+  - /images/2023-10-14/dry-initializer-gem.png
 ---
 
 最近在研究 [Turbo](https://github.com/hotwired/turbo-rails) 與 [View Component](https://viewcomponent.org/)，在尋找資料的過程中從這部影片看到 [dry-initializer](https://dry-rb.org/gems/dry-initializer/) 的介紹。看起來能夠幫助在定義物件的時候少寫許多程式碼。
