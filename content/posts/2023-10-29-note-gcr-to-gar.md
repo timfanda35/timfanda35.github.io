@@ -13,6 +13,8 @@ comments: true
 date: 2023-10-29T12:00:00+08:00
 title: "[筆記] 設定 google container registry 轉址到 google artifact registry"
 url: /2023/10/29/note-gcr-to-gar/
+images:
+  - /images/2023-10-29/note-gcr-to-gar.png
 ---
 
 > Container Registry will be phased out, starting May 15, 2024
