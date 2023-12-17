@@ -21,10 +21,11 @@ const (
 	OgImageHeight      = 600
 	OgTitleFontSize    = 48
 	OgSubTitleFontSize = 32
-	OgPaddingLeft      = 72
-	OgPaddingTop       = 90
+	OgPaddingLeft      = 72.0
+	OgPaddingTop       = 90.0
 
-	SubTitle = "Bear Su's blog"
+	SubTitle      = "Bear Su's blog"
+	IconImagePath = "icon.png"
 )
 
 // Load font with goki freetype
@@ -108,20 +109,37 @@ func main() {
 	// Load Font
 	font := loadFont("NotoSansTC-Black.ttf")
 
+	axisX := OgPaddingLeft
+	axisY := OgPaddingTop
+
 	// Draw Title
 	titleFace := truetype.NewFace(font, &truetype.Options{Size: OgTitleFontSize})
 	dc.SetFontFace(titleFace)
 	dc.SetRGB(0, 0, 0)
-	dc.DrawStringWrapped(postTitle, OgPaddingLeft, OgPaddingTop, 0, 0, 1100, 1, gg.AlignLeft)
+	dc.DrawStringWrapped(postTitle, axisX, axisY, 0, 0, 1100, 1, gg.AlignLeft)
+
+	axisY += OgTitleFontSize * 4
+
+	// Draw Icon
+	iconImage, err := gg.LoadImage(IconImagePath)
+	if err != nil {
+		log.Println(err)
+	} else {
+		w := iconImage.Bounds().Size().X
+		iconImageAxisX := OgImageWidth - OgPaddingLeft - w
+		dc.DrawImage(iconImage, int(iconImageAxisX), int(axisY))
+	}
 
 	// Draw SubTitle
 	subTitleFace := truetype.NewFace(font, &truetype.Options{Size: OgSubTitleFontSize})
 	dc.SetFontFace(subTitleFace)
 	dc.SetRGB(150, 150, 150)
-	dc.DrawStringWrapped(SubTitle, OgPaddingLeft, OgPaddingTop+OgTitleFontSize*4, 0, 0, 1100, 1, gg.AlignLeft)
+	dc.DrawStringWrapped(SubTitle, axisX, axisY, 0, 0, 1100, 1, gg.AlignLeft)
+
+	axisY += OgTitleFontSize
 
 	// Draw Date
-	dc.DrawStringWrapped(postDate, OgPaddingLeft, OgPaddingTop+OgTitleFontSize*5, 0, 0, 1100, 1, gg.AlignLeft)
+	dc.DrawStringWrapped(postDate, axisX, axisY, 0, 0, 1100, 1, gg.AlignLeft)
 
 	// Save
 	ogImage := imageOutputPath(postFilePath)
