@@ -23,6 +23,7 @@ const (
 	OgSubTitleFontSize = 32
 	OgPaddingLeft      = 72.0
 	OgPaddingTop       = 90.0
+	OgBottomLineY      = 576
 
 	SubTitle      = "Bear Su's blog"
 	IconImagePath = "icon.png"
@@ -115,7 +116,7 @@ func main() {
 	// Draw Title
 	titleFace := truetype.NewFace(font, &truetype.Options{Size: OgTitleFontSize})
 	dc.SetFontFace(titleFace)
-	dc.SetRGB(0, 0, 0)
+	dc.SetRGB255(0, 0, 0)
 	dc.DrawStringWrapped(postTitle, axisX, axisY, 0, 0, 1100, 1, gg.AlignLeft)
 
 	axisY += OgTitleFontSize * 4
@@ -133,13 +134,18 @@ func main() {
 	// Draw SubTitle
 	subTitleFace := truetype.NewFace(font, &truetype.Options{Size: OgSubTitleFontSize})
 	dc.SetFontFace(subTitleFace)
-	dc.SetRGB(150, 150, 150)
+	dc.SetRGB255(150, 150, 150)
 	dc.DrawStringWrapped(SubTitle, axisX, axisY, 0, 0, 1100, 1, gg.AlignLeft)
 
 	axisY += OgTitleFontSize
 
 	// Draw Date
 	dc.DrawStringWrapped(postDate, axisX, axisY, 0, 0, 1100, 1, gg.AlignLeft)
+
+	// Draw Bottom Line
+	dc.DrawRectangle(0, OgBottomLineY, OgImageWidth, OgImageHeight-OgBottomLineY)
+	dc.SetRGB255(227, 76, 37)
+	dc.Fill()
 
 	// Save
 	ogImage := imageOutputPath(postFilePath)
