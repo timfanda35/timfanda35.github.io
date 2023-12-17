@@ -16,8 +16,10 @@ import (
 )
 
 const (
-	FontPath  = "NotoSansTC-Black.ttf"
-	OutputDir = "static/images"
+	FontPath      = "NotoSansTC-Black.ttf"
+	OutputDir     = "static/images"
+	OgImageWidth  = 1200
+	OgImageHeight = 600
 )
 
 // Load font with goki freetype
@@ -75,7 +77,7 @@ func main() {
 	log.Println("postTitle:", postTitle)
 
 	// Create context
-	dc := gg.NewContext(1200, 675)
+	dc := gg.NewContext(OgImageWidth, OgImageHeight)
 	dc.SetRGB(1, 1, 1)
 	dc.Clear()
 
