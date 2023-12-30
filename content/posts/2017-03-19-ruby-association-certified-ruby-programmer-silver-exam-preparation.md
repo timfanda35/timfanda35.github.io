@@ -6,6 +6,8 @@ comments: true
 date: 2017-03-19T06:35:00+08:00
 title: Ruby Association Certified Ruby Programmer Silver 考試準備
 url: /2017/03/19/ruby-association-certified-ruby-programmer-silver-exam-preparation/
+images:
+  - /images/2017-03-19/ruby-association-certified-ruby-programmer-silver-exam-preparation.png
 ---
 
 ![Imgur](http://i.imgur.com/3PXgdKS.jpg)
@@ -29,7 +31,7 @@ url: /2017/03/19/ruby-association-certified-ruby-programmer-silver-exam-preparat
 
 我完全是虛榮心發作
 
-也想要藉此機會好好從頭學習 ruby 
+也想要藉此機會好好從頭學習 ruby
 
 ----
 

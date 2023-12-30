@@ -19,6 +19,8 @@ comments: true
 date: 2023-09-09T12:00:00+08:00
 title: "HTML to PDF PDFkit 的替代方案 - Grover 介紹"
 url: /2023/09/09/html-to-pdf-grover-gem/
+images:
+  - /images/2023-09-09/html-to-pdf-grover-gem.png
 ---
 
 ## 問題：PDFkit 的替代方案

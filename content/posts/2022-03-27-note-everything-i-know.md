@@ -10,6 +10,8 @@ comments: true
 date: 2022-03-27T12:00:00+08:00
 title: "[讀書筆記]一人公司起步的思維與挑戰"
 url: /2022/03/27/note-everything-i-know/
+images:
+  - /images/2022-03-27/note-everything-i-know.png
 ---
 
 ## 書本資訊

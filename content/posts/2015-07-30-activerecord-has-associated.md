@@ -6,6 +6,8 @@ comments: true
 date: 2015-07-30T11:59:00+08:00
 title: ActiveRecord has_many :through 關聯
 url: /2015/07/30/activerecord-has-associated/
+image:
+  - /images/2015-07-30/activerecord-has-associated.png
 ---
 
 在 Rails 中 Model 常常使用到一對多的關係，像是一台車有四個輪子，但每個輪子都只屬於一台車

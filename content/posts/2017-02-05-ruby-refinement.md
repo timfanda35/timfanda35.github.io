@@ -5,6 +5,8 @@ comments: true
 date: 2017-02-05T05:58:00+08:00
 title: ruby-refinement
 url: /2017/02/05/ruby-refinement/
+images:
+  - /images/2017-02-05/ruby-refinement.png
 ---
 
 今天整理收集的文章時看到了這篇 [Ruby Best Practices and Tips by Toptal Developers](https://www.toptal.com/ruby/tips-and-practices?utm_medium=sponsored_post&utm_campaign=ruby_tips&utm_source=facebook.com)
@@ -54,7 +56,7 @@ class MyLogClass
   end
 end
 
-MyLogClass.new.log('My Message', 'DEBUG') 
+MyLogClass.new.log('My Message', 'DEBUG')
 # DEBUG: My Message
 
 'My Message'.to_s.red

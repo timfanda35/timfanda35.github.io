@@ -5,6 +5,8 @@ comments: true
 date: 2016-06-13T02:24:00+08:00
 title: Rails Hosting Survey 2016
 url: /2016/06/13/rails-hosting-survey-2016/
+images:
+  - /images/2016-06-13/rails-hosting-survey-2016.png
 ---
 
 連結：[http://rails-hosting.com/2016/](http://rails-hosting.com/2016/)

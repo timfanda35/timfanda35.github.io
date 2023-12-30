@@ -6,6 +6,8 @@ comments: true
 date: 2015-07-30T13:01:00+08:00
 title: form_for 與 strong parameter 的關係
 url: /2015/07/30/form-for-and-strong-relationship-parameter/
+images:
+  - /images/2015-07-30/form-for-and-strong-relationship-parameter.png
 ---
 
 `form_for` 是用 Rails 做網頁很常用的 Helper 方法，他的方便之處在於很輕鬆的產生與 Model 對應的 HTML 表單。
@@ -50,9 +52,9 @@ end
 ```ruby
 class FoosController < ApplicationController
   ...
-  
+
   private
-  
+
   def foo_params
     # 只允許通過 :name, :bar 參數
   	params.require(:foo).permit(:name, :bar)

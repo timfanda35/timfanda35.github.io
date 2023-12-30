@@ -4,6 +4,8 @@ comments: true
 date: 2017-05-06T08:13:00+08:00
 title: 機器學習筆記(week1)
 url: /2017/05/06/machine-learning-note-week1/
+images:
+  - /images/2017-05-06/machine-learning-note-week1.png
 ---
 
 最近朋友貼了這個課程給我:[机器学习 - 斯坦福大学](https://www.coursera.org/learn/machine-learning/home/welcome)
@@ -19,8 +21,8 @@ url: /2017/05/06/machine-learning-note-week1/
 第一週的主題為：
 
 1. Introduction
-1. Linear Regression with One Variable
-1. Linear Algebra Review
+2. Linear Regression with One Variable
+3. Linear Algebra Review
 
 <!--more-->
 
@@ -58,7 +60,7 @@ E: 觀察你將信件標記為正常信件或垃圾信件
 h_{\theta_0}(x) = \theta_0 + \theta_1x \\
 ```
 
-要如何用大量訓練資料找出適合的 
+要如何用大量訓練資料找出適合的
 
 ```mathjax
 \theta_0, \theta_1 \\
@@ -150,7 +152,7 @@ repest\ until\ convergence\ \{ \\
 \eqalign{
 &R^{m \times n} \\
 &m:\ rows \\
-&n:\ columns \\ 
+&n:\ columns \\
 } \\
 ```
 
@@ -175,7 +177,7 @@ Vector 是 `m x 1` 的 Matrix
 
 Iedentity Matrix(用 `I` 表示):
 
-一定是 
+一定是
 
 ```mathjax
 \eqalign{

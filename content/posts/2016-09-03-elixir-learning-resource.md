@@ -5,11 +5,13 @@ comments: true
 date: 2016-09-03T09:47:00+08:00
 title: Elixir 學習資源
 url: /2016/09/03/elixir-learning-resource/
+images:
+  - /images/2016-09-03/elixir-learning-resource.png
 ---
 
 最近有空在學 Functional programming
 
-選了 Elixir，也有參加 meetup 
+選了 Elixir，也有參加 meetup
 
 這篇紀錄了目前我在學習過程中收集的資源
 
@@ -43,7 +45,7 @@ url: /2016/09/03/elixir-learning-resource/
 
 [Plataformatec](http://blog.plataformatec.com.br/tag/elixir/)
 
-[Elixir 簡明筆記](https://rsj217.github.io/2016/02/18/Elixir-%E7%AE%80%E6%98%8E%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89---%E5%88%9D%E8%AF%86/)  
+[Elixir 簡明筆記](https://rsj217.github.io/2016/02/18/Elixir-%E7%AE%80%E6%98%8E%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89---%E5%88%9D%E8%AF%86/)
 
 ## 動手學習
 

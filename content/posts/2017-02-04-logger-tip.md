@@ -7,6 +7,8 @@ comments: true
 date: 2017-02-04T07:05:00+08:00
 title: logger tip
 url: /2017/02/04/logger-tip/
+images:
+  - /images/2017-02-04/logger-tip.png
 ---
 
 所謂有記有保庇

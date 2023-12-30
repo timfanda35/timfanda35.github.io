@@ -6,6 +6,8 @@ comments: true
 date: 2018-09-01T16:10:00+08:00
 title: 用指令建立 Cloud Build Trigger
 url: /2018/09/01/create-cloudbuild-trigger-with-command/
+images:
+  - /images/2018-09-01/create-cloudbuild-trigger-with-command.png
 ---
 
 

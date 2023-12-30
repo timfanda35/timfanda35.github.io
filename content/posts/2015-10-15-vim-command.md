@@ -5,6 +5,8 @@ comments: true
 date: 2015-10-15T06:05:00+08:00
 title: Vim 指令(游標移動)
 url: /2015/10/15/vim-command/
+images:
+  - /images/2015-10-15/vim-command.png
 ---
 
 最近重新學習 vim，紀錄一下覺得好用的指令。

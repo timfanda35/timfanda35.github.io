@@ -4,6 +4,8 @@ comments: true
 date: 2019-01-20T01:20:26+08:00
 title: 從 jekyll 搬到 hugo 筆記
 url: /2019/01/20/jekyll-to-hugo/
+images:
+  - /images/2019-01-20/jekyll-to-hugo.png
 ---
 
 ![](/images/2019-01-20/jekyll-to-hugo/cover.jpg)

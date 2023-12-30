@@ -43,6 +43,8 @@ params:
   - images/x-card.png
   author: "Bear Su"
   likerID: "timfanda35"
+  logo: "/images/bear.jpeg"
+  url: "https://github.com/timfanda35"
 
 taxonomies:
   category: "categories"

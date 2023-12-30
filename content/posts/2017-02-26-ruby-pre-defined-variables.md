@@ -5,6 +5,8 @@ comments: true
 date: 2017-02-26T07:41:00+08:00
 title: Ruby Pre-defined variables
 url: /2017/02/26/ruby-pre-defined-variables/
+images:
+  - /images/2017-02-26/ruby-pre-defined-variables.png
 ---
 
 ![](https://i.imgur.com/EsiorQx.jpg)
@@ -13,11 +15,11 @@ url: /2017/02/26/ruby-pre-defined-variables/
 [フリー写真素材ぱくたそ](https://www.pakutaso.com/)
 
 ruby 本身有先定義了一些變數與常數
- 
+
 可以用在取得系統資訊，或是除錯上
 
 有些變數可以使得在開發時少打一些程式碼，但相對的可讀性可能就會降低一些(不是所有人都熟悉符號的意義)
- 
+
 這裡紀錄一些我覺得值得一提的部分
 
 <!--more-->
@@ -77,7 +79,7 @@ ruby 本身有先定義了一些變數與常數
 > $0
 => "irb"
 ```
-若是執行 `test.rb` 
+若是執行 `test.rb`
 
 ```bash
 bash$ echo 'puts $0' > test.rb

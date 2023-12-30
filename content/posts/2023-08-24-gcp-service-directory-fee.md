@@ -12,6 +12,8 @@ comments: true
 date: 2023-08-24T12:00:00+08:00
 title: "GCP Networking Service Directory Registered Resource 費用來源"
 url: /2023/08/24/gcp-service-directory-fee/
+images:
+  - /images/2023-08-24/gcp-service-directory-fee.png
 ---
 
 ## 費用 SKU

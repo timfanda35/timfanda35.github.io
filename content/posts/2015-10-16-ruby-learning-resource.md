@@ -6,6 +6,8 @@ comments: true
 date: 2015-10-16T14:24:00+08:00
 title: Ruby 學習資源
 url: /2015/10/16/ruby-learning-resource/
+images:
+  - /images/2015-10-16/ruby-learning-resource.png
 ---
 
 紀錄一下收藏的學習資源
@@ -98,7 +100,7 @@ url: /2015/10/16/ruby-learning-resource/
 
 ## [Ruby Taiwan AMA](https://github.com/rubytaiwan/AMA)
 
-> Ruby Taiwan 所建立的 [Ask Me Anything](https://en.wikipedia.org/wiki/Reddit#IAmA_and_AMA)，利用 Github Issue 來建立友善的問答環境。[建立原由](http://juanitofatas.com/2015/09/27/why-rubytaiwan-ama/) 
+> Ruby Taiwan 所建立的 [Ask Me Anything](https://en.wikipedia.org/wiki/Reddit#IAmA_and_AMA)，利用 Github Issue 來建立友善的問答環境。[建立原由](http://juanitofatas.com/2015/09/27/why-rubytaiwan-ama/)
 
 ## [RailsFun](http://railsfun.tw)
 

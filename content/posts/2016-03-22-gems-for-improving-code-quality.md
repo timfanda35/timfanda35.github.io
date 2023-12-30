@@ -11,6 +11,8 @@ comments: true
 date: 2016-03-22T11:28:00+08:00
 title: 推薦協助提高程式碼品質的 Gem
 url: /2016/03/22/gems-for-improving-code-quality/
+images:
+  - /images/2016-03-22/gems-for-improving-code-quality.png
 ---
 
 用 Rails 開發網站時除了寫測試之外，還可以透過一些 gem 來協助維護 code 的品質
@@ -73,7 +75,7 @@ group :test, :development do
 end
 ```
 
-將 Bullet 加入到 `development` 與 `test` 群組以看到 Bullet 所產生的 log 
+將 Bullet 加入到 `development` 與 `test` 群組以看到 Bullet 所產生的 log
 
 修改 `config/environments/test.rb`，加入以下設定
 
@@ -91,7 +93,7 @@ end
 RSpec.configure do |config|
 
   # other configures...
-  
+
   if Bullet.enable?
     config.before(:each) do
       Bullet.start_request

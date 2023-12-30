@@ -4,6 +4,8 @@ comments: true
 date: 2015-08-05T13:47:00+08:00
 title: GrowthHack 心得
 url: /2015/08/05/growthhack-views/
+images:
+  - /images/2015-08-05/growthhack-views.png
 ---
 
 在 Rails 即戰力最後一天的課程中，收穫最多的就是 GrowthHack 的部分，將近 300 頁的投影片內容，XDite 快速的講過一遍。

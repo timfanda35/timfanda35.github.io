@@ -5,6 +5,8 @@ comments: true
 date: 2017-02-19T14:16:00+08:00
 title: Ruby Array 的一些筆記
 url: /2017/02/19/ruby-array-methods/
+images:
+  - /images/2017-02-19/ruby-array-methods.png
 ---
 
 ![](https://i.imgur.com/EsiorQx.jpg)

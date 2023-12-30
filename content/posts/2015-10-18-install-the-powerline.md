@@ -6,6 +6,8 @@ comments: true
 date: 2015-10-18T13:30:00+08:00
 title: 安裝 Powerline
 url: /2015/10/18/install-the-powerline/
+images:
+  - /images/2015-10-18/install-the-powerline.png
 ---
 
 因為注意到 [vim-powerling](https://github.com/Lokaltog/vim-powerline) 已經不再維護，而建議改用 [Powerline][powerline] 時，就想說來試試看。
@@ -65,7 +67,7 @@ License: MIT
 Location: /Users/bear/Library/Python/2.7/lib/python/site-packages
 Requires:
 
-# 以我的例子，我的使用者名稱是 bear 
+# 以我的例子，我的使用者名稱是 bear
 # 所以會安裝到 /Users/bear/Library/Python/2.7/lib/python/site-packages 目錄底下
 ```
 
@@ -76,7 +78,7 @@ Requires:
 這樣狀態列才不會變成亂碼
 
 ```shell
-$ git clone https://github.com/Lokaltog/powerline-fonts.git 
+$ git clone https://github.com/Lokaltog/powerline-fonts.git
 $ cd powerline-fonts/
 $ ./install.sh
 ```

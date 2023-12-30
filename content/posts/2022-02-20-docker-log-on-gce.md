@@ -14,6 +14,8 @@ comments: true
 date: 2022-02-20T12:00:00+08:00
 title: Docker log on Google Compute Engine
 url: /2022/02/20/docker-log-on-gce/
+images:
+  - /images/2022-02-20/docker-log-on-gce.png
 ---
 
 在 Google Compute Engine 上安裝 Docker，想要將 Container 的 log 匯出至 Google Cloud Logging，可以將 Docker Log Driver 改成 `gcplogs` 後重新啟動 Docker service。

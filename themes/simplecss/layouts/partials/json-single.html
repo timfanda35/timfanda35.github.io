@@ -1,4 +1,7 @@
 <script type="application/ld+json">
+{{- $iso8601 := "2006-01-02T15:04:05-07:00" -}}
+{{- $images := partial "_funcs/get-page-images" . -}}
+{{- $image := index $images 0  -}}
 {
   "@context": "http://schema.org",
   "@type": "NewsArticle",
@@ -10,26 +13,27 @@
     "publisher": {
       "@type": "Organization",
       "name": "{{ .Site.Params.author }}",
-      "logo": ""
+      "logo": "{{ .Site.BaseURL }}{{ .Site.Params.logo }}"
     },
     "image": "",
-    "datePublished": "{{ .Date.Format "2006-01-02" }}"
+    "datePublished": "{{ .Date.Format $iso8601 }}"
   },
   "headline": "{{ substr (replace (.Content | plainify) "\n" "") 0 110 }}",
   "alternativeHeadline": "{{ .Site.Title  | plainify}}",
-  "datePublished": "{{ .Date.Format "2006-01-02" }}",
-  "dateModified": "{{ .Lastmod.Format "2006-01-02" }}",
+  "datePublished": "{{ .Date.Format $iso8601 }}",
+  "dateModified": "{{ .Lastmod.Format $iso8601 }}",
   "url": "{{ .Permalink }}",
   "wordCount": "{{ .WordCount }}",
   "author": {
     "@type": "Person",
-    "name": "{{ .Site.Params.author }}"
+    "name": "{{ .Site.Params.author }}",
+    "url": "{{ .Site.Params.url }}"
   },
   "publisher": {
     "@type": "Organization",
     "name": "{{ .Site.Params.author }}"
   },
-  "image": "",
+  "image": "{{ $image.Permalink }}",
   {{if .Params.categories }}"genre": "{{ range .Params.categories }}{{ . }}{{ end }}",{{ end }}
   {{if .Params.tags }}"keywords": "{{ range .Params.tags }}{{ . }}{{ end }}",{{ end }}
   "description": "{{ .Description }}"

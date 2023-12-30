@@ -5,6 +5,8 @@ comments: true
 date: 2017-01-05T12:00:00+08:00
 title: Start ruby project with bundler
 url: /2017/01/05/start-ruby-project-with-bundler/
+images:
+  - /images/2017-01-05/start-ruby-project-with-bundler.png
 ---
 
 有時候會想要寫個 side project
@@ -30,7 +32,7 @@ $ cd project
 $ bundle init
 
 # 如果沒有 bundle 指令，可能是沒有安裝 bundler 的關係
-$ gem install bundler 
+$ gem install bundler
 ```
 
 以上指令會在目錄下產生 `Gemfile`，當然這檔案你也可以自己打，不過打指令產生不是好記又快嗎？

@@ -6,6 +6,8 @@ comments: true
 date: 2015-07-30T13:37:00+08:00
 title: helper 的使用方法
 url: /2015/07/30/helper-method-to-use/
+images:
+  - /images/2015-07-30/helper-method-to-use.png
 ---
 
 Helper 是協助在 View 呈現資料的方法，通常都用來包裝程式邏輯，或是簡化撰寫 View 的作業。

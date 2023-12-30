@@ -5,6 +5,8 @@ comments: true
 date: 2017-03-05T13:33:00+08:00
 title: Ruby Time and Date
 url: /2017/03/05/ruby-time-and-date/
+images:
+  - /images/2017-03-05/ruby-time-and-date.png
 ---
 
 ![](https://i.imgur.com/EsiorQx.jpg)

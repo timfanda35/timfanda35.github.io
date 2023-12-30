@@ -7,6 +7,8 @@ comments: true
 date: 2018-09-01T14:40:00+08:00
 title: 用快取加速 Cloud Build 建置容器
 url: /2018/09/01/cloudbuild-with-cache/
+images:
+  - /images/2018-09-01/cloudbuild-with-cache.png
 ---
 
 
@@ -74,7 +76,7 @@ steps:
     '.'
     ]
 images: [
-  'gcr.io/${PROJECT_ID}/${REPO_NAME}:${SHORT_SHA}', 
+  'gcr.io/${PROJECT_ID}/${REPO_NAME}:${SHORT_SHA}',
   'gcr.io/${PROJECT_ID}/${REPO_NAME}:latest'
   ]
 ```

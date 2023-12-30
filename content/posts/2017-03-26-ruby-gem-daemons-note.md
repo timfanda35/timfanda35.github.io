@@ -5,6 +5,8 @@ comments: true
 date: 2017-03-26T08:04:00+08:00
 title: Ruby gem daemons 筆記
 url: /2017/03/26/ruby-gem-daemons-note/
+images:
+  - /images/2017-03-26/ruby-gem-daemons-note.png
 ---
 
 ![](http://i.imgur.com/ZjslPbL.jpg)
@@ -18,13 +20,13 @@ url: /2017/03/26/ruby-gem-daemons-note/
 
 <!--more-->
 
-什麼是 daemon？可以參考鳥哥的文章 [17.1 什麼是 daemon 與服務 (service)](http://linux.vbird.org/linux_basic/0560daemons.php#daemon) 
+什麼是 daemon？可以參考鳥哥的文章 [17.1 什麼是 daemon 與服務 (service)](http://linux.vbird.org/linux_basic/0560daemons.php#daemon)
 
 簡單來說可以當作是在背景一直執行的服務
 
 透過 [daemons gem][daemons] 你可以：
-1. 將其他 script 作為 daemon 執行 
-2. 將 proc 丟到 daemon 執行 
+1. 將其他 script 作為 daemon 執行
+2. 將 proc 丟到 daemon 執行
 3. 將目前執行的程式變成 daemon 執行
 
 ## 寫個範例
@@ -81,7 +83,7 @@ end
 首先在 Terminal 中開啟 `irb`，並加上 `-r` 參數在啟動 irb 的同時 `require ./main.rb`
 
 ```bash
-$ irb -r ./main.rb 
+$ irb -r ./main.rb
 ```
 
 在 irb 中建立 `Main` 的實體，並啟動一個名為 `little-daemon` 的 daemon

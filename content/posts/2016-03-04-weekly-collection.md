@@ -4,6 +4,8 @@ comments: true
 date: 2016-03-04T09:15:00+08:00
 title: 週刊收集
 url: /2016/03/04/weekly-collection/
+images:
+  - /images/2016-03-04/weekly-collection.png
 ---
 
 最近越來越多資訊週刊出版了

@@ -4,6 +4,8 @@ comments: true
 date: 2015-07-31T06:03:00+08:00
 title: 對 user story 的想法與理解
 url: /2015/07/31/thoughts-and-understanding-of-user-story/
+images:
+  - /images/2015-07-31/thoughts-and-understanding-of-user-story.png
 ---
 
 說簡單很不簡單，說很難但也沒很難，撰寫 User Story 就是一段不停地反覆想像、記錄、思考的過程

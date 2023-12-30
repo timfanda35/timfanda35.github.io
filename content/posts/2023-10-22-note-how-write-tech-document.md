@@ -8,6 +8,8 @@ comments: true
 date: 2023-10-22T12:00:00+08:00
 title: "[筆記] 如何寫一份技術文件"
 url: /2023/10/22/note-how-write-tech-document/
+images:
+  - /images/2023-10-22/note-how-write-tech-document.png
 ---
 
 原文：[Diátaxis](https://diataxis.fr/)

@@ -6,6 +6,8 @@ comments: true
 date: 2017-02-11T11:59:00+08:00
 title: Ruby/Rails load setting file
 url: /2017/02/11/ruby-rails-load-setting-file/
+images:
+  - /images/2017-02-11/ruby-rails-load-setting-file.png
 ---
 
 最近在網路上看到了這兩篇文章：
@@ -44,7 +46,7 @@ env = ENV['RUBY_ENV']
 $settings = YAML.load(File.open("#{__dir__}/settings.yml"))[env]
 ```
 
-在 Rails 4.2 以後，可以修改 `config/application.yml` 
+在 Rails 4.2 以後，可以修改 `config/application.yml`
 
 用以下方式讀取 `config/settings.yml`
 
@@ -52,7 +54,7 @@ $settings = YAML.load(File.open("#{__dir__}/settings.yml"))[env]
 module MyApplication
   class Application < Rails::Application
   	# ...
-    
+
     # add this line
     $settings = config_for(:settings)
   end
