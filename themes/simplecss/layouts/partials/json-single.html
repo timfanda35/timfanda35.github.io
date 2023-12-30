@@ -9,13 +9,17 @@
     "@type": "NewsArticle",
     "@id": "{{ .Permalink }}",
     "headline": "{{ substr (replace (.Content | plainify) "\n" "") 0 110 }}",
-    "author": "{{ .Site.Params.author }}",
+    "author": {
+      "@type": "Person",
+      "name": "{{ .Site.Params.author }}",
+      "url": "{{ .Site.Params.url }}"
+    },
     "publisher": {
       "@type": "Organization",
       "name": "{{ .Site.Params.author }}",
       "logo": "{{ .Site.BaseURL }}{{ .Site.Params.logo }}"
     },
-    "image": "",
+    "image": "{{ $image.Permalink }}",
     "datePublished": "{{ .Date.Format $iso8601 }}"
   },
   "headline": "{{ substr (replace (.Content | plainify) "\n" "") 0 110 }}",
