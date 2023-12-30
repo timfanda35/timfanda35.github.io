@@ -5,6 +5,8 @@ comments: true
 date: 2016-12-02T15:51:00+08:00
 title: RubyConf Taiwan 2016 第二天
 url: /2016/12/02/ruby-conf-taiwan-2016-day-2/
+images:
+  - /images/2016-12-02/ruby-conf-taiwan-2016-day-2.png
 ---
 
 今年第一次參加 [RubyConf Taiwan 2016](https://2016.rubyconf.tw/)
@@ -34,7 +36,7 @@ url: /2016/12/02/ruby-conf-taiwan-2016-day-2/
 
 加密的演算法不建議 rc4, des
 
-建議使用 AES CBC 模式或 RSA 長度大於 2048 
+建議使用 AES CBC 模式或 RSA 長度大於 2048
 
 在這場看到有趣的 gem:
 
@@ -137,7 +139,7 @@ Architectural consistency
 
 過去只依賴 `cron`，效率不夠好，資源利用也有問題
 
-後來選擇了用 [sidekiq enterprice](http://sidekiq.org/) 
+後來選擇了用 [sidekiq enterprice](http://sidekiq.org/)
 
 [sidekiq](http://sidekiq.org/) 有三種版本
 - [sidekiq (OSS)](http://sidekiq.org/)
@@ -234,7 +236,7 @@ Line 6!
 - Services
 - Forms. like Model
 - Policies
-- Adapter model 
+- Adapter model
 
 ## [How we replaced salary negotiations with a Sinatra app](https://2016.rubyconf.tw/#Konstantin Hasse)
 

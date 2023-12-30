@@ -5,6 +5,8 @@ comments: true
 date: 2016-12-02T15:51:00+08:00
 title: RubyConf Taiwan 2016 第一天
 url: /2016/12/02/ruby-conf-taiwan-2016-day-1/
+images:
+  - /images/2016-12-02/ruby-conf-taiwan-2016-day-1.png
 ---
 
 今年第一次參加 [RubyConf Taiwan 2016](https://2016.rubyconf.tw/)
@@ -31,7 +33,7 @@ url: /2016/12/02/ruby-conf-taiwan-2016-day-1/
 
 讓世界更美好
 
-期待更快更強大的 Ruby 3 
+期待更快更強大的 Ruby 3
 
 ## [Breaking Bad Habits with GitLab CI](https://2016.rubyconf.tw/#Ivan Nemytchenko)
 

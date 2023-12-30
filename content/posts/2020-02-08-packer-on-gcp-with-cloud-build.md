@@ -15,6 +15,8 @@ comments: true
 date: 2020-02-08T12:00:00+08:00
 title: Packer on GCP with Cloud Build
 url: /2020/02/08/packer-on-gcp-with-cloud-build/
+images:
+  - /images/2020-02-08/packer-on-gcp-with-cloud-build.png
 ---
 
 ![](/images/2020-02-08/packer-on-gcp-with-cloud-build/cover.jpg)

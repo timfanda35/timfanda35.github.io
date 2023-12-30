@@ -5,6 +5,8 @@ comments: true
 date: 2015-10-13T08:01:00+08:00
 title: My Vim 設定
 url: /2015/10/13/my-vim-settings/
+images:
+  - /images/2015-10-13/my-vim-settings.png
 ---
 
 紀錄一下我的 vim 設定，還在學習中，所以會不定期更新。

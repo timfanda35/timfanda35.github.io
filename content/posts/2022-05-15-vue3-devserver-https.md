@@ -13,6 +13,8 @@ comments: true
 date: 2022-05-15T12:00:00+08:00
 title: "如何設定 Vue3 開發環境使用 HTTPS 連線"
 url: /2022/05/15/vue3-devserver-https/
+images:
+  - /images/2022-05-15/vue3-devserver-https.png
 ---
 
 如果 Vue3 專案是使用 `vue-cli-service` 作為主要開發環境，可以透過編輯 `vue.config.js` 讓開發環境使用的 Server 支援 HTTPS。

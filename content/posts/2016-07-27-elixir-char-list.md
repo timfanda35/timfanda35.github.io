@@ -5,6 +5,8 @@ comments: true
 date: 2016-07-27T14:23:00+08:00
 title: Elixir Char List
 url: /2016/07/27/elixir-char-list/
+images:
+  - /images/2016-07-27/elixir-char-list.png
 ---
 
 最近除了 Ruby 以外，偶爾也有看看其他的語言

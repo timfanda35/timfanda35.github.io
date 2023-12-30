@@ -10,6 +10,8 @@ comments: true
 date: 2022-04-03T12:00:00+08:00
 title: "[讀書筆記]一人公司：為什麼小而美是未來企業發展的趨勢"
 url: /2022/04/03/note-company-of-one/
+images:
+  - /images/2022-04-03/note-company-of-one.png
 ---
 
 ## 書本資訊

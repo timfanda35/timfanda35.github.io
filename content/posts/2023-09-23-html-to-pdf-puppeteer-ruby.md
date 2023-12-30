@@ -20,6 +20,8 @@ comments: true
 date: 2023-09-23T12:00:00+08:00
 title: "HTML to PDF PDFkit 的替代方案 - puppeteer-ruby 介紹"
 url: /2023/09/23/html-to-pdf-puppeteer-ruby-gem/
+images:
+  - /images/2023-09-23/html-to-pdf-puppeteer-ruby.png
 ---
 
 本文接續之前文章 [HTML to PDF PDFkit 的替代方案 - Grover 介紹](/2023/09/09/html-to-pdf-grover-gem/)。

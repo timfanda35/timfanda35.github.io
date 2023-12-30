@@ -14,6 +14,8 @@ comments: true
 date: 2020-02-01T12:00:00+08:00
 title: Packer on GCP
 url: /2020/02/01/packer-on-gcp/
+images:
+  - /images/2020-02-01/packer-on-gcp.png
 ---
 
 ![](/images/2020-02-01/packer-on-gcp/cover.jpg)

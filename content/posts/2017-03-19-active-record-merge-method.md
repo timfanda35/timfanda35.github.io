@@ -6,6 +6,8 @@ comments: true
 date: 2017-03-19T05:13:00+08:00
 title: ActiveRecord merge method
 url: /2017/03/19/active-record-merge-method/
+images:
+  - /images/2017-03-19/active-record-merge-method.png
 ---
 
 ![](https://i.imgur.com/EsiorQx.jpg)

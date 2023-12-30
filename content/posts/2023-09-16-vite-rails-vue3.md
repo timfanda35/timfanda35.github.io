@@ -12,6 +12,8 @@ comments: true
 date: 2023-09-16T12:00:00+08:00
 title: "Rails 7 + vite_rails + Vue3"
 url: /2023/09/16/vite-rails-vue3/
+images:
+  - /images/2023-09-16/vite-rails-vue3.png
 ---
 
 本文是在 Rails7 安裝 [vite_rails](https://github.com/ElMassimo/vite_ruby) gem 使用 Vue3 開發前端頁面的筆記。

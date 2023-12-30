@@ -8,6 +8,8 @@ comments: true
 date: 2017-04-19T15:16:00+08:00
 title: Google Cloud OnBoard 20170419
 url: /2017/04/19/google-cloud-onboard-20170419/
+images:
+  - /images/2017-04-19/google-cloud-onboard-20170419.png
 ---
 
 ![Imgur](http://i.imgur.com/Yyals6x.jpg)
@@ -45,11 +47,11 @@ Module 2 - Getting Started with Google Cloud Platform / Demo for GCP Web Console
 API Explore - [https://youtu.be/zko2kH_eDiA](https://youtu.be/zko2kH_eDiA)
 CloudShell - [https://youtu.be/I33tKMqK-Og](https://youtu.be/I33tKMqK-Og)
 
-Module 3 - Google App Engine and Cloud Datastore / Demo for GAE java & deploy 
+Module 3 - Google App Engine and Cloud Datastore / Demo for GAE java & deploy
 Flex VM Std Runtime - [https://youtu.be/SEj_6ZMfJGY](https://youtu.be/SEj_6ZMfJGY )
 Flex VM Cust Runtime - [https://youtu.be/aI0W9_OgUA0](https://youtu.be/aI0W9_OgUA0)
 
-Module 4 - Google Cloud Platform Storage Options / Demo for storage with CDN 
+Module 4 - Google Cloud Platform Storage Options / Demo for storage with CDN
 GCS CDN - [https://www.youtube.com/watch?v=jZ13GGJW1U4&t=116s](https://www.youtube.com/watch?v=jZ13GGJW1U4&t=116s)
 
 Module 5 - Google Container Engine / Demo for Run & Scale out for GKE

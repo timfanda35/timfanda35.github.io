@@ -18,6 +18,8 @@ comments: true
 date: 2023-09-29T12:00:00+08:00
 title: "HTML to PDF PDFkit 的替代方案 - WeasyPrint 介紹"
 url: /2023/09/29/html-to-pdf-python-weasyprint/
+images:
+  - /images/2023-09-29/html-to-pdf-python-weasyprint.png
 ---
 
 本文接續之前文章：

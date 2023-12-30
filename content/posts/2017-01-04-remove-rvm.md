@@ -5,6 +5,8 @@ comments: true
 date: 2017-01-04T09:46:00+08:00
 title: Remove RVM
 url: /2017/01/04/remove-rvm/
+images:
+  - /images/2017-01-04/remove-rvm.png
 ---
 
 最近在整理筆記，慢慢會把一些東西搬上來
@@ -24,7 +26,7 @@ $ rvm implode
 $ rm -rf ~/.rvm
 ```
 
-移除 `.bashrc` 與 `.bash_profile` 內 rvm 相關的東西 
+移除 `.bashrc` 與 `.bash_profile` 內 rvm 相關的東西
 
 [rvm]: https://rvm.io/
 [rbenv]: https://github.com/rbenv/rbenv

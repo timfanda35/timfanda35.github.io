@@ -8,6 +8,8 @@ comments: true
 date: 2022-02-19T12:00:00+08:00
 title: Rails ActiveSupport::MessageEncryptor
 url: /2022/02/19/active-support-message-encryptor/
+images:
+  - /images/2022-02-19/active-support-message-encryptor.png
 ---
 
 啟動 Rails Server 時，如果沒有 `config/master.key` ，或是 `config/master.key` 無法解密 `config/credentials.yml.enc`，就會出現 `ActiveSupport::MessageEncryptor` 的錯誤

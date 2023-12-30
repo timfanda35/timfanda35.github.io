@@ -7,6 +7,8 @@ comments: true
 date: 2017-05-17T13:28:00+08:00
 title: Ruby 透過 FreeType 產生點陣文字
 url: /2017/05/17/ruby-by-using-treetype-to-draw-text-to-a-ascii-art/
+images:
+  - /images/2017-05-17/ruby-by-using-treetype-to-draw-text-to-a-ascii-art.png
 ---
 
 ![](https://i.imgur.com/EsiorQx.jpg)
@@ -86,7 +88,7 @@ class Ft2Example
   def draw_string(str)
     str.split("").each do |ch|
       draw_ch(ch)
-      
+
       puts
     end
   end
@@ -125,7 +127,7 @@ ruby main.rb ./GenShinGothic-Monospace-Regular.ttf 安安您好
 
 ## 參考
 
-[透過 FreeType 繪製 Unicode ASCII Art](http://blog.linux.org.tw/~jserv/archives/002050.html) 
+[透過 FreeType 繪製 Unicode ASCII Art](http://blog.linux.org.tw/~jserv/archives/002050.html)
 
 [FreeType简易教程](http://mingplusplus.com/tech/2014/09/13/freetype/)
 

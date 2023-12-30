@@ -12,6 +12,8 @@ comments: true
 date: 2022-02-22T12:00:00+08:00
 title: Traefik ForwardAuth 筆記
 url: /2022/02/22/traefik-forwardauth-note/
+images:
+  - /images/2022-02-22/traefik-forwardauth-note.png
 ---
 
 想要在 Traefik 設定呼叫外部服務來驗證請求是否可以轉發至後端。

@@ -5,6 +5,8 @@ comments: true
 date: 2016-08-11T09:15:00+08:00
 title: Draw ASCII Diagram with Graph-Easy
 url: /2016/08/11/draw-ascii-diagram-with-graph-easy/
+images:
+  - /images/2016-08-11/draw-ascii-diagram-with-graph-easy.png
 ---
 
 因為想要用 ASCII 畫圖，上網搜尋了一番
@@ -113,14 +115,14 @@ node 是用 `[]` 包起來的內容來區分不同的 node
 edge 有很多種樣式
 
 ```
-->              
-=>              
-.>              
-~>              
-- >             
-.->             
-..->            
-= >             
+->
+=>
+.>
+~>
+- >
+.->
+..->
+= >
 ```
 
 選擇圖形的方向，預設是 east

@@ -5,6 +5,8 @@ comments: true
 date: 2017-01-24T06:43:00+08:00
 title: swagger + grape + rack
 url: /2017/01/24/swagger-grape-rack/
+images:
+  - /images/2017-01-24/swagger-grape-rack.png
 ---
 
 常常聽到 [swagger](http://swagger.io/) 跟 [grape](https://github.com/ruby-grape/grape) 的名字

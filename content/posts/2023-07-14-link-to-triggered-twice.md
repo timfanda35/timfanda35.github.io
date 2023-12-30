@@ -10,6 +10,8 @@ comments: true
 date: 2023-07-14T12:00:00+08:00
 title: "Rails 7 link_to 觸發兩次"
 url: /2023/07/14/link-to-triggered-twice/
+images:
+  - /images/2023-07-14/link-to-triggered-twice.png
 ---
 
 最近在 Rails 7 遇到 `link_to` 會觸發兩次的情況

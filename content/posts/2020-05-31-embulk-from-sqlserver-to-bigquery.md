@@ -1,4 +1,3 @@
-
 ---
 categories:
   - gcp
@@ -14,6 +13,8 @@ comments: true
 date: 2020-05-31T12:00:00+08:00
 title: 使用 Embulk 從 SQL Server 匯入資料至 BigQuery
 url: /2020/05/31/embulk-from-sqlserver-to-bigquery/
+images:
+  - /images/2020-05-31/embulk-from-sqlserver-to-bigquery.png
 ---
 
 ![](/images/2020-05-31/embulk-from-sqlserver-to-bigquery/cover.jpg)

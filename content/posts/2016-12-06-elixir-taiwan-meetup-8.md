@@ -5,6 +5,8 @@ comments: true
 date: 2016-12-06T13:50:00+08:00
 title: 'Elixir Taiwan Meetup #8'
 url: /2016/12/06/elixir-taiwan-meetup-8/
+images:
+  - /images/2016-12-06/elixir-taiwan-meetup-8.png
 ---
 
 最近正在上 [The Complete Elixir and Phoenix Bootcamp](https://www.udemy.com/the-complete-elixir-and-phoenix-bootcamp-and-tutorial/learn/v4/overview)

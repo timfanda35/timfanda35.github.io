@@ -5,6 +5,8 @@ comments: true
 date: 2015-10-22T13:29:00+08:00
 title: Vim 指令( buffer 與 window )
 url: /2015/10/22/vim-buffer-window/
+images:
+  - /images/2015-10-22/vim-buffer-window.png
 ---
 
 最近在看 [Vim Videos - Posted by Derek Wyatt on](http://derekwyatt.org/vim/tutorials/) 來學 Vim 的操作，這篇是我看完 [Vim Novice Video Tutorials](http://derekwyatt.org/vim/tutorials/novice/) 章節中所做的筆記

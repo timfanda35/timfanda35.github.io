@@ -11,6 +11,8 @@ comments: true
 date: 2023-09-01T12:00:00+08:00
 title: "RubyMine Auto Completion Freeze"
 url: /2023/09/01/rubymine-auto-completion-freeze/
+images:
+  - /images/2023-09-01/rubymine-auto-completion-freeze.png
 ---
 
 ## 問題

@@ -5,6 +5,8 @@ comments: true
 date: 2015-10-14T08:26:00+08:00
 title: Ruby 的 %Q, %q, %W, %w, %x, %r, %s, %i
 url: /2015/10/14/ruby-percent-literals/
+images:
+  - /images/2015-10-14/ruby-percent-literals.png
 ---
 
 有時候在看其他人的 Ruby 程式碼時，常常發現有 `%w`, `%r` 等 % 開頭的程式碼。上網查了一下，才知道這些叫做 [Percent literals(或Percent Strings)](http://ruby-doc.org/core-2.2.2/doc/syntax/literals_rdoc.html#label-Percent+Strings)。
@@ -108,7 +110,7 @@ Joe said: 'Frank said: '#{what_frank_said} ' '
 => /\\/home\\/Foo/
 ```
 
-## %s 
+## %s
 ----
 
 產生 symbol，但不會對表示式等內容作轉換
@@ -137,7 +139,7 @@ Joe said: 'Frank said: '#{what_frank_said} ' '
 除了用 `()` 也可以用其他非數字字母的符號或是成對的符號代替：
 
 ```ruby
-%Q(...) 
+%Q(...)
 %Q[...]
 %Q!...!
 %Q+...+
@@ -145,7 +147,7 @@ Joe said: 'Frank said: '#{what_frank_said} ' '
 %Q-...-
 ```
 
-參考： 
+參考：
 
 [%Q, %q, %W, %w, %x, %r, %s](https://simpleror.wordpress.com/2009/03/15/q-q-w-w-x-r-s/)
 

@@ -11,6 +11,8 @@ comments: true
 date: 2023-10-07T12:00:00+08:00
 title: "Cucumber Getting Start Note"
 url: /2023/10/07/cucumber-getting-start-note/
+images:
+  - /images/2023-10-07/cucumber-getting-start-note.png
 ---
 
 ## 建立 Rails 專案

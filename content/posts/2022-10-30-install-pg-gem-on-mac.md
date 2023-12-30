@@ -11,6 +11,8 @@ comments: true
 date: 2022-10-30T12:00:00+08:00
 title: "在 Mac 上安裝 pg gem"
 url: /2022/10/30/install-pg-gem-on-mac/
+images:
+  - /images/2022-10-30/install-pg-gem-on-mac.png
 ---
 
 想在 Mac OS 上安裝 pg gem 但不想要安裝整套 PostgreSQL。

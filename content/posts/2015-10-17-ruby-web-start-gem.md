@@ -6,15 +6,17 @@ comments: true
 date: 2015-10-17T05:36:00+08:00
 title: 用 Ruby 建立 Web 專案的一些起始 gem
 url: /2015/10/17/ruby-web-start-gem/
+images:
+  - /images/2015-10-17/ruby-web-start-gem.png
 ---
 
 Ruby 有許多 gem 可以用來做 web 開發，以下列出一些我所找到可以作為起頭的 gem 提供大家參考。
 
 有任何錯誤與建議歡迎告知:)
 
----- 
+----
 
-# Web 
+# Web
 
 ## [Rack](http://rack.github.io)
 
@@ -34,7 +36,7 @@ Ruby 有許多 gem 可以用來做 web 開發，以下列出一些我所找到�
 
 ## [Cuba](http://cuba.is)
 
-> 試圖比使用 Sinatra 寫更少 code 的開發框架，官方 Slide 表示效能比 Sinatra 好。 
+> 試圖比使用 Sinatra 寫更少 code 的開發框架，官方 Slide 表示效能比 Sinatra 好。
 
 ## [Franky](https://github.com/adlerhsieh/franky)
 

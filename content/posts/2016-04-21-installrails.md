@@ -6,6 +6,8 @@ comments: true
 date: 2016-04-21T09:09:00+08:00
 title: Rails 安裝教學
 url: /2016/04/21/installrails/
+images:
+  - /images/2016-03-22/gems-for-improving-code-quality.png
 ---
 
 我想要推薦這一個網站 [InstallRails.com][installrails]

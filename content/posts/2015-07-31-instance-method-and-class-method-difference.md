@@ -5,6 +5,8 @@ comments: true
 date: 2015-07-31T06:02:00+08:00
 title: instance method 與 class method 的差別
 url: /2015/07/31/instance-method-and-class-method-difference/
+images:
+  - /images/2015-07-31/instance-method-and-class-method-difference.png
 ---
 
 簡單來說，instance method 需要一個實體物件才能呼叫，而 class method 則是可以直接用類別呼叫
@@ -15,7 +17,7 @@ class Foo
   def self.class_bar
     # ...
   end
-  
+
   def instance_bar
     # ...
   end
@@ -38,7 +40,7 @@ class Foo
     def class_bar1
       #...
     end
-    
+
     def class_bar2
       #...
     end
@@ -55,11 +57,11 @@ Foo.class_eval do
   def self.class_bar_patch
     # ...
   end
-  
+
   def instance_bar_patch
     # ...
   end
-end	
+end
 
 # class method 的呼叫方式
 Foo.class_bar_patch
