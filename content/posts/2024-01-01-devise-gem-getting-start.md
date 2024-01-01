@@ -5,7 +5,7 @@ keywords:
   - rails
   - gem
 comments: true
-date: 2024-01-01T12:00:00+08:00
+date: 2024-01-01T00:00:00+08:00
 title: "Rails 使用者驗證：Devise Gem Getting Start"
 url: /2024/01/01/devise-gem/
 images:
