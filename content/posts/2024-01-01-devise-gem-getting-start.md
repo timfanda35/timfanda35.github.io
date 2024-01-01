@@ -5,11 +5,11 @@ keywords:
   - rails
   - gem
 comments: true
-date: 2024-01-01T12:00:00+08:00
+date: 2024-01-01T00:00:00+08:00
 title: "Rails 使用者驗證：Devise Gem Getting Start"
 url: /2024/01/01/devise-gem/
 images:
-  - /images/2024-01-01/devise-gem.png
+  - /images/2024-01-01/devise-gem-getting-start.png
 ---
 
 [Devise gem][Devise Gem] 是在 Rails 社群中受到廣泛使用於使用者驗證的 gem。我們可以使用 Devise 在 Rails 專案快速實現最基礎的使用者驗證功能，例如註冊、登入、以及忘記密碼等等。
