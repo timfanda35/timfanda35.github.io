@@ -18,7 +18,7 @@ images:
 
 我們可以透過 Devise 的 Generator 來產生 Devise 使用的 View Template，依照我們的需求來客製化頁面樣式。
 
-本文我們會使用 [demo-devise][demo-devise] Rails 專案，並使用 [Tailwind CSS 的 Form Template][Tailwind CSS 的 Form Template] 作為登入與註冊頁面範本的基礎樣式。
+本文我們會使用 [demo-devise][demo-devise] Rails 專案開始修改，此專案的進度如 [Rails 使用者驗證：Devise Gem Getting Start][Rails 使用者驗證：Devise Gem Getting Start] 一文。還會使用 [Tailwind CSS 的 Form Template][Tailwind CSS 的 Form Template] 作為登入與註冊頁面範本的基礎樣式。
 
 ## 環境
 

@@ -50,7 +50,7 @@ bin/rails g scaffold posts title:string content:text
 bin/rails db:migrate
 ```
 
-更新路由表 `config/route.rb`
+更新路由表 `config/routes.rb`
 
 ```ruby
 Rails.application.routes.draw do
@@ -321,7 +321,6 @@ class PostsController < ApplicationController
 - [Add basic authentication generator][Add basic authentication generator]
 - [letter_opener gem][letter_opener gem]
 - [Devise Controller filters and helpers][Devise Controller filters and helpers]
-- [localhost][localhost]
 
 <!-- Links -->
 [Devise Gem]: https://github.com/heartcombo/devise
