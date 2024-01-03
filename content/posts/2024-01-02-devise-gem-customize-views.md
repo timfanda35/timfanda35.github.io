@@ -346,7 +346,7 @@ bin/rails runner "puts JSON.pretty_generate(User.last.as_json)"
 透過本文的步驟，我們為 Devise 提供的登入與註冊頁面客製化樣式，並在註冊頁面新增自訂欄位。
 
 ## 參考資料
-
+- [Rails 使用者驗證：Devise Gem Getting Start][Rails 使用者驗證：Devise Gem Getting Start]
 - [Tailwind CSS 的 Form Template][Tailwind CSS 的 Form Template]
 - [Get started with Tailwind CSS][Get started with Tailwind CSS]
 - [Strong Parameters][Strong Parameters]
