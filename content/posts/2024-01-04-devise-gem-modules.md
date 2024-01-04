@@ -7,9 +7,9 @@ keywords:
 comments: true
 date: 2024-01-04T00:00:00+08:00
 title: "Rails 使用者驗證：Devise Gem Modules"
-url: /2024/01/04/devise-gem-customize-modules/
+url: /2024/01/04/devise-gem-modules/
 images:
-  - /images/2024-01-04/devise-gem-customize-modules.png
+  - /images/2024-01-04/devise-gem-modules.png
 ---
 
 [Devise gem][Devise gem] 將主要功能分為 10 個模組，我們可以依據需求選擇啟用，並利用模組提供的方法來進行客製化開發。
