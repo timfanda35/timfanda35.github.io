@@ -1,10 +1,14 @@
 package main
 
 import (
-	"log"
+	"fmt"
 	"os"
+	"path"
+	"path/filepath"
 	"regexp"
 	"strings"
+
+	"flag"
 
 	"github.com/fogleman/gg"
 
@@ -15,7 +19,7 @@ import (
 )
 
 const (
-	FontPath           = "NotoSansTC-Black.ttf"
+	FontFile           = "NotoSansTC-Black.ttf"
 	OutputDir          = "static/images"
 	OgImageWidth       = 1200
 	OgImageHeight      = 600
@@ -32,16 +36,28 @@ const (
 // Load font with goki freetype
 func loadFont(path string) *truetype.Font {
 	var fontBytes []byte
-	fontBytes, err := os.ReadFile(FontPath)
+	fontBytes, err := os.ReadFile(path)
 	if err != nil {
-		panic(err)
+		fmt.Fprintf(os.Stderr, "Can not load font file: %s", path)
+		os.Exit(1)
 	}
 	font, err := freetype.ParseFont(fontBytes)
 	if err != nil {
-		panic(err)
+		fmt.Fprintf(os.Stderr, "Can not parse font file: %s", path)
+		os.Exit(1)
 	}
 
 	return font
+}
+
+func loadPostContent(postFilePath string) string {
+	postFile, err := os.ReadFile(postFilePath)
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Can not read input file: %s", postFilePath)
+		os.Exit(1)
+	}
+
+	return string(postFile)
 }
 
 func extractTitle(postContent string) string {
@@ -49,7 +65,8 @@ func extractTitle(postContent string) string {
 	matches := re.FindStringSubmatch(string(postContent))
 
 	if len(matches) < 1 {
-		panic("Can not find title")
+		fmt.Fprintf(os.Stderr, "Can not find post title")
+		os.Exit(1)
 	}
 
 	return strings.Trim(matches[1], " \"")
@@ -60,47 +77,83 @@ func extractDate(postContent string) string {
 	matches := re.FindStringSubmatch(string(postContent))
 
 	if len(matches) < 1 {
-		panic("Can not find date")
+		fmt.Fprintf(os.Stderr, "Can not find post date")
+		os.Exit(1)
 	}
 
 	return matches[1]
 }
 
-func imageOutputPath(postFilePath string) string {
+func imageOutputPath(outputDir string, postFilePath string) string {
 	re := regexp.MustCompile(`posts(/\d{4}-\d{2}-\d{2})-(.+).md`)
 	matches := re.FindStringSubmatch(postFilePath)
 	if len(matches) < 2 {
-		panic("Can not parse file name")
+		fmt.Fprintf(os.Stderr, "Can not parse file name: %s", postFilePath)
+		os.Exit(1)
 	}
 
-	dir := OutputDir + matches[1]
+	dir := outputDir + matches[1]
 
 	if _, err := os.Stat(dir); os.IsNotExist(err) {
 		if err := os.Mkdir(dir, os.ModePerm); err != nil {
-			panic("Can not create output directory")
+			fmt.Fprintf(os.Stderr, "Can not create output directory: %s", dir)
+			os.Exit(1)
 		}
 	}
 
 	return dir + "/" + matches[2] + ".png"
 }
 
-func main() {
-	// Read file
-	postFilePath := os.Args[1]
-	postFile, err := os.ReadFile(postFilePath)
+func executableDir() string {
+	executablePath, err := os.Executable()
 	if err != nil {
-		panic(err)
+		return ""
 	}
 
-	postContent := string(postFile)
+	return filepath.Dir(executablePath)
+}
+
+type OGRenRequest struct {
+	InputPath     string
+	IconImagePath string
+	OutputDir     string
+}
+
+func drawTitle(dc *gg.Context, postTitle string, font *truetype.Font, x float64, y float64) {
+	titleFace := truetype.NewFace(font, &truetype.Options{Size: OgTitleFontSize})
+	dc.SetFontFace(titleFace)
+	dc.SetRGB255(0, 0, 0)
+	dc.DrawStringWrapped(postTitle, x, y, 0, 0, 1100, 1, gg.AlignLeft)
+}
+
+func drawIcon(dc *gg.Context, iconImagePath string, y float64) {
+	iconImage, err := gg.LoadImage(iconImagePath)
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Can not load icon image: %s", iconImage)
+		os.Exit(1)
+	} else {
+		w := iconImage.Bounds().Size().X
+		iconImageAxisX := OgImageWidth - OgPaddingLeft - w
+		dc.DrawImage(iconImage, int(iconImageAxisX), int(y))
+	}
+}
+
+func drawSubTitle(dc *gg.Context, postTitle string, font *truetype.Font, x float64, y float64) {
+	subTitleFace := truetype.NewFace(font, &truetype.Options{Size: OgSubTitleFontSize})
+	dc.SetFontFace(subTitleFace)
+	dc.SetRGB255(150, 150, 150)
+	dc.DrawStringWrapped(SubTitle, x, y, 0, 0, 1100, 1, gg.AlignLeft)
+}
+
+func (og OGRenRequest) Do() string {
+	// Load Post Content
+	postContent := loadPostContent(og.InputPath)
 
 	// Get Title
 	postTitle := extractTitle(postContent)
-	log.Println("postTitle:", postTitle)
 
 	// Get Date
 	postDate := extractDate(postContent)
-	log.Println("postDate:", postDate)
 
 	// Create context
 	dc := gg.NewContext(OgImageWidth, OgImageHeight)
@@ -108,35 +161,20 @@ func main() {
 	dc.Clear()
 
 	// Load Font
-	font := loadFont("NotoSansTC-Black.ttf")
+	font := loadFont(executableDir() + "/" + FontFile)
 
 	axisX := OgPaddingLeft
 	axisY := OgPaddingTop
 
 	// Draw Title
-	titleFace := truetype.NewFace(font, &truetype.Options{Size: OgTitleFontSize})
-	dc.SetFontFace(titleFace)
-	dc.SetRGB255(0, 0, 0)
-	dc.DrawStringWrapped(postTitle, axisX, axisY, 0, 0, 1100, 1, gg.AlignLeft)
-
+	drawTitle(dc, postTitle, font, axisX, axisY)
 	axisY += OgTitleFontSize * 4
 
 	// Draw Icon
-	iconImage, err := gg.LoadImage(IconImagePath)
-	if err != nil {
-		log.Println(err)
-	} else {
-		w := iconImage.Bounds().Size().X
-		iconImageAxisX := OgImageWidth - OgPaddingLeft - w
-		dc.DrawImage(iconImage, int(iconImageAxisX), int(axisY))
-	}
+	drawIcon(dc, og.IconImagePath, axisY)
 
 	// Draw SubTitle
-	subTitleFace := truetype.NewFace(font, &truetype.Options{Size: OgSubTitleFontSize})
-	dc.SetFontFace(subTitleFace)
-	dc.SetRGB255(150, 150, 150)
-	dc.DrawStringWrapped(SubTitle, axisX, axisY, 0, 0, 1100, 1, gg.AlignLeft)
-
+	drawSubTitle(dc, SubTitle, font, axisX, axisY)
 	axisY += OgTitleFontSize
 
 	// Draw Date
@@ -148,8 +186,41 @@ func main() {
 	dc.Fill()
 
 	// Save
-	ogImage := imageOutputPath(postFilePath)
+	ogImage := imageOutputPath(og.OutputDir, og.InputPath)
 	dc.SavePNG(ogImage)
 
-	log.Println("OG Image Save to:", ogImage)
+	return ogImage
+}
+
+func main() {
+	var dir string
+	var webdir string
+
+	flag.StringVar(&dir, "dir", "./", "The hugo project root path")
+	flag.StringVar(&webdir, "webdir", "static", "The hugo website root path")
+	flag.Parse()
+
+	// Read file
+	nonFlagArgs := flag.Args()
+	if len(nonFlagArgs) == 0 {
+		fmt.Fprint(os.Stderr, "Error: Miss input file path")
+		os.Exit(1)
+	}
+
+	postFilePath := nonFlagArgs[0]
+
+	req := OGRenRequest{
+		InputPath:     postFilePath,
+		IconImagePath: path.Join(dir, IconImagePath),
+		OutputDir:     path.Join(dir, OutputDir),
+	}
+
+	ogImagePath := req.Do()
+
+	pattern := regexp.MustCompile(`^.*/static(.*)$`)
+
+	// 使用正規表達式替換
+	resultString := pattern.ReplaceAllString(ogImagePath, "$1")
+
+	fmt.Println(resultString)
 }
