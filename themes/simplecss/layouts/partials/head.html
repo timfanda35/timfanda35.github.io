@@ -13,7 +13,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1">
   <title>{{ .Title }}{{ if not .IsHome }} &middot; {{ .Site.Title }}{{ end }}{{ if .IsHome }} - {{ with .Site.Params.description }} {{ . }} {{ end }}{{ end }}</title>
   {{ hugo.Generator }}
-  {{ with .Site.Params.description }}<meta name="description" content="{{ . }}"> {{ end }}
+  <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}{{ end -}}" />
 
   {{ template "_internal/twitter_cards.html" . }}
   {{ template "_internal/opengraph.html" . }}
