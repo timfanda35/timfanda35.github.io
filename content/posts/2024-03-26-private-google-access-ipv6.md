@@ -7,6 +7,9 @@ keywords:
   - google cloud
   - private google access
   - vpc
+  - ipv4
+  - ipv6
+  - nat
 comments: true
 date: 2024-03-26T00:00:00+08:00
 title: "Private Google Access 的 IPv6 Range"
@@ -133,7 +136,7 @@ curl https://maps.googleapis.com/maps/api/geocode/json?place_id=ChIJeRpOeF67j4AR
 
 從網路上查看其他人的錯誤訊息交叉比對下發現是 `fda3:e722:ac3:10:0:0:0:0/64`，但這個範圍也太大了，明顯超出原本 Subnet `10.140.0.0/20` 太多。
 
-在詢問 Google Support 後得知，Private Google Access 的 IPv6 Range 是有一個轉換規則的：
+在詢問 Google Support 後得知，Private Google Access 的 IPv6 Range 是依照 [NAT64][NAT64] 並有固定的轉換規則：
 
 1. 前 64 bits 是固定的 Prefix
 2. 接下來的 32 bits 是 VPC 的 GUID 轉換而來的
@@ -167,8 +170,10 @@ Subnet 停用 Private Google Access，並使用 Cloud NAT 固定來源 IP 也是
 - [Restrict Google Maps API key for us in Private Google Access environment][Restrict Google Maps API key for us in Private Google Access environment]
 - [IPv4/IPv6 dual-stack networking][IPv4/IPv6 dual-stack networking]
 - [Private Google Access][Private Google Access]
+- [NAT64][NAT64]
 
 <!-- Links -->
 [Restrict Google Maps API key for us in Private Google Access environment]: https://stackoverflow.com/questions/63921749/restrict-google-maps-api-key-for-us-in-private-google-access-environment
 [IPv4/IPv6 dual-stack networking]: https://cloud.google.com/anthos/clusters/docs/bare-metal/latest/how-to/dual-stack-networking
 [Private Google Access]: https://cloud.google.com/vpc/docs/private-google-access
+[NAT64]: https://zh.wikipedia.org/zh-tw/NAT64
