@@ -147,7 +147,7 @@ curl https://maps.googleapis.com/maps/api/geocode/json?place_id=ChIJeRpOeF67j4AR
 
 遮罩的部分則是 `128 - (32 - 20)` = `116`。
 
-所以最後會 Subnet `10.140.0.0/20` 對應到 Private Google Access 的 IPv6 Range 為: `fda3:e722:ac3:10:c0:58ab:a8c:0/116`。
+所以最後 Subnet `10.140.0.0/20` 會對應到 Private Google Access 的 IPv6 Range 為: `fda3:e722:ac3:10:c0:58ab:a8c:0/116`。
 
 我們修改 API Key 的 IP Address Restriction：
 
