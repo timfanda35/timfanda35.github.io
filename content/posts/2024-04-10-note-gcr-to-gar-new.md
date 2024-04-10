@@ -10,7 +10,7 @@ keywords:
   - google artifact registry
   - gar
 comments: true
-date: 2024-04-10T12:00:00+08:00
+date: 2024-04-10T08:00:00+08:00
 title: "[筆記] 一行指令搬遷 google container registry 到 google artifact registry"
 url: /2024/04/10/note-gcr-to-gar-new/
 images:
