@@ -34,7 +34,7 @@ SQL Server 匯出成 BigQuery 可以接受的 CSV 格式，比較麻煩的主要
 
 ## Embulk 簡介
 
-[Embulk]([https://github.com/embulk/embulk](https://github.com/embulk/embulk)) 是一個使用 JRuby 開發的開源 Bulk Data Loader，支援多種資料來源與目的地。
+[Embulk](https://github.com/embulk/embulk) 是一個使用 JRuby 開發的開源 Bulk Data Loader，支援多種資料來源與目的地。
 
 > Embulk is a parallel bulk data loader that helps data transfer between various storages, databases, NoSQL and cloud services.
 
@@ -135,7 +135,7 @@ out: {type: stdout}
 
 ## Embulk Plugin
 
-本文我們將安裝 [SQL Server Input Plugin(embulk-input-jdbc)]([https://github.com/embulk/embulk-input-jdbc](https://github.com/embulk/embulk-input-jdbc)) 與 [BigQuery Output Plugin]([https://github.com/embulk/embulk-output-bigquery](https://github.com/embulk/embulk-output-bigquery))。
+本文我們將安裝 [SQL Server Input Plugin(embulk-input-jdbc)](https://github.com/embulk/embulk-input-jdbc) 與 [BigQuery Output Plugin](https://github.com/embulk/embulk-output-bigquery)。
 
 ```bash
 embulk gem install embulk-input-sqlserver
@@ -185,11 +185,11 @@ out:
   - {name: name, type: STRING}
 ```
 
-其中 `{{ env.variable_name }}` 格式的字串是 [liquid]([https://shopify.github.io/liquid/](https://shopify.github.io/liquid/)) 的語法，可以代入環境變數。要注意的是，設定檔要使用 liquid 格式範本，檔名就必須以 liquid 結尾，如 `config.yml.liquid`。
+其中 `{{ env.variable_name }}` 格式的字串是 [liquid](https://shopify.github.io/liquid/) 的語法，可以代入環境變數。要注意的是，設定檔要使用 liquid 格式範本，檔名就必須以 liquid 結尾，如 `config.yml.liquid`。
 
 `output.gcs_bucket` 欄位是必填的，BigQuery Output Plugin 背後其實也是先將資料變成 CSV 上傳到 Google Cloud Storage Bucket 後再執行 Load Job 載入至 BigQuery。 `output.auto_create_gcs_bucket` 則是設定成自動建立。
 
-`output.auth_method` 的值為 `application_default`，由於本文環境於 Google Compute Engine 上執行，所以 Embulk 會直接使用 Google Compute Engine 預設的 Service Account 權限呼叫 Google Cloud Storage 與 BigQuery API。其他方式可參考 [BigQuery Output Plugin Authentication 章節]([https://github.com/embulk/embulk-output-bigquery#authentication](https://github.com/embulk/embulk-output-bigquery#authentication))。
+`output.auth_method` 的值為 `application_default`，由於本文環境於 Google Compute Engine 上執行，所以 Embulk 會直接使用 Google Compute Engine 預設的 Service Account 權限呼叫 Google Cloud Storage 與 BigQuery API。其他方式可參考 [BigQuery Output Plugin Authentication 章節](https://github.com/embulk/embulk-output-bigquery#authentication)。
 
 我們可以很簡單地寫一個 Shell Script 使用以上的設定去執行載入任務，填寫要代入設定檔的機敏資訊：
 
