@@ -1,3 +1,15 @@
 p, li {
   line-height: 2;
 }
+
+mark {
+  background-color: #a5a5a5;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
