@@ -1,8 +1,8 @@
 ---
 categories:
-  - RubyMine
+  - rubymine
 keywords:
-  - RubyMine
+  - rubymine
   - IDEA
   - JetBrains
   - IDE

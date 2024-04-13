@@ -1,7 +1,7 @@
 ---
 categories:
   - ruby
-  - Ruby Association Certified Ruby Programmer
+  - ruby association certified ruby programmer
 comments: true
 date: 2017-03-19T06:35:00+08:00
 title: Ruby Association Certified Ruby Programmer Silver 考試準備
