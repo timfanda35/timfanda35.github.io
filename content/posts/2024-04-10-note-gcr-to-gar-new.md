@@ -25,7 +25,7 @@ Link: [https://cloud.google.com/container-registry/docs/release-notes](https://c
 
 官方文件連結：[Automatically migrate from Container Registry to Artifact Registry](https://cloud.google.com/artifact-registry/docs/transition/auto-migrate-gcr-ar)
 
-之前的筆記：[[筆記] 設定 google container registry 轉址到 google artifact registry](/2024/10/29/note-gcr-to-gar/)
+之前的筆記：[[筆記] 設定 google container registry 轉址到 google artifact registry](/2023/10/29/note-gcr-to-gar/)
 
 本文是紀錄使用 Google Cloud 新指令，使得設定更為便捷。
 

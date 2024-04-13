@@ -12,7 +12,7 @@ images:
 
 最近需要希望能夠不用網頁登入就能取得 Gooogle Analytics 的資料
 
-但因為跟 [google-api-ruby-client](ref1) 不熟，只會用網頁登入
+但因為跟 [google-api-ruby-client][ref1] 不熟，只會用網頁登入
 
 在搜尋後看到了這一篇[《在伺服器上使用 Google Analytics API》][ref2]
 
