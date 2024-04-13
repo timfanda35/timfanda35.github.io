@@ -1,26 +1,30 @@
-<article>
-  <h3>
-    <a href="{{ .Permalink }}">{{ .Title }}</a>
-  </h3>
-  <div>
-    <time class="pub-time"  datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" | safeHTML }}">
-      {{ .Lastmod.Format ( .Site.Params.dateformat | default "2006.01.02") }}
-    </time>
-    <div class="terms">
-      {{ if .Params.categories }}
-      <div class="categories">
-        {{ range .Params.categories }}
-          <a href="{{ "/categories/" | relLangURL }}{{ . | urlize }}"><mark>{{ . }}</mark></a>
+<li style="margin-top: 1rem; margin-bottom: 1rem;">
+  <div style="display: flex; flex-direction: column;">
+    <div style="font-size: x-large;">
+      <a href="{{ .Permalink }}">{{ .Title }}</a>
+    </div>
+    <div style="display: flex; gap: 1rem;">
+      <div>
+        <time class="pub-time"  datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" | safeHTML }}">
+          {{ .Lastmod.Format ( .Site.Params.dateformat | default "2006.01.02") }}
+        </time>
+      </div>
+      <div class="terms">
+        {{ if .Params.categories }}
+        <div class="categories">
+          {{ range .Params.categories }}
+            <a href="{{ "/categories/" | relLangURL }}{{ . | urlize }}"><mark>{{ . }}</mark></a>
+          {{ end }}
+        </div>
+        {{ end }}
+        {{ if .Params.tags }}
+        <div class="tag">
+          {{ range .Params.tags }}
+            <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}"><mark>{{ . }}</mark></a>
+          {{ end }}
+        </div>
         {{ end }}
       </div>
-      {{ end }}
-      {{ if .Params.tags }}
-      <div class="tag">
-        {{ range .Params.tags }}
-          <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}"><mark>{{ . }}</mark></a>
-        {{ end }}
-      </div>
-      {{ end }}
     </div>
   </div>
-</article>
+</li>

@@ -11,10 +11,12 @@
           <header class="archive-header">
             <h2 class="title">「{{ .Title }}」 List</h2>
           </header>
-          <div class="archive-body">
-            {{ range .Data.Pages }}
-              {{ .Render "li" }}
-            {{ end }}
+          <div>
+            <ul>
+              {{ range .Data.Pages }}
+                {{ .Render "li" }}
+              {{ end }}
+            </ul>
           </div>
         </div>
 

@@ -1,9 +1,11 @@
 {{ define "main" }}
-  {{ $pag := .Paginate (.Pages) 10 }}
-  <div class="archive-body">
+  {{ $pag := .Paginate (.Pages) 50 }}
+  <div>
+    <ul>
     {{ range $pag.Pages }}
       {{ .Render "li" }}
     {{ end }}
+    </ul>
   </div>
 
   {{ partial "pagination" . }}
