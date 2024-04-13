@@ -253,5 +253,5 @@ cleat-port 3000
 ## 參考資料
 - [vite_rails](https://github.com/ElMassimo/vite_ruby)
 - [Vue 3 hello world](https://codepen.io/yyx990803/pen/OJNoaZL)
-- [rails-vue-demo-app](rails-vue-demo-app)
+- [rails-vue-demo-app](https://github.com/gbarillot/rails-vue-demo-app)
 - [clear-port](https://github.com/thoughtbot/dotfiles/blob/main/bin/clear-port)

@@ -11,7 +11,7 @@ images:
 
 最近在看 [Vim Videos - Posted by Derek Wyatt on](http://derekwyatt.org/vim/tutorials/) 來學 Vim 的操作，這篇是我看完 [Vim Novice Video Tutorials](http://derekwyatt.org/vim/tutorials/novice/) 章節中所做的筆記
 
-一般游標移動的指令，我在 [Vim 指令(游標移動)](posts/304816-vim-command) 這篇有紀錄過就不再贅述了
+一般游標移動的指令，我在 [Vim 指令(游標移動)](/2015/10/15/vim-command/) 這篇有紀錄過就不再贅述了
 
 以下主要紀錄有關在 Vim 中操作 buffer 與 window 的指令
 
