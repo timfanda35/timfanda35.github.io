@@ -11,11 +11,11 @@ images:
 
 連結：[http://crontab.guru/](http://crontab.guru/)
 
-![Imgur](http://i.imgur.com/NDni3htl.png)
+{{< figure src="/images/2016-06-12/crontab-guru-sreenshot.jpg" alt="Crontab Guru Screenshot" >}}
 
 介面簡單明瞭，修改後會立即顯示口語化的解釋
 
-還有 `random` 可以讓你亂玩看各式範例
+還有 `random` 可以讓你亂玩看看各式範例
 
 想知道更多有關 `crontab` 的用法也有 `man page` 的頁面讓你看
 
