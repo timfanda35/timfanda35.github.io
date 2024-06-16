@@ -12,7 +12,7 @@ images:
 ---
 
 
-![](https://i.imgur.com/EsiorQx.jpg)
+{{< figure src="/images/2018-09-01/pakutaso.jpg" alt="cover" >}}
 
 [圖片來源](https://www.pakutaso.com/20160628181pc-11.html)
 [フリー写真素材ぱくたそ](https://www.pakutaso.com/)

@@ -10,7 +10,7 @@ images:
   - /images/2017-03-19/active-record-merge-method.png
 ---
 
-![](https://i.imgur.com/EsiorQx.jpg)
+{{< figure src="/images/2017-03-05/pakutaso.jpg" alt="cover" >}}
 
 [圖片來源](https://www.pakutaso.com/20160628181pc-11.html)
 

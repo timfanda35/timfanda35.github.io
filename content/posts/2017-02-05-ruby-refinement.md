@@ -63,4 +63,4 @@ MyLogClass.new.log('My Message', 'DEBUG')
 # NoMethodError: undefined method `red' for "My Message":String
 ```
 
-<blockquote class="imgur-embed-pub" lang="en" data-id="8qq6lOM"><a href="//imgur.com/8qq6lOM">View post on imgur.com</a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+{{< figure src="/images/2017-02-05/20170205001.png" alt="console" >}}
