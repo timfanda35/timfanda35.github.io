@@ -103,7 +103,7 @@ python del powerline_setup
 
 螢幕截圖
 
-![Vim 狀態列](http://user-image.logdown.io/user/6114/blog/6123/post/304497/RNT48fxTVyacWvppbiLA_Screen%20Shot%202015-10-18%20at%206.27.38%20PM.png)
+{{< figure src="/images/2015-10-18/20151018001.png" alt="Vim 狀態列" >}}
 
 ---
 
@@ -216,7 +216,7 @@ $ vi ~/.config/powerline/themes/shell/default.json
 
 螢幕截圖
 
-![我的 Shell 狀態列](http://user-image.logdown.io/user/6114/blog/6123/post/304497/4O354gUfS3ih9M1f06Tz_Screen%20Shot%202015-10-18%20at%206.12.04%20PM.png)
+{{< figure src="/images/2015-10-18/20151018002.png" alt="我的 Shell 狀態列" >}}
 
 ----
 

@@ -12,7 +12,7 @@ images:
   - /images/2017-04-19/google-cloud-onboard-20170419.png
 ---
 
-![Imgur](http://i.imgur.com/Yyals6x.jpg)
+{{< figure src="/images/2017-04-19/20170419001.jpg" alt="google cloud onboard" >}}
 
 今天參加了 [Google Cloud OnBoard](https://cloudplatformonline.com/gcp-tw-googlecloudonboard.html)
 

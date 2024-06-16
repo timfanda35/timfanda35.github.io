@@ -28,29 +28,29 @@ I got it!!!
 
 然後在憑證頁面建立 **服務帳戶金鑰**，並將下載的 `JSON` 檔案改名成 `client-secret.json` 稍後使用
 
-![1.png](http://user-image.logdown.io/user/6114/blog/6123/post/737458/a7I54QGYStublsdKRH0m_1.png)
+{{< figure src="/images/2016-06-15/201606150001.png" alt="create client secret" >}}
 
 建立好服務帳戶後，點擊管理服務帳戶，
 
-![2.png](http://user-image.logdown.io/user/6114/blog/6123/post/737458/ACst1ndT0GLmbn3AIxEA_2.png)
+{{< figure src="/images/2016-06-15/201606150002.png" alt="manager service account" >}}
 
 複製剛剛新增的服務帳戶的**服務帳戶 ID**
 
-![3.png](http://user-image.logdown.io/user/6114/blog/6123/post/737458/pC6xYwZQTIKckGKNmUtv_3.png)
+{{< figure src="/images/2016-06-15/201606150003.png" alt="copy service account id" >}}
 
 到 [Google Analytics][ref5] 的管理頁面，點擊**資源**下的**使用者管理**
 
-![4.png](http://user-image.logdown.io/user/6114/blog/6123/post/737458/4VRh5c2pQVOAp2fdPTla_4.png)
+{{< figure src="/images/2016-06-15/201606150004.png" alt="manager user" >}}
 
 加入剛剛複製的**服務帳戶 ID**
 
-![5.png](http://user-image.logdown.io/user/6114/blog/6123/post/737458/zerjIhaQaCk5872MgOow_5.png)
+{{< figure src="/images/2016-06-15/201606150005.png" alt="paste service account id" >}}
 
 再到 [Google Analytics][ref5] 的管理頁面，點擊**資料檢視**下的**檢視設定**
 
 複製 **資料檢視編號** 稍後使用
 
-![6.png](http://user-image.logdown.io/user/6114/blog/6123/post/737458/VPzNGyZ5T76E4LjPmJ8v_6.png)
+{{< figure src="/images/2016-06-15/201606150006.png" alt="view configuration" >}}
 
 ## Coding
 

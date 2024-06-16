@@ -9,7 +9,7 @@ images:
   - /images/2017-03-26/ruby-gem-daemons-note.png
 ---
 
-![](http://i.imgur.com/ZjslPbL.jpg)
+{{< figure src="/images/2017-03-26/pakutaso.jpg" alt="cover" >}}
 
 [圖片來源](https://www.pakutaso.com/20170137024post-10119.html)
 [フリー写真素材ぱくたそ](https://www.pakutaso.com/)
@@ -93,7 +93,7 @@ $ irb -r ./main.rb
 > main.start("little-daemon")
 ```
 
-![Imgur](http://i.imgur.com/zjbm1MX.png)
+{{< figure src="/images/2017-03-26/20170326001.png" alt="start little daemon" >}}
 
 開啟另一個 Terminal 執行
 
@@ -101,7 +101,7 @@ $ irb -r ./main.rb
 $ ps aux | grep little
 ```
 
-![Imgur](http://i.imgur.com/MiADDw1.png)
+{{< figure src="/images/2017-03-26/20170326002.png" alt="check little daemon" >}}
 
 發現有一個名為 `little-daemon` 的行程正在執行
 
@@ -112,7 +112,7 @@ $ ps aux | grep little
 > main.start("little-daemon2")
 ```
 
-![Imgur](http://i.imgur.com/6Lmdl7o.png)
+{{< figure src="/images/2017-03-26/20170326003.png" alt="start little daemon2" >}}
 
 
 在第二個 Terminal 執行以下指令可以觀察到 `little-daemon2` 也在執行了
@@ -121,7 +121,7 @@ $ ps aux | grep little
 $ ps aux | grep little
 ```
 
-![Imgur](http://i.imgur.com/xUn2Gzm.png)
+{{< figure src="/images/2017-03-26/20170326004.png" alt="check little daemon2" >}}
 
 看看目錄底下有什麼：
 
@@ -129,7 +129,7 @@ $ ps aux | grep little
 $ ls -lh
 ```
 
-![Imgur](http://i.imgur.com/FLyCAyh.png)
+{{< figure src="/images/2017-03-26/20170326005.png" alt="check directory" >}}
 
 可以發現除了預計會產生的 log 之外，還多了兩個結尾為 `.pid` 的檔案
 
@@ -147,7 +147,7 @@ $ ls -lh
 > main.stop("little-daemon2")
 ```
 
-![Imgur](http://i.imgur.com/pk8hCA3.png)
+{{< figure src="/images/2017-03-26/20170326006.png" alt="stop daemons" >}}
 
 在第二個 Terminal 執行以下指令會發現 daemon 已經停止，結尾為 `.pid` 的檔案也已經被刪除了
 
@@ -156,7 +156,7 @@ $ ps aux | grep little
 $ ls -lh
 ```
 
-![Imgur](http://i.imgur.com/G5IycHI.png)
+{{< figure src="/images/2017-03-26/20170326007.png" alt="check pids are deleted" >}}
 
 ## 尾聲
 
@@ -168,7 +168,7 @@ $ ls -lh
 
 要注意的是程式碼一直都有在更新，記得在閱讀的時候要將 branch 調成目前所使用的版本才不會錯亂喲
 
-![Imgur](http://i.imgur.com/gTTPWT2.png)
+{{< figure src="/images/2017-03-26/git-branch.png" alt="git branch" >}}
 
 ## 參考
 
