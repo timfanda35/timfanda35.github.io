@@ -11,7 +11,7 @@ images:
   - /images/2017-05-17/ruby-by-using-treetype-to-draw-text-to-a-ascii-art.png
 ---
 
-![](https://i.imgur.com/EsiorQx.jpg)
+{{< figure src="/images/2017-05-17/pakutaso.jpg" alt="cover" >}}
 
 [圖片來源](https://www.pakutaso.com/20160628181pc-11.html)
 [フリー写真素材ぱくたそ](https://www.pakutaso.com/)
@@ -118,8 +118,7 @@ ruby main.rb ./GenShinGothic-Monospace-Regular.ttf 安安您好
 
 結果：
 
-![Imgur](http://i.imgur.com/f99ibym.png)
-
+{{< figure src="/images/2017-05-17/result.png" alt="result" >}}
 
 如果 `ch_index = @face.char_index ch.ord` 結果是 `0`，表示在該字型檔中並沒有這個字的資料
 
