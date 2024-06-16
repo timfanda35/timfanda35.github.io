@@ -10,7 +10,7 @@ images:
   - /images/2017-03-19/ruby-association-certified-ruby-programmer-silver-exam-preparation.png
 ---
 
-![Imgur](http://i.imgur.com/3PXgdKS.jpg)
+{{< figure src="/images/2017-03-19/unsplash-j1HU-Oll7KI.jpg" alt="cover" >}}
 
 [圖片來源](https://unsplash.com/search/silver?photo=j1HU-Oll7KI)
 [フリー写真素材ぱくたそ](https://www.pakutaso.com/)
@@ -71,8 +71,7 @@ images:
 
 我是用 [Quip](https://quip.com/) 記錄
 
-![Imgur](http://i.imgur.com/DfbrRc6.png)
-
+{{< figure src="/images/2017-03-19/quip-screenshot.png" alt="quip screenshot" >}}
 
 ### [Ruby技術者認定試験合格教本 Silver/Gold対応　Ruby公式資格教科書](http://gihyo.jp/book/2015/978-4-7741-7567-6)
 [Ruby技術者認定試験合格教本 Silver/Gold対応　Ruby公式資格教科書 勘誤表](http://gihyo.jp/book/2015/978-4-7741-7567-6/support#supportApology)
@@ -120,7 +119,7 @@ Silver 的考試不難，只要做好三件事：
 
 附上小徽章 :D
 
-![Imgur](http://i.imgur.com/1Yg0v8n.png)
+{{< figure src="/images/2017-03-19/ruby-2.1-silver.png" alt="ruby 2.1 silver badge" >}}
 
 Update:
 
@@ -132,4 +131,4 @@ Gold 的題目會更深入，不過由於時間距離現在好一陣子
 
 還有看看官網是否有更新的模擬考題
 
-![Imgur](http://i.imgur.com/Llchs3u.png)
+{{< figure src="/images/2017-03-19/ruby-2.1-gold.png" alt="ruby 2.1 gold badge" >}}
