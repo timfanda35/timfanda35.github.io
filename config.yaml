@@ -35,7 +35,7 @@ markup:
 
 googleAnalytics: "G-KJXNT5CQCS"
 
-paginate: 10
+paginate: 200
 
 params:
   description: "Ruby, Web Application and Cloud Services."

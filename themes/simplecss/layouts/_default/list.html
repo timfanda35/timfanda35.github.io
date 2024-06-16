@@ -1,5 +1,5 @@
 {{ define "main" }}
-  {{ $pag := .Paginate (.Pages) 50 }}
+  {{ $pag := .Paginate (.Pages) }}
   <div>
     <ul>
     {{ range $pag.Pages }}
