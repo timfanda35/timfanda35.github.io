@@ -9,7 +9,7 @@ images:
   - /images/2017-02-26/ruby-pre-defined-variables.png
 ---
 
-![](https://i.imgur.com/EsiorQx.jpg)
+{{< figure src="/images/2017-02-26/pakutaso.jpg" alt="cover" >}}
 
 [圖片來源](https://www.pakutaso.com/20160628181pc-11.html)
 [フリー写真素材ぱくたそ](https://www.pakutaso.com/)
