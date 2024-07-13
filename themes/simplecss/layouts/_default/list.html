@@ -1,6 +1,11 @@
 {{ define "main" }}
   {{ $pag := .Paginate (.Pages) }}
   <div>
+    <div>
+      {{ if .IsHome }}
+        <h1>Posts</h1>
+      {{ end }}
+    </div>
     <ul>
     {{ range $pag.Pages }}
       {{ .Render "li" }}
