@@ -13,3 +13,7 @@ a {
 a:hover {
   text-decoration: underline;
 }
+
+.site-header {
+  font-size: xx-large;
+}
