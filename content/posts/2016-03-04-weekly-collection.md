@@ -54,7 +54,7 @@ images:
 
 收集當週熱門文章，除了 Ruby 語言，偶爾也會刊載其他技術文章
 
-# Ruby Asia
+## Ruby Asia
 
 [http://rubyasia.com][http://rubyasia.com]
 
