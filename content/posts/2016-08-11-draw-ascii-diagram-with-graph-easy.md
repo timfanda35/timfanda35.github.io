@@ -19,7 +19,7 @@ images:
 
 <!--more-->
 
-# Install
+## Install
 
 這模組依賴 [graphviz](http://www.graphviz.org/) 所以需要先安裝，在 OSX 可以用 Homebrew 安裝
 
@@ -47,7 +47,7 @@ sudo cpan
 cpan[1]> install Graph::Easy
 ```
 
-# Usage
+## Usage
 
 詳細文件請參考：[http://bloodgate.com/perl/graph/manual/](http://bloodgate.com/perl/graph/manual/)
 
@@ -194,11 +194,10 @@ groups
 + - - - - - - -+
 ```
 
-# Reference
+## Reference
 
 [ASCII Art：使用纯文本流程图](http://weishu.me/2016/01/03/use-pure-ascii-present-graph/)
 
 [Graph-Easy](https://github.com/ironcamel/Graph-Easy)
 
 [Graph::Easy - Manual](http://bloodgate.com/perl/graph/manual/)
-

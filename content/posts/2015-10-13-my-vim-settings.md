@@ -13,15 +13,15 @@ images:
 
 ----
 
-# 安裝 Vundle
+## 安裝 Vundle
 
-## install dependency in ubuntu
+### install dependency in ubuntu
 
 ```shell
 sudo apt-get install git curl
 ```
 
-## Install Vundle
+### Install Vundle
 
 ```shell
 git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
@@ -33,7 +33,7 @@ git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 
 ----
 
-# Configure Vim
+## Configure Vim
 
 編輯 `~/.vimrc`
 
@@ -107,63 +107,63 @@ autocmd BufWritePre * StripWhitespace
 
 ----
 
-## Plugin list
+### Plugin list
 
-## [nerdtree](https://github.com/scrooloose/nerdtree)
+#### [nerdtree](https://github.com/scrooloose/nerdtree)
 
 > 檔案導覽，[文件]()
 
-## [vim-ruby](https://github.com/vim-ruby/vim-ruby)
+#### [vim-ruby](https://github.com/vim-ruby/vim-ruby)
 
 > Ruby 支援，[文件](https://github.com/vim-ruby/vim-ruby/blob/master/doc/vim-ruby.txt)
 
-## [vim-rails](https://github.com/tpope/vim-rails)
+#### [vim-rails](https://github.com/tpope/vim-rails)
 
 > Rails 支援，[文件](https://github.com/tpope/vim-rails/blob/master/doc/rails.txt)
 
-## [vim-bundler](https://github.com/tpope/vim-bundler)
+#### [vim-bundler](https://github.com/tpope/vim-bundler)
 
 > Bundler 指令支援，[文件](https://github.com/tpope/vim-bundler/blob/master/doc/bundler.txt)
 
-## [vim-dispatch](https://github.com/tpope/vim-dispatch)
+#### [vim-dispatch](https://github.com/tpope/vim-dispatch)
 
 > 非同步建置與測試，[文件](https://github.com/tpope/vim-dispatch/blob/master/doc/dispatch.txt)
 
-## [vim-rspec](https://github.com/thoughtbot/vim-rspec)
+#### [vim-rspec](https://github.com/thoughtbot/vim-rspec)
 
 > Rspec 支援，[文件](https://github.com/thoughtbot/vim-rspec)
 
-## [tComment](https://github.com/vim-scripts/tComment)
+#### [tComment](https://github.com/vim-scripts/tComment)
 
 > 提供註解的熱鍵，[文件](https://github.com/vim-scripts/tComment/blob/master/doc/tcomment.txt)
 
-## [vim-css-color](https://github.com/ap/vim-css-color)
+#### [vim-css-color](https://github.com/ap/vim-css-color)
 
 > 可以在 vim 中看到色碼的顏色
 
-## [vim-addon-mw-utils](https://github.com/MarcWeber/vim-addon-mw-utils)
+#### [vim-addon-mw-utils](https://github.com/MarcWeber/vim-addon-mw-utils)
 
 > For vim-snipmate
 
-## [vim-tlib_vim](https://github.com/tomtom/tlib_vim)
+#### [vim-tlib_vim](https://github.com/tomtom/tlib_vim)
 
 > For vim-snipmate
 
-## [vim-snipmate](https://github.com/garbas/vim-snipmate)
+#### [vim-snipmate](https://github.com/garbas/vim-snipmate)
 
 > 提供一些常用的程式碼片段，按  tab 補齊，讓寫 code 稍微快一點，[文件](https://github.com/garbas/vim-snipmate/blob/master/doc/SnipMate.txt)
 
-## [vim-snippets](https://github.com/honza/vim-snippets)
+#### [vim-snippets](https://github.com/honza/vim-snippets)
 
 > 支援更多程式語言的程式碼片段
 
-## [vim-better-whitespace](https://github.com/ntpeters/vim-better-whitespace)
+#### [vim-better-whitespace](https://github.com/ntpeters/vim-better-whitespace)
 
 > 顯示行尾多餘空白，並提供移除功能
 
 ----
 
-## Install Plugins
+### Install Plugins
 
 Run command in terminal:
 
@@ -178,7 +178,7 @@ Or run command in vim
 ```
 ----
 
-# FAQ
+## FAQ
 
 Q: Occur error when edit git commit in MAC OSX
 
@@ -188,7 +188,7 @@ A: run `git config --global core.editor /usr/bin/vim` to fix.
 
 ----
 
-# 參考
+## 參考
 
 - [Vim for Rubyist: 10 useful vim plugins for Ruby][link3]
 - [Awesome Vim Plugins][link4]

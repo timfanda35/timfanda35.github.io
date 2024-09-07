@@ -26,9 +26,9 @@ images:
 
 ----
 
-# 安裝 Powerline
+## 安裝 Powerline
 
-## [Powerline][powerline]
+### [Powerline][powerline]
 
 > 美觀的狀態列
 
@@ -73,7 +73,7 @@ Requires:
 
 ----
 
-# 安裝 Powerline 字型
+## 安裝 Powerline 字型
 
 這樣狀態列才不會變成亂碼
 
@@ -85,7 +85,7 @@ $ ./install.sh
 
 ----
 
-# 設定 Vim 狀態列
+## 設定 Vim 狀態列
 
 編輯 `~/.vimrc`，加入以下設定，(請將 {path} 替換成 `pip show powerline-status` 所顯示的路徑)
 
@@ -107,7 +107,7 @@ python del powerline_setup
 
 ---
 
-# 設定 Shell 狀態列
+## 設定 Shell 狀態列
 
 在這邊我遇到了一個詭異的情況，原本應該是 `scripts` 目錄下的檔案卻都跑到 Python 的 `bin` 目錄底下
 
@@ -220,7 +220,7 @@ $ vi ~/.config/powerline/themes/shell/default.json
 
 ----
 
-# Vim-airline
+## Vim-airline
 
 後來有在網路上查到另外一個 [vim-airline][airline]，與 [Powerline][powerline] 不同的是 [vim-airline][airline] 是單純的 vim-plugin，如果只有 Vim 需要絢麗的狀態列的話，[vim-airline][airline] 應該會是比較好的選擇。
 
