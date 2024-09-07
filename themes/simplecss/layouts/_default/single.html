@@ -10,14 +10,14 @@
           {{ if .Params.categories }}
           <div>
             {{ range .Params.categories }}
-              <a href="{{ "/categories/" | relLangURL }}{{ . | urlize }}"><mark>{{ . }}</mark></a>
+              <a href="{{ "/categories/" | relLangURL }}{{ . | urlize }}/"><mark>{{ . }}</mark></a>
             {{ end }}
           </div>
           {{ end }}
           {{ if .Params.tags }}
           <div>
             {{ range .Params.tags }}
-              <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}"><mark>{{ . }}</mark></a>
+              <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}/"><mark>{{ . }}</mark></a>
             {{ end }}
           </div>
           {{ end }}
