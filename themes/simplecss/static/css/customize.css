@@ -17,3 +17,8 @@ a:hover {
 .site-header {
   font-size: xx-large;
 }
+
+/* Refine Image */
+img {
+  opacity: 1;
+}
