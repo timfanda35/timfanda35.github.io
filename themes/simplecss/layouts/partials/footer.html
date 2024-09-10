@@ -25,11 +25,14 @@
 <!-- ViewerJS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.11.6/viewer.min.js" integrity="sha512-EC3CQ+2OkM+ZKsM1dbFAB6OGEPKRxi6EDRnZW9ys8LghQRAq6cXPUgXCCujmDrXdodGXX9bqaaCRtwj4h4wgSQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
-  const gallery = new Viewer(
-    document.querySelector("article > div:nth-child(2)"),
-    {
-      toolbar: false,
-      initialCoverage: 1
-    }
-  );
+  const postContent = document.querySelector("article > div:nth-child(2)");
+  if (postContent) {
+    new Viewer(
+      postContent,
+      {
+        toolbar: false,
+        initialCoverage: 1
+      }
+    )
+  }
 </script>
