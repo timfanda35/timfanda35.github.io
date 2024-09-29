@@ -38,7 +38,7 @@ cd bio
 
 ### 安裝 Tailwind CSS
 
-原本是打算手刻 CSS 就好，但想想用最近都在用 Tailwind CSS 好了，畢竟想 CSS Class 名字或是寫落落長的 style 也是很燒腦筋。
+原本是打算手刻 CSS 就好，但想想還是用 Tailwind CSS 好了，畢竟想 CSS Class 名字或是寫落落長的 style 也是很燒腦筋。
 
 ```bash
 npm install -D tailwindcss
