@@ -51,7 +51,7 @@ JSON 版本：
 ## 環境分析
 
 1. 這是 Google Cloud 新專案，可以當做都是預設設定。
-2. VPC Network 與 Subnet 都是預設建立的 `default`。在預設情況下並不會啟用 [dual-stack][[IPv4/IPv6 dual-stack networking]]，所以在此 VPC Network 中的 VM 並不會被分配到 IPv6 的 IP。
+2. VPC Network 與 Subnet 都是預設建立的 `default`。在預設情況下並不會啟用 [dual-stack][IPv4/IPv6 dual-stack networking]，所以在此 VPC Network 中的 VM 並不會被分配到 IPv6 的 IP。
 3. Subnet 啟用了 Private Google Access，
 4. 在此 Subnet 中的 VM 沒有給予 External IP。
 5. 建立了一個 API Key 用於呼叫 Google Maps API，並且設定了 IP Address Restriction，限制只有該 Subnet 可以存取 Google Maps API。
