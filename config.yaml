@@ -60,3 +60,6 @@ menu:
   - name: "Bio Links"
     url: "https://bear-su.dev"
     weight: 3
+  - name: "Newsletter"
+    url: "https://bearsudev.substack.com/"
+    weight: 4
