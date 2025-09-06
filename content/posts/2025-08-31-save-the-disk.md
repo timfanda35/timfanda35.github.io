@@ -89,7 +89,7 @@ mount: /mnt/recovered: wrong fs type, bad option, bad superblock on /dev/sdb1, m
 dmesg(1) may have more information after failed mount system call.
 ```
 
-我對這方面的知識是一竅不通，用 google 搜尋也不知道該用什麼關鍵字比較好，於是我就在 [Google AI Studio](aistudio.google.com) 問問了 Gemini，它推薦了一個我從沒聽過的的工具 [testdisk](https://blog.gtwang.org/linux/testdisk-linux-recover-deleted-files/)。
+我對這方面的知識是一竅不通，用 google 搜尋也不知道該用什麼關鍵字比較好，於是我就在 [Google AI Studio](https://aistudio.google.com) 問問了 Gemini，它推薦了一個我從沒聽過的的工具 [testdisk](https://blog.gtwang.org/linux/testdisk-linux-recover-deleted-files/)。
 
 執行指令安裝：
 
