@@ -1,10 +1,10 @@
 module og_gen
 
-go 1.21.1
+go 1.25
 
 require (
 	github.com/fogleman/gg v1.3.0
-	github.com/goki/freetype v1.0.1
+	github.com/goki/freetype v1.0.5
 )
 
 require (
